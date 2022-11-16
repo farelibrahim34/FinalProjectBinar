@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/warna_background"
+    tools:context=".view.onboarding.OnBoardingSatu">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/onboardingSatu"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="112dp"
+        android:src="@drawable/onboarding_satu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/copywritingTittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:textSize="25sp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/kemudahan"
+        android:textColor="@color/warna_primary_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingSatu" />
+
+    <TextView
+        android:id="@+id/copywritingTDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/onboarding_desc_satu"
+        android:textAlignment="center"
+        android:textColor="@color/warna_secondary_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/copywritingTittle" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        style="@style/firstbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="40dp"
+        android:paddingVertical="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Buat Akun Sekarang"
+        app:layout_constraintTop_toBottomOf="@+id/copywritingTDesc" />
+
+    <TextView
+        android:id="@+id/tvNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Selanjutnya"
+        android:textColor="@color/warna_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

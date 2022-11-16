@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">GarudaNih</string>
+    <string name="kemudahan">Kemudahan</string>
+    <string name="fasilitas">Fasilitas</string>
+    <string name="terpercaya">Terpercaya</string>
+
+    <string name="onboarding_desc_satu">Hanya dengan 3 langkah registrasi, nikmati segala kemudahan dalam booking tiket pesawat</string>
+    <string name="onboarding_desc_dua">Nikmati kemudahan penerbangan ke seluruh dunia dengan aplikasi kita</string>
+    <string name="onboarding_desc_tiga">Kemanan dalam bertransaksi Anda merupakan prioritas bagi kami</string>
 </resources>

@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityOnBoardingDuaBinding
+import com.finpro.garudanih.view.auth.RegisterActivity
 
 class OnBoardingDua : AppCompatActivity() {
 
@@ -15,6 +16,11 @@ class OnBoardingDua : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOnBoardingDuaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnRegister.setOnClickListener {
+            val toRegist = Intent(this, RegisterActivity::class.java)
+            startActivity(toRegist)
+        }
 
         binding.tvNext.setOnClickListener {
             val toOnboardThird = Intent(this,OnBoardingTiga::class.java)

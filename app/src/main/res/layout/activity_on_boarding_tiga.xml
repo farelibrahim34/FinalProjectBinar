@@ -59,12 +59,13 @@
         app:layout_constraintTop_toBottomOf="@+id/copywritingTDesc" />
 
     <TextView
-        android:id="@+id/tvNext"
+        android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Selanjutnya"
+        android:text="Login"
+        android:textSize="20sp"
         android:textColor="@color/warna_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

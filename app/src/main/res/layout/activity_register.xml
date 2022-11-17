@@ -166,6 +166,7 @@
         app:layout_constraintTop_toBottomOf="@id/textInputLayout3">
 
         <TextView
+            android:id="@+id/tvTgllahir"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -200,6 +201,7 @@
         app:layout_constraintTop_toBottomOf="@id/constDate">
 
         <TextView
+            android:id="@+id/tvAlamat"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"

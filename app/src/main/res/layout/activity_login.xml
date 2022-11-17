@@ -27,11 +27,11 @@
         android:id="@+id/imgLogin"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/ic_logogn"
         android:layout_marginVertical="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:civ_border_color="@color/warna_button"
+        app:civ_border_color="@color/warna_background"
         app:civ_border_width="3dp"
         app:layout_constraintTop_toBottomOf="@+id/masuk" />
 

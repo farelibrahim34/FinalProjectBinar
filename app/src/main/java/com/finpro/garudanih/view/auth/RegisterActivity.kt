@@ -26,7 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.ivBack.setOnClickListener {
+        binding.ivBackDetail.setOnClickListener {
             val toLogin = Intent(this,LoginActivity::class.java)
             startActivity(toLogin)
         }

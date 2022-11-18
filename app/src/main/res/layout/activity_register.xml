@@ -10,7 +10,7 @@
     tools:context=".view.auth.RegisterActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvArraow"
+        android:id="@+id/cvArraowDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/ivBack"
+            android:id="@+id/ivBackDetail"
             android:layout_width="70dp"
             android:layout_height="50dp"
             android:padding="10dp"
@@ -43,7 +43,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.359"
-        app:layout_constraintStart_toEndOf="@+id/cvArraow"
+        app:layout_constraintStart_toEndOf="@+id/cvArraowDetail"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline

@@ -38,7 +38,7 @@
             android:layout_marginTop="8dp"
             android:text="Hello, Username"
             android:textColor="@color/warna_primary_font"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -47,10 +47,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
-            android:textColor="@color/warna_primary_font"
             android:text="Welcome Back!"
+            android:textColor="@color/warna_primary_font"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -111,7 +111,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvInternational"
         android:layout_width="370dp"
-        android:layout_height="170dp"
+        android:layout_height="300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showInternational" />

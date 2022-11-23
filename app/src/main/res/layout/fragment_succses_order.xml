@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.detail.SuccsesOrderFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_plane" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You’ve Made Order"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/warna_secondary_font"
+        android:text="Enjoy your trip"/>
+
+    <Button
+        android:id="@+id/btnBeliTiket"
+        style="@style/firstbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:paddingVertical="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Daftar tiket Lagi" />
+
+    <Button
+        android:id="@+id/btnLihatTiket"
+        style="@style/firstbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="10dp"
+        android:paddingVertical="10dp"
+        android:backgroundTint="@color/warna_secondary_font"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Lihat Tiket" />
+
+</LinearLayout>

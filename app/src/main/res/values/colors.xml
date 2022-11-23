@@ -17,6 +17,7 @@
 
     <color name="warna_background">#F3F7FD</color>
     <color name="background_class">#9B5454</color>
+    <color name="card">#F0F3FF</color>
 
 
 </resources>

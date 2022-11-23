@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.finpro.garudanih.R
+import com.finpro.garudanih.model.ListPesawat
 
 
 class FragmentVpHomeThree : Fragment() {

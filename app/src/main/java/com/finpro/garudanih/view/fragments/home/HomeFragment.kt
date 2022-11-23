@@ -1,5 +1,6 @@
 package com.finpro.garudanih.view.fragments.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterListPesawat
 import com.finpro.garudanih.databinding.FragmentHomeBinding
 import com.finpro.garudanih.model.ListPesawat
+import com.finpro.garudanih.view.HomeBottomActivity
+import com.finpro.garudanih.view.profile.ProfileActivity
 
 class HomeFragment : Fragment() {
 
@@ -26,6 +29,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.ivUser.setOnClickListener {
+            startActivity(Intent(context, ProfileActivity::class.java))
+        }
 
         val list = arrayListOf(
             ListPesawat("China",2000000,"16 Agustus","24/100",R.drawable.pesawat),

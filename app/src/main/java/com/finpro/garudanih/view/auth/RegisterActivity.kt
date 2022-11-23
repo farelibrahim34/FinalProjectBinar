@@ -1,9 +1,9 @@
 package com.finpro.garudanih.view.auth
 
-import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+<<<<<<< HEAD
 import android.view.View
 import com.finpro.garudanih.databinding.ActivityRegisterBinding
 import android.widget.DatePicker
@@ -14,6 +14,10 @@ import com.finpro.garudanih.viewmodel.CobaVmRegister
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+=======
+import com.finpro.garudanih.datastore.DataStoreLogin
+import com.finpro.garudanih.databinding.ActivityRegisterBinding
+>>>>>>> dev-rifqi
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -21,8 +25,6 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegisterBinding
     private lateinit var datalogin : DataStoreLogin
     private lateinit var userVM : CobaVmRegister
-
-    var cal = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,7 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(toLogin)
         }
 
+<<<<<<< HEAD
         binding.btnRegister.setOnClickListener{
 //            registerDatastore()
             registerUser()
@@ -54,27 +57,30 @@ class RegisterActivity : AppCompatActivity() {
                 cal.set(Calendar.MONTH, monthOfYear)
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
                 updateDateInView()
+=======
+        binding.btnRegister.setOnClickListener{password ->
+            if (isPasswordValid) {
+                validate()
+                binding.passwordInputLayout.error = null
+                binding.passwordConfInputLayout.error = null
+            } else {
+                binding.passwordInputLayout.error = "Character Tidak Sesuai"
+                binding.passwordConfInputLayout.error = "Character Tidak Sesuai"
+>>>>>>> dev-rifqi
             }
+            startActivity(Intent(this, LoginActivity::class.java))
         }
-        binding.ivCalender.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                DatePickerDialog(this@RegisterActivity,
-                    dateSetListener,
-                    // set DatePickerDialog to point to today's date when it loads up
-                    cal.get(Calendar.YEAR),
-                    cal.get(Calendar.MONTH),
-                    cal.get(Calendar.DAY_OF_MONTH)).show()
-            }
-
-        })
 
     }
-    private fun updateDateInView() {
-        val myFormat = "MM/dd/yyyy" // mention the format you need
-        val sdf = SimpleDateFormat(myFormat, Locale.US)
-        binding.dummy.text= sdf.format(cal.getTime())
+
+    private fun validate(){
+        binding.btnRegister.isEnabled =
+            binding.etUsername.text.toString().isNotBlank()
+                    && binding.etPassword.text.toString().isNotBlank()
+                    && isPasswordValid
     }
 
+<<<<<<< HEAD
 //        private fun registerDatastore() {
 //            val saveNamaP = binding.etUsername.toString()
 //            val saveUsername = binding.etUsername.toString()
@@ -117,5 +123,13 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
+=======
+    private val isPasswordValid: Boolean get(){
+        val passText = binding.etPassword.text.toString()
+        return passText.contains("[a-z]".toRegex())
+                && passText.contains("[A-Z]".toRegex())
+                && passText.contains("[0-9]".toRegex())
+                && passText.length >= 8
+>>>>>>> dev-rifqi
     }
 }

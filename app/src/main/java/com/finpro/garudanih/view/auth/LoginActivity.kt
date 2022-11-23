@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.asLiveData
 import com.finpro.garudanih.databinding.ActivityLoginBinding
-import com.finpro.garudanih.databinding.FragmentHomeBinding
+import androidx.core.widget.addTextChangedListener
 import com.finpro.garudanih.datastore.DataStoreLogin
+import com.finpro.garudanih.view.HomeBottomActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -35,20 +36,31 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        binding.btnLogin.setOnClickListener {
-            val edUser = binding.etUsername.text.toString()
-            val edPass = binding.etPassword.text.toString()
-            if (edUser.isEmpty()) {
-                binding.etUsername.setError("isi username dahulu")
-            } else if (edPass.isEmpty()) {
-                binding.etPassword.setError("isi password dahulu")
-            } else if (edUser == username) {
-                startActivity(Intent(this, FragmentHomeBinding::class.java))
-                Toast.makeText(this, "anda berhasil login", Toast.LENGTH_SHORT).show()
-                finish()
+        binding.etPassword.addTextChangedListener{password ->
+            if (isPasswordValid) {
+                validate()
+                binding.passworInputLayout.error = null
             } else {
-                Toast.makeText(this, "Username dan password salah", Toast.LENGTH_SHORT).show()
+                binding.passworInputLayout.error = "Must Have A-Z a-z 0-9"
             }
+
         }
+
+        binding.btnLogin.setOnClickListener {
+            startActivity(Intent(this, HomeBottomActivity::class.java))
+        }
+    }
+    private fun validate(){
+            binding.etUsername.text.toString().isNotBlank()
+                    && binding.etPassword.text.toString().isNotBlank()
+                    && isPasswordValid
+    }
+
+    private val isPasswordValid: Boolean get(){
+        val passText = binding.etPassword.text.toString()
+        return passText.contains("[a-z]".toRegex())
+                && passText.contains("[A-Z]".toRegex())
+                && passText.contains("[0-9]".toRegex())
+                && passText.length >= 8
     }
 }

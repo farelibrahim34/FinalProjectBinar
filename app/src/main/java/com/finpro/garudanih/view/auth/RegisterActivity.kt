@@ -32,9 +32,8 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener{
-            registerDatastore()
-            val toHome = Intent(this, LoginActivity::class.java)
-            startActivity(toHome)
+//            registerDatastore()
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
 
@@ -50,17 +49,17 @@ class RegisterActivity : AppCompatActivity() {
                 updateDateInView()
             }
         }
-        binding.ivCalender.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                DatePickerDialog(this@RegisterActivity,
-                    dateSetListener,
-                    // set DatePickerDialog to point to today's date when it loads up
-                    cal.get(Calendar.YEAR),
-                    cal.get(Calendar.MONTH),
-                    cal.get(Calendar.DAY_OF_MONTH)).show()
-            }
-
-        })
+//        binding.ivCalender.setOnClickListener(object : View.OnClickListener {
+//            override fun onClick(view: View) {
+//                DatePickerDialog(this@RegisterActivity,
+//                    dateSetListener,
+//                    // set DatePickerDialog to point to today's date when it loads up
+//                    cal.get(Calendar.YEAR),
+//                    cal.get(Calendar.MONTH),
+//                    cal.get(Calendar.DAY_OF_MONTH)).show()
+//            }
+//
+//        })
 
     }
     private fun updateDateInView() {
@@ -69,18 +68,18 @@ class RegisterActivity : AppCompatActivity() {
         binding.dummy.text= sdf.format(cal.getTime())
     }
 
-        private fun registerDatastore() {
-            val saveNamaP = binding.etUsername.toString()
-            val saveUsername = binding.etUsername.toString()
-            val saveEmail = binding.etEmail.toString()
-            val saveNoHp = binding.etPhone.toString()
-            val saveTglLahir = binding.tvTgllahir.toString()
-            val saveAlamat = binding.tvAlamat.toString()
-            val savePw = binding.etPassword.toString()
-            val saveUpw = binding.etConfPassword.toString()
-            GlobalScope.launch {
-                datalogin.saveData(saveNamaP,saveUsername,saveEmail,saveNoHp,saveTglLahir,saveAlamat,savePw,saveUpw)
-                startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
-        }
-    }
+//        private fun registerDatastore() {
+//            val saveNamaP = binding.etUsername.toString()
+//            val saveUsername = binding.etUsername.toString()
+//            val saveEmail = binding.etEmail.toString()
+//            val saveNoHp = binding.etPhone.toString()
+//            val saveTglLahir = binding.tvTgllahir.toString()
+//            val saveAlamat = binding.tvAlamat.toString()
+//            val savePw = binding.etPassword.toString()
+//            val saveUpw = binding.etConfPassword.toString()
+//            GlobalScope.launch {
+//                datalogin.saveData(saveNamaP,saveUsername,saveEmail,savePw,saveUpw)
+//                startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+//        }
+//    }
 }

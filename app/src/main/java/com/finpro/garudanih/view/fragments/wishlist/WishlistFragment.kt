@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.finpro.garudanih.R
+import com.finpro.garudanih.adapter.AdapterListPesawat
+import com.finpro.garudanih.adapter.AdapterOrder
 import com.finpro.garudanih.databinding.FragmentWishlistBinding
+import com.finpro.garudanih.model.ListPesawat
 
 class WishlistFragment : Fragment() {
 
@@ -20,4 +24,6 @@ class WishlistFragment : Fragment() {
         binding = FragmentWishlistBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
+
+
 }

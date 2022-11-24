@@ -66,7 +66,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun updateDateInView() {
         val myFormat = "MM/dd/yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
-        binding.tvTgllahir.text= sdf.format(cal.getTime())
+        binding.dummy.text= sdf.format(cal.getTime())
     }
 
         private fun registerDatastore() {

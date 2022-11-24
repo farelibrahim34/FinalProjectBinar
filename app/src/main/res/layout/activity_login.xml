@@ -80,7 +80,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/passworInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,6 +90,7 @@
         android:textColorHint="@color/warna_primary_font"
         android:textColor="@color/warna_primary_font"
         app:boxStrokeWidth="0dp"
+
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,14 +125,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/passworInputLayout"
         app:useMaterialThemeColors="true" />
 
     <Button
         android:id="@+id/btnLogin"
-        style="@style/firstbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/firstbutton"
         android:fontFamily="@font/poppins_medium"
         android:layout_marginVertical="10dp"
         android:paddingVertical="10dp"
@@ -142,9 +143,9 @@
 
     <Button
         android:id="@+id/btnRegister"
-        style="@style/secondbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/secondbutton"
         android:fontFamily="@font/poppins_medium"
         android:paddingVertical="10dp"
         android:text="Buat Akun"

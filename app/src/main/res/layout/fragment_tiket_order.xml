@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/warna_background"
     android:padding="10dp"
-    tools:context=".view.fragments.detail.TiketOrderFragment">
+    tools:context=".view.fragments.success.TiketOrderFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvArraowDetail"

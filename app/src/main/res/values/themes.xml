@@ -33,4 +33,11 @@
         <item name="textAllCaps">false</item>
     </style>
 
+    <style name="orderbutton">
+        <item name="backgroundTint">@color/card</item>
+        <item name="android:textSize">18sp</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
 </resources>

@@ -16,9 +16,6 @@ class DataStoreLogin(private val context: Context){
     private val NamaPanjang = stringPreferencesKey("NamaPanjang")
     private val Username = stringPreferencesKey("Username")
     private val Email = stringPreferencesKey("Email")
-    private val NoHp = stringPreferencesKey("NoHp")
-    private val TglLahir = stringPreferencesKey("TglLahir")
-    private val Alamat = stringPreferencesKey("Alamat")
     private val PW = stringPreferencesKey("password")
     private val PWU = stringPreferencesKey("passwordulang")
 
@@ -26,9 +23,6 @@ class DataStoreLogin(private val context: Context){
         namapanjang: String,
         username : String,
         email: String,
-        nohp : String,
-        tgllahir:String,
-        alamat: String,
         pw:String,
         pwu:String ){
 
@@ -36,9 +30,6 @@ class DataStoreLogin(private val context: Context){
            it[NamaPanjang] = namapanjang
             it[Username] = username
             it[Email] = email
-            it[NoHp] = nohp
-            it[TglLahir] = tgllahir
-            it[Alamat] = alamat
             it[PW] = pw
             it[PWU] = pwu
         }    }
@@ -48,8 +39,5 @@ class DataStoreLogin(private val context: Context){
     val userNamaPanjang: Flow<String> = context.dataStore.data.map { it[NamaPanjang] ?: ""}
     val userName: Flow<String> = context.dataStore.data.map { it[Username] ?: ""}
     val userEmail: Flow<String> = context.dataStore.data.map { it[Email] ?: "" }
-    val userNoHp: Flow<String> = context.dataStore.data.map { it[NoHp] ?: "" }
-    val userTglLahir: Flow<String> = context.dataStore.data.map { it[TglLahir] ?: "" }
-    val userAlamat: Flow<String> = context.dataStore.data.map { it[Alamat] ?: "" }
     val userPw: Flow<String> = context.dataStore.data.map { it[PW] ?: "" }
     val userPWU: Flow<String> = context.dataStore.data.map { it[PWU] ?: "" }}

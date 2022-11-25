@@ -31,6 +31,7 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gambarBandara" />
 
@@ -40,6 +41,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="12sp"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtKota" />
 
@@ -48,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="harga"
+            android:layout_marginStart="10dp"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +63,7 @@
             android:layout_marginTop="3dp"
             android:text="Available"
             android:textColor="#4EBC52"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtHarga" />
 
@@ -69,6 +73,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textColor="@color/black"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
     </androidx.constraintlayout.widget.ConstraintLayout>

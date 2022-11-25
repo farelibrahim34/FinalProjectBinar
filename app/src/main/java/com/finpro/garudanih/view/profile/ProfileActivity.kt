@@ -22,7 +22,7 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.dummy.text = "--/--/----"
+        binding.tvTgllahir.text = "--/--/----"
         // create an OnDateSetListener
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
             override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
@@ -32,6 +32,7 @@ class ProfileActivity : AppCompatActivity() {
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
                 updateDateInView()
             }
+
         }
         binding.ivCalender.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
@@ -52,6 +53,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun updateDateInView() {
         val myFormat = "MM/dd/yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
-        binding.dummy.text= sdf.format(cal.getTime())
+    // buat variable baru untuk POST date.mont,year ke API (format ini sudah dalam bentuk string)
+        binding.tvTgllahir.text= sdf.format(cal.getTime())
     }
 }

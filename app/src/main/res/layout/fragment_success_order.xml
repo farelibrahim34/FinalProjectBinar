@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:background="@color/warna_background"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".view.fragments.success.SuccessOrderFragment">
-
 
     <ImageView
         android:id="@+id/imageView3"

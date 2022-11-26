@@ -9,9 +9,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.finpro.garudanih.R
+import com.finpro.garudanih.adapter.AdapterInternasional
 import com.finpro.garudanih.adapter.AdapterListPesawat
 import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.FragmentHomeBinding
+import com.finpro.garudanih.model.ListInternasional
 import com.finpro.garudanih.model.ListPesawat
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.profile.ProfileActivity
@@ -46,14 +48,24 @@ class HomeFragment : Fragment() {
             startActivity(Intent(context, ProfileActivity::class.java))
         }
 
+        val listInt = arrayListOf(
+            ListInternasional("China",2000000,"16 Agustus","24/100",R.drawable.ic_logogn,"pending"),
+            ListInternasional("Malaysia",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
+            ListInternasional("Thailand",2000000,"16 Agustus","24/100",R.drawable.jakarta,"pending"),
+            ListInternasional("Singapura",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
+
+            )
+        binding.rvInternational.adapter = AdapterInternasional(listInt)
+        binding.rvInternational.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+
         val list = arrayListOf(
-            ListPesawat("China",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
+            ListPesawat("China",2000000,"16 Agustus","24/100",R.drawable.ic_logogn,"pending"),
             ListPesawat("Malaysia",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
-            ListPesawat("Thailand",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
+            ListPesawat("Thailand",2000000,"16 Agustus","24/100",R.drawable.jakarta,"pending"),
             ListPesawat("Singapura",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
         )
-        binding.rvInternational.adapter = AdapterListPesawat(list)
-        binding.rvInternational.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        binding.rvLocal.adapter = AdapterListPesawat(list)
+        binding.rvLocal.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
 
         bannerHome()
 

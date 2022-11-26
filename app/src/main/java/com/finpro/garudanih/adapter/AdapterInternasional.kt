@@ -8,6 +8,7 @@ import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.databinding.ItemInternasionalBinding
 import com.finpro.garudanih.model.ListInternasional
 import com.finpro.garudanih.model.ListPesawat
+import com.finpro.garudanih.view.detils.DetailInternasionalActivity
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
 
 class AdapterInternasional(val listInternasional : ArrayList<ListInternasional>): RecyclerView.Adapter<AdapterInternasional.ViewHolder>() {
@@ -29,7 +30,7 @@ class AdapterInternasional(val listInternasional : ArrayList<ListInternasional>)
         holder.binding.txtAvailable.text = listInternasional[position].availableInt
 
         holder.binding.cardList.setOnClickListener {
-            val intent = Intent(it.context, DetailPesawatActivity::class.java)
+            val intent = Intent(it.context, DetailInternasionalActivity::class.java)
             intent.putExtra("kotaInt", listInternasional[position].kotaInt)
             intent.putExtra("jadwalInt", listInternasional[position].jadwalInt)
             intent.putExtra("hargaInt", listInternasional[position].hargaInt)

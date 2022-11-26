@@ -19,24 +19,7 @@ class DetailPesawatActivity : AppCompatActivity() {
             startActivity(Intent(this, HomeBottomActivity::class.java))
         }
 
-        getListInternasional()
         getListPesawat()
-    }
-    fun getListInternasional(){
-
-        val itemListInternasional = intent
-
-        val kotaInt = itemListInternasional.getStringExtra("kotaInt")
-        val jadwalInt = itemListInternasional.getStringExtra("jadwalInt")
-        val hargaInt = itemListInternasional.getStringExtra("hargaInt")
-        val imageInt = itemListInternasional.getIntExtra("imageInt",0)
-        val availableInt = itemListInternasional.getStringExtra("availableInt")
-
-        binding.txtNamaKota.text = kotaInt
-        binding.txtHargaDetail.text = hargaInt
-        binding.ivKota.setImageResource(imageInt)
-        binding.txtDeskripsi.text = availableInt
-
     }
 
     fun getListPesawat(){

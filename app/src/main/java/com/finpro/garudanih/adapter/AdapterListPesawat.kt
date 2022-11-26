@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
+
 import com.finpro.garudanih.model.ListPesawat
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
 import com.finpro.garudanih.view.fragments.detail.DetailFragment

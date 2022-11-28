@@ -75,6 +75,7 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Password tidak sama", Toast.LENGTH_SHORT).show()
             }
         }
+        Toast.makeText(this,"Anda Telah Berhasil Membuat Akun", Toast.LENGTH_SHORT).show()
 
     }
 

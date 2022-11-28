@@ -233,6 +233,19 @@
             app:layout_constraintTop_toBottomOf="@+id/constChoseeCity" />
 
         <Button
+            android:id="@+id/btnLogout2"
+            style="@style/firstbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:fontFamily="@font/poppins_medium"
+
+            android:text="Keluar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constChoseeCity" />
+
+        <Button
             android:id="@+id/btnCangePW"
             style="@style/secondbutton"
             android:layout_width="match_parent"

@@ -3,9 +3,11 @@ package com.finpro.garudanih.view.fragments.settings
 import android.Manifest
 import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -20,6 +22,9 @@ import androidx.core.app.ActivityCompat
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.FragmentSettingsBinding
 import com.finpro.garudanih.view.HomeBottomActivity
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -119,7 +124,7 @@ class SettingsFragment : Fragment() {
             ) { _, _ ->
                 val intent = Intent()
                 intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                val uri = Uri.fromParts("package", "", null)
+                val uri = Uri.fromParts("package", "packageName", null)
                 intent.data = uri
                 startActivity(intent)
             }
@@ -150,6 +155,8 @@ class SettingsFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.GetContent()) { result ->
             imageUri = result
             binding.ivSetImage.setImageURI(result)
+
         }
+
 
 }

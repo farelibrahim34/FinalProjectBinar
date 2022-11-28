@@ -2,6 +2,7 @@ package com.finpro.garudanih.view.fragments.settings
 
 import android.Manifest
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -12,11 +13,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.FragmentSettingsBinding
+import com.finpro.garudanih.view.HomeBottomActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class SettingsFragment : Fragment() {
@@ -24,6 +29,7 @@ class SettingsFragment : Fragment() {
     private lateinit var binding : FragmentSettingsBinding
     private val REQUEST_CODE_PERMISSION = 100
     private var imageUri: Uri? = Uri.EMPTY
+    var cal = Calendar.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,10 +42,40 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.tvTgllahir.text = "--/--/----"
+        // create an OnDateSetListener
+        val dateSetListener = object : DatePickerDialog.OnDateSetListener {
+            override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
+                                   dayOfMonth: Int) {
+                cal.set(Calendar.YEAR, year)
+                cal.set(Calendar.MONTH, monthOfYear)
+                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                updateDateInView()
+            }
+
+        }
+        binding.ivCalender.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View) {
+                DatePickerDialog(requireContext(),
+                    dateSetListener,
+                    // set DatePickerDialog to point to today's date when it loads up
+                    cal.get(Calendar.YEAR),
+                    cal.get(Calendar.MONTH),
+                    cal.get(Calendar.DAY_OF_MONTH)).show()
+            }
+
+        })
+
 
         binding.ivSetImage.setOnClickListener{
                 checkingPermissions()
         }
+    }
+    private fun updateDateInView() {
+        val myFormat = "MM/dd/yyyy" // mention the format you need
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        // buat variable baru untuk POST date.mont,year ke API (format ini sudah dalam bentuk string)
+        binding.tvTgllahir.text= sdf.format(cal.getTime())
     }
     private fun checkingPermissions() {
         if (isGranted(
@@ -115,4 +151,5 @@ class SettingsFragment : Fragment() {
             imageUri = result
             binding.ivSetImage.setImageURI(result)
         }
+
 }

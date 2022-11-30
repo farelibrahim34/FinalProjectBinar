@@ -12,14 +12,21 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.finpro.garudanih.MainActivity
 import com.finpro.garudanih.databinding.ActivityProfileBinding
 import com.finpro.garudanih.view.HomeBottomActivity
+import com.finpro.garudanih.view.auth.LoginActivity
+import com.finpro.garudanih.viewmodel.AuthViewModel
+import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -32,6 +39,8 @@ import java.util.*
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityProfileBinding
+    private lateinit var authViewModel: AuthViewModel
+    private lateinit var userViewModel : UserViewModel
 
     private val REQUEST_CODE_PERMISSION = 100
     private var imageUri: Uri? = Uri.EMPTY
@@ -43,6 +52,13 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getProfile()
+        setGetDataUser()
+
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+//        logout
+        logout()
+
         binding.tvTgllahir.text = "--/--/----"
         // create an OnDateSetListener
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
@@ -53,7 +69,6 @@ class ProfileActivity : AppCompatActivity() {
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
                 updateDateInView()
             }
-
         }
         binding.ivCalender.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
@@ -180,4 +195,71 @@ class ProfileActivity : AppCompatActivity() {
             imageUri = result
             binding.ivSetImage.setImageURI(result)
         }
+
+    private fun logout(){
+        binding.btnLogout.setOnClickListener {
+            startActivity(Intent(this,LoginActivity::class.java).also {
+                authViewModel.apply {
+                    deleteToken()
+                    deleteData()
+                }
+            })
+            Toast.makeText(this,"Berhasil Logout", Toast.LENGTH_SHORT).show()
+        }
+    }
+    private fun getProfile(){
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        authViewModel.getToken().observe(this){
+            if (it != null){
+                userViewModel.currentUser("Bearer $it")
+            }else{
+                Log.d("TOKEN","Token Null")
+            }
+        }
+    }
+
+    private fun setGetDataUser(){
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel.getCurrentObserve().observe(this){
+            if (it != null){
+                binding.tvNamauser.setText(it.name)
+                binding.tvEmailuser.setText(it.email)
+                binding.etPhone.setText(it.phone)
+                binding.tvTgllahir.setText(it.birth)
+            }else{
+                Log.d("PROFILE","Profile Null")
+            }
+        }
+
+        authViewModel.getUser().observe(this){
+            if (it != null){
+                binding.tvNamauser.setText(it)
+            }
+        }
+        authViewModel.getEmail().observe(this){
+            if (it != null){
+                binding.tvEmailuser.setText(it)
+            }
+        }
+        authViewModel.getNoHp().observe(this){
+            if (it != null){
+                binding.etPhone.setText(it)
+            }
+        }
+        authViewModel.getTglLahir().observe(this){
+            if (it != null){
+                binding.tvTgllahir.setText(it)
+            }
+        }
+        authViewModel.getImage().observe(this){
+            if (it != null && it != "undefined"){
+                Log.d("PHOTO_URL",it)
+                binding.apply {
+                    Glide.with(root.context).load(it).into(ivSetImage)
+                }
+            }
+        }
+
+    }
 }

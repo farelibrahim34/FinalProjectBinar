@@ -2,10 +2,7 @@ package com.finpro.garudanih.network
 
 import com.finpro.garudanih.model.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiInterface {
     @POST("api/user/register")
@@ -16,4 +13,9 @@ interface ApiInterface {
 
     @GET("api/user/current")
     fun getUserLogin(@Header("Authorization")authHeader : String): Call<ResponseUserCurrent>
+
+
+//    @PUT("api/user/update")
+//    fun updateUserLogin(@Header("Authorization")auth: String,
+//                        @Body user : UpdateProfile):Call<ResponseUserUpdate>
 }

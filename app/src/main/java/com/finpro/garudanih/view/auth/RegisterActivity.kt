@@ -77,7 +77,6 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
         Toast.makeText(this,"Anda Telah Berhasil Membuat Akun", Toast.LENGTH_SHORT).show()
-
     }
 
 }

@@ -25,3 +25,9 @@ data class ResponseUserCurrent(
     val createdAt : String,
     val updatedAt : String
 )
+//update profile
+data class UpdateProfile(
+    val hoHp : String,
+    val birth : String,
+    val image : String,
+)

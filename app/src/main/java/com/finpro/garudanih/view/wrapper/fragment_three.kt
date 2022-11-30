@@ -7,17 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ItemPage3Binding
+import com.finpro.garudanih.utils.CheckUserUtil
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.auth.LoginActivity
 import com.finpro.garudanih.view.auth.RegisterActivity
+import com.finpro.garudanih.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class fragment_three : Fragment(){
 
     private lateinit var binding : ItemPage3Binding
+    lateinit var authViewModel : AuthViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,10 +34,35 @@ class fragment_three : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
 
         binding.tvLogin.setOnClickListener {
-            startActivity(Intent(context, LoginActivity::class.java))
+//            startActivity(Intent(context, LoginActivity::class.java))
+            sudahlogin()
 
         }
+    }
+    private fun sudahlogin(){
+        authViewModel.getToken().observe(requireActivity()){
+            if (it != null){
+                val validasi = CheckUserUtil.validateUser(it)
+                if (validasi){
+                    startActivity(Intent(requireActivity(), HomeBottomActivity::class.java))
+                }else{
+                    startActivity(Intent(requireActivity(), LoginActivity::class.java))
+                }
+            }
+        }
+
+        authViewModel.getNoHp().observe(requireActivity()){
+            if (it != null){
+                if (!it.equals("undefined")){
+                    startActivity(Intent(requireActivity(), HomeBottomActivity::class.java))
+                }else{
+                    startActivity(Intent(requireActivity(), LoginActivity::class.java))
+                }
+            }
+        }
+
     }
 }

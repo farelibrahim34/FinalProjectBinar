@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import com.finpro.garudanih.MainActivity
 import com.finpro.garudanih.databinding.ActivityProfileBinding
 import com.finpro.garudanih.view.HomeBottomActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.File
@@ -27,7 +28,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-
+@AndroidEntryPoint
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityProfileBinding

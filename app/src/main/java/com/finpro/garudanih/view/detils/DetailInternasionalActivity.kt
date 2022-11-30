@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.finpro.garudanih.databinding.ActivityDetailInternasionalBinding
 import com.finpro.garudanih.view.HomeBottomActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailInternasionalActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityDetailInternasionalBinding

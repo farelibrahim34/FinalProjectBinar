@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.finpro.garudanih.R
 import com.finpro.garudanih.model.ListPesawat
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class FragmentVpHomeThree : Fragment() {
 
 

@@ -11,7 +11,9 @@ import com.finpro.garudanih.adapter.AdapterListPesawat
 import com.finpro.garudanih.adapter.AdapterOrder
 import com.finpro.garudanih.databinding.FragmentWishlistBinding
 import com.finpro.garudanih.model.ListPesawat
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WishlistFragment : Fragment() {
 
     private lateinit var binding : FragmentWishlistBinding

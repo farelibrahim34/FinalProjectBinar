@@ -7,7 +7,9 @@ import com.finpro.garudanih.R
 import androidx.navigation.ui.setupWithNavController
 import com.finpro.garudanih.databinding.ActivityHomeBottomBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeBottomActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityHomeBottomBinding

@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.ActivityViewpagerBinding
+import dagger.hilt.android.AndroidEntryPoint
 import me.relex.circleindicator.CircleIndicator3
 
-
+@AndroidEntryPoint
 class ViewpagerActivity : AppCompatActivity() {
 
 

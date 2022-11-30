@@ -7,11 +7,14 @@ import com.finpro.garudanih.model.Data
 import com.finpro.garudanih.model.DataClassUser
 import com.finpro.garudanih.model.DataUserResponse
 import com.finpro.garudanih.network.ApiClient
+import com.finpro.garudanih.network.ApiInterface
+import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
-class ViewModelUser : ViewModel() {
+import javax.inject.Inject
+@HiltViewModel
+class ViewModelUser @Inject constructor(private val api : ApiInterface): ViewModel() {
 
     lateinit var postLdUser : MutableLiveData<DataUserResponse?>
     init {
@@ -21,7 +24,7 @@ class ViewModelUser : ViewModel() {
         return postLdUser
     }
     fun callPostApiUser(name : String, email : String, password : String){
-        ApiClient.instance.registerUser(DataClassUser(name,email,password))
+        api.registerUser(DataClassUser(name,email,password))
             .enqueue(object :Callback<DataUserResponse>{
                 override fun onResponse(
                     call: Call<DataUserResponse>,

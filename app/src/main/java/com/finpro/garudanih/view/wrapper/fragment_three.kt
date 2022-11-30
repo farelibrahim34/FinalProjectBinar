@@ -12,7 +12,9 @@ import com.finpro.garudanih.databinding.ItemPage3Binding
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.auth.LoginActivity
 import com.finpro.garudanih.view.auth.RegisterActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class fragment_three : Fragment(){
 
     private lateinit var binding : ItemPage3Binding

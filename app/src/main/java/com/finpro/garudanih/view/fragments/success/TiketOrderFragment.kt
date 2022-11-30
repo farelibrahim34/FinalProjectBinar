@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.FragmentTiketOrderBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TiketOrderFragment : Fragment() {
 
     private lateinit var binding : FragmentTiketOrderBinding

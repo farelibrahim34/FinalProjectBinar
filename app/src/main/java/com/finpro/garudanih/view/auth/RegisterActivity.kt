@@ -11,11 +11,12 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.datastore.DataStoreLogin
 import com.finpro.garudanih.viewmodel.ViewModelUser
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
-
+@AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityRegisterBinding

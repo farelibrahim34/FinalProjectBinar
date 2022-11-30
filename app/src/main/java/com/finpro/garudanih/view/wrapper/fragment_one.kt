@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.finpro.garudanih.databinding.ItemPageBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class fragment_one : Fragment(){
 
     private lateinit var binding : ItemPageBinding

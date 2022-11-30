@@ -10,7 +10,9 @@ import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterOrder
 import com.finpro.garudanih.databinding.FragmentHistoryBinding
 import com.finpro.garudanih.model.ListPesawat
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HistoryFragment : Fragment() {
 
     private lateinit var binding : FragmentHistoryBinding

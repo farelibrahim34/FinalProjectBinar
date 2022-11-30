@@ -8,6 +8,7 @@ import android.view.View
 import com.finpro.garudanih.databinding.ActivityRegisterBinding
 import android.widget.DatePicker
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.datastore.DataStoreLogin
 import com.finpro.garudanih.viewmodel.ViewModelUser
@@ -37,12 +38,49 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(toLogin)
         }
 
+        formValidataion()
         binding.btnRegister.setOnClickListener{
 //            registerDatastore()
             registerApi()
             val toHome = Intent(this, LoginActivity::class.java)
             startActivity(toHome)
         }
+
+        binding.etPassword.addTextChangedListener{password ->
+            if (isPasswordValid) {
+                validate()
+                binding.passwordInputLayout.error = null
+            } else {
+                binding.passwordInputLayout.error = "Must Have A-Z a-z 0-9"
+            }
+        }
+    }
+
+    private fun formValidataion(){
+        binding.etConfPassword.addTextChangedListener { confirmPassword ->
+            if (confirmPassword.toString() != binding.etConfPassword.text.toString()){
+                binding.btnRegister.isClickable = false
+                binding.passwordConfInputLayout.isEndIconVisible = false
+                binding.etConfPassword.error ="Confirm password is not match"
+            }else{
+                binding.btnRegister.isClickable = true
+                binding.passwordConfInputLayout.isEndIconVisible = true
+            }
+        }
+    }
+
+    private fun validate(){
+        binding.etUsername.text.toString().isNotBlank()
+                && binding.etPassword.text.toString().isNotBlank()
+                && isPasswordValid
+    }
+
+    private val isPasswordValid: Boolean get(){
+        val passText = binding.etPassword.text.toString()
+        return passText.contains("[a-z]".toRegex())
+                && passText.contains("[A-Z]".toRegex())
+                && passText.contains("[0-9]".toRegex())
+                && passText.length >= 8
     }
 
     private fun registerDatastore() {

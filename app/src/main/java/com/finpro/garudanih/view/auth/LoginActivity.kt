@@ -44,32 +44,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        binding.etPassword.addTextChangedListener{password ->
-            if (isPasswordValid) {
-                validate()
-                binding.passworInputLayout.error = null
-            } else {
-                binding.passworInputLayout.error = "Must Have A-Z a-z 0-9"
-            }
-        }
-
         binding.btnLogin.setOnClickListener {
 //            startActivity(Intent(this, HomeBottomActivity::class.java))
             login()
         }
-    }
-    private fun validate(){
-            binding.etUsername.text.toString().isNotBlank()
-                    && binding.etPassword.text.toString().isNotBlank()
-                    && isPasswordValid
-    }
-
-    private val isPasswordValid: Boolean get(){
-        val passText = binding.etPassword.text.toString()
-        return passText.contains("[a-z]".toRegex())
-                && passText.contains("[A-Z]".toRegex())
-                && passText.contains("[0-9]".toRegex())
-                && passText.length >= 8
     }
 
     private fun login(){

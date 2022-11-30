@@ -13,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.DatePicker
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.finpro.garudanih.MainActivity
+import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityProfileBinding
 import com.finpro.garudanih.view.HomeBottomActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,6 +45,11 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        val adapter = ArrayAdapter.createFromResource(this,R.array.Choose_City, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+        binding.PilihKota.adapter = adapter
 
         binding.tvTgllahir.text = "--/--/----"
         // create an OnDateSetListener
@@ -180,4 +188,5 @@ class ProfileActivity : AppCompatActivity() {
             imageUri = result
             binding.ivSetImage.setImageURI(result)
         }
+
 }

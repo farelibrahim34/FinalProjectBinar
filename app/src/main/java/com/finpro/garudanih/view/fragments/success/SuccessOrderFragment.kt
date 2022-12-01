@@ -6,10 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.finpro.garudanih.R
+import com.finpro.garudanih.view.fragments.wishlist.WishlistFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SuccessOrderFragment : Fragment() {
+
+    companion object {
+        const val TAG = "SuccessOrderFragment"
+
+        fun newInstance(dataNama: String, dataRekening : String): SuccessOrderFragment {
+            val fragment = SuccessOrderFragment()
+            val bundle = Bundle().apply {
+                putString("nama", dataNama)
+                putString("noRek", dataRekening)
+
+            }
+            fragment.arguments = bundle
+            return fragment
+        }
+    }
 
 
     override fun onCreateView(

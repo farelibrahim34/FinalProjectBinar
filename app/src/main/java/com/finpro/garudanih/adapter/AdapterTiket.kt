@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.model.Ticket
 
+
 class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<AdapterTiket.ViewHolder>(){
     class ViewHolder (val binding : ItemBinding): RecyclerView.ViewHolder(binding.root){
 

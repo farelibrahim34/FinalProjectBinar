@@ -23,6 +23,7 @@ class ViewModelUser @Inject constructor(private val api : ApiInterface): ViewMod
     fun postLiveDataUser(): MutableLiveData<DataUserResponse?> {
         return postLdUser
     }
+
     fun callPostApiUser(name : String, email : String, password : String){
         api.registerUser(DataClassUser(name,email,password))
             .enqueue(object :Callback<DataUserResponse>{
@@ -41,8 +42,7 @@ class ViewModelUser @Inject constructor(private val api : ApiInterface): ViewMod
                 override fun onFailure(call: Call<DataUserResponse>, t: Throwable) {
                     postLdUser.postValue(null)
                 }
-
-
             })
     }
+
 }

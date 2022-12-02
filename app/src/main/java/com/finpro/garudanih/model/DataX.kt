@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class DataX(
     @SerializedName("tickets")
-    val tickets: List<Ticket>
+    val tickets: List<Ticket> = listOf()
 )

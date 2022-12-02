@@ -30,7 +30,6 @@ import java.io.File
 class HomeFragment : Fragment() {
 
     private lateinit var binding : FragmentHomeBinding
-
     private val data = mutableListOf<String>()
     private var fragmentList = ArrayList<Fragment>()
     private lateinit var viewPager: ViewPager2
@@ -52,8 +51,6 @@ class HomeFragment : Fragment() {
         binding.ivUser.setOnClickListener {
             startActivity(Intent(context, ProfileActivity::class.java))
         }
-
-
 
         val listInt = arrayListOf(
             ListInternasional("China",2000000,"16 Agustus","24/100",R.drawable.ic_logogn,"pending"),
@@ -81,7 +78,6 @@ class HomeFragment : Fragment() {
 
     fun bannerHome(){
         castView()
-
 
         fragmentList.add(FragmentVpHomeOne())
         fragmentList.add(FragmentVpHomeTwo())

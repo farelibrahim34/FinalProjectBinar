@@ -9,7 +9,9 @@ import com.finpro.garudanih.model.ListPesawat
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
 
 class AdapterListPesawat(val listPesawat : ArrayList<ListPesawat>): RecyclerView.Adapter<AdapterListPesawat.ViewHolder>() {
+
     class ViewHolder (var binding : ItemBinding):RecyclerView.ViewHolder(binding.root){
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -18,8 +20,6 @@ class AdapterListPesawat(val listPesawat : ArrayList<ListPesawat>): RecyclerView
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-
         holder.binding.txtKota.text = listPesawat[position].kota
         holder.binding.txtJadwal.text = listPesawat[position].jadwal
         holder.binding.txtHarga.text = listPesawat[position].harga.toString()

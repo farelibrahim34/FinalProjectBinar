@@ -2,11 +2,13 @@ package com.finpro.garudanih.view.fragments.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.finpro.garudanih.R
@@ -22,7 +24,9 @@ import com.finpro.garudanih.view.profile.ProfileActivity
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeOne
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeThree
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeTwo
+import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.TiketViewModel
+import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.currentCoroutineContext
 import me.relex.circleindicator.CircleIndicator3
@@ -35,6 +39,8 @@ class HomeFragment : Fragment() {
     private lateinit var viewPager: ViewPager2
     private lateinit var indicator: CircleIndicator3
     lateinit var viewModelListTiket : TiketViewModel
+    lateinit var authViewModel : AuthViewModel
+    lateinit var userViewModel : UserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +53,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        getProfile()
+        setUsername()
 
         binding.ivUser.setOnClickListener {
             startActivity(Intent(context, ProfileActivity::class.java))
@@ -99,6 +108,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+
     fun callListTiketLocal(){
         viewModelListTiket = ViewModelProvider(requireActivity()).get(TiketViewModel::class.java)
         viewModelListTiket.getAllTiket().observe(requireActivity(),{
@@ -110,6 +120,33 @@ class HomeFragment : Fragment() {
             }
         })
         viewModelListTiket.callApiListTiket()
+    }
+    private fun getProfile(){
+        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
+        authViewModel.getToken().observe(requireActivity()){
+            if (it != null){
+                userViewModel.currentUser("Bearer $it")
+            }else{
+                Log.d("TOKEN","Token Null")
+            }
+        }
+    }
+    private fun setUsername(){
+        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
+        userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+
+        userViewModel.getCurrentObserve().observe(requireActivity()){
+            if (it != null){
+                binding.txtUsername.text = ("Hello, "+it.name)
+            }else{
+                Log.d("PROFILE","Profile Null")
+            }
+        }
+        authViewModel.getUser().observe(requireActivity()){
+            if (it != null){
+                binding.txtUsername.text = ("Hello, "+it)
+            }
+        }
     }
 
 }

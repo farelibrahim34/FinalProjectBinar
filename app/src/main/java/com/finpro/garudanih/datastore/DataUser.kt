@@ -38,12 +38,12 @@ class DataUser(@ApplicationContext private val context: Context){
         }    }
     fun getUsername() : Flow<String>{
         return context.dataUser.data.map {
-            it[Username] ?: "undefined"
+            it[Username] ?: ""
         }
     }
     fun getEmail() : Flow<String>{
         return context.dataUser.data.map {
-            it[Email] ?: "undefined"
+            it[Email] ?: ""
         }
     }
 

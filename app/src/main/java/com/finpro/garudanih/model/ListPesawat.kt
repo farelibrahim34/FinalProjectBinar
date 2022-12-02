@@ -6,5 +6,6 @@ data class ListPesawat(
     val jadwal : String,
     val available : String,
     val gambar : Int,
-    val status : String
+    val status : String,
+    val kelas : String
 )

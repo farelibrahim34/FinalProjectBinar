@@ -14,6 +14,9 @@ interface ApiInterface {
     @GET("v1/user/current")
     fun getUserLogin(@Header("Authorization")authHeader : String): Call<ResponseUserCurrent>
 
+    @GET("v1/ticket")
+    fun getAllListTicket() : Call<List<Ticket>>
+
 
 //    @PUT("api/user/update")
 //    fun updateUserLogin(@Header("Authorization")auth: String,

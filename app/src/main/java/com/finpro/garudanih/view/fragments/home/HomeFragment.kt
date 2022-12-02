@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterInternasional
 import com.finpro.garudanih.adapter.AdapterListPesawat
+import com.finpro.garudanih.adapter.AdapterTiket
 import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.FragmentHomeBinding
 import com.finpro.garudanih.model.ListInternasional
@@ -20,6 +22,7 @@ import com.finpro.garudanih.view.profile.ProfileActivity
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeOne
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeThree
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeTwo
+import com.finpro.garudanih.viewmodel.TiketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.currentCoroutineContext
 import me.relex.circleindicator.CircleIndicator3
@@ -27,11 +30,11 @@ import me.relex.circleindicator.CircleIndicator3
 class HomeFragment : Fragment() {
 
     private lateinit var binding : FragmentHomeBinding
-
     private val data = mutableListOf<String>()
     private var fragmentList = ArrayList<Fragment>()
     private lateinit var viewPager: ViewPager2
     private lateinit var indicator: CircleIndicator3
+    lateinit var viewModelListTiket : TiketViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,16 +61,18 @@ class HomeFragment : Fragment() {
             )
         binding.rvInternational.adapter = AdapterInternasional(listInt)
         binding.rvInternational.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+//
+//        val list = arrayListOf(
+//            ListPesawat("China",2000000,"16 Agustus","24/100",R.drawable.ic_logogn,"pending","Economy"),
+//            ListPesawat("Malaysia",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
+//            ListPesawat("Thailand",2000000,"16 Agustus","24/100",R.drawable.jakarta,"pending","Economy"),
+//            ListPesawat("Singapura",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
+//        )
+//        binding.rvLocal.adapter = AdapterListPesawat(list)
+//        binding.rvLocal.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
 
-        val list = arrayListOf(
-            ListPesawat("China",2000000,"16 Agustus","24/100",R.drawable.ic_logogn,"pending"),
-            ListPesawat("Malaysia",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
-            ListPesawat("Thailand",2000000,"16 Agustus","24/100",R.drawable.jakarta,"pending"),
-            ListPesawat("Singapura",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
-        )
-        binding.rvLocal.adapter = AdapterListPesawat(list)
-        binding.rvLocal.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
 
+        callListTiketLocal()
         bannerHome()
 
     }
@@ -92,6 +97,19 @@ class HomeFragment : Fragment() {
         for (item in 1..3) {
             data.add("item $item")
         }
+    }
+
+    fun callListTiketLocal(){
+        viewModelListTiket = ViewModelProvider(requireActivity()).get(TiketViewModel::class.java)
+        viewModelListTiket.getAllTiket().observe(requireActivity(),{
+            if (it != null) {
+                binding.rvLocal.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                val adapter = AdapterTiket(it)
+                binding.rvLocal.adapter = adapter
+            }
+        })
+        viewModelListTiket.callApiListTiket()
     }
 
 }

@@ -134,18 +134,19 @@
         app:layout_constraintTop_toBottomOf="@id/guideline2">
 
         <TextView
+            android:id="@+id/txtClass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            android:fontFamily="@font/poppins_semibold"
-            android:textColor="@color/white"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/poppins_semibold"
             android:paddingVertical="5dp"
+            android:text="Bussiness Class"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
             android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Bussiness Class"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

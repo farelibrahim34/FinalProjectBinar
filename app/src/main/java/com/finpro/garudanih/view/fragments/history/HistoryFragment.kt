@@ -28,10 +28,10 @@ class HistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val list = arrayListOf(
-            ListPesawat("China",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
-            ListPesawat("Malaysia",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
-            ListPesawat("Thailand",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
-            ListPesawat("Singapura",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
+            ListPesawat("China",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
+            ListPesawat("Malaysia",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
+            ListPesawat("Thailand",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
+            ListPesawat("Singapura",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
         )
         binding.rvOrder.adapter = AdapterOrder(list)
         binding.rvOrder.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)

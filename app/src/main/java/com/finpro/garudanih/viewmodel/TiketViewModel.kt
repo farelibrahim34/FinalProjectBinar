@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.finpro.garudanih.model.DataX
+import com.finpro.garudanih.model.ResponseListTiket
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.network.ApiInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,8 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
 
-    var ldListTiket : MutableLiveData<DataX>
-    var postTiket : MutableLiveData<DataX>
+    var ldListTiket : MutableLiveData<ResponseListTiket>
+    var postTiket : MutableLiveData<ResponseListTiket>
 
 
     init {
@@ -25,28 +26,28 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
 
     }
 
-    fun getLdTiket(): MutableLiveData<DataX> {
+    fun getLdTiket(): MutableLiveData<ResponseListTiket> {
         return  ldListTiket
     }
-    fun postTiket(): MutableLiveData<DataX>{
+    fun postTiket(): MutableLiveData<ResponseListTiket>{
         return postTiket
     }
 
     fun CallApiTiket(){
         api.getAllListTicket()
-            .enqueue(object : Callback<DataX>{
+            .enqueue(object : Callback<ResponseListTiket>{
                 override fun onResponse(
-                    call: Call<DataX>,
-                    response: Response<DataX>
+                    call: Call<ResponseListTiket>,
+                    response: Response<ResponseListTiket>
                 ) {
                     if (response.isSuccessful){
                         ldListTiket.postValue(response.body())
-                        Log.d("data",response.body()?.tickets.toString())
+                        Log.d("data",response.body()?.data.toString())
                     }else{
-                        Log.d("data",response.body()?.tickets.toString())
+                        Log.d("data",response.body()?.data.toString())
                     }
                 }
-                override fun onFailure(call: Call<DataX>, t: Throwable) {
+                override fun onFailure(call: Call<ResponseListTiket>, t: Throwable) {
                     Log.d("data",call.toString())
                 }
 

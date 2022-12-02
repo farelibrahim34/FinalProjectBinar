@@ -1,6 +1,7 @@
 package com.finpro.garudanih.view.fragments.home
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,12 +24,10 @@ import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeTwo
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.currentCoroutineContext
 import me.relex.circleindicator.CircleIndicator3
+import java.io.File
+
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
-    companion object {
-        const val TAG = "HomeFragment"
-
-    }
 
     private lateinit var binding : FragmentHomeBinding
 
@@ -36,6 +35,7 @@ class HomeFragment : Fragment() {
     private var fragmentList = ArrayList<Fragment>()
     private lateinit var viewPager: ViewPager2
     private lateinit var indicator: CircleIndicator3
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,6 +52,8 @@ class HomeFragment : Fragment() {
         binding.ivUser.setOnClickListener {
             startActivity(Intent(context, ProfileActivity::class.java))
         }
+
+
 
         val listInt = arrayListOf(
             ListInternasional("China",2000000,"16 Agustus","24/100",R.drawable.ic_logogn,"pending"),
@@ -73,6 +75,7 @@ class HomeFragment : Fragment() {
         binding.rvLocal.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
 
         bannerHome()
+        getDatafoto()
 
     }
 
@@ -96,6 +99,11 @@ class HomeFragment : Fragment() {
         for (item in 1..3) {
             data.add("item $item")
         }
+    }
+
+    fun getDatafoto() {
+        val image = BitmapFactory.decodeFile(requireActivity().applicationContext.filesDir.path + File.separator +"dataFoto"+ File.separator +"fotoProfile.png")
+        binding.ivUser.setImageBitmap(image)
     }
 
 }

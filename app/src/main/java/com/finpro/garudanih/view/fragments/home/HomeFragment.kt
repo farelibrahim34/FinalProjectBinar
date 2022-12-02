@@ -115,7 +115,7 @@ class HomeFragment : Fragment() {
             if (it != null) {
                 binding.rvLocal.layoutManager =
                     LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                val adapter = AdapterTiket(it)
+                val adapter = AdapterTiket(it.data.tickets)
                 binding.rvLocal.adapter = adapter
             }
         })

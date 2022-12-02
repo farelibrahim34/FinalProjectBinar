@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:padding="10dp"
     android:layout_height="wrap_content">
@@ -15,6 +16,29 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:outlineSpotShadowColor="@color/white"
+            android:src="@drawable/ic_baseline_linear_scale_24"
+            app:layout_constraintBottom_toBottomOf="@+id/txtKotaAsal"
+            app:layout_constraintEnd_toStartOf="@+id/txtKotaTujuan"
+            app:layout_constraintStart_toEndOf="@+id/txtKotaAsal"
+            app:layout_constraintTop_toTopOf="@+id/txtKotaTujuan" />
+
+        <TextView
+            android:id="@+id/txtKotaAsal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Kota Asal"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivListpesawat" />
+
+        <ImageView
             android:id="@+id/ivListpesawat"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
@@ -24,15 +48,15 @@
             app:srcCompat="@drawable/pesawat" />
 
         <TextView
-            android:id="@+id/txtKota"
+            android:id="@+id/txtKotaTujuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nama kota"
+            android:layout_marginEnd="10dp"
+            android:text="Kota Tujuan"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_marginStart="10dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivListpesawat" />
 
         <TextView
@@ -43,7 +67,7 @@
             android:textSize="12sp"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtKota" />
+            app:layout_constraintTop_toBottomOf="@+id/txtKotaTujuan" />
 
         <TextView
             android:id="@+id/txtHarga"

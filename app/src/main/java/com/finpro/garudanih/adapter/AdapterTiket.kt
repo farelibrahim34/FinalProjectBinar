@@ -17,7 +17,8 @@ class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.txtKota.text = listTiket[position].destinationCode
+        holder.binding.txtKotaTujuan.text = listTiket[position].destinationCode
+        holder.binding.txtKotaAsal.text = listTiket[position].departureCode
         holder.binding.txtJadwal.text = listTiket[position].takeOff
         holder.binding.txtHarga.text = listTiket[position].price.toString()
 //        holder.binding.ivListpesawat.setImageResource(listPesawat[position].gambar)

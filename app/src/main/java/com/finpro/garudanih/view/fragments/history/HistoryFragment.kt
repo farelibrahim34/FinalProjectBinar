@@ -15,6 +15,11 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HistoryFragment : Fragment() {
 
+    companion object {
+        const val TAG = "HistoryOrderFragment"
+
+    }
+
     private lateinit var binding : FragmentHistoryBinding
 
     override fun onCreateView(

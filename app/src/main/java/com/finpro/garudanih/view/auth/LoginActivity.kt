@@ -23,7 +23,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var password : String
     private lateinit var authViewModel: AuthViewModel
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)

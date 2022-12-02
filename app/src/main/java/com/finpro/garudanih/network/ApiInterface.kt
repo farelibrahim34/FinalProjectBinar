@@ -5,13 +5,13 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiInterface {
-    @POST("api/user/register")
+    @POST("v1/user/register")
     fun registerUser(@Body request : DataClassUser): Call<DataUserResponse>
 
-    @POST("api/user/login")
+    @POST("v1/user/login")
     fun loginUser(@Body userLogin : UserLogin): Call<ResponseUserLogin>
 
-    @GET("api/user/current")
+    @GET("v1/user/current")
     fun getUserLogin(@Header("Authorization")authHeader : String): Call<ResponseUserCurrent>
 
 

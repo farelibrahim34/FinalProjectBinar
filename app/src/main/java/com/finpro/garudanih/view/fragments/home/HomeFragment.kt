@@ -25,6 +25,10 @@ import kotlinx.coroutines.currentCoroutineContext
 import me.relex.circleindicator.CircleIndicator3
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
+    companion object {
+        const val TAG = "HomeFragment"
+
+    }
 
     private lateinit var binding : FragmentHomeBinding
 

@@ -18,6 +18,11 @@ interface ApiInterface {
     fun getAllListTicket() : Call<ResponseListTiket>
 
 
+    @GET("v1/ticket/{id}")
+    fun getTiketByid(@Path("id") id : Int): Call<ResponseDetailTiket>
+
+
+
 //    @PUT("api/user/update")
 //    fun updateUserLogin(@Header("Authorization")auth: String,
 //                        @Body user : UpdateProfile):Call<ResponseUserUpdate>

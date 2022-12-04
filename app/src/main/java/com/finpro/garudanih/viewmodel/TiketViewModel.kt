@@ -3,7 +3,7 @@ package com.finpro.garudanih.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.finpro.garudanih.model.DataX
+import com.finpro.garudanih.model.ResponseDetailTiket
 import com.finpro.garudanih.model.ResponseListTiket
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.network.ApiInterface
@@ -16,21 +16,27 @@ import javax.inject.Inject
 @HiltViewModel
 class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
 
-    var ldListTiket : MutableLiveData<ResponseListTiket>
-    var postTiket : MutableLiveData<ResponseListTiket>
+
+
+
+
+    var ldListTiket : MutableLiveData<ResponseListTiket?>
+    var postTiket : MutableLiveData<ResponseListTiket?>
+
 
 
     init {
         ldListTiket = MutableLiveData()
         postTiket = MutableLiveData()
-
     }
 
-    fun getLdTiket(): MutableLiveData<ResponseListTiket> {
+
+    fun getLdTiket(): MutableLiveData<ResponseListTiket?> {
         return  ldListTiket
     }
-    fun postTiket(): MutableLiveData<ResponseListTiket>{
+    fun postTiket(): MutableLiveData<ResponseListTiket?>{
         return postTiket
+
     }
 
     fun CallApiTiket(){
@@ -47,11 +53,11 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
                         Log.d("data",response.body()?.data.toString())
                     }
                 }
+
+
                 override fun onFailure(call: Call<ResponseListTiket>, t: Throwable) {
-                    Log.d("data",call.toString())
+                    ldListTiket.postValue(null)
                 }
 
             })
-    }
-
-}
+            }}

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.finpro.garudanih.model.Data
 import com.finpro.garudanih.model.DataClassUser
 import com.finpro.garudanih.model.DataUserResponse
+import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.network.ApiClient
 import com.finpro.garudanih.network.ApiInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,12 +18,16 @@ import javax.inject.Inject
 class ViewModelUser @Inject constructor(private val api : ApiInterface): ViewModel() {
 
     lateinit var postLdUser : MutableLiveData<DataUserResponse?>
+
+
     init {
         postLdUser = MutableLiveData()
     }
+
     fun postLiveDataUser(): MutableLiveData<DataUserResponse?> {
         return postLdUser
     }
+
 
     fun callPostApiUser(name : String, email : String, password : String){
         api.registerUser(DataClassUser(name,email,password))

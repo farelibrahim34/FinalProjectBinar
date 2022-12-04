@@ -58,6 +58,7 @@ class TiketViewModel @Inject constructor(private val api : ApiInterface):ViewMod
             .enqueue(object : Callback<ResponseDetailTiket>{
                 override fun onResponse(call: Call<ResponseDetailTiket>, response: Response<ResponseDetailTiket>) {
                     if (response.isSuccessful){
+                        Log.d("response",response.body().toString())
                         ldTiketById.postValue(response.body())
                     }else{
                         ldTiketById.postValue(null)

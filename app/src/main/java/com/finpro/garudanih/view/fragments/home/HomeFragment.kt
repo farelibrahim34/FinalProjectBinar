@@ -17,9 +17,12 @@ import com.finpro.garudanih.adapter.AdapterListPesawat
 import com.finpro.garudanih.adapter.AdapterTiket
 import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.FragmentHomeBinding
+import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.model.ListInternasional
 import com.finpro.garudanih.model.ListPesawat
+import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
+import com.finpro.garudanih.view.detils.DetailInternasionalActivity
 import com.finpro.garudanih.view.profile.ProfileActivity
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeOne
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeThree
@@ -142,6 +145,7 @@ class HomeFragment : Fragment() {
                 Log.d("PROFILE","Profile Null")
             }
         }
+
         authViewModel.getUser().observe(requireActivity()){
             if (it != null){
                 binding.txtUsername.text = ("Hello, "+it)
@@ -149,4 +153,4 @@ class HomeFragment : Fragment() {
         }
     }
 
-}
+    }

@@ -26,17 +26,17 @@ class DetailInternasionalActivity : AppCompatActivity() {
 
     fun getListInternasional(){
 
-        val itemListInternasional = intent
+        val itemListInternasional = intent.extras
+        val jadwalInt = itemListInternasional?.getString("jadwalInt")
+        val hargaInt = itemListInternasional?.getString("hargaInt")
+        val imageInt = itemListInternasional?.getInt("imageInt",0)
+        val availableInt = itemListInternasional?.getString("availableInt")
 
-        val kotaInt = itemListInternasional.getStringExtra("kotaInt")
-        val jadwalInt = itemListInternasional.getStringExtra("jadwalInt")
-        val hargaInt = itemListInternasional.getStringExtra("hargaInt")
-        val imageInt = itemListInternasional.getIntExtra("imageInt",0)
-        val availableInt = itemListInternasional.getStringExtra("availableInt")
-
-        binding.txtAsal.text = kotaInt
+//        binding.txtAsal.text = kotaInt
         binding.txtHargaDetail.text = hargaInt
-        binding.ivKota.setImageResource(imageInt)
+        if (imageInt != null) {
+            binding.ivKota.setImageResource(imageInt)
+        }
         binding.txtDeskripsi.text = availableInt
 
     }

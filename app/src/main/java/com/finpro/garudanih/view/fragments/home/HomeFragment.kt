@@ -102,14 +102,15 @@ class HomeFragment : Fragment() {
     private fun setUpTiketInt(){
         val viewModel = ViewModelProvider(requireActivity()).get(TiketViewModel::class.java)
         viewModel.getLdTiket().observe(viewLifecycleOwner) {
+            binding.homeProgressBar.visibility = View.VISIBLE
             if (it != null) {
-                binding.homeProgressBar.visibility = View.VISIBLE
-                binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                binding.homeProgressBar.visibility = View.GONE
+                binding.rvLocal.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvLocal.adapter = tiketAdapter
                 Toast.makeText(requireActivity(), "Data Tampil", Toast.LENGTH_SHORT).show()
             } else {
-                binding.homeProgressBar.visibility = View.GONE
                 Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
         }

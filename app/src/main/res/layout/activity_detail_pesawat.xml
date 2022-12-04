@@ -78,13 +78,44 @@
         app:layout_constraintTop_toBottomOf="@+id/txtNamaKota" />
 
     <TextView
-        android:id="@+id/txtDeskripsi"
-        android:layout_width="390dp"
-        android:layout_height="200dp"
-        android:text="Deskripsi"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/txtJadwal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Jadwal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtHargaDetail" />
+
+    <TextView
+        android:id="@+id/txtDeskripsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Deskripsi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtJadwal" />
+
+    <TextView
+        android:id="@+id/txtChair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Total Chair"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDeskripsi" />
+
+    <TextView
+        android:id="@+id/txtClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Class"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtChair" />
 
 
     <Button

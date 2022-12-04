@@ -27,16 +27,19 @@ class DetailPesawatActivity : AppCompatActivity() {
     fun getListPesawat(){
         val itemListPesawat = intent
 
-        val kota = itemListPesawat.getStringExtra("kota")
+        val kota = itemListPesawat.getStringExtra("destinasi")
         val jadwal = itemListPesawat.getStringExtra("jadwal")
         val harga = itemListPesawat.getStringExtra("harga")
-        val image = itemListPesawat.getIntExtra("image",0)
-        val status = itemListPesawat.getStringExtra("available")
+        val chair = itemListPesawat.getStringExtra("totalchair")
+        val status = itemListPesawat.getStringExtra("class")
+//        val image = itemListPesawat.getIntExtra("image",0)
 
         binding.txtNamaKota.text = kota
         binding.txtHargaDetail.text = harga
-        binding.ivKota.setImageResource(image)
+        binding.txtJadwal.text = jadwal
+        binding.txtChair.text = chair
         binding.txtDeskripsi.text = status
+//        binding.ivKota.setImageResource(image)
 
     }
 

@@ -16,7 +16,7 @@ class DetailPesawatActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityDetailPesawatBinding
     lateinit var viewModelTiket : TiketViewModel
-    var id by Delegates.notNull<Int>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,39 +25,31 @@ class DetailPesawatActivity : AppCompatActivity() {
 
         viewModelTiket = ViewModelProvider(this).get(TiketViewModel::class.java)
 
-        id = intent.getStringExtra("tiket")!!.toString().toInt()
-        Log.d("DEBUG_ID",id.toString())
-        setDetail()
 
         binding.ivBackDetail.setOnClickListener {
             startActivity(Intent(this, HomeBottomActivity::class.java))
         }
-//        getListPesawat()
+        getListPesawat()
     }
 
     fun getListPesawat(){
         val itemListPesawat = intent
 
-        val kota = itemListPesawat.getStringExtra("kota")
+        val kota = itemListPesawat.getStringExtra("destinasi")
+        val keberangkatan = itemListPesawat.getStringExtra("departure")
         val jadwal = itemListPesawat.getStringExtra("jadwal")
-        val harga = itemListPesawat.getStringExtra("harga")
-        val image = itemListPesawat.getIntExtra("image",0)
-        val status = itemListPesawat.getStringExtra("available")
+        val harga = itemListPesawat.getIntExtra("harga",0)
+        val chair = itemListPesawat.getIntExtra("totalchair",0)
+        val status = itemListPesawat.getStringExtra("class")
+//        val image = itemListPesawat.getIntExtra("image",0)
 
-        binding.txtTujuan.text = kota
-        binding.txtHargaDetail.text = harga
-        binding.ivKota.setImageResource(image)
-        binding.txtDeskripsi.text = status
-
-    }
-    fun setDetail(){
-        viewModelTiket.callGetTiketById(id)
-        viewModelTiket.getDetailTiket(id).observe(this){
-            binding.txtTujuan.setText("Tujuan \t"+ it!!.data.destination)
-            binding.txtAsal.setText("Keberangkatan \t"+ it!!.data.departure)
-
-
-        }
+        binding.txtAsal.text =          "Keberangkatan\n"+keberangkatan+"\n"
+        binding.txtTujuan.text =        "Tujuan\n"+kota+"\n"
+        binding.txtHargaDetail.text =   "Harga Tiket \nRp"+harga.toString()
+        binding.txtJadwal.text =        "Jadwal Keberangkatan   : \n"+jadwal
+        binding.txtChair.text =         "Available "+chair.toString()
+        binding.txtClass.text = status+" Class"
+//        binding.ivKota.setImageResource(image)
 
     }
 

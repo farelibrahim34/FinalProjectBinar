@@ -14,26 +14,32 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class TiketViewModel @Inject constructor(private val api : ApiInterface):ViewModel() {
+class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
 
-    lateinit var ldListTiket : MutableLiveData<ResponseListTiket?>
-    lateinit var ldTiketById : MutableLiveData<ResponseDetailTiket?>
+
+
+
+
+    var ldListTiket : MutableLiveData<ResponseListTiket?>
+    var postTiket : MutableLiveData<ResponseListTiket?>
 
 
 
     init {
         ldListTiket = MutableLiveData()
-        ldTiketById = MutableLiveData()
+        postTiket = MutableLiveData()
     }
 
-    fun getAllTiket(): MutableLiveData<ResponseListTiket?> {
+
+    fun getLdTiket(): MutableLiveData<ResponseListTiket?> {
         return  ldListTiket
     }
-    fun getDetailTiket(id: Int): MutableLiveData<ResponseDetailTiket?>{
-        return ldTiketById
+    fun postTiket(): MutableLiveData<ResponseListTiket?>{
+        return postTiket
+
     }
 
-    fun callApiListTiket(){
+    fun CallApiTiket(){
         api.getAllListTicket()
             .enqueue(object : Callback<ResponseListTiket>{
                 override fun onResponse(
@@ -42,34 +48,16 @@ class TiketViewModel @Inject constructor(private val api : ApiInterface):ViewMod
                 ) {
                     if (response.isSuccessful){
                         ldListTiket.postValue(response.body())
-                        Log.d("response",response.body().toString())
+                        Log.d("data",response.body()?.data.toString())
                     }else{
-                        ldListTiket.postValue(null)
+                        Log.d("data",response.body()?.data.toString())
                     }
                 }
+
 
                 override fun onFailure(call: Call<ResponseListTiket>, t: Throwable) {
                     ldListTiket.postValue(null)
                 }
-            })
-    }
-    fun callGetTiketById(id: Int){
-        api.getTiketByid(id)
-            .enqueue(object : Callback<ResponseDetailTiket>{
-                override fun onResponse(call: Call<ResponseDetailTiket>, response: Response<ResponseDetailTiket>) {
-                    if (response.isSuccessful){
-                        Log.d("response",response.body().toString())
-                        ldTiketById.postValue(response.body())
-                    }else{
-                        ldTiketById.postValue(null)
-                    }
-                }
-
-                override fun onFailure(call: Call<ResponseDetailTiket>, t: Throwable) {
-                    ldTiketById.postValue(null)
-                }
 
             })
-    }
-
-}
+            }}

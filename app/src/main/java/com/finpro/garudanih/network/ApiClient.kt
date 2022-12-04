@@ -5,7 +5,10 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONObject
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -14,27 +17,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object ApiClient {
 
-//    const val BASE_URL = "https://api-ticket.up.railway.app/"
-//
-//    private val logging : HttpLoggingInterceptor
-//        get() = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-//    private val client = OkHttpClient.Builder()
-//        .addInterceptor(logging)
-//        .build()
-//
-//    val instance : ApiInterface by lazy {
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .client(client)
-//            .build()
-//        retrofit.create(ApiInterface::class.java)
-//    }
+    const val BASE_URL = "https://api-ticket.up.railway.app/"
 
-    const val BASE_URL= "https://api-ticket.up.railway.app/"
-
-    private  val logging : HttpLoggingInterceptor
-        get(){
+    private val logging: HttpLoggingInterceptor
+        get() {
             val httpLoggingInterceptor = HttpLoggingInterceptor()
             return httpLoggingInterceptor.apply {
                 httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -45,7 +31,7 @@ object ApiClient {
 
     @Singleton
     @Provides
-    fun provideRetrofit() : Retrofit =
+    fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

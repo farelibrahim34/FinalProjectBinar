@@ -47,8 +47,7 @@ class ViewModelUser @Inject constructor(private val api : ApiInterface): ViewMod
                 override fun onFailure(call: Call<DataUserResponse>, t: Throwable) {
                     postLdUser.postValue(null)
                 }
-
-
             })
     }
+
 }

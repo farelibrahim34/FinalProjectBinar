@@ -34,7 +34,7 @@ class DetailInternasionalActivity : AppCompatActivity() {
         val imageInt = itemListInternasional.getIntExtra("imageInt",0)
         val availableInt = itemListInternasional.getStringExtra("availableInt")
 
-        binding.txtNamaKota.text = kotaInt
+        binding.txtAsal.text = kotaInt
         binding.txtHargaDetail.text = hargaInt
         binding.ivKota.setImageResource(imageInt)
         binding.txtDeskripsi.text = availableInt

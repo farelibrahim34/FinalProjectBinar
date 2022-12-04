@@ -17,6 +17,9 @@ interface ApiInterface {
     @GET("v1/ticket")
     fun getAllListTicket() : Call<ResponseListTiket>
 
+    @GET("datamhs/{id}")
+    fun getTiketByid(@Path("id") id : Int): Call<ResponseDetailTiket>
+
 
 //    @PUT("api/user/update")
 //    fun updateUserLogin(@Header("Authorization")auth: String,

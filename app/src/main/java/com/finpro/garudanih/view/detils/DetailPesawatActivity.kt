@@ -43,11 +43,11 @@ class DetailPesawatActivity : AppCompatActivity() {
         val status = itemListPesawat.getStringExtra("class")
 //        val image = itemListPesawat.getIntExtra("image",0)
 
-        binding.txtAsal.text =          "Keberangkatan\n"+keberangkatan+"\n"
-        binding.txtTujuan.text =        "Tujuan\n"+kota+"\n"
-        binding.txtHargaDetail.text =   "Harga Tiket \nRp"+harga.toString()
-        binding.txtJadwal.text =        "Jadwal Keberangkatan   : \n"+jadwal
-        binding.txtChair.text =         "Available "+chair.toString()
+        binding.txtInputAsal.text = keberangkatan
+        binding.txtInputTujuan.text = kota
+        binding.txtHargaDetail.text = "Harga Tiket \nRp"+harga.toString()
+        binding.txtJadwal.text = "Jadwal : \n"+jadwal
+        binding.txtChair.text =  "Available "+chair.toString()
         binding.txtClass.text = status+" Class"
 //        binding.ivKota.setImageResource(image)
 

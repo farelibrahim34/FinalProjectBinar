@@ -7,10 +7,7 @@ import com.finpro.garudanih.R
 import androidx.navigation.ui.setupWithNavController
 import com.finpro.garudanih.databinding.ActivityHomeBottomBinding
 import com.finpro.garudanih.view.fragments.history.HistoryFragment
-import com.finpro.garudanih.view.fragments.home.HomeFragment
-import com.finpro.garudanih.view.fragments.success.SuccessOrderFragment
 import com.finpro.garudanih.view.fragments.wishlist.OrderFragmentInterface
-import com.finpro.garudanih.view.fragments.wishlist.WishlistFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 

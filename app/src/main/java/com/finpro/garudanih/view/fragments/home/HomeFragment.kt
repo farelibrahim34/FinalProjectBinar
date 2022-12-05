@@ -18,6 +18,14 @@ import com.finpro.garudanih.adapter.AdapterTiket
 import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.FragmentHomeBinding
 import com.finpro.garudanih.model.ListInternasional
+
+import com.finpro.garudanih.model.ListPesawat
+import com.finpro.garudanih.model.Ticket
+import com.finpro.garudanih.view.HomeBottomActivity
+import com.finpro.garudanih.view.detils.DetailInternasionalActivity
+import com.finpro.garudanih.view.detils.TiketLokalActivity
+
+
 import com.finpro.garudanih.view.profile.ProfileActivity
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeOne
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeThree
@@ -52,6 +60,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.showLocal.setOnClickListener {
+            startActivity(Intent(context, TiketLokalActivity::class.java))
+        }
 
 
         getProfile()
@@ -155,7 +167,8 @@ class HomeFragment : Fragment() {
                 tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvLocal.adapter = tiketAdapter
             } else {
-                Toast.makeText(requireActivity(), "Data Tidak Tampil !", Toast.LENGTH_SHORT).show()
+                binding.homeProgressBar.visibility = View.VISIBLE
+                Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.CallApiTiket()

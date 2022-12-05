@@ -98,7 +98,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun updateDateInView() {
         val myFormat = "MM/dd/yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
-    // buat variable baru untuk POST date.mont,year ke API (format ini sudah dalam bentuk string)
+        // buat variable baru untuk POST date.mont,year ke API (format ini sudah dalam bentuk string)
         binding.tvTgllahir.text= sdf.format(cal.getTime())
     }
 

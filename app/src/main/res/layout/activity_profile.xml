@@ -193,27 +193,27 @@
             android:background="@drawable/rounded_bg_third"
             android:layout_marginVertical="10dp"
             android:paddingStart="20dp"
-            android:paddingEnd="20dp"
+            android:paddingEnd="5dp"
             app:layout_constraintTop_toBottomOf="@id/constDate">
 
-            <TextView
-                android:id="@+id/tvAlamat"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:inputType="text"
-                android:text="Pilih Kota Kamu"
-                android:textColor="@color/warna_secondary_font"
-                android:textColorHint="@color/warna_primary_font"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <TextView-->
+<!--                android:id="@+id/tvAlamat"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:gravity="center"-->
+<!--                android:inputType="text"-->
+<!--                android:text="Pilih Kota Kamu"-->
+<!--                android:textColor="@color/warna_secondary_font"-->
+<!--                android:textColorHint="@color/warna_primary_font"-->
+<!--                android:textSize="18sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            <Spinner
+                android:id="@+id/PilihKota"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -24,6 +24,7 @@ import com.finpro.garudanih.model.ListPesawat
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.detils.DetailInternasionalActivity
+import com.finpro.garudanih.view.detils.TiketLokalActivity
 
 import com.finpro.garudanih.view.profile.ProfileActivity
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeOne
@@ -63,6 +64,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.showLocal.setOnClickListener {
+            startActivity(Intent(context, TiketLokalActivity::class.java))
+        }
 
 
         getProfile()
@@ -162,7 +167,7 @@ class HomeFragment : Fragment() {
                 binding.rvLocal.adapter = tiketAdapter
                 Toast.makeText(requireActivity(), "Data Tampil", Toast.LENGTH_SHORT).show()
             } else {
-                binding.homeProgressBar.visibility = View.GONE
+                binding.homeProgressBar.visibility = View.VISIBLE
                 Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
         }

@@ -1,20 +1,20 @@
 package com.finpro.garudanih.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
+import com.finpro.garudanih.databinding.ItemShowAllBinding
 import com.finpro.garudanih.model.Ticket
 
 
 
-class AdapterListPesawat(val listPesawat : List<Ticket>): RecyclerView.Adapter<AdapterListPesawat.ViewHolder>() {
-    class ViewHolder (var binding : ItemBinding):RecyclerView.ViewHolder(binding.root){
+class AdapterLokal(val listPesawat : List<Ticket>): RecyclerView.Adapter<AdapterLokal.ViewHolder>() {
+    class ViewHolder (var binding : ItemShowAllBinding):RecyclerView.ViewHolder(binding.root){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = ItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val view = ItemShowAllBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(view)
     }
 
@@ -22,8 +22,12 @@ class AdapterListPesawat(val listPesawat : List<Ticket>): RecyclerView.Adapter<A
 
 
         holder.binding.txtKotaTujuan.text = listPesawat[position].destinationCode
+        holder.binding.txtKotaAsal.text = listPesawat[position].departureCode
         holder.binding.txtJadwal.text = listPesawat[position].takeOff
         holder.binding.txtHarga.text = listPesawat[position].price.toString()
+//        holder.binding.ivListpesawat.setImageResource(listTiket[position].type)
+        holder.binding.txtAvailable.text = listPesawat[position].totalChair.toString()
+        holder.binding.txtClass.text = listPesawat[position].classX
     }
 
 

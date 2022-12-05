@@ -6,11 +6,16 @@ import androidx.navigation.findNavController
 import com.finpro.garudanih.R
 import androidx.navigation.ui.setupWithNavController
 import com.finpro.garudanih.databinding.ActivityHomeBottomBinding
+import com.finpro.garudanih.view.fragments.history.HistoryFragment
+import com.finpro.garudanih.view.fragments.home.HomeFragment
+import com.finpro.garudanih.view.fragments.success.SuccessOrderFragment
+import com.finpro.garudanih.view.fragments.wishlist.OrderFragmentInterface
+import com.finpro.garudanih.view.fragments.wishlist.WishlistFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeBottomActivity : AppCompatActivity() {
+class HomeBottomActivity : AppCompatActivity(), OrderFragmentInterface {
 
     private lateinit var binding : ActivityHomeBottomBinding
 
@@ -26,6 +31,12 @@ class HomeBottomActivity : AppCompatActivity() {
             findNavController(R.id.nav_host_fragment_activity_home_bottom_navigation)
         navView.setupWithNavController(navController)
 
+    }
 
+    override fun onClickOrder() {
+        supportFragmentManager.beginTransaction()
+            .add(HistoryFragment(), HistoryFragment.TAG)
+            .addToBackStack(null)
+            .commit()
     }
 }

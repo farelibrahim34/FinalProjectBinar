@@ -23,7 +23,7 @@ class AdapterInternasional(val listInternasional : ArrayList<ListInternasional>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.txtKota.text = listInternasional[position].kotaInt
+        holder.binding.txtKotaTujuan.text = listInternasional[position].kotaInt
         holder.binding.txtJadwal.text = listInternasional[position].jadwalInt
         holder.binding.txtHarga.text = listInternasional[position].hargaInt.toString()
         holder.binding.ivListpesawat.setImageResource(listInternasional[position].gambarInt)

@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
+import com.finpro.garudanih.model.Ticket
 
-import com.finpro.garudanih.model.ListPesawat
-import com.finpro.garudanih.view.detils.DetailPesawatActivity
-import com.finpro.garudanih.view.fragments.detail.DetailFragment
 
-class AdapterListPesawat(val listPesawat : ArrayList<ListPesawat>): RecyclerView.Adapter<AdapterListPesawat.ViewHolder>() {
+
+class AdapterListPesawat(val listPesawat : List<Ticket>): RecyclerView.Adapter<AdapterListPesawat.ViewHolder>() {
     class ViewHolder (var binding : ItemBinding):RecyclerView.ViewHolder(binding.root){
     }
 
@@ -22,22 +21,11 @@ class AdapterListPesawat(val listPesawat : ArrayList<ListPesawat>): RecyclerView
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
 
-        holder.binding.txtKota.text = listPesawat[position].kota
-        holder.binding.txtJadwal.text = listPesawat[position].jadwal
-        holder.binding.txtHarga.text = listPesawat[position].harga.toString()
-        holder.binding.ivListpesawat.setImageResource(listPesawat[position].gambar)
-        holder.binding.txtAvailable.text = listPesawat[position].available
-
-        holder.binding.cardList.setOnClickListener {
-            val intent = Intent(it.context, DetailPesawatActivity::class.java)
-            intent.putExtra("kota", listPesawat[position].kota)
-            intent.putExtra("jadwal", listPesawat[position].jadwal)
-            intent.putExtra("harga", listPesawat[position].harga)
-            intent.putExtra("image", listPesawat[position].gambar)
-            intent.putExtra("available", listPesawat[position].available)
-            it.context.startActivity(intent)
-        }
+        holder.binding.txtKotaTujuan.text = listPesawat[position].destinationCode
+        holder.binding.txtJadwal.text = listPesawat[position].takeOff
+        holder.binding.txtHarga.text = listPesawat[position].price.toString()
     }
+
 
     override fun getItemCount(): Int {
         return listPesawat.size

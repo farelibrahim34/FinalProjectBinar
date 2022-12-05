@@ -11,7 +11,6 @@
     <uses-permission android:name="android.webkit.PermissionRequest" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-
     <application
         android:name=".di.AplikasiGarudaNih"
         android:allowBackup="true"
@@ -23,6 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GarudaNih"
         tools:targetApi="31">
+        <activity
+            android:name=".view.wrapper.SplashScreenActivity"
+            android:exported="false" />
         <activity
             android:name=".view.detils.DetailInternasionalActivity"
             android:exported="false">
@@ -39,15 +41,10 @@
         </activity>
         <activity
             android:name=".view.profile.ProfileActivity"
-
-            android:exported="true" >
-
-            android:exported="false">
-
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
         </activity>
         <activity
             android:name=".view.wrapper.ViewpagerActivity"

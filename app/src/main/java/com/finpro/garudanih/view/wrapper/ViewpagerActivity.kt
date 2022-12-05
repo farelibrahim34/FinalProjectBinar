@@ -1,13 +1,18 @@
 package com.finpro.garudanih.view.wrapper
 
 import android.R.color
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.ActivityViewpagerBinding
+import com.finpro.garudanih.utils.CheckUserUtil
+import com.finpro.garudanih.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import me.relex.circleindicator.CircleIndicator3
 
@@ -24,6 +29,7 @@ class ViewpagerActivity : AppCompatActivity() {
     private lateinit var indicator: CircleIndicator3
     private lateinit var btnNext: Button
     private lateinit var btnBack: Button
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,6 +78,7 @@ class ViewpagerActivity : AppCompatActivity() {
             data.add("item $item")
         }
     }
+
 
 }
 

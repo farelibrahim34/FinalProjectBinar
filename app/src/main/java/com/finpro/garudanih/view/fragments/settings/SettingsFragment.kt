@@ -74,7 +74,7 @@ class SettingsFragment : Fragment() {
 
 
         binding.ivSetImage.setOnClickListener{
-                checkingPermissions()
+            checkingPermissions()
         }
     }
     private fun updateDateInView() {

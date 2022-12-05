@@ -9,4 +9,12 @@ import javax.inject.Inject
 class UserViewModel @Inject constructor(private val repo: DataUserRepository): ViewModel() {
     fun currentUser(token : String) = repo.getDataUser(token)
     fun getCurrentObserve() = repo.getCurrentUserObserve()
+
+    fun updateUser(token :String,
+                   nomor : String,
+                   tanggallahir :String,
+                   kota : String) = repo.updateCurrentUser(token,nomor,tanggallahir,kota)
+
+    fun getUpdateUserObserver() = repo.updateCurrentUserObserve()
+
 }

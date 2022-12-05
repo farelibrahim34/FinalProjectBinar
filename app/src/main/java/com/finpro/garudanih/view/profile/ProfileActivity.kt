@@ -23,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.finpro.garudanih.MainActivity
 import com.finpro.garudanih.databinding.ActivityProfileBinding
+import com.finpro.garudanih.utils.UpdateProfile
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.auth.LoginActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
@@ -54,6 +55,7 @@ class ProfileActivity : AppCompatActivity() {
 
         getProfile()
         setGetDataUser()
+
 
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 //        logout
@@ -90,6 +92,7 @@ class ProfileActivity : AppCompatActivity() {
         }
         binding.btnSimpan.setOnClickListener {
             GlobalScope.launch {
+                doUpdateProfile()
                 startActivity(Intent(this@ProfileActivity, MainActivity::class.java))
             }
             val resolver = this.applicationContext.contentResolver
@@ -261,5 +264,35 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
 
+    }
+    private fun doUpdateProfile(){
+        binding.btnSimpan.setOnClickListener {
+            val nomor = binding.etPhone.text.toString().trim()
+            val ttl = binding.tvTgllahir.text.toString().trim()
+            val kota = binding.tvAlamat.text.toString()
+            val validate = UpdateProfile.validateEditProfile(nomor,ttl,kota)
+            if (validate == "success"){
+                authViewModel.getToken().observe(this){token->
+                    if (token != null){
+                        if (nomor.isNotBlank() && ttl.isNotBlank() && kota.isNotBlank()){
+                            userViewModel.updateUser("Bearer $token", nomor, ttl,kota)
+                            userViewModel.getUpdateUserObserver().observe(this){
+                                if (it != null){
+                                    Toast.makeText(this, "Update Profile Success", Toast.LENGTH_SHORT).show()
+                                }else{
+                                    Toast.makeText(this, "Failed Update Profile", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }else{
+                            Toast.makeText(this, "Cannot be empty", Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        Log.d("TOKEN","Token Null")
+                    }
+                }
+            }else{
+                Toast.makeText(this, "Warning Data Yang Anda Masukkan Tidak lengkap", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

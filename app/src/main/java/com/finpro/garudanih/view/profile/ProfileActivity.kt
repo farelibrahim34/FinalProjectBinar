@@ -92,7 +92,6 @@ class ProfileActivity : AppCompatActivity() {
         }
         binding.btnSimpan.setOnClickListener {
             GlobalScope.launch {
-                doUpdateProfile()
                 startActivity(Intent(this@ProfileActivity, MainActivity::class.java))
             }
             val resolver = this.applicationContext.contentResolver
@@ -103,6 +102,8 @@ class ProfileActivity : AppCompatActivity() {
         }
         val image = BitmapFactory.decodeFile(this.applicationContext.filesDir.path + File.separator +"dataFoto"+ File.separator +"fotoProfile.png")
         binding.ivSetImage.setImageBitmap(image)
+
+        doUpdateProfile()
     }
 
     private fun updateDateInView() {
@@ -290,8 +291,6 @@ class ProfileActivity : AppCompatActivity() {
                         Log.d("TOKEN","Token Null")
                     }
                 }
-            }else{
-                Toast.makeText(this, "Warning Data Yang Anda Masukkan Tidak lengkap", Toast.LENGTH_SHORT).show()
             }
         }
     }

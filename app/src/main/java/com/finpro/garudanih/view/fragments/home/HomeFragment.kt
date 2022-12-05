@@ -158,12 +158,9 @@ class HomeFragment : Fragment() {
             binding.homeProgressBar.visibility = View.VISIBLE
             if (it != null) {
                 binding.homeProgressBar.visibility = View.GONE
-<<<<<<< HEAD
                 binding.rvLocal.layoutManager =
                     LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-=======
                 binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
->>>>>>> dev-ibrahim
                 tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvLocal.adapter = tiketAdapter
                 Toast.makeText(requireActivity(), "Data Tampil", Toast.LENGTH_SHORT).show()

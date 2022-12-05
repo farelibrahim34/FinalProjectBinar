@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:text="Available"
-            android:textColor="#4EBC52"
+            android:textColor="@color/green"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtHarga" />
@@ -147,7 +147,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="240dp" />
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="100dp"

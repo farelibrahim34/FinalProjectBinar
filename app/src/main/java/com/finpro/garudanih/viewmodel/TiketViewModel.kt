@@ -17,13 +17,8 @@ import javax.inject.Inject
 class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
 
 
-
-
-
     var ldListTiket : MutableLiveData<ResponseListTiket?>
     var postTiket : MutableLiveData<ResponseListTiket?>
-
-
 
     init {
         ldListTiket = MutableLiveData()

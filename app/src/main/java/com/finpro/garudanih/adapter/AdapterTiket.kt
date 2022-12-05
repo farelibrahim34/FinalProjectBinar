@@ -9,8 +9,6 @@ import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
 
-
-
 class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<AdapterTiket.ViewHolder>() {
 
     class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {

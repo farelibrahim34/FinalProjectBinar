@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.finpro.garudanih.databinding.FragmentWishlistBinding
+import com.finpro.garudanih.view.succsess.SuccsesOrderActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,5 +40,8 @@ class WishlistFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnOrder.setOnClickListener {
+            startActivity(Intent(context, SuccsesOrderActivity::class.java))
+        }
     }
 }

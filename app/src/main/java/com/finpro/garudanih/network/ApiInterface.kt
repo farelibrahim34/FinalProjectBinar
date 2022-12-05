@@ -17,7 +17,6 @@ interface ApiInterface {
     @GET("v1/ticket")
     fun getAllListTicket() : Call<ResponseListTiket>
 
-
     @GET("v1/ticket/{id}")
     fun getTiketByid(@Path("id") id : Int): Call<ResponseDetailTiket>
 

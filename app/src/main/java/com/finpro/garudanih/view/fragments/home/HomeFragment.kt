@@ -4,13 +4,12 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.finpro.garudanih.R
@@ -18,13 +17,7 @@ import com.finpro.garudanih.adapter.AdapterInternasional
 import com.finpro.garudanih.adapter.AdapterTiket
 import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.FragmentHomeBinding
-import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.model.ListInternasional
-import com.finpro.garudanih.model.ListPesawat
-import com.finpro.garudanih.model.Ticket
-import com.finpro.garudanih.view.HomeBottomActivity
-import com.finpro.garudanih.view.detils.DetailInternasionalActivity
-
 import com.finpro.garudanih.view.profile.ProfileActivity
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeOne
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeThree
@@ -44,13 +37,9 @@ class HomeFragment : Fragment() {
     private var fragmentList = ArrayList<Fragment>()
     private lateinit var viewPager: ViewPager2
     private lateinit var indicator: CircleIndicator3
-
-    lateinit var viewModelListTiket : TiketViewModel
     lateinit var authViewModel : AuthViewModel
     lateinit var userViewModel : UserViewModel
     lateinit var tiketAdapter : AdapterTiket
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,6 +78,7 @@ class HomeFragment : Fragment() {
 
     }
 
+
     fun bannerHome(){
         castView()
 
@@ -99,6 +89,7 @@ class HomeFragment : Fragment() {
         viewPager.adapter = ViewPagerFragmentAdapter(requireActivity(),fragmentList)
         viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         indicator.setViewPager(viewPager)
+
     }
 
     private fun castView() {
@@ -158,17 +149,13 @@ class HomeFragment : Fragment() {
             binding.homeProgressBar.visibility = View.VISIBLE
             if (it != null) {
                 binding.homeProgressBar.visibility = View.GONE
-<<<<<<< HEAD
                 binding.rvLocal.layoutManager =
                     LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-=======
                 binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
->>>>>>> dev-ibrahim
                 tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvLocal.adapter = tiketAdapter
-                Toast.makeText(requireActivity(), "Data Tampil", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), "Data Tidak Tampil !", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.CallApiTiket()

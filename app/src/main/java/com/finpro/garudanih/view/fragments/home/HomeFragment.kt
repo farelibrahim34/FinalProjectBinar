@@ -23,6 +23,7 @@ import com.finpro.garudanih.model.ListPesawat
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.detils.DetailInternasionalActivity
+import com.finpro.garudanih.view.detils.TiketInternasionalActivity
 import com.finpro.garudanih.view.detils.TiketLokalActivity
 
 
@@ -48,6 +49,7 @@ class HomeFragment : Fragment() {
     lateinit var authViewModel : AuthViewModel
     lateinit var userViewModel : UserViewModel
     lateinit var tiketAdapter : AdapterTiket
+    lateinit var adapterIntr : AdapterInternasional
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,6 +66,9 @@ class HomeFragment : Fragment() {
         binding.showLocal.setOnClickListener {
             startActivity(Intent(context, TiketLokalActivity::class.java))
         }
+        binding.showInternational.setOnClickListener {
+            startActivity(Intent(context, TiketInternasionalActivity::class.java))
+        }
 
 
         getProfile()
@@ -74,19 +79,11 @@ class HomeFragment : Fragment() {
             startActivity(Intent(context, ProfileActivity::class.java))
         }
 
-        val listInt = arrayListOf(
-            ListInternasional("China",2000000,"16 Agustus","24/100",R.drawable.ic_logogn,"pending"),
-            ListInternasional("Malaysia",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
-            ListInternasional("Thailand",2000000,"16 Agustus","24/100",R.drawable.jakarta,"pending"),
-            ListInternasional("Singapura",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending"),
-
-            )
-        binding.rvInternational.adapter = AdapterInternasional(listInt)
-        binding.rvInternational.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
 
         bannerHome()
         getDatafoto()
         setUpTiketInt()
+        setTiketIntr()
 
     }
 
@@ -161,8 +158,6 @@ class HomeFragment : Fragment() {
             binding.homeProgressBar.visibility = View.VISIBLE
             if (it != null) {
                 binding.homeProgressBar.visibility = View.GONE
-                binding.rvLocal.layoutManager =
-                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvLocal.adapter = tiketAdapter
@@ -172,6 +167,22 @@ class HomeFragment : Fragment() {
             }
         }
         viewModel.CallApiTiket()
+    }
+    private fun setTiketIntr(){
+        val viewModel = ViewModelProvider(requireActivity()).get(TiketViewModel::class.java)
+        viewModel.getLdTiketIntr().observe(viewLifecycleOwner){
+            binding.homeProgressBar.visibility = View.GONE
+            if (it != null){
+                binding.homeProgressBar.visibility = View.GONE
+                binding.rvInternational.layoutManager= LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+                adapterIntr = AdapterInternasional(it.data.tickets)
+                binding.rvInternational.adapter = adapterIntr
+            }else{
+                binding.homeProgressBar.visibility = View.VISIBLE
+                Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
+            }
+        }
+        viewModel.callApiTiketIntr()
     }
 }
 

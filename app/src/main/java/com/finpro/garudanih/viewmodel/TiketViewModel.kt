@@ -17,12 +17,14 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
 
     lateinit var ldListTiket : MutableLiveData<ResponseListTiket?>
     lateinit var postTiket : MutableLiveData<ResponseListTiket?>
-//    lateinit var postOrderTiket : MutableLiveData<ResponseOrder?>
+    lateinit var ldListTiketIntr : MutableLiveData<ResponseListTiket?>
+
 
     init {
         ldListTiket = MutableLiveData()
         postTiket = MutableLiveData()
-//        postOrderTiket = MutableLiveData()
+        ldListTiketIntr = MutableLiveData()
+
     }
 
 
@@ -32,9 +34,10 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
     fun postTiket(): MutableLiveData<ResponseListTiket?>{
         return postTiket
     }
-//    fun postTiketOrder(): MutableLiveData<ResponseOrder?> {
-//        return postOrderTiket
-//    }
+    fun getLdTiketIntr(): MutableLiveData<ResponseListTiket?>{
+        return ldListTiketIntr
+    }
+
 
     fun CallApiTiket(){
         api.getAllListTicket()
@@ -58,26 +61,25 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
 
             })
     }
-//    fun callPostOrder(ticketId:Int,orderBy : String,ktp: String,numChair : Int){
-//        api.orderTiket(ticketId,DataOrder(orderBy,ktp,numChair))
-//            .enqueue(object : Callback<ResponseOrder>{
-//                override fun onResponse(
-//                    call: Call<ResponseOrder>,
-//                    response: Response<ResponseOrder>
-//                ) {
-//                    if (response.isSuccessful){
-//                        postOrderTiket.postValue(response.body())
-//                        Log.d("data",response.body()?.data.toString())
-//                    }else{
-//                        postOrderTiket.postValue(null)
-//                        Log.d("data",response.body()?.data.toString())
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<ResponseOrder>, t: Throwable) {
-//                    postOrderTiket.postValue(null)
-//                }
-//
-//            })
-//    }
+    fun callApiTiketIntr(){
+        api.getAllListTicketIntr()
+            .enqueue(object : Callback<ResponseListTiket>{
+                override fun onResponse(
+                    call: Call<ResponseListTiket>,
+                    response: Response<ResponseListTiket>
+                ) {
+                    if (response.isSuccessful){
+                        ldListTiketIntr.postValue(response.body())
+                    }else{
+                        ldListTiketIntr.postValue(null)
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseListTiket>, t: Throwable) {
+                    ldListTiketIntr.postValue(null)
+                }
+
+            })
+    }
+
 }

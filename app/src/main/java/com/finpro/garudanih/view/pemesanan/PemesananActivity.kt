@@ -28,6 +28,9 @@ class PemesananActivity : AppCompatActivity() {
         val intent = intent
         val idTiket = intent.getIntExtra("id",0)
 
+        binding.ivBack.setOnClickListener {
+            startActivity(Intent(this, HomeBottomActivity::class.java))
+        }
         binding.txtIdTiket.text = "ID Tiket : "+idTiket.toString()
 
         binding.btnPesanTiket.setOnClickListener {
@@ -42,9 +45,6 @@ class PemesananActivity : AppCompatActivity() {
 //            startActivity(intent)
 //            Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
         }
-
-
-
 
 
     }
@@ -66,7 +66,7 @@ class PemesananActivity : AppCompatActivity() {
                             if (it != null){
                                 Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                             }else{
-                                Toast.makeText(this,"Gagal Memesan Tiket", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
                             }
                         }
                     }

@@ -17,6 +17,9 @@ interface ApiInterface {
     @GET("v1/ticket-doms")
     fun getAllListTicket() : Call<ResponseListTiket>
 
+    @GET("v1/ticket-intr")
+    fun getAllListTicketIntr() : Call<ResponseListTiket>
+
     @GET("v1/ticket/{id}")
     fun getTiketByid(@Path("id") id : Int): Call<ResponseDetailTiket>
 
@@ -24,12 +27,5 @@ interface ApiInterface {
     fun orderTiket(@Header("Authorization")auth : String,
                    @Path("ticketId") ticketId : Int,
                    @Body request: DataOrder): Call<ResponseOrder>
-//    @POST("v1/trans/{ticketId}")
-//    fun orderTiket(@Path("ticketId") ticketId : Int,@Body request: DataOrder): Call<ResponseOrder>
 
-
-
-//    @PUT("api/user/update")
-//    fun updateUserLogin(@Header("Authorization")auth: String,
-//                        @Body user : UpdateProfile):Call<ResponseUserUpdate>
 }

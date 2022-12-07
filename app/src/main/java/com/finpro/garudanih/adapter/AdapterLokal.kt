@@ -24,7 +24,7 @@ class AdapterLokal(val listPesawat : List<Ticket>): RecyclerView.Adapter<Adapter
         holder.binding.txtKotaTujuan.text = listPesawat[position].destinationCode
         holder.binding.txtKotaAsal.text = listPesawat[position].departureCode
         holder.binding.txtJadwal.text = listPesawat[position].takeOff
-        holder.binding.txtHarga.text = listPesawat[position].price.toString()
+        holder.binding.txtHarga.text = "Rp"+listPesawat[position].price.toString()
 //        holder.binding.ivListpesawat.setImageResource(listTiket[position].type)
         holder.binding.txtAvailable.text = listPesawat[position].totalChair.toString()
         holder.binding.txtClass.text = listPesawat[position].classX

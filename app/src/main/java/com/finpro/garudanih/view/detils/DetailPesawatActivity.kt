@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.databinding.ActivityDetailPesawatBinding
+import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
+import com.finpro.garudanih.view.pemesanan.PemesananActivity
 import com.finpro.garudanih.viewmodel.TiketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.properties.Delegates
@@ -24,6 +26,13 @@ class DetailPesawatActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModelTiket = ViewModelProvider(this).get(TiketViewModel::class.java)
+        val id = intent.getIntExtra("id",0)
+
+        binding.btnOrder.setOnClickListener {
+            val intent = Intent(this, PemesananActivity::class.java)
+            intent.putExtra("id",id)
+            startActivity(intent)
+        }
 
 
         binding.ivBackDetail.setOnClickListener {

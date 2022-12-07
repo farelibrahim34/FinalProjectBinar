@@ -14,11 +14,18 @@ interface ApiInterface {
     @GET("v1/user/current")
     fun getUserLogin(@Header("Authorization")authHeader : String): Call<ResponseUserCurrent>
 
-    @GET("v1/ticket")
+    @GET("v1/ticket-doms")
     fun getAllListTicket() : Call<ResponseListTiket>
 
     @GET("v1/ticket/{id}")
     fun getTiketByid(@Path("id") id : Int): Call<ResponseDetailTiket>
+
+    @POST("v1/trans/{ticketId}")
+    fun orderTiket(@Header("Authorization")auth : String,
+                   @Path("ticketId") ticketId : Int,
+                   @Body request: DataOrder): Call<ResponseOrder>
+//    @POST("v1/trans/{ticketId}")
+//    fun orderTiket(@Path("ticketId") ticketId : Int,@Body request: DataOrder): Call<ResponseOrder>
 
 
 

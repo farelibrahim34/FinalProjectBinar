@@ -22,18 +22,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GarudaNih"
         tools:targetApi="31">
+
+        <activity
+            android:name="com.finpro.garudanih.view.pemesanan.PemesananActivity"
+            android:exported="false" />
         <activity
             android:name=".view.detils.TiketLokalActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
-
             android:name=".view.succsess.SuccsesOrderActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".view.wrapper.SplashScreenActivity"
             android:exported="false" />

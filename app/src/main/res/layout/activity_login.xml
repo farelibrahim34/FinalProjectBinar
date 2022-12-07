@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:ems="10"
-            android:hint="Masukkan Username"
+            android:hint="Masukkan Email"
             android:inputType="text"
             android:textColorHint="@color/warna_primary_font"
             android:textColor="@color/warna_primary_font"

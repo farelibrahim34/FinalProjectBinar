@@ -9,4 +9,11 @@ import javax.inject.Inject
 class UserViewModel @Inject constructor(private val repo: DataUserRepository): ViewModel() {
     fun currentUser(token : String) = repo.getDataUser(token)
     fun getCurrentObserve() = repo.getCurrentUserObserve()
+
+    fun orderTiketPesawat(token: String,
+                          ticketId:Int,
+                          orderBy : String,
+                          ktp: String,
+                          numChair : Int) = repo.postOrderTiket(token,ticketId,orderBy,ktp,numChair)
+    fun orderTiketObserve() = repo.postOrderObserve()
 }

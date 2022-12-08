@@ -36,7 +36,7 @@ class DetailPesawatActivity : AppCompatActivity() {
 
 
         binding.ivBackDetail.setOnClickListener {
-            startActivity(Intent(this, HomeBottomActivity::class.java))
+            startActivity(Intent(this, TiketLokalActivity::class.java))
         }
         getListPesawat()
     }

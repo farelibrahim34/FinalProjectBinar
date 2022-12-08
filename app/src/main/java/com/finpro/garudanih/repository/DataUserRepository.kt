@@ -2,9 +2,7 @@ package com.finpro.garudanih.repository
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.finpro.garudanih.model.DataOrder
-import com.finpro.garudanih.model.ResponseOrder
-import com.finpro.garudanih.model.ResponseUserCurrent
+import com.finpro.garudanih.model.*
 import com.finpro.garudanih.network.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,9 +13,11 @@ class DataUserRepository @Inject constructor(private val api: ApiInterface) {
 
     private val getCurrentUser : MutableLiveData<ResponseUserCurrent?> = MutableLiveData()
     private val postOrder : MutableLiveData<ResponseOrder?> = MutableLiveData()
+    private val getHistoryUser: MutableLiveData<HistoryResponse?> = MutableLiveData()
 
     fun getCurrentUserObserve(): MutableLiveData<ResponseUserCurrent?> = getCurrentUser
     fun postOrderObserve(): MutableLiveData<ResponseOrder?> = postOrder
+    fun getHistoryObserve(): MutableLiveData<HistoryResponse?> = getHistoryUser
 
     fun getDataUser(token:String){
         api.getUserLogin(token)
@@ -71,6 +71,34 @@ class DataUserRepository @Inject constructor(private val api: ApiInterface) {
                 override fun onFailure(call: Call<ResponseOrder>, t: Throwable) {
                     postOrder.postValue(null)
                     Log.d("ORDER_TIKET","onFailure")
+                }
+
+            })
+    }
+    fun getHistory(token : String){
+        api.getHistoryPemesanan(token)
+            .enqueue(object  : Callback<HistoryResponse>{
+                override fun onResponse(
+                    call: Call<HistoryResponse>,
+                    response: Response<HistoryResponse>
+                ) {
+                    if (response.isSuccessful){
+                        val body = response.body()
+                        if (body != null){
+                            getHistoryUser.postValue(body)
+                        }else{
+                            getHistoryUser.value = null
+                            Log.d("HISTORY","Null")
+                        }
+                    }else{
+                        getHistoryUser.value = null
+                        Log.d("HISTORY",response.message())
+                    }
+                }
+
+                override fun onFailure(call: Call<HistoryResponse>, t: Throwable) {
+                    getHistoryUser.postValue(null)
+                    Log.d("HISTORY","onFailure")
                 }
 
             })

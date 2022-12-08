@@ -28,4 +28,7 @@ interface ApiInterface {
                    @Path("ticketId") ticketId : Int,
                    @Body request: DataOrder): Call<ResponseOrder>
 
+    @GET("v1/user/history")
+    fun getHistoryPemesanan(@Header("Authorization")authHeader : String) : Call<HistoryResponse>
+
 }

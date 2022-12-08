@@ -16,4 +16,8 @@ class UserViewModel @Inject constructor(private val repo: DataUserRepository): V
                           ktp: String,
                           numChair : Int) = repo.postOrderTiket(token,ticketId,orderBy,ktp,numChair)
     fun orderTiketObserve() = repo.postOrderObserve()
+
+    fun historyUser(token: String)= repo.getHistory(token)
+    fun getHistoryObserve() = repo.getHistoryObserve()
+
 }

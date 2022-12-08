@@ -15,47 +15,64 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
-            android:id="@+id/imgOrder"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/jakarta" />
-
         <TextView
-            android:id="@+id/txtKotaOrder"
-            android:layout_width="wrap_content"
+            android:id="@+id/txtDeparture"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Jakarta"
-            android:layout_marginStart="10dp"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/imgOrder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDestination" />
+
+        <TextView
+            android:id="@+id/txtDestination"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Jakarta"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtHargaOrder"
+            android:id="@+id/txtClassHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Harga"
-            app:layout_constraintStart_toStartOf="@+id/txtKotaOrder"
-            app:layout_constraintTop_toBottomOf="@+id/txtKotaOrder" />
+            android:text="Class"
+            app:layout_constraintStart_toStartOf="@+id/txtDestination"
+            app:layout_constraintTop_toBottomOf="@+id/txtCodeTiket" />
+
+        <TextView
+            android:id="@+id/txtCodeTiket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="code"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtOrderBy" />
 
         <TextView
             android:id="@+id/txtTglOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tanggal Pembelian tiket"
+            android:text="tanggal pemesanan"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtStatusOrder"
+            android:id="@+id/txtIsPaid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="status"
+            android:text="TextView"
             app:layout_constraintStart_toStartOf="@+id/txtTglOrder"
             app:layout_constraintTop_toBottomOf="@+id/txtTglOrder" />
+
+        <TextView
+            android:id="@+id/txtOrderBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="orderBy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDeparture" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

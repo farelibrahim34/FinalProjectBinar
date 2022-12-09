@@ -17,6 +17,11 @@
         android:title="@string/title_order" />
 
     <item
+        android:id="@+id/navigation_round_trip"
+        android:icon="@drawable/ic_round_trip"
+        android:title="@string/title_round_trip" />
+
+    <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
         android:title="@string/ic_settings" />

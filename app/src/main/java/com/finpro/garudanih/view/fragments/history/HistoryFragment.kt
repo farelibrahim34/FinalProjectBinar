@@ -15,7 +15,6 @@ import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class HistoryFragment : Fragment() {
     lateinit var userViewModel : UserViewModel

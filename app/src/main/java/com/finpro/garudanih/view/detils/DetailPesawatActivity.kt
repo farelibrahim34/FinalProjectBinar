@@ -27,10 +27,18 @@ class DetailPesawatActivity : AppCompatActivity() {
 
         viewModelTiket = ViewModelProvider(this).get(TiketViewModel::class.java)
         val id = intent.getIntExtra("id",0)
+        val harga = intent.getIntExtra("harga",0)
+        val kota = intent.getStringExtra("destinasi")
+        val keberangkatan = intent.getStringExtra("departure")
+        val jadwal = intent.getStringExtra("jadwal")
 
         binding.btnOrder.setOnClickListener {
             val intent = Intent(this, PemesananActivity::class.java)
             intent.putExtra("id",id)
+            intent.putExtra("harga",harga)
+            intent.putExtra("destinasi",kota)
+            intent.putExtra("departure",keberangkatan)
+            intent.putExtra("jadwal",jadwal)
             startActivity(intent)
         }
 

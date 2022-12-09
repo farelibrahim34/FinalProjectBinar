@@ -22,6 +22,11 @@ class AdapterHistory(val listHistory: List<Transaction>?):RecyclerView.Adapter<A
         holder.binding.txtOrderBy.text = listHistory[position].orderBy
         holder.binding.txtTglOrder.text = listHistory[position].createdAt
         holder.binding.txtIsPaid.text = listHistory[position].isPaid.toString()
+        if (listHistory[position].isPaid == false){
+            holder.binding.txtIsPaid.text = "Anda belum Melakukan Pembayaran"
+        }else{
+            holder.binding.txtIsPaid.text = "Anda sudah Melakukan Pembayaran"
+        }
         holder.binding.txtCodeTiket.text = listHistory[position].ticketCode
     }
     override fun getItemCount(): Int {

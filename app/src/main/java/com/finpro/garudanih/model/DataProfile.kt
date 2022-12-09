@@ -5,12 +5,9 @@ import kotlinx.parcelize.Parcelize
 
 
 @Parcelize
-class DataProfile (
+data class DataProfile (
     val nomor: String,
     val tanggallahir: String,
     val kota: String
     ):Parcelable
 
-data class ResponseUserUpdate(
-    val message : String
-)

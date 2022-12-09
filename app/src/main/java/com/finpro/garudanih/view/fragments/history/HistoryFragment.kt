@@ -1,19 +1,27 @@
 package com.finpro.garudanih.view.fragments.history
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.finpro.garudanih.R
-import com.finpro.garudanih.adapter.AdapterOrder
+import com.finpro.garudanih.adapter.AdapterHistory
 import com.finpro.garudanih.databinding.FragmentHistoryBinding
-import com.finpro.garudanih.model.ListPesawat
+import com.finpro.garudanih.viewmodel.AuthViewModel
+import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class HistoryFragment : Fragment() {
+    lateinit var userViewModel : UserViewModel
+    lateinit var authViewModel : AuthViewModel
+    lateinit var adapterHistory : AdapterHistory
+    private var tokenHistory : String = ""
 
     companion object {
         const val TAG = "HistoryOrderFragment"
@@ -32,13 +40,24 @@ class HistoryFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = arrayListOf(
-            ListPesawat("China",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
-            ListPesawat("Malaysia",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
-            ListPesawat("Thailand",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
-            ListPesawat("Singapura",2000000,"16 Agustus","24/100",R.drawable.pesawat,"pending","Economy"),
-        )
-        binding.rvOrder.adapter = AdapterOrder(list)
-        binding.rvOrder.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
+        userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+        authViewModel.getToken().observe(requireActivity()){token->
+            if (token != null){
+                tokenHistory = "Bearer "+token
+            }
+        }
+        userViewModel.getHistoryObserve().observe(requireActivity()){
+            if (it != null){
+                binding.rvHistory.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+                adapterHistory = AdapterHistory(it.data.transaction)
+                binding.rvHistory.adapter = adapterHistory
+                Log.d(TAG, "onViewCreated: ${it.data.transaction}")
+                Toast.makeText(context, "Data Tampil", Toast.LENGTH_SHORT).show()
+            }
+        }
+        userViewModel.historyUser(tokenHistory)
+
     }
+
 }

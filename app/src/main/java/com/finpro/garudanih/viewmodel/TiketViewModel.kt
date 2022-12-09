@@ -3,9 +3,7 @@ package com.finpro.garudanih.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.finpro.garudanih.model.ResponseDetailTiket
-import com.finpro.garudanih.model.ResponseListTiket
-import com.finpro.garudanih.model.Ticket
+import com.finpro.garudanih.model.*
 import com.finpro.garudanih.network.ApiInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -17,12 +15,16 @@ import javax.inject.Inject
 class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
 
 
-    var ldListTiket : MutableLiveData<ResponseListTiket?>
-    var postTiket : MutableLiveData<ResponseListTiket?>
+    lateinit var ldListTiket : MutableLiveData<ResponseListTiket?>
+    lateinit var postTiket : MutableLiveData<ResponseListTiket?>
+    lateinit var ldListTiketIntr : MutableLiveData<ResponseListTiket?>
+
 
     init {
         ldListTiket = MutableLiveData()
         postTiket = MutableLiveData()
+        ldListTiketIntr = MutableLiveData()
+
     }
 
 
@@ -31,8 +33,11 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
     }
     fun postTiket(): MutableLiveData<ResponseListTiket?>{
         return postTiket
-
     }
+    fun getLdTiketIntr(): MutableLiveData<ResponseListTiket?>{
+        return ldListTiketIntr
+    }
+
 
     fun CallApiTiket(){
         api.getAllListTicket()
@@ -55,4 +60,26 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
                 }
 
             })
-            }}
+    }
+    fun callApiTiketIntr(){
+        api.getAllListTicketIntr()
+            .enqueue(object : Callback<ResponseListTiket>{
+                override fun onResponse(
+                    call: Call<ResponseListTiket>,
+                    response: Response<ResponseListTiket>
+                ) {
+                    if (response.isSuccessful){
+                        ldListTiketIntr.postValue(response.body())
+                    }else{
+                        ldListTiketIntr.postValue(null)
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseListTiket>, t: Throwable) {
+                    ldListTiketIntr.postValue(null)
+                }
+
+            })
+    }
+
+}

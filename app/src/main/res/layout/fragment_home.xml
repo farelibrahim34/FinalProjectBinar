@@ -15,6 +15,7 @@
         android:layout_height="60dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -23,11 +24,11 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
-            app:civ_border_color="@color/warna_second_button"
-            app:civ_border_width="3dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:src="@drawable/profile"
+            app:civ_border_color="@color/warna_second_button"
+            app:civ_border_width="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,12 +37,12 @@
             android:id="@+id/txtUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Hello, Username"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="15sp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Hello, Username"
             android:textColor="@color/warna_primary_font"
+            android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/ivUser"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,16 +50,26 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Welcome Back!"
-            android:fontFamily="@font/poppins_medium"
-            android:textSize="10sp"
             android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Welcome Back!"
             android:textColor="@color/warna_primary_font"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
 
             app:layout_constraintStart_toEndOf="@+id/ivUser"
             app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+
+        <ImageView
+            android:id="@+id/wishlist"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:src="@drawable/wishlist"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView

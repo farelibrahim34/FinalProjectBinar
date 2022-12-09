@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,9 +20,13 @@ import android.widget.DatePicker
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.FragmentSettingsBinding
 import com.finpro.garudanih.view.HomeBottomActivity
+import com.finpro.garudanih.viewmodel.AuthViewModel
+import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.io.FileOutputStream
@@ -33,10 +38,12 @@ import java.util.*
 class SettingsFragment : Fragment() {
 
     private lateinit var binding : FragmentSettingsBinding
+    private lateinit var authViewModel: AuthViewModel
+    private lateinit var userViewModel : UserViewModel
     private val REQUEST_CODE_PERMISSION = 100
     private var imageUri: Uri? = Uri.EMPTY
     var cal = Calendar.getInstance()
-
+    private val args by navArgs<SettingsFragmentArgs>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,6 +55,10 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setData()
+        getProfile()
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         binding.tvTgllahir.text = "--/--/----"
         // create an OnDateSetListener
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
@@ -159,5 +170,27 @@ class SettingsFragment : Fragment() {
 
         }
 
+    private fun getProfile(){
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        authViewModel.getToken().observe(requireActivity()){
+            if(it != null){
+                userViewModel.currentUser("Bearer $it")
+            }else{
+                Log.d("TOKEN","Token Null")
+            }
+        }
+    }
+    private fun setData(){
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel.getCurrentObserve().observe(requireActivity()){
+            if (it != null)
+                binding.apply {
+                    binding.tvNamauser.setText(it.name)
+                    binding.tvEmailuser.setText(it.email)
+                    binding.etPhone.setText(it.phone)
+                    binding.tvTgllahir.setText(it.birth)
+                }
+        }
+    }
 
 }

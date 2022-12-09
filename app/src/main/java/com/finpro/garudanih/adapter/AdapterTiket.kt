@@ -25,7 +25,7 @@ class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<
         holder.binding.txtKotaTujuan.text = listTiket[position].destinationCode
         holder.binding.txtKotaAsal.text = listTiket[position].departureCode
         holder.binding.txtJadwal.text = listTiket[position].takeOff
-        holder.binding.txtHarga.text = listTiket[position].price.toString()
+        holder.binding.txtHarga.text = "Rp"+listTiket[position].price.toString()
 //        holder.binding.ivListpesawat.setImageResource(listTiket[position].type)
         holder.binding.txtAvailable.text = listTiket[position].totalChair.toString()
         holder.binding.txtClass.text = listTiket[position].classX
@@ -33,6 +33,7 @@ class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<
         holder.binding.cardList.setOnClickListener {
 
             val intent = Intent(it.context, DetailPesawatActivity::class.java)
+            intent.putExtra("id", listTiket[position].id)
             intent.putExtra("destinasi", listTiket[position].destination)
             intent.putExtra("departure", listTiket[position].departure)
             intent.putExtra("jadwal", listTiket[position].takeOff)

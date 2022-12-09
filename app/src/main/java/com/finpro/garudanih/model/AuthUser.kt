@@ -1,5 +1,8 @@
 package com.finpro.garudanih.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 //LOGIN
 data class UserLogin (
     val email : String,
@@ -26,8 +29,13 @@ data class ResponseUserCurrent(
     val updatedAt : String
 )
 //update profile
+@Parcelize
 data class UpdateProfile(
-    val hoHp : String,
+    val phone : String,
     val birth : String,
     val image : String,
+): Parcelable
+
+data class ResponseUserUpdate(
+    val message : String
 )

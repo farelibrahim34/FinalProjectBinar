@@ -2,46 +2,58 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:padding="10dp"
+    android:background="@color/warna_background"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView3"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <TextView
             android:id="@+id/txtDeparture"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Jakarta"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtDestination" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/txtDestination"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Jakarta"
+            android:text="Bali"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/txtDeparture"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <!--  Divider  -->
+        <View
+            android:id="@+id/dividerView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/warna_second_button"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/txtDestination" />
+
 
         <TextView
-            android:id="@+id/txtClassHistory"
+            android:id="@+id/txtOrderBy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Class"
-            app:layout_constraintStart_toStartOf="@+id/txtDestination"
-            app:layout_constraintTop_toBottomOf="@+id/txtCodeTiket" />
+            android:text="orderBy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dividerView" />
 
         <TextView
             android:id="@+id/txtCodeTiket"
@@ -50,6 +62,14 @@
             android:text="code"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtOrderBy" />
+
+        <TextView
+            android:id="@+id/txtClassHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Class"
+            app:layout_constraintStart_toStartOf="@+id/txtDestination"
+            app:layout_constraintTop_toBottomOf="@+id/txtCodeTiket" />
 
         <TextView
             android:id="@+id/txtTglOrder"
@@ -63,16 +83,48 @@
             android:id="@+id/txtIsPaid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="Succses"
             app:layout_constraintStart_toStartOf="@+id/txtTglOrder"
             app:layout_constraintTop_toBottomOf="@+id/txtTglOrder" />
 
-        <TextView
-            android:id="@+id/txtOrderBy"
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="orderBy"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtDeparture" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="28dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintRound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="@id/cardView3"
+            app:layout_constraintTop_toBottomOf="@id/guideline1"
+            app:layout_constraintBottom_toTopOf="@id/guideline1">
+
+            <ImageView
+                android:id="@+id/ivUpward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/constraintRound"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintRound"
+                app:layout_constraintTop_toTopOf="@+id/constraintRound"
+                android:src="@drawable/ic_baseline_arrow_upward_24"/>
+
+            <ImageView
+                android:id="@+id/ivDownward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/ivUpward"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintRound"
+                app:layout_constraintTop_toTopOf="@+id/constraintRound"
+                android:src="@drawable/ic_baseline_arrow_downward_24"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

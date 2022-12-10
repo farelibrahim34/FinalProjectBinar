@@ -3,16 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:padding="10dp"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -42,7 +41,7 @@
         <ImageView
             android:id="@+id/ivListpesawat"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -64,9 +63,9 @@
             android:id="@+id/txtJadwal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:text="TextView"
             android:textSize="12sp"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtKotaTujuan" />
 
@@ -74,8 +73,8 @@
             android:id="@+id/txtHarga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:text="harga"
+            android:layout_marginStart="10dp"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,10 +84,10 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="3dp"
             android:text="Available"
-            android:textColor="#4EBC52"
+            android:textColor="@color/green"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtHarga" />
 
@@ -96,9 +95,9 @@
             android:id="@+id/txtAvailable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:text="TextView"
             android:textColor="@color/black"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -147,8 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="200dp" />
-
+        app:layout_constraintGuide_begin="240dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="100dp"

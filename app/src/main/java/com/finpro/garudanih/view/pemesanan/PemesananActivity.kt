@@ -19,6 +19,7 @@ class PemesananActivity : AppCompatActivity() {
     lateinit var viewModel : TiketViewModel
     lateinit var userViewModel : UserViewModel
     lateinit var authViewModel : AuthViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPemesananBinding.inflate(layoutInflater)
@@ -33,23 +34,19 @@ class PemesananActivity : AppCompatActivity() {
         }
         binding.txtIdTiket.text = "ID Tiket : "+idTiket.toString()
 
+
         binding.btnPesanTiket.setOnClickListener {
             doOrder()
-
-
-//            val orderBy = binding.etNamaPemesan.text.toString()
-//            val ktp = binding.etNik.text.toString()
-//            val nomorKursi = binding.etNomorKursi.text.toString().toInt()
-//            orderTiket(orderBy,ktp,nomorKursi)
-//            val intent = Intent(this, HomeBottomActivity::class.java)
-//            startActivity(intent)
-//            Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
         }
 
 
     }
     fun doOrder(){
         val intent = intent
+        val harga = intent.getIntExtra("harga",0)
+        val kota = intent.getStringExtra("destinasi")
+        val keberangkatan = intent.getStringExtra("departure")
+        val jadwal = intent.getStringExtra("jadwal")
         val idTiket = intent.getIntExtra("id",0)
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -58,20 +55,104 @@ class PemesananActivity : AppCompatActivity() {
             val orderBy = binding.etNamaPemesan.text.toString()
             val ktp = binding.etNik.text.toString()
             val nomorKursi = binding.etNomorKursi.text.toString().toInt()
+            val penumpang = binding.etJmlPenumpang.text.toString().toInt()
+            if (penumpang == 1){
+                userViewModel.orderTiketObserve().observe(this){
+                    if (it != null){
+                        binding.txtTotalHarga.text= harga.toString()
+                        binding.btnPesanTiket.setText("Silahkan Melanjutkan Transaksi")
+                        binding.btnPesanTiket.setOnClickListener {
+                        }
+
+                        Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
+
+                    }else{
+                        Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            if (penumpang == 2){
+                binding.etNik.setText("")
+                binding.etNomorKursi.setText("")
+                userViewModel.orderTiketObserve().observe(this){
+                        if (it != null){
+                            binding.etJmlPenumpang.setText("1")
+
+                        }else{
+                            Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                        }
+                }
+                if (penumpang == 1){
+                    userViewModel.orderTiketObserve().observe(this){
+                        if (it != null){
+                            val hargaDua = harga*2
+                            binding.txtTotalHarga.text = hargaDua.toString()
+                            binding.btnPesanTiket.setText("Silahkan Melanjutkan Transaksi")
+                            Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+            }
+            if (penumpang == 3){
+                binding.etNik.setText("")
+                binding.etNomorKursi.setText("")
+                userViewModel.orderTiketObserve().observe(this){
+                    if (it != null){
+                        binding.etJmlPenumpang.setText("2")
+                        Toast.makeText(this,"Silahkan Isi Identitas Penumpang Selanjutnya", Toast.LENGTH_SHORT).show()
+
+                    }else{
+                        Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                if (penumpang == 2){
+                    userViewModel.orderTiketObserve().observe(this){
+                        if (it != null){
+                            binding.etJmlPenumpang.setText("1")
+                            Toast.makeText(this,"Silahkan Isi Identitas Penumpang Selanjutnya", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+                if (penumpang == 1){
+                    userViewModel.orderTiketObserve().observe(this){
+                        if (it != null){
+                            val hargaTiga = harga*3
+                            binding.txtTotalHarga.text = hargaTiga.toString()
+                            binding.btnPesanTiket.setText("Silahkan Melanjutkan Transaksi")
+                            Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+            }
+
+
+            if (penumpang > 3){
+                Toast.makeText(this,"Maaf Pemesanan Penumpang Maksimal 5 kali", Toast.LENGTH_SHORT).show()
+            }
+
             authViewModel.getToken().observe(this){token->
                 if (token != null){
                     if (orderBy.isNotBlank() && ktp.isNotBlank() && nomorKursi.toString().isNotBlank()){
                         userViewModel.orderTiketPesawat("Bearer $token",idTiket,orderBy,ktp,nomorKursi)
-                        userViewModel.orderTiketObserve().observe(this){
-                            if (it != null){
-                                Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
-                            }else{
-                                Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
-                            }
-                        }
+
                     }
                 }
             }
+//            userViewModel.orderTiketObserve().observe(this){
+//                if (it != null){
+//                    Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
+//                }else{
+//                    Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+//                }
+//            }
 
 
         }

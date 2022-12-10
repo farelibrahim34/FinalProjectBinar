@@ -7,6 +7,37 @@
     tools:context=".view.pemesanan.PemesananActivity">
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout55"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/rounded_bg"
+        android:textColor="@color/warna_primary_font"
+        android:textColorHint="@color/warna_primary_font"
+        app:boxStrokeColor="@color/warna_background"
+        app:boxStrokeWidth="0dp"
+        app:hintTextColor="@color/warna_primary_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout44"
+        app:shapeAppearanceOverlay="@style/Button">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etJmlPenumpang"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Jumlah Penumpang"
+            android:inputType="number"
+            android:textColor="@color/warna_primary_font"
+            android:textColorHint="@color/warna_primary_font"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:boxStrokeWidth="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btnPesanTiket"
         style="@style/firstbutton"
@@ -167,4 +198,12 @@
             android:textStyle="normal"
             app:boxStrokeWidth="0dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtTotalHarga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout55" />
 </androidx.constraintlayout.widget.ConstraintLayout>

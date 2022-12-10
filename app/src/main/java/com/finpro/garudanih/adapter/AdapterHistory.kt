@@ -16,18 +16,18 @@ class AdapterHistory(val listHistory: List<Transaction>?):RecyclerView.Adapter<A
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.txtDestination.text = listHistory!![position].ticket!!.destination
-        holder.binding.txtDeparture.text = listHistory[position].ticket.destination
-        holder.binding.txtClassHistory.text = listHistory[position].ticket.classX
-        holder.binding.txtOrderBy.text = listHistory[position].orderBy
+        holder.binding.txtDestination.text = listHistory!![position].ticket!!.destinationCode
+        holder.binding.txtDeparture.text = listHistory[position].ticket.departureCode
+        holder.binding.txtClassHistory.text = listHistory[position].ticket.classX+" Class"
+        holder.binding.txtOrderBy.text = "Order By : "+listHistory[position].orderBy
         holder.binding.txtTglOrder.text = listHistory[position].createdAt
         holder.binding.txtIsPaid.text = listHistory[position].isPaid.toString()
         if (listHistory[position].isPaid == false){
-            holder.binding.txtIsPaid.text = "Anda belum Melakukan Pembayaran"
+            holder.binding.txtIsPaid.text = "Belum Bayar"
         }else{
-            holder.binding.txtIsPaid.text = "Anda sudah Melakukan Pembayaran"
+            holder.binding.txtIsPaid.text = "Sudah Bayar"
         }
-        holder.binding.txtCodeTiket.text = listHistory[position].ticketCode
+        holder.binding.txtCodeTiket.text = "Code Ticket : "+listHistory[position].ticketCode
     }
     override fun getItemCount(): Int {
         return listHistory?.size ?: 0

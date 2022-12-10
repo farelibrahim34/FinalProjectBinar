@@ -135,7 +135,7 @@ class PemesananActivity : AppCompatActivity() {
 
 
             if (penumpang > 3){
-                Toast.makeText(this,"Maaf Pemesanan Penumpang Maksimal 5 kali", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Maaf Pemesanan Penumpang Maksimal 3 kali", Toast.LENGTH_SHORT).show()
             }
 
             authViewModel.getToken().observe(this){token->

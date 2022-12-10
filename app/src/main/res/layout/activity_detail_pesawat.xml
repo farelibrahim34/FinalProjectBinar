@@ -58,7 +58,7 @@
     <TextView
         android:id="@+id/txtChair"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginStart="20dp"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -74,7 +74,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:textSize="18sp"
-        android:textStyle="bold"
         android:fontFamily="@font/poppins_medium"
         android:text="Jadwal"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,8 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Harga"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:textSize="18dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +120,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constrainDeparture"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:background="@color/card"
         app:cardCornerRadius="5dp"
         android:padding="10dp"
@@ -135,7 +133,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPlaneTakeoff"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -179,6 +177,7 @@
             android:id="@+id/detilDivider"
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_marginVertical="20dp"
             android:background="@color/warna_second_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -188,10 +187,10 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPlaneLanding"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="20dp"
             app:layout_constraintTop_toBottomOf="@id/detilDivider">
 
             <ImageView
@@ -209,12 +208,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tujuan"
-            android:layout_marginVertical="10dp"
             android:textColor="@color/warna_primary_font"
             android:textSize="20dp"
             android:textStyle="bold"
-
             android:fontFamily="@font/poppins_medium"
+            android:layout_marginVertical="20dp"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/cvPlaneLanding"
             app:layout_constraintTop_toBottomOf="@+id/detilDivider" />
@@ -226,7 +224,6 @@
             android:hint="Tujuan"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cvPlaneLanding"
             app:layout_constraintTop_toBottomOf="@id/txTujuan" />
     </androidx.constraintlayout.widget.ConstraintLayout>

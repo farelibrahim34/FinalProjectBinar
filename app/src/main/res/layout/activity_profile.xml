@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         app:cardCornerRadius="10dp"
         android:outlineAmbientShadowColor="@color/warna_button"
         android:outlineSpotShadowColor="@color/warna_button"

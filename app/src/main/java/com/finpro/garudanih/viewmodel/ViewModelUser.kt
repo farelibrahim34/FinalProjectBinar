@@ -20,6 +20,7 @@ class ViewModelUser @Inject constructor(private val api : ApiInterface): ViewMod
     lateinit var postLdUser : MutableLiveData<DataUserResponse?>
 
 
+
     init {
         postLdUser = MutableLiveData()
     }

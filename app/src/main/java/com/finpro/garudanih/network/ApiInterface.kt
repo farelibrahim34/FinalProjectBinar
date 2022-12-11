@@ -1,6 +1,7 @@
 package com.finpro.garudanih.network
 
 import com.finpro.garudanih.model.*
+import com.finpro.garudanih.model.updatepaid.ResponsePaid
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -30,5 +31,8 @@ interface ApiInterface {
 
     @GET("v1/user/history")
     fun getHistoryPemesanan(@Header("Authorization")authHeader : String) : Call<HistoryResponse>
+
+    @PUT("v1/trans/paid/{transId}")
+    fun updatePaid(@Path("transId") transId : Int): Call<ResponsePaid>
 
 }

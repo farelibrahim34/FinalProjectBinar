@@ -23,7 +23,7 @@
         android:theme="@style/Theme.GarudaNih"
         tools:targetApi="31">
         <activity
-            android:name=".view.pemesanan.TransaksiActivity"
+            android:name=".view.transaksi.TransaksiActivity"
             android:exported="false" />
         <activity
             android:name=".view.detils.TiketInternasionalActivity"

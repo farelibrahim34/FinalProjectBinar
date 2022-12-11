@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.finpro.garudanih.model.*
+import com.finpro.garudanih.model.updatepaid.ResponsePaid
 import com.finpro.garudanih.network.ApiInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call

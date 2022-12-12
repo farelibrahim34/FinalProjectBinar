@@ -1,7 +1,9 @@
 package com.finpro.garudanih.view
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.findNavController
 import com.finpro.garudanih.R
 import androidx.navigation.ui.setupWithNavController
@@ -35,5 +37,18 @@ class HomeBottomActivity : AppCompatActivity(), OrderFragmentInterface {
             .add(HistoryFragment(), HistoryFragment.TAG)
             .addToBackStack(null)
             .commit()
+    }
+    override fun onBackPressed() {
+
+        AlertDialog.Builder(this)
+            .setTitle("Tutup Aplikasi")
+            .setMessage("Yakin tutup dari aplikasi?")
+            .setPositiveButton("Ya"){ dialogInterface: DialogInterface, i: Int ->
+                finishAffinity()
+            }
+            .setNegativeButton("Tidak"){ dialogInterface: DialogInterface, i: Int ->
+                dialogInterface.dismiss()
+            }
+            .show()
     }
 }

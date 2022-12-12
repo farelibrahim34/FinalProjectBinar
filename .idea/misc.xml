@@ -3,21 +3,39 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/drawable/splash_progress_background.xml" value="0.2145" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_detail_internasional.xml" value="0.26979166666666665" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_detail_pesawat.xml" value="0.33" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_home_bottom.xml" value="0.26979166666666665" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_login.xml" value="0.24479166666666666" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_main.xml" value="0.26979166666666665" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_pemesanan.xml" value="0.27025641025641023" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_profile.xml" value="0.24479166666666666" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_register.xml" value="0.24427083333333333" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_splash_screen.xml" value="0.26979166666666665" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_splash_screen2.xml" value="0.21145833333333333" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_succses_order.xml" value="0.26979166666666665" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_tiket_internasional.xml" value="0.33" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_tiket_lokal.xml" value="0.24479166666666666" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_tiket_order.xml" value="0.33" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_transaksi.xml" value="0.30416666666666664" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_viewpager.xml" value="0.26979166666666665" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_detail.xml" value="0.26979166666666665" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_history.xml" value="0.36666666666666664" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_home.xml" value="0.24479166666666666" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_order.xml" value="0.26979166666666665" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_pesan.xml" value="0.24427083333333333" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_round_trip.xml" value="0.26979166666666665" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_tiket_order.xml" value="0.26979166666666665" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_ubah_password.xml" value="0.26979166666666665" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_vp_home_three.xml" value="0.26979166666666665" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_vp_home_two.xml" value="0.26979166666666665" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_wishlist.xml" value="0.26979166666666665" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/item.xml" value="0.24479166666666666" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/item_internasional.xml" value="0.24479166666666666" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/item_order.xml" value="0.5" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/item_page.xml" value="0.2" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/item_page3.xml" value="0.2" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/item_show_all.xml" value="0.5" />
         <entry key="..\:/Farrel/kotlin/FinalProjectBinar/app/src/main/res/layout/activity_detail_internasional.xml" value="0.19652777777777777" />
         <entry key="..\:/Farrel/kotlin/FinalProjectBinar/app/src/main/res/layout/activity_detail_pesawat.xml" value="0.22" />

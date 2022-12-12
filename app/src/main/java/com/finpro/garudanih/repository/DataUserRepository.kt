@@ -3,6 +3,7 @@ package com.finpro.garudanih.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.finpro.garudanih.model.*
+import com.finpro.garudanih.model.updatepaid.ResponsePaid
 import com.finpro.garudanih.network.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,11 +16,13 @@ class DataUserRepository @Inject constructor(private val api: ApiInterface) {
     private val postOrder : MutableLiveData<ResponseOrder?> = MutableLiveData()
 
     private val getHistoryUser: MutableLiveData<HistoryResponse?> = MutableLiveData()
+    private val putPaidUser : MutableLiveData<ResponsePaid?> = MutableLiveData()
 
     fun getCurrentUserObserve(): MutableLiveData<ResponseUserCurrent?> = getCurrentUser
     fun postOrderObserve(): MutableLiveData<ResponseOrder?> = postOrder
 
     fun getHistoryObserve(): MutableLiveData<HistoryResponse?> = getHistoryUser
+    fun putPaidUserObserve() : MutableLiveData<ResponsePaid?> = putPaidUser
 
     fun getDataUser(token:String){
         api.getUserLogin(token)
@@ -105,6 +108,29 @@ class DataUserRepository @Inject constructor(private val api: ApiInterface) {
                 }
 
             })
+    }
+    fun callUpdatePaid(transId: Int){
+        api.updatePaid(transId)
+            .enqueue(object : Callback<ResponsePaid>{
+                override fun onResponse(
+                    call: Call<ResponsePaid>,
+                    response: Response<ResponsePaid>
+                ) {
+                    if (response.isSuccessful){
+                        putPaidUser.postValue(response.body())
+                    }else{
+                        putPaidUser.postValue(null)
+                        Log.d("PAID",response.message())
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponsePaid>, t: Throwable) {
+                    putPaidUser.postValue(null)
+                    Log.d("PAID","onFailure")
+                }
+
+            })
+
     }
 
 }

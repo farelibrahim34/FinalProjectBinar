@@ -3,6 +3,7 @@ package com.finpro.garudanih.view.succsess
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.finpro.garudanih.databinding.ActivitySuccsesOrderBinding
 import com.finpro.garudanih.view.HomeBottomActivity
 
@@ -15,7 +16,8 @@ class SuccsesOrderActivity : AppCompatActivity() {
         binding = ActivitySuccsesOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnOrderLagi.setOnClickListener {
+        binding.btnLIhatTiket.setOnClickListener {
+            Toast.makeText(this,"Silahkan Melanjutkan Transaksi di Halaman History", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, HomeBottomActivity::class.java))
         }
     }

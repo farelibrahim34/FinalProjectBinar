@@ -62,14 +62,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <Button
-        android:id="@+id/btnOrderLagi"
+        android:id="@+id/btnLIhatTiket"
+        style="@style/firstbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="order tiiket lagi"
-        style="@style/firstbutton"
-        android:paddingVertical="10dp"
         android:fontFamily="@font/poppins_medium"
+        android:paddingVertical="10dp"
+        android:text="Lanjutkan Pembayaran"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />

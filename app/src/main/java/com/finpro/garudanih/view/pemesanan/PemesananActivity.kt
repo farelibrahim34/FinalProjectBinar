@@ -6,8 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.finpro.garudanih.adapter.AdapterHistory
 import com.finpro.garudanih.databinding.ActivityPemesananBinding
 import com.finpro.garudanih.view.HomeBottomActivity
+import com.finpro.garudanih.view.fragments.history.HistoryFragment
+import com.finpro.garudanih.view.succsess.SuccsesOrderActivity
+import com.finpro.garudanih.view.transaksi.TransaksiActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
@@ -19,12 +24,22 @@ class PemesananActivity : AppCompatActivity() {
     lateinit var viewModel : TiketViewModel
     lateinit var userViewModel : UserViewModel
     lateinit var authViewModel : AuthViewModel
+    private var tokenPaid : String = ""
+    private var transId : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPemesananBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this).get(TiketViewModel::class.java)
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        authViewModel.getToken().observe(this){token->
+            if (token != null){
+                tokenPaid = "Bearer "+token
+            }
+        }
+
+
 
         val intent = intent
         val idTiket = intent.getIntExtra("id",0)
@@ -60,12 +75,9 @@ class PemesananActivity : AppCompatActivity() {
                 userViewModel.orderTiketObserve().observe(this){
                     if (it != null){
                         binding.txtTotalHarga.text= harga.toString()
-                        binding.btnPesanTiket.setText("Silahkan Melanjutkan Transaksi")
-                        binding.btnPesanTiket.setOnClickListener {
-                        }
 
+                        startActivity(Intent(this, SuccsesOrderActivity::class.java))
                         Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
-
                     }else{
                         Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
                     }
@@ -77,6 +89,7 @@ class PemesananActivity : AppCompatActivity() {
                 userViewModel.orderTiketObserve().observe(this){
                         if (it != null){
                             binding.etJmlPenumpang.setText("1")
+                            Toast.makeText(this,"Silahkan Isi Identitas Penumpang Selanjutnya", Toast.LENGTH_SHORT).show()
 
                         }else{
                             Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
@@ -87,7 +100,8 @@ class PemesananActivity : AppCompatActivity() {
                         if (it != null){
                             val hargaDua = harga*2
                             binding.txtTotalHarga.text = hargaDua.toString()
-                            binding.btnPesanTiket.setText("Silahkan Melanjutkan Transaksi")
+                            startActivity(Intent(this, SuccsesOrderActivity::class.java))
+
                             Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                         }else{
                             Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
@@ -123,7 +137,10 @@ class PemesananActivity : AppCompatActivity() {
                         if (it != null){
                             val hargaTiga = harga*3
                             binding.txtTotalHarga.text = hargaTiga.toString()
-                            binding.btnPesanTiket.setText("Silahkan Melanjutkan Transaksi")
+
+                            startActivity(Intent(this, SuccsesOrderActivity::class.java))
+
+
                             Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                         }else{
                             Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()

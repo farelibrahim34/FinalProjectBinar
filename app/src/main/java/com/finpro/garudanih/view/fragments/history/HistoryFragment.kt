@@ -53,6 +53,7 @@ class HistoryFragment : Fragment() {
                 binding.rvHistory.adapter = adapterHistory
                 Log.d(TAG, "onViewCreated: ${it.data.transaction}")
                 Toast.makeText(context, "Data Tampil", Toast.LENGTH_SHORT).show()
+                adapterHistory.notifyDataSetChanged()
             }
         }
         userViewModel.historyUser(tokenHistory)

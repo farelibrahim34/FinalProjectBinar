@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_navigation_home_to_profileActivity"
             app:destination="@id/profileActivity" />
+        <action
+            android:id="@+id/action_navigation_home_to_wishlistActivity"
+            app:destination="@id/wishlistActivity" />
     </fragment>
 
     <fragment
@@ -61,5 +64,10 @@
             android:name="userUpdate"
             app:argType="com.finpro.garudanih.model.DataProfile" />
     </activity>
+    <activity
+        android:id="@+id/wishlistActivity"
+        android:name="com.finpro.garudanih.wishlist.WishlistActivity"
+        android:label="activity_wishlist"
+        tools:layout="@layout/activity_wishlist" />
 
 </navigation>

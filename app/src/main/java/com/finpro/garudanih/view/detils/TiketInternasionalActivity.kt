@@ -35,7 +35,8 @@ class TiketInternasionalActivity : AppCompatActivity() {
             if (it != null){
                 binding.progressBar.visibility = View.GONE
                 binding.rvAllInternational.layoutManager = GridLayoutManager(this,2)
-                adapterTiketIntr = AdapterInternasional(it.data.tickets)
+                adapterTiketIntr.setListTiketInter(it.data.tickets)
+                adapterTiketIntr.notifyDataSetChanged()
                 binding.rvAllInternational.adapter = adapterTiketIntr
                 Toast.makeText(this, "Data Tampil", Toast.LENGTH_SHORT).show()
             }else{

@@ -23,6 +23,7 @@ import com.finpro.garudanih.model.ListPesawat
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.detils.DetailInternasionalActivity
+import com.finpro.garudanih.view.detils.DetailPesawatActivity
 import com.finpro.garudanih.view.detils.TiketInternasionalActivity
 import com.finpro.garudanih.view.detils.TiketLokalActivity
 
@@ -64,12 +65,32 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        tiketAdapter = AdapterTiket (){  }
         binding.showLocal.setOnClickListener {
             startActivity(Intent(context, TiketLokalActivity::class.java))
         }
         binding.showInternational.setOnClickListener {
             startActivity(Intent(context, TiketInternasionalActivity::class.java))
         }
+        binding.wishlist.setOnClickListener {
+            startActivity(Intent(context, WishlistActivity::class.java))
+        }
+
+
+        tiketAdapter = AdapterTiket (){
+            val pindah = Intent(context?.applicationContext, DetailPesawatActivity::class.java)
+            pindah.putExtra("detail", it)
+            pindah.putExtra(DetailPesawatActivity.EXTRA_ID, it.id)
+            startActivity(pindah)
+        }
+
+        adapterIntr = AdapterInternasional (){
+            val pindah = Intent(context?.applicationContext, DetailInternasionalActivity::class.java)
+            pindah.putExtra("detail", it)
+            pindah.putExtra(DetailInternasionalActivity.EXTRA_ID, it.id)
+            startActivity(pindah)
+        }
+
 
 
         getProfile()
@@ -78,9 +99,6 @@ class HomeFragment : Fragment() {
 
         binding.ivUser.setOnClickListener {
             startActivity(Intent(context, ProfileActivity::class.java))
-        }
-        binding.wishlist.setOnClickListener {
-            startActivity(Intent(context, WishlistActivity::class.java))
         }
 
 
@@ -163,7 +181,8 @@ class HomeFragment : Fragment() {
             if (it != null) {
                 binding.homeProgressBar.visibility = View.GONE
                 binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                tiketAdapter = AdapterTiket(it.data.tickets)
+                tiketAdapter.setListTiket(it.data.tickets)
+                tiketAdapter.notifyDataSetChanged()
                 binding.rvLocal.adapter = tiketAdapter
             } else {
                 binding.homeProgressBar.visibility = View.VISIBLE
@@ -179,7 +198,8 @@ class HomeFragment : Fragment() {
             if (it != null){
                 binding.homeProgressBar.visibility = View.GONE
                 binding.rvInternational.layoutManager= LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-                adapterIntr = AdapterInternasional(it.data.tickets)
+                adapterIntr.setListTiketInter(it.data.tickets)
+                adapterIntr.notifyDataSetChanged()
                 binding.rvInternational.adapter = adapterIntr
             }else{
                 binding.homeProgressBar.visibility = View.VISIBLE

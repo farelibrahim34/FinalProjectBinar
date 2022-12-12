@@ -26,14 +26,16 @@ data class ResponseUserCurrent(
     val isVerify : String,
     val deleteAt : String,
     val createdAt : String,
-    val updatedAt : String
+    val updatedAt : String,
+    val city : String
 )
 //update profile
 @Parcelize
 data class UpdateProfile(
     val phone : String,
     val birth : String,
-    val image : String,
+    val city : String,
+    //val image: String
 ): Parcelable
 
 data class ResponseUserUpdate(

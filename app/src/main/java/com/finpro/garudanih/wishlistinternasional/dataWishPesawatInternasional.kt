@@ -1,4 +1,4 @@
-package com.finpro.garudanih.wishlist
+package com.finpro.garudanih.wishlistinternasional
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
@@ -6,15 +6,15 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
+
 @Entity
 @Parcelize
-data class DataWishPesawatLoc(
-
+data class dataWishPesawatInternasional(
     @PrimaryKey
     val id : Int?,
-    @ColumnInfo (name = "destination")
+    @ColumnInfo(name = "destination")
     var destination : String,
-    @ColumnInfo (name = "departure")
+    @ColumnInfo(name = "departure")
     var departure : String,
     @ColumnInfo(name = "takeOff")
     var takeOff : String,
@@ -24,8 +24,4 @@ data class DataWishPesawatLoc(
     var totalChair : Int,
     @ColumnInfo(name = "classX")
     var classX : String
-//    @ColumnInfo(name = "destinationCode")
-//    var destinationCode : String,
-//    @ColumnInfo(name = "departureCode")
-//    var departureCode : String
-):Parcelable
+) : Parcelable

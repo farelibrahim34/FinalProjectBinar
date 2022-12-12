@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
 
 
 @Database(entities = [DataWishPesawatLoc::class], version = 1)
@@ -17,7 +18,7 @@ abstract class DatabaseWishPesawatLoc : RoomDatabase(){
             if (INSTANCE == null){
                 synchronized(DatabaseWishPesawatLoc::class){
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        DatabaseWishPesawatLoc::class.java,"favoritnews.db").build()
+                        DatabaseWishPesawatLoc::class.java,"wishlist.db").build()
                 }
             }
             return INSTANCE

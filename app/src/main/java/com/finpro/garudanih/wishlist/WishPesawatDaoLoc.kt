@@ -3,6 +3,9 @@ package com.finpro.garudanih.wishlist
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
+
+
 
 @Dao
 interface WishPesawatDaoLoc {

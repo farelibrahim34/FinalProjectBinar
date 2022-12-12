@@ -14,16 +14,19 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navArgs
 import com.bumptech.glide.Glide
 import com.finpro.garudanih.MainActivity
+import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityProfileBinding
 import com.finpro.garudanih.utils.UpdateProfile
 import com.finpro.garudanih.view.HomeBottomActivity
@@ -232,6 +235,7 @@ class ProfileActivity : AppCompatActivity() {
                 binding.tvEmailuser.setText(it.email)
                 binding.etPhone.setText(it.phone)
                 binding.tvTgllahir.setText(it.birth)
+                binding.tvAlamat.setText(it.city)
             }else{
                 Log.d("PROFILE","Profile Null")
             }
@@ -257,6 +261,11 @@ class ProfileActivity : AppCompatActivity() {
                 binding.tvTgllahir.setText(it)
             }
         }
+        authViewModel.getKota().observe(this){
+            if (it != null){
+                binding.tvAlamat.setText(it)
+            }
+        }
         authViewModel.getImage().observe(this){
             if (it != null && it != "undefined"){
                 Log.d("PHOTO_URL",it)
@@ -268,14 +277,14 @@ class ProfileActivity : AppCompatActivity() {
 
     }
 
-    private fun setData(){
-        binding.apply {
-            val(nomor,tanggallahir,kota) = args.userUpdate
-            etPhone.setText(nomor)
-            tvTgllahir.setText(tanggallahir)
-            tvAlamat.setText(kota)
-        }
-    }
+//    private fun setData(){
+//        binding.apply {
+//            val(nomor,tanggallahir,kota) = args.userUpdate
+//            etPhone.setText(nomor)
+//            tvTgllahir.setText(tanggallahir)
+//            //tvAlamat.setText(kota)
+//        }
+//    }
     private fun doUpdateProfile(){
         binding.btnSimpan.setOnClickListener {
             val nomor = binding.etPhone.text.toString()

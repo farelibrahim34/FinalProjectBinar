@@ -55,6 +55,8 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        getDatafoto()
         setData()
         getProfile()
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
@@ -189,8 +191,15 @@ class SettingsFragment : Fragment() {
                     binding.tvEmailuser.setText(it.email)
                     binding.etPhone.setText(it.phone)
                     binding.tvTgllahir.setText(it.birth)
+                    binding.tvAlamat.setText(it.city)
                 }
         }
+    }
+    fun getDatafoto() {
+        val image =
+            BitmapFactory.decodeFile(requireActivity().applicationContext.filesDir.path + File.separator + "dataFoto" + File.separator + "fotoProfile.png")
+        binding.ivSetImage.setImageBitmap(image)
+
     }
 
 }

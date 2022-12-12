@@ -12,11 +12,6 @@
         android:title="@string/title_history" />
 
     <item
-        android:id="@+id/navigation_wishlist"
-        android:icon="@drawable/ic_baseline_add_shopping_cart_24"
-        android:title="@string/title_order" />
-
-    <item
         android:id="@+id/navigation_round_trip"
         android:icon="@drawable/ic_round_trip"
         android:title="@string/title_round_trip" />

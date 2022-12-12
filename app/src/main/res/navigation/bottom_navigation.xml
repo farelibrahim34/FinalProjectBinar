@@ -23,16 +23,7 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_history"
             app:destination="@id/navigation_history" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_wishlist"
-            app:destination="@id/navigation_wishlist" />
     </fragment>
-
-    <fragment
-        android:id="@+id/navigation_wishlist"
-        android:name="com.finpro.garudanih.view.fragments.wishlist.WishlistFragment"
-        android:label="fragment_wishlist"
-        tools:layout="@layout/fragment_wishlist" />
 
     <fragment
         android:id="@+id/navigation_round_trip"

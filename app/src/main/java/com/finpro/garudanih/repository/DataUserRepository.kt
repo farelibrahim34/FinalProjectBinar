@@ -13,10 +13,12 @@ class DataUserRepository @Inject constructor(private val api: ApiInterface) {
 
     private val getCurrentUser : MutableLiveData<ResponseUserCurrent?> = MutableLiveData()
     private val postOrder : MutableLiveData<ResponseOrder?> = MutableLiveData()
+
     private val getHistoryUser: MutableLiveData<HistoryResponse?> = MutableLiveData()
 
     fun getCurrentUserObserve(): MutableLiveData<ResponseUserCurrent?> = getCurrentUser
     fun postOrderObserve(): MutableLiveData<ResponseOrder?> = postOrder
+
     fun getHistoryObserve(): MutableLiveData<HistoryResponse?> = getHistoryUser
 
     fun getDataUser(token:String){
@@ -75,6 +77,7 @@ class DataUserRepository @Inject constructor(private val api: ApiInterface) {
 
             })
     }
+
     fun getHistory(token : String){
         api.getHistoryPemesanan(token)
             .enqueue(object  : Callback<HistoryResponse>{

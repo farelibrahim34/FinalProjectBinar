@@ -61,6 +61,7 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
 
             })
     }
+
     fun callApiTiketIntr(){
         api.getAllListTicketIntr()
             .enqueue(object : Callback<ResponseListTiket>{

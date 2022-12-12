@@ -24,6 +24,7 @@ class AuthViewModel @Inject constructor(@ApplicationContext context : Context, p
             dataUser.saveData(username,email,nohp,tgllahir,kota,image)
         }
     }
+
     fun getUser():LiveData<String> = dataUser.getUsername().asLiveData()
     fun getEmail():LiveData<String> = dataUser.getEmail().asLiveData()
     fun getNoHp():LiveData<String> = dataUser.getDataNoHp().asLiveData()
@@ -36,6 +37,7 @@ class AuthViewModel @Inject constructor(@ApplicationContext context : Context, p
             userPreferences.setToken(token)
         }
     }
+
     fun deleteData(){
         viewModelScope.launch {
             dataUser.deleteDataUser()

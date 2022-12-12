@@ -112,9 +112,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-
-
-
     fun getDatafoto() {
         val image =
             BitmapFactory.decodeFile(requireActivity().applicationContext.filesDir.path + File.separator + "dataFoto" + File.separator + "fotoProfile.png")

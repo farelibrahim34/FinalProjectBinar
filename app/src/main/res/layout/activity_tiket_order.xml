@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/warna_background"
+    android:padding="10dp"
+    tools:context=".view.tiketorder.TiketOrderActivity">
+
+  <Button
+      android:id="@+id/btnBayar5"
+      style="@style/firstbutton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/poppins_medium"
+      android:paddingVertical="10dp"
+      android:text="Bayar Sekarang"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/CardTiket" />
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/cvArraowDetail"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginVertical="10dp"
+      android:background="@drawable/rounded_bg_second"
+      android:outlineAmbientShadowColor="@color/warna_button"
+      android:outlineSpotShadowColor="@color/warna_button"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/ivBackDetail"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_baseline_arrow_back_24" />
+
+  </androidx.cardview.widget.CardView>
+
+  <TextView
+      android:id="@+id/statusBook"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/poppins_medium"
+      android:text="Status Booking"
+      android:textAlignment="center"
+      android:textColor="@color/warna_primary_font"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.359"
+      app:layout_constraintStart_toEndOf="@+id/cvArraowDetail"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/Asal"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="80dp"
+      android:layout_marginTop="16dp"
+      android:fontFamily="@font/poppins_medium"
+      android:text="JKT"
+      android:textAlignment="center"
+      android:textColor="@color/warna_primary_font"
+      android:textSize="30sp"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/statusBook" />
+
+  <ImageView
+      android:id="@+id/imageView3"
+      android:layout_width="49dp"
+      android:layout_height="66dp"
+      android:outlineSpotShadowColor="@color/white"
+      android:src="@drawable/ic_baseline_linear_scale_24"
+      app:layout_constraintBottom_toBottomOf="@+id/Asal"
+      app:layout_constraintEnd_toStartOf="@+id/Tujuan"
+      app:layout_constraintStart_toEndOf="@+id/Asal"
+      app:layout_constraintTop_toTopOf="@+id/Tujuan" />
+
+  <TextView
+      android:id="@+id/Tujuan"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="198dp"
+      android:layout_marginTop="16dp"
+      android:fontFamily="@font/poppins_medium"
+      android:text="USA"
+      android:textAlignment="center"
+      android:textColor="@color/warna_primary_font"
+      android:textSize="30sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.437"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/statusBook" />
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/CardTiket"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginVertical="10dp"
+      android:backgroundTint="@color/card"
+      app:cardCornerRadius="10dp"
+      app:cardElevation="10dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white">
+
+      <TextView
+          android:id="@+id/NoPenerbangan"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="20dp"
+          android:layout_marginBottom="20dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="No Penerbangan"
+          android:textAlignment="center"
+          android:textColor="@color/warna_button"
+          android:textSize="10sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/Class"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginLeft="50dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="20dp"
+          android:layout_marginRight="20dp"
+          android:layout_marginBottom="20dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="Class"
+          android:textAlignment="center"
+          android:textColor="@color/warna_button"
+          android:textSize="10sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/nomorKursi"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_marginLeft="50dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginRight="20dp"
+          android:layout_marginBottom="20dp"
+          android:layout_toRightOf="@+id/Class"
+          android:fontFamily="@font/poppins_medium"
+          android:text="Nomor Kursi"
+          android:textColor="@color/warna_button"
+          android:textSize="10sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/noKursi"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignStart="@id/nomorKursi"
+          android:layout_alignTop="@id/nomorKursi"
+          android:layout_marginTop="20dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="66b"
+          android:textColor="@color/black"
+          android:textSize="10sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/JenisClass"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignStart="@id/Class"
+          android:layout_alignTop="@id/Class"
+          android:layout_marginTop="20dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="Ekonomi"
+          android:textColor="@color/black"
+          android:textSize="10sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/CodePenerbangan"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignStart="@id/NoPenerbangan"
+          android:layout_alignTop="@id/NoPenerbangan"
+          android:layout_marginTop="20dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="CX 138"
+          android:textColor="@color/black"
+          android:textSize="10sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/tanggal"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/CodePenerbangan"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="20dp"
+          android:layout_marginBottom="20dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="Jadwal"
+          android:textAlignment="center"
+          android:textColor="@color/warna_button"
+          android:textSize="10sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/tgl"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignStart="@id/tanggal"
+          android:layout_alignTop="@id/tanggal"
+          android:layout_marginTop="20dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="12 Februari 2020"
+          android:textColor="@color/black"
+          android:textSize="10sp"
+          android:textStyle="bold" />
+
+      <View
+          android:id="@+id/line"
+          android:layout_width="fill_parent"
+          android:layout_height="1dip"
+          android:layout_below="@id/tanggal"
+          android:layout_margin="20dp"
+          android:background="@color/warna_secondary_font" />
+
+      <TextView
+          android:id="@+id/TextNama"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/line"
+          android:layout_marginLeft="25dp"
+          android:layout_marginTop="3dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="Penumpang"
+          android:textColor="@color/warna_button"
+          android:textSize="15sp"
+          android:textStyle="bold" />
+
+      <View
+          android:id="@+id/line2"
+          android:layout_width="100dp"
+          android:layout_height="1dip"
+          android:layout_below="@id/TextNama"
+          android:layout_marginLeft="20dp"
+          android:background="@color/black" />
+
+      <TextView
+          android:id="@+id/namapenumpang"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/line2"
+          android:layout_alignStart="@+id/TextNama"
+          android:layout_marginStart="-15dp"
+
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="10dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="Rifqi Padi Siliwangi"
+          android:textColor="@color/black"
+          android:textSize="13sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/txtNoKtp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/namapenumpang"
+          android:layout_alignStart="@+id/namapenumpang"
+          android:layout_marginStart="-1dp"
+          android:layout_marginLeft="10dp"
+          android:fontFamily="@font/poppins_medium"
+          android:text="NoKtp"
+          android:textColor="@color/warna_secondary_font"
+          android:textSize="10sp"
+          android:textStyle="bold" />
+
+      <ImageView
+          android:layout_width="200dp"
+          android:layout_height="200dp"
+          android:layout_below="@id/txtNoKtp"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="20dp"
+          android:layout_marginBottom="40dp"
+          android:src="@drawable/qr" />
+
+    </RelativeLayout>
+
+
+  </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

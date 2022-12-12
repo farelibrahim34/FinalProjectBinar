@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemOrderBinding
 import com.finpro.garudanih.model.Transaction
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
+import com.finpro.garudanih.view.tiketorder.TiketOrderActivity
 import com.finpro.garudanih.view.transaksi.TransaksiActivity
 
 class AdapterHistory(val listHistory: List<Transaction>?):RecyclerView.Adapter<AdapterHistory.ViewHolder>(){
@@ -33,7 +34,7 @@ class AdapterHistory(val listHistory: List<Transaction>?):RecyclerView.Adapter<A
         holder.binding.txtCodeTiket.text = "Code Ticket : "+listHistory[position].ticketCode
 
         holder.binding.cardView3.setOnClickListener {
-            val intent = Intent(it.context, TransaksiActivity::class.java)
+            val intent = Intent(it.context, TiketOrderActivity::class.java)
             intent.putExtra("destination",listHistory[position].ticket.destination)
             intent.putExtra("departure",listHistory[position].ticket.departure)
             intent.putExtra("idtrans",listHistory[position].id)
@@ -42,6 +43,11 @@ class AdapterHistory(val listHistory: List<Transaction>?):RecyclerView.Adapter<A
             intent.putExtra("orderby",listHistory[position].orderBy)
             intent.putExtra("ktp",listHistory[position].ktp)
             intent.putExtra("kursi",listHistory[position].numChair)
+            intent.putExtra("desticode",listHistory[position].ticket.destinationCode)
+            intent.putExtra("deparcode",listHistory[position].ticket.departureCode)
+            intent.putExtra("class",listHistory[position].ticket.classX)
+            intent.putExtra("jadwal",listHistory[position].ticket.takeOff)
+            intent.putExtra("nopenerbangan",listHistory[position].ticketCode)
             it.context.startActivity(intent)
         }
     }

@@ -11,6 +11,7 @@ import com.finpro.garudanih.adapter.AdapterHistory
 import com.finpro.garudanih.databinding.ActivityPemesananBinding
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.fragments.history.HistoryFragment
+import com.finpro.garudanih.view.succsess.SuccsesOrderActivity
 import com.finpro.garudanih.view.transaksi.TransaksiActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.TiketViewModel
@@ -74,12 +75,8 @@ class PemesananActivity : AppCompatActivity() {
                 userViewModel.orderTiketObserve().observe(this){
                     if (it != null){
                         binding.txtTotalHarga.text= harga.toString()
-                        binding.btnPesanTiket.setText("Silahkan Melanjutkan Transaksi")
 
-                        binding.btnPesanTiket.setOnClickListener {
-                            startActivity(Intent(this, HomeBottomActivity::class.java))
-                            Toast.makeText(this,"Silahkan Melanjutkan Transaksi di Halaman History", Toast.LENGTH_SHORT).show()
-                        }
+                        startActivity(Intent(this, SuccsesOrderActivity::class.java))
                         Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                     }else{
                         Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
@@ -92,6 +89,7 @@ class PemesananActivity : AppCompatActivity() {
                 userViewModel.orderTiketObserve().observe(this){
                         if (it != null){
                             binding.etJmlPenumpang.setText("1")
+                            Toast.makeText(this,"Silahkan Isi Identitas Penumpang Selanjutnya", Toast.LENGTH_SHORT).show()
 
                         }else{
                             Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
@@ -102,11 +100,8 @@ class PemesananActivity : AppCompatActivity() {
                         if (it != null){
                             val hargaDua = harga*2
                             binding.txtTotalHarga.text = hargaDua.toString()
-                            binding.btnPesanTiket.setText("Silahkan Melanjutkan Transaksi")
-                            binding.btnPesanTiket.setOnClickListener {
-                                startActivity(Intent(this, HomeBottomActivity::class.java))
-                                Toast.makeText(this,"Silahkan Melanjutkan Transaksi di Halaman History", Toast.LENGTH_SHORT).show()
-                            }
+                            startActivity(Intent(this, SuccsesOrderActivity::class.java))
+
                             Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                         }else{
                             Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
@@ -142,11 +137,10 @@ class PemesananActivity : AppCompatActivity() {
                         if (it != null){
                             val hargaTiga = harga*3
                             binding.txtTotalHarga.text = hargaTiga.toString()
-                            binding.btnPesanTiket.setText("Silahkan Melanjutkan Transaksi")
-                            binding.btnPesanTiket.setOnClickListener {
-                                startActivity(Intent(this, HomeBottomActivity::class.java))
-                                Toast.makeText(this,"Silahkan Melanjutkan Transaksi di Halaman History", Toast.LENGTH_SHORT).show()
-                            }
+
+                            startActivity(Intent(this, SuccsesOrderActivity::class.java))
+
+
                             Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                         }else{
                             Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()

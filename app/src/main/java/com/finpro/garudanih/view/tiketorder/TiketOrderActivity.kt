@@ -32,6 +32,7 @@ class TiketOrderActivity : AppCompatActivity() {
         val getPaid = intent.getBooleanExtra("paid",false)
         val getNoTerbang = intent.getStringExtra("nopenerbangan")
         val getIdTrans = intent.getIntExtra("idtrans",0)
+        val getHarga = intent.getIntExtra("harga",0)
 
         binding.CodePenerbangan.text = getNoTerbang
         binding.tgl.text = getJadwal
@@ -41,6 +42,7 @@ class TiketOrderActivity : AppCompatActivity() {
         binding.namapenumpang.text = getOrderBy
         binding.Asal.text = getDeparCode
         binding.Tujuan.text = getDestiCode
+        binding.Harga.text = "Rp"+getHarga.toString()
         if (getPaid == true){
             binding.statusBook.text = "Sudah Bayar"
         }else if (getPaid == false){

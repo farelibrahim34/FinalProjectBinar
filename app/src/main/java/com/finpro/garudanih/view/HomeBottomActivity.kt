@@ -1,15 +1,25 @@
 package com.finpro.garudanih.view
 
+<<<<<<< HEAD
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+=======
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import androidx.navigation.Navigation
+>>>>>>> dev-willy
 import androidx.navigation.findNavController
 import com.finpro.garudanih.R
 import androidx.navigation.ui.setupWithNavController
 import com.finpro.garudanih.databinding.ActivityHomeBottomBinding
+import com.finpro.garudanih.view.detils.TiketInternasionalActivity
 import com.finpro.garudanih.view.fragments.history.HistoryFragment
 import com.finpro.garudanih.view.fragments.wishlist.OrderFragmentInterface
+import com.finpro.garudanih.wishlist.WishlistActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,6 +39,10 @@ class HomeBottomActivity : AppCompatActivity(), OrderFragmentInterface {
         val navController =
             findNavController(R.id.nav_host_fragment_activity_home_bottom_navigation)
         navView.setupWithNavController(navController)
+
+//        binding.wishlist.setOnClickListener {
+//            startActivity(Intent(this, WishlistActivity::class.java))
+//        }
 
     }
 

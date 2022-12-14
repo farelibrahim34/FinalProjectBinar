@@ -1,7 +1,11 @@
 package com.finpro.garudanih.network
 
 import com.finpro.garudanih.model.*
+<<<<<<< HEAD
 import com.finpro.garudanih.model.updatepaid.ResponsePaid
+=======
+import okhttp3.MultipartBody
+>>>>>>> dev-willy
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -23,6 +27,10 @@ interface ApiInterface {
 
     @GET("v1/ticket/{id}")
     fun getTiketByid(@Path("id") id : Int): Call<ResponseDetailTiket>
+
+    @PUT("/v1/user/update")
+    fun updateUserLogin(@Header("Authorization")auth: String,
+                        @Body user : UpdateProfile):Call<ResponseUserUpdate>
 
     @POST("v1/trans/{ticketId}")
     fun orderTiket(@Header("Authorization")auth : String,

@@ -10,6 +10,12 @@ class UserViewModel @Inject constructor(private val repo: DataUserRepository): V
     fun currentUser(token : String) = repo.getDataUser(token)
     fun getCurrentObserve() = repo.getCurrentUserObserve()
 
+    fun updateUser(token :String,
+                   nomor : String,
+                   tanggallahir :String,
+                   kota : String) = repo.updateCurrentUser(token,nomor,tanggallahir,kota)
+
+    fun getUpdateUserObserver() = repo.updateCurrentUserObserve()
     fun orderTiketPesawat(token: String,
                           ticketId:Int,
                           orderBy : String,
@@ -20,6 +26,10 @@ class UserViewModel @Inject constructor(private val repo: DataUserRepository): V
     fun historyUser(token: String)= repo.getHistory(token)
     fun getHistoryObserve() = repo.getHistoryObserve()
 
+<<<<<<< HEAD
     fun paidUser(transId: Int) = repo.callUpdatePaid(transId)
     fun paidUserObserve() = repo.putPaidUserObserve()
+=======
+
+>>>>>>> dev-willy
 }

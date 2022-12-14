@@ -14,17 +14,24 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.navArgs
 import com.bumptech.glide.Glide
 import com.finpro.garudanih.MainActivity
+import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityProfileBinding
+import com.finpro.garudanih.utils.UpdateProfile
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.auth.LoginActivity
+import com.finpro.garudanih.view.fragments.settings.SettingsFragmentArgs
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,12 +48,11 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var binding : ActivityProfileBinding
     private lateinit var authViewModel: AuthViewModel
     private lateinit var userViewModel : UserViewModel
-
     private val REQUEST_CODE_PERMISSION = 100
     private var imageUri: Uri? = Uri.EMPTY
+    private val args by navArgs<ProfileActivityArgs>()
 
     var cal = Calendar.getInstance()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
@@ -100,12 +106,14 @@ class ProfileActivity : AppCompatActivity() {
         }
         val image = BitmapFactory.decodeFile(this.applicationContext.filesDir.path + File.separator +"dataFoto"+ File.separator +"fotoProfile.png")
         binding.ivSetImage.setImageBitmap(image)
+
+        doUpdateProfile()
     }
 
     private fun updateDateInView() {
         val myFormat = "MM/dd/yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
-    // buat variable baru untuk POST date.mont,year ke API (format ini sudah dalam bentuk string)
+        // buat variable baru untuk POST date.mont,year ke API (format ini sudah dalam bentuk string)
         binding.tvTgllahir.text= sdf.format(cal.getTime())
     }
 
@@ -227,6 +235,7 @@ class ProfileActivity : AppCompatActivity() {
                 binding.tvEmailuser.setText(it.email)
                 binding.etPhone.setText(it.phone)
                 binding.tvTgllahir.setText(it.birth)
+                binding.tvAlamat.setText(it.city)
             }else{
                 Log.d("PROFILE","Profile Null")
             }
@@ -252,6 +261,11 @@ class ProfileActivity : AppCompatActivity() {
                 binding.tvTgllahir.setText(it)
             }
         }
+        authViewModel.getKota().observe(this){
+            if (it != null){
+                binding.tvAlamat.setText(it)
+            }
+        }
         authViewModel.getImage().observe(this){
             if (it != null && it != "undefined"){
                 Log.d("PHOTO_URL",it)
@@ -261,5 +275,42 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+//    private fun setData(){
+//        binding.apply {
+//            val(nomor,tanggallahir,kota) = args.userUpdate
+//            etPhone.setText(nomor)
+//            tvTgllahir.setText(tanggallahir)
+//            //tvAlamat.setText(kota)
+//        }
+//    }
+    private fun doUpdateProfile(){
+        binding.btnSimpan.setOnClickListener {
+            val nomor = binding.etPhone.text.toString()
+            val ttl = binding.tvTgllahir.text.toString().trim()
+            val kota = binding.tvAlamat.text.toString()
+            val validate = UpdateProfile.validateEditProfile(nomor,ttl,kota)
+            if (validate == "success"){
+                authViewModel.getToken().observe(this){token->
+                    if (token != null){
+                        if (nomor.isNotBlank() && ttl.isNotBlank() && kota.isNotBlank()){
+                            userViewModel.updateUser("Bearer $token", nomor, ttl,kota)
+                            userViewModel.getUpdateUserObserver().observe(this){
+                                if (it != null){
+                                    Toast.makeText(this, "Update Profile Success", Toast.LENGTH_SHORT).show()
+                                }else{
+                                    Toast.makeText(this, "Failed Update Profile", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }else{
+                            Toast.makeText(this, "Cannot be empty", Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        Log.d("TOKEN","Token Null")
+                    }
+                }
+            }
+        }
     }
 }

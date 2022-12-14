@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.finpro.garudanih.model.*
 import com.finpro.garudanih.model.updatepaid.ResponsePaid
 import com.finpro.garudanih.network.ApiInterface
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -13,12 +14,14 @@ import javax.inject.Inject
 class DataUserRepository @Inject constructor(private val api: ApiInterface) {
 
     private val getCurrentUser : MutableLiveData<ResponseUserCurrent?> = MutableLiveData()
+    private val updateCurrentUser : MutableLiveData<ResponseUserUpdate?> = MutableLiveData()
     private val postOrder : MutableLiveData<ResponseOrder?> = MutableLiveData()
 
     private val getHistoryUser: MutableLiveData<HistoryResponse?> = MutableLiveData()
     private val putPaidUser : MutableLiveData<ResponsePaid?> = MutableLiveData()
 
     fun getCurrentUserObserve(): MutableLiveData<ResponseUserCurrent?> = getCurrentUser
+    fun updateCurrentUserObserve() : MutableLiveData<ResponseUserUpdate?> = updateCurrentUser
     fun postOrderObserve(): MutableLiveData<ResponseOrder?> = postOrder
 
     fun getHistoryObserve(): MutableLiveData<HistoryResponse?> = getHistoryUser
@@ -47,6 +50,34 @@ class DataUserRepository @Inject constructor(private val api: ApiInterface) {
 
                 override fun onFailure(call: Call<ResponseUserCurrent>, t: Throwable) {
                     getCurrentUser.postValue(null)
+                    Log.d("CURRENT_USER","onFailure")
+                }
+
+            })
+    }
+    fun updateCurrentUser(token : String, nomor : String, tanggallahir : String, kota : String){
+        api.updateUserLogin(token, UpdateProfile(nomor,tanggallahir,kota))
+            .enqueue(object : Callback<ResponseUserUpdate>{
+                override fun onResponse(
+                    call: Call<ResponseUserUpdate>,
+                    response: Response<ResponseUserUpdate>
+                ) {
+                    if(response.isSuccessful){
+                        val body = response.body()
+                        if(body != null){
+                            updateCurrentUser.postValue(body)
+                        }else{
+                            updateCurrentUser.postValue(null)
+                            Log.d("CURRENT_USER","Null")
+                        }
+                    }else{
+                        updateCurrentUser.postValue(null)
+                        Log.d("CURRENT_USER",response.message())
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseUserUpdate>, t: Throwable) {
+                    updateCurrentUser.postValue(null)
                     Log.d("CURRENT_USER","onFailure")
                 }
 

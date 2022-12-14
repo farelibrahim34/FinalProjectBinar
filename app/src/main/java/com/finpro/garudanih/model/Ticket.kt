@@ -2,6 +2,8 @@ package com.finpro.garudanih.model
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 
 data class Ticket(
     @SerializedName("arrive")
@@ -32,4 +34,4 @@ data class Ticket(
     val type: String,
     @SerializedName("updatedAt")
     val updatedAt: String
-)
+) : Serializable

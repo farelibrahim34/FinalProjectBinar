@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemOrderBinding
 import com.finpro.garudanih.model.Transaction
-import com.finpro.garudanih.view.detils.DetailPesawatActivity
 import com.finpro.garudanih.view.tiketorder.TiketOrderActivity
-import com.finpro.garudanih.view.transaksi.TransaksiActivity
 
 class AdapterHistory(val listHistory: List<Transaction>?):RecyclerView.Adapter<AdapterHistory.ViewHolder>(){
     class ViewHolder(var binding : ItemOrderBinding): RecyclerView.ViewHolder(binding.root) {

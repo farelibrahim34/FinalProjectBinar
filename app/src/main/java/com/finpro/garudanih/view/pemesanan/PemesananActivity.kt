@@ -3,16 +3,11 @@ package com.finpro.garudanih.view.pemesanan
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.finpro.garudanih.adapter.AdapterHistory
 import com.finpro.garudanih.databinding.ActivityPemesananBinding
 import com.finpro.garudanih.view.HomeBottomActivity
-import com.finpro.garudanih.view.fragments.history.HistoryFragment
 import com.finpro.garudanih.view.succsess.SuccsesOrderActivity
-import com.finpro.garudanih.view.transaksi.TransaksiActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel

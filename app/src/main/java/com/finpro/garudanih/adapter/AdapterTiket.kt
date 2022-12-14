@@ -29,7 +29,6 @@ class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<
 //        holder.binding.ivListpesawat.setImageResource(listTiket[position].type)
         holder.binding.txtAvailable.text = listTiket[position].totalChair.toString()
         holder.binding.txtClass.text = listTiket[position].classX
-
         holder.binding.cardList.setOnClickListener {
 
             val intent = Intent(it.context, DetailPesawatActivity::class.java)

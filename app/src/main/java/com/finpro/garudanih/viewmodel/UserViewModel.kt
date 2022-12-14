@@ -25,11 +25,6 @@ class UserViewModel @Inject constructor(private val repo: DataUserRepository): V
 
     fun historyUser(token: String)= repo.getHistory(token)
     fun getHistoryObserve() = repo.getHistoryObserve()
-
-<<<<<<< HEAD
     fun paidUser(transId: Int) = repo.callUpdatePaid(transId)
     fun paidUserObserve() = repo.putPaidUserObserve()
-=======
-
->>>>>>> dev-willy
 }

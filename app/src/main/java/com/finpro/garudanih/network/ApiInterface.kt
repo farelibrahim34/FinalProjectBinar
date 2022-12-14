@@ -1,11 +1,8 @@
 package com.finpro.garudanih.network
 
 import com.finpro.garudanih.model.*
-<<<<<<< HEAD
 import com.finpro.garudanih.model.updatepaid.ResponsePaid
-=======
 import okhttp3.MultipartBody
->>>>>>> dev-willy
 import retrofit2.Call
 import retrofit2.http.*
 

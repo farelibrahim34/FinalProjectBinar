@@ -23,18 +23,13 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_history"
             app:destination="@id/navigation_history" />
-<<<<<<< HEAD
-=======
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_wishlist"
-            app:destination="@id/navigation_wishlist" />
         <action
             android:id="@+id/action_navigation_home_to_profileActivity"
             app:destination="@id/profileActivity" />
         <action
             android:id="@+id/action_navigation_home_to_wishlistActivity"
             app:destination="@id/wishlistActivity" />
->>>>>>> dev-willy
+
     </fragment>
 
     <fragment

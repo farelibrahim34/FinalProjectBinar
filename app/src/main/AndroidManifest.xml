@@ -21,7 +21,6 @@
         android:roundIcon="@mipmap/ic_logogn"
         android:supportsRtl="true"
         android:theme="@style/Theme.GarudaNih"
-<<<<<<< HEAD
         tools:targetApi="31" >
         <activity
             android:name=".view.tiketorder.TiketOrderActivity"
@@ -29,10 +28,6 @@
         <activity
             android:name=".view.transaksi.TransaksiActivity"
             android:exported="false" />
-=======
-        android:usesCleartextTraffic="true"
-        tools:targetApi="31">
->>>>>>> dev-willy
         <activity
             android:name=".wishlist.WishlistActivity"
             android:exported="false" />

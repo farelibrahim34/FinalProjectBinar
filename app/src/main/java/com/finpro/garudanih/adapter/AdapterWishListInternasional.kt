@@ -2,12 +2,19 @@ package com.finpro.garudanih.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.wishlist.DataWishPesawatLoc
+import com.finpro.garudanih.wishlist.WishlistActivity
+import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 
 class AdapterWishListInternasional(val Wishlistinternasional : List<dataWishPesawatInternasional>): RecyclerView.Adapter<AdapterWishListInternasional.ViewHolder>()  {
+
+    var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
     class ViewHolder (val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root){
 
     }
@@ -25,6 +32,18 @@ class AdapterWishListInternasional(val Wishlistinternasional : List<dataWishPesa
 //        holder.binding.ivListpesawat.setImageResource(listTiket[position].type)
         holder.binding.txtAvailable.text = Wishlistinternasional[position].totalChair.toString()
         holder.binding.txtClass.text = Wishlistinternasional[position].classX
+
+        holder.binding.delete.setOnClickListener {
+            databaseWishPesawatInternasional = DatabaseWishPesawatInternasional.getInstance(it.context)
+            GlobalScope.async {
+                val delete = databaseWishPesawatInternasional?.WishInternasionalDao()
+                    ?.deleteWishInter(Wishlistinternasional[position])
+                (holder.itemView.context as WishlistActivity).runOnUiThread {
+                    Toast.makeText(it.context, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show()
+                    (holder.itemView.context as WishlistActivity).getWishListInter()
+                }
+            }
+        }
     }
 
     override fun getItemCount(): Int {

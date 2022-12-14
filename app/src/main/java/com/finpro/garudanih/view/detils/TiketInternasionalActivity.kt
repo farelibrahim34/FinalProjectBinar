@@ -19,6 +19,7 @@ class TiketInternasionalActivity : AppCompatActivity() {
     lateinit var binding : ActivityTiketInternasionalBinding
     lateinit var viewModel : TiketViewModel
     lateinit var adapterTiketIntr : AdapterInternasional
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTiketInternasionalBinding.inflate(layoutInflater)

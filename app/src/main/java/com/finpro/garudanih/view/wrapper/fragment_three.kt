@@ -37,9 +37,7 @@ class fragment_three : Fragment(){
         authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
 
         binding.tvLogin.setOnClickListener {
-//            startActivity(Intent(context, LoginActivity::class.java))
-
-
+            startActivity(Intent(context, LoginActivity::class.java))
         }
     }
     private fun sudahlogin(){

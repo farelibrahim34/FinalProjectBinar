@@ -18,9 +18,6 @@ import javax.inject.Inject
 class ViewModelUser @Inject constructor(private val api : ApiInterface): ViewModel() {
 
     lateinit var postLdUser : MutableLiveData<DataUserResponse?>
-
-
-
     init {
         postLdUser = MutableLiveData()
     }

@@ -5,45 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warna_background"
+    android:background="@color/warna_background_splash"
     tools:context=".view.wrapper.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
+        android:layout_width="350dp"
         android:layout_height="200dp"
-        android:src="@drawable/ic_logogn"
+        android:src="@drawable/ic_gn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418"
         tools:ignore="ContentDescription" />
-
-    <ProgressBar
-        android:id="@+id/splashProgress"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:layout_marginTop="132dp"
-        android:indeterminate="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:minHeight="10dp"
-        android:progressDrawable="@drawable/splash_progress_background"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:layout_editor_absoluteX="1dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:fontFamily="@font/poppins_medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintTop_toBottomOf="@id/splashProgress"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

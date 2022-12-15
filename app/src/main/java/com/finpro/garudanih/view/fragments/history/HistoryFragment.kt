@@ -52,7 +52,7 @@ class HistoryFragment : Fragment() {
                 adapterHistory = AdapterHistory(it.data.transaction)
                 binding.rvHistory.adapter = adapterHistory
                 Log.d(TAG, "onViewCreated: ${it.data.transaction}")
-                Toast.makeText(context, "Data Tampil", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, "Data Tampil", Toast.LENGTH_SHORT).show()
                 adapterHistory.notifyDataSetChanged()
             }
         }

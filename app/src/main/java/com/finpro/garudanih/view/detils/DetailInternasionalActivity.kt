@@ -41,7 +41,7 @@ class DetailInternasionalActivity : AppCompatActivity() {
         id = intent.getIntExtra(EXTRA_ID, 0)
 
         binding.ivBackDetail.setOnClickListener {
-            startActivity(Intent(this, TiketInternasionalActivity::class.java))
+            startActivity(Intent(this, HomeBottomActivity::class.java))
         }
         getListInternasional()
 

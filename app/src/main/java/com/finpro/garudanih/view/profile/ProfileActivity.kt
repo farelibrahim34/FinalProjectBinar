@@ -62,8 +62,6 @@ class ProfileActivity : AppCompatActivity() {
         setGetDataUser()
 
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
-//        logout
-        logout()
 
         binding.tvTgllahir.text = "--/--/----"
         // create an OnDateSetListener
@@ -204,17 +202,6 @@ class ProfileActivity : AppCompatActivity() {
             binding.ivSetImage.setImageURI(result)
         }
 
-    private fun logout(){
-        binding.btnLogout.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java).also {
-                authViewModel.apply {
-                    deleteToken()
-                    deleteData()
-                }
-            })
-            Toast.makeText(this,"Berhasil Logout", Toast.LENGTH_SHORT).show()
-        }
-    }
     private fun getProfile(){
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         authViewModel.getToken().observe(this){
@@ -277,14 +264,6 @@ class ProfileActivity : AppCompatActivity() {
 
     }
 
-//    private fun setData(){
-//        binding.apply {
-//            val(nomor,tanggallahir,kota) = args.userUpdate
-//            etPhone.setText(nomor)
-//            tvTgllahir.setText(tanggallahir)
-//            //tvAlamat.setText(kota)
-//        }
-//    }
     private fun doUpdateProfile(){
         binding.btnSimpan.setOnClickListener {
             val nomor = binding.etPhone.text.toString()

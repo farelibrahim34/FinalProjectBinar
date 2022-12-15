@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Profil"
+        android:text="Profile"
         android:textAlignment="center"
         android:textColor="@color/warna_primary_font"
         android:textSize="25sp"
@@ -66,9 +66,9 @@
         android:id="@+id/tvNamauser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semibold"
         android:text="Rifqi Padi Siliwangi"
         android:textAlignment="center"
+        android:fontFamily="@font/poppins_semibold"
         android:textSize="25sp"
         android:layout_marginVertical="10dp"
         android:textColor="@color/warna_primary_font"
@@ -78,7 +78,6 @@
         android:id="@+id/tvEmailuser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:fontFamily="@font/poppins_medium"
         android:text="rifqipadisiliwangi@gmail.com"
         android:textAlignment="center"
@@ -208,27 +207,7 @@
                 app:boxStrokeWidth="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-<!--            <Spinner-->
-<!--                android:id="@+id/tvAlamat"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <Button
-            android:id="@+id/btnLogout"
-            style="@style/firstbutton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:paddingVertical="10dp"
-            android:text="Keluar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constChoseeCity" />
 
         <Button
             android:id="@+id/btnSimpan"
@@ -238,22 +217,10 @@
             android:fontFamily="@font/poppins_medium"
             android:paddingVertical="10dp"
             android:text="Simpan Profile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnCangePW" />
-
-        <Button
-            android:id="@+id/btnCangePW"
-            style="@style/secondbutton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:paddingVertical="10dp"
-            android:text="Ubah Password"
+            android:layout_marginBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
+            app:layout_constraintBottom_toTopOf="@+id/tvPrivacyPolicy"/>
 
 
         <TextView
@@ -267,20 +234,20 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnCangePW" />
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tvPrivacyPolicy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:text="Privacy Policy"
             android:textColor="@color/warna_second_button"
             android:textSize="18sp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

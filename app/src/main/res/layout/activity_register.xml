@@ -15,8 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         app:cardCornerRadius="10dp"
-        android:outlineAmbientShadowColor="@color/warna_button"
-        android:outlineSpotShadowColor="@color/warna_button"
         android:background="@drawable/rounded_bg_second"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,7 +24,8 @@
             android:layout_width="70dp"
             android:layout_height="50dp"
             android:padding="10dp"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:contentDescription="@string/string_todo" />
 
     </androidx.cardview.widget.CardView>
 
@@ -36,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Buat Akun"
+        android:text="@string/string_buat_akun"
         android:textAlignment="center"
         android:textColor="@color/warna_primary_font"
         android:textSize="25sp"
@@ -84,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:ems="10"
-            android:hint="Masukkan Username"
+            android:hint="@string/string_masukkan_username"
             android:inputType="text"
             android:textColorHint="@color/warna_primary_font"
             android:textColor="@color/warna_primary_font"
@@ -115,7 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:ems="10"
-            android:hint="Masukkan Email"
+            android:hint="@string/string_masukkan_email"
             android:inputType="text"
             android:textColor="@color/warna_primary_font"
             android:textColorHint="@color/warna_primary_font"
@@ -145,7 +144,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Masukkan Password"
+            android:hint="@string/string_masukkan_password"
             android:inputType="textPassword"
             android:textColor="@color/warna_primary_font"
             android:textColorHighlight="@color/warna_primary_font"
@@ -178,7 +177,7 @@
             android:id="@+id/etConfPassword"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Konfirmasi Password"
+            android:hint="@string/string_konfirmasi_password"
             android:inputType="textPassword"
             android:textColor="@color/warna_primary_font"
             android:textColorHighlight="@color/warna_primary_font"
@@ -198,7 +197,7 @@
         android:fontFamily="@font/poppins_medium"
         android:layout_marginVertical="50dp"
         android:paddingVertical="10dp"
-        android:text="Daftar"
+        android:text="@string/string_daftar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordConfInputLayout" />

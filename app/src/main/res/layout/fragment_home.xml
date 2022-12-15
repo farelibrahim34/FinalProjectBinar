@@ -40,7 +40,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Hello, Username"
+            android:text="@string/string_hello_username"
             android:textColor="@color/warna_primary_font"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/ivUser"
@@ -53,13 +53,13 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Welcome Back!"
+            android:text="@string/string_welcome_back"
             android:textColor="@color/warna_primary_font"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-
             app:layout_constraintStart_toEndOf="@+id/ivUser"
-            app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+            app:layout_constraintTop_toBottomOf="@+id/txtUsername"
+            tools:ignore="SmallSp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -73,7 +73,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingBottom="30dp">
 
             <androidx.viewpager2.widget.ViewPager2
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:text="International Flight"
+                android:text="@string/string_international_flight"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"
@@ -119,7 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:text="Show All"
+                android:text="@string/string_show_all"
                 android:textColor="#1D3FFF"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/indicatorBanner"
@@ -140,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Local Flight"
+                android:text="@string/string_local_flight"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/rvInternational"
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Show All"
+                android:text="@string/string_show_all"
                 android:textColor="#1D3FFF"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/rvInternational"
@@ -192,9 +192,10 @@
         android:layout_height="25dp"
         android:src="@drawable/wishlist"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/string_todo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

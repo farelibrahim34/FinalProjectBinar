@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:text="Order Tiket"
+            android:text="@string/string_order_tiket"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Silahkan untuk order tiket anda"
+            android:text="@string/string_silahkan_untuk_order_tiket_anda"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/textView13"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -70,7 +70,7 @@
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cari Tiket"
+                android:text="@string/string_cari_tiket"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +82,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/line_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                app:layout_constraintTop_toBottomOf="@+id/textView15"
+                android:contentDescription="@string/string_todo" />
 
 
             <androidx.cardview.widget.CardView
@@ -100,24 +101,26 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="4dp"
-                    android:paddingRight="15dp"
+                    android:paddingEnd="15dp"
                     android:layout_marginLeft="15dp"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    tools:ignore="RtlHardcoded,RtlSymmetry">
 
                     <ImageView
                         android:id="@+id/imgtgl"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_calendar_month_24" />
+                        android:src="@drawable/ic_baseline_calendar_month_24"
+                        android:contentDescription="@string/string_todo" />
 
                     <TextView
                         android:id="@+id/tanggalorder"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/imgtgl"
-                        android:text="Tanggal"
-                        android:textSize="20dp"
+                        android:text="@string/string_tanggal"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -126,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tanggalorder"
                         android:layout_toRightOf="@id/imgtgl"
-                        android:text="24/11/2022" />
+                        android:text="@string/string_tanggal_24_11_2022" />
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
@@ -145,24 +148,26 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="4dp"
-                    android:paddingRight="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingBottom="10dp">
+                    android:paddingEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:paddingBottom="10dp"
+                    tools:ignore="RtlSymmetry">
 
                     <ImageView
                         android:id="@+id/Imgclass"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/chair" />
+                        android:src="@drawable/chair"
+                        android:contentDescription="@string/string_todo" />
 
                     <TextView
                         android:id="@+id/txtxclass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/Imgclass"
-                        android:text="Class"
-                        android:textSize="20dp"
+                        android:layout_toEndOf="@id/Imgclass"
+                        android:text="@string/string_class"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -170,8 +175,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtxclass"
-                        android:layout_toRightOf="@id/Imgclass"
-                        android:text="Premium" />
+                        android:layout_toEndOf="@id/Imgclass"
+                        android:text="@string/string_class" />
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
@@ -189,26 +194,28 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:orientation="horizontal"
                     android:paddingTop="4dp"
-                    android:paddingRight="15dp"
-                    android:paddingBottom="10dp">
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="10dp"
+                    tools:ignore="RtlSymmetry">
 
                     <ImageView
                         android:id="@+id/ImgcPenerbangan"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/penerabngan" />
+                        android:src="@drawable/penerabngan"
+                        android:contentDescription="@string/string_todo" />
 
                     <TextView
                         android:id="@+id/txpenerbangan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/ImgcPenerbangan"
-                        android:text="Penerbangan"
-                        android:textSize="20dp"
+                        android:layout_toEndOf="@id/ImgcPenerbangan"
+                        android:text="@string/string_penerbangan"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -216,8 +223,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txpenerbangan"
-                        android:layout_toRightOf="@id/ImgcPenerbangan"
-                        android:text="JKT, INDONESIA" />
+                        android:layout_toEndOf="@id/ImgcPenerbangan"
+                        android:text="@string/string_nama_kota" />
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
@@ -235,11 +242,12 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:orientation="horizontal"
                     android:paddingTop="4dp"
-                    android:paddingRight="15dp"
-                    android:paddingBottom="10dp">
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="10dp"
+                    tools:ignore="RtlSymmetry">
 
                     <ImageView
                         android:id="@+id/ImgTujuan"
@@ -247,15 +255,16 @@
                         android:layout_height="30dp"
                         android:layout_centerVertical="true"
                         android:rotationX="180"
-                        android:src="@drawable/penerabngan" />
+                        android:src="@drawable/penerabngan"
+                        android:contentDescription="@string/string_todo" />
 
                     <TextView
                         android:id="@+id/txTujuan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/ImgTujuan"
-                        android:text="Tujuan"
-                        android:textSize="20dp"
+                        android:layout_toEndOf="@id/ImgTujuan"
+                        android:text="@string/string_nama_kota"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -263,8 +272,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txTujuan"
-                        android:layout_toRightOf="@id/ImgTujuan"
-                        android:text="YK, INDONESIA" />
+                        android:layout_toEndOf="@id/ImgTujuan"
+                        android:text="@string/string_nama_kota" />
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
@@ -282,26 +291,28 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:orientation="horizontal"
                     android:paddingTop="4dp"
-                    android:paddingRight="15dp"
-                    android:paddingBottom="10dp">
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="10dp"
+                    tools:ignore="RtlSymmetry">
 
                     <ImageView
                         android:id="@+id/Imgpenumpang"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/penumpang" />
+                        android:src="@drawable/penumpang"
+                        android:contentDescription="@string/string_todo" />
 
                     <TextView
                         android:id="@+id/txpenumpang"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/Imgpenumpang"
-                        android:text="Jumlah"
-                        android:textSize="20dp"
+                        android:layout_toEndOf="@id/Imgpenumpang"
+                        android:text="@string/string_jumlah_penumpang"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -309,8 +320,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txpenumpang"
-                        android:layout_toRightOf="@id/Imgpenumpang"
-                        android:text="1 Orang" />
+                        android:layout_toEndOf="@id/Imgpenumpang"
+                        android:text="@string/string_jumlah_penumpang" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -322,7 +333,7 @@
                 android:layout_marginVertical="20dp"
                 android:fontFamily="@font/poppins_medium"
                 android:paddingVertical="10dp"
-                android:text="Cari"
+                android:text="@string/string_cari_tiket"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView10" />

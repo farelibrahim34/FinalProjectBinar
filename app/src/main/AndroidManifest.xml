@@ -23,16 +23,13 @@
         android:theme="@style/Theme.GarudaNih"
         tools:targetApi="31" >
         <activity
-            android:name=".view.tiketorder.TiketOrderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.transaksi.TransaksiActivity"
-            android:exported="false" />
-        <activity
             android:name=".wishlist.WishlistActivity"
             android:exported="false" />
         <activity
             android:name=".view.detils.TiketInternasionalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.tiketorder.TiketOrderActivity"
             android:exported="false" />
         <activity
             android:name=".view.pemesanan.PemesananActivity"

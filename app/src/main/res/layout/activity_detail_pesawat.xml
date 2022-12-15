@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Detail"
+        android:text="@string/string_detail"
         android:textAlignment="center"
         android:textColor="@color/warna_primary_font"
         android:textSize="25sp"
@@ -30,8 +30,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_bg_second"
-        android:outlineAmbientShadowColor="@color/warna_button"
-        android:outlineSpotShadowColor="@color/warna_button"
         app:cardCornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -41,7 +39,8 @@
             android:layout_width="70dp"
             android:layout_height="50dp"
             android:padding="10dp"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:contentDescription="@string/string_todo" />
 
     </androidx.cardview.widget.CardView>
 
@@ -53,18 +52,19 @@
         android:src="@drawable/pesawat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:contentDescription="@string/string_todo" />
 
     <TextView
         android:id="@+id/txtChair"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginStart="20dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/green"
         android:fontFamily="@font/poppins_medium"
-        android:text="Total Chair"
+        android:text="@string/string_total_chair"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivKota" />
 
@@ -75,7 +75,7 @@
         android:layout_marginStart="20dp"
         android:textSize="18sp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Jadwal"
+        android:text="@string/string_jadwal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtChair" />
 
@@ -83,8 +83,8 @@
         android:id="@+id/txtHargaDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Harga"
-        android:textSize="18dp"
+        android:text="@string/string_harga"
+        android:textSize="18sp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,13 +107,14 @@
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/poppins_semibold"
             android:paddingVertical="5dp"
-            android:text="Bussiness Class"
+            android:text="@string/string_class"
             android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SmallSp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -143,15 +144,16 @@
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:padding="10dp"
-                android:src="@drawable/penerabngan" />
+                android:src="@drawable/penerabngan"
+                tools:ignore="ContentDescription" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/txpenerbangan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Keberangkatan"
-            android:textSize="20dp"
+            android:text="@string/string_keberangkatan"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/warna_primary_font"
@@ -164,8 +166,8 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/txpenerbangan"
-            android:layout_toRightOf="@id/cvPlaneTakeoff"
-            android:hint="Nama Kota"
+            android:layout_toEndOf="@id/cvPlaneTakeoff"
+            android:hint="@string/string_nama_kota"
             android:fontFamily="@font/poppins_medium"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/cvPlaneTakeoff"
@@ -200,16 +202,17 @@
                 android:padding="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/penerabngan" />
+                android:src="@drawable/penerabngan"
+                android:contentDescription="@string/string_todo" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/txTujuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tujuan"
+            android:text="@string/string_tujuan"
             android:textColor="@color/warna_primary_font"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_medium"
             android:layout_marginVertical="20dp"
@@ -221,7 +224,7 @@
             android:id="@+id/txtInputTujuan"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="Tujuan"
+            android:hint="@string/string_nama_kota"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toEndOf="@+id/cvPlaneLanding"
@@ -247,7 +250,7 @@
         android:paddingVertical="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Order Sekarang"
+        android:text="@string/string_order_sekarang"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -256,7 +259,7 @@
         android:id="@+id/wishlist"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/wishlist"
         android:focusable="false"
         android:focusableInTouchMode="false"

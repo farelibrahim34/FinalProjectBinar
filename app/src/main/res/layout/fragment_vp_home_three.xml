@@ -9,6 +9,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/banner3" />
+        android:src="@drawable/banner3"
+        android:contentDescription="@string/string_todo" />
 
 </FrameLayout>

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="10dp"
     android:layout_height="wrap_content">
@@ -12,8 +13,6 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         app:cardCornerRadius="20dp"
-        android:outlineSpotShadowColor="@color/warna_second_button"
-        android:outlineAmbientShadowColor="@color/warna_second_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -32,7 +31,7 @@
                 android:id="@+id/txtDeparture"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="JKT"
+                android:text="@string/string_code"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/warna_primary_font"
@@ -44,7 +43,7 @@
                 android:id="@+id/txtDestination"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="BPN"
+                android:text="@string/string_code"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/warna_primary_font"
@@ -68,7 +67,7 @@
                 android:id="@+id/txtOrderBy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="orderBy"
+                android:text="@string/string_orderby"
                 android:layout_marginStart="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dividerView" />
@@ -77,7 +76,7 @@
                 android:id="@+id/txtCodeTiket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="code"
+                android:text="@string/string_code"
                 android:layout_marginStart="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtOrderBy" />
@@ -106,14 +105,15 @@
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/poppins_semibold"
                     android:paddingVertical="5dp"
-                    android:text="Bussiness Class"
+                    android:text="@string/string_class"
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
                     android:layout_marginStart="5dp"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SmallSp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -122,7 +122,7 @@
                 android:id="@+id/txtTglOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="tanggal pemesanan"
+                android:text="@string/string_tanggal_24_11_2022"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -130,7 +130,7 @@
                 android:id="@+id/txtIsPaid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Succses"
+                android:text="@string/string_sukses"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtTglOrder" />
 
@@ -159,7 +159,8 @@
                     app:layout_constraintStart_toStartOf="@+id/constraintRound"
                     app:layout_constraintBottom_toBottomOf="@+id/constraintRound"
                     app:layout_constraintTop_toTopOf="@+id/constraintRound"
-                    android:src="@drawable/ic_baseline_arrow_upward_24"/>
+                    android:src="@drawable/ic_baseline_arrow_upward_24"
+                    android:contentDescription="@string/string_todo" />
 
                 <ImageView
                     android:id="@+id/ivDownward"
@@ -168,7 +169,8 @@
                     app:layout_constraintStart_toEndOf="@id/ivUpward"
                     app:layout_constraintBottom_toBottomOf="@+id/constraintRound"
                     app:layout_constraintTop_toTopOf="@+id/constraintRound"
-                    android:src="@drawable/ic_baseline_arrow_downward_24"/>
+                    android:src="@drawable/ic_baseline_arrow_downward_24"
+                    android:contentDescription="@string/string_todo" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

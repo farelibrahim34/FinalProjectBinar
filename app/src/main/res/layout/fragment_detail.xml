@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Detail"
+        android:text="@string/string_detail"
         android:textAlignment="center"
         android:textColor="@color/warna_primary_font"
         android:textSize="25sp"
@@ -30,8 +30,6 @@
         android:layout_marginVertical="10dp"
         android:layout_marginStart="20dp"
         app:cardCornerRadius="10dp"
-        android:outlineAmbientShadowColor="@color/warna_button"
-        android:outlineSpotShadowColor="@color/warna_button"
         android:background="@drawable/rounded_bg_second"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -41,7 +39,8 @@
             android:layout_width="70dp"
             android:layout_height="50dp"
             android:padding="10dp"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:contentDescription="@string/string_todo" />
 
     </androidx.cardview.widget.CardView>
 
@@ -53,7 +52,8 @@
         android:src="@drawable/jakarta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:contentDescription="@string/string_todo" />
 
     <TextView
         android:id="@+id/txtAsal"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Nama Kota"
+        android:text="@string/string_nama_kota"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Nama Kota"
+        android:text="@string/string_nama_kota"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Harga"
+        android:text="@string/string_harga"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAsal" />
 
@@ -95,7 +95,7 @@
         android:id="@+id/txtDeskripsi"
         android:layout_width="390dp"
         android:layout_height="200dp"
-        android:text="Deskripsi"
+        android:text="@string/string_deskripsi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtHargaDetail" />

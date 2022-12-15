@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Login"
+        android:text="@string/string_masuk"
         android:textColor="@color/warna_button"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

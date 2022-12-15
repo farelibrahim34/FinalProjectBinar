@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">GarudaNih</string>
+
+    <!-- Layout -->
     <string name="kemudahan">Kemudahan</string>
     <string name="fasilitas">Fasilitas</string>
     <string name="terpercaya">Terpercaya</string>
-
     <string name="onboarding_desc_satu">Hanya dengan satu langkah registrasi, nikmati segala kemudahan dalam booking tiket pesawat</string>
     <string name="onboarding_desc_dua">Nikmati kemudahan penerbangan ke seluruh dunia dengan aplikasi kita</string>
     <string name="onboarding_desc_tiga">Kemanan dalam bertransaksi Anda merupakan prioritas bagi kami</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_home">Home</string>
     <string name="title_history">History</string>
@@ -16,7 +16,77 @@
     <string name="title_order">Order</string>
     <string name="tambah_list_tiket">Berhasil menambahkan list tiket !</string>
     <string name="title_round_trip">Flights</string>
-
+    <string name="string_detail">Detail</string>
+    <string name="string_total_chair">Total Chair</string>
+    <string name="string_jadwal">Jadwal</string>
+    <string name="string_harga">Harga</string>
+    <string name="string_keberangkatan">Keberangkatan</string>
+    <string name="string_nama_kota">Nama Kota</string>
+    <string name="string_tujuan">Tujuan</string>
+    <string name="string_class">Class</string>
+    <string name="string_todo">TODO</string>
+    <string name="string_order_sekarang">Order Sekarang</string>
+    <string name="string_masuk">Masuk</string>
+    <string name="string_garudanih">GarudaNih.</string>
+    <string name="string_masukkan_email">Masukkan Email</string>
+    <string name="string_masukkan_password">Masukkan Password</string>
+    <string name="string_inggris_indonesia">Inggris / Indonesia</string>
+    <string name="string_buat_akun">Buat Akun</string>
+    <string name="string_isi_identitas_n_anda">Isi Identitas\n Anda</string>
+    <string name="string_id_tiket">ID Tiket :</string>
+    <string name="string_nama_pemesan">Nama Pemesan</string>
+    <string name="string_masukkan_nik">Masukkan Nik</string>
+    <string name="string_jumlah_penumpang">Jumlah Penumpang</string>
+    <string name="string_nomor_kursi">Nomor Kursi</string>
+    <string name="string_textview">TextView</string>
+    <string name="string_profile">Profile</string>
+    <string name="string_nama_user">Nama User</string>
+    <string name="string_email_gmail_com">email@gmail.com</string>
+    <string name="string_akun">Akun</string>
+    <string name="string_masukkan_nomor_handphone">Masukkan Nomor Handphone</string>
+    <string name="string_masukkan_tanggal_lahir">Masukkan tanggal lahir</string>
+    <string name="string_masukkan_kota_anda">Masukkan Kota Anda</string>
+    <string name="string_simpan_profile">Simpan Profile</string>
+    <string name="string_privacy_policy">Privacy Policy</string>
+    <string name="string_masukkan_username">Masukkan Username</string>
+    <string name="string_konfirmasi_password">Konfirmasi Password</string>
+    <string name="string_daftar">Daftar</string>
+    <string name="string_pemesanan_tiket_berhasil">Pemesanan Tiket Berhasil</string>
+    <string name="string_nikmati_perjalanan_anda">Nikmati Perjalanan Anda !</string>
+    <string name="string_lanjutkan_pembayaran">Lanjutkan Pembayaran</string>
+    <string name="string_penerbangan_ninternasional">Penerbangan\nInternasional</string>
+    <string name="string_penerbangan_lokal">Penerbangan Lokal</string>
+    <string name="string_international_flight">International Flight</string>
+    <string name="string_local_flight">Local Flight</string>
+    <string name="string_deskripsi">Deskripsi</string>
+    <string name="string_riwayat_order">Riwayat Order</string>
+    <string name="string_riwayat_pembelian_kamu">Riwayat Pembelian kamu</string>
+    <string name="string_dalam_proses">Dalam Proses</string>
+    <string name="string_hello_username">Hello, Username</string>
+    <string name="string_welcome_back">Welcome Back!</string>
+    <string name="string_show_all">Show All</string>
+    <string name="string_order_tiket">Order Tiket</string>
+    <string name="string_silahkan_untuk_order_tiket_anda">Silahkan untuk order tiket anda</string>
+    <string name="string_cari_tiket">Cari Tiket</string>
+    <string name="string_tanggal">Tanggal</string>
+    <string name="string_tanggal_24_11_2022">24/11/2022</string>
+    <string name="string_penerbangan">Penerbangan</string>
+    <string name="string_pengaturan">Pengaturan</string>
+    <string name="string_silahkan_sesuaikan_aplikasi_anda">Silahkan sesuaikan Aplikasi Anda</string>
+    <string name="string_edit_profile">Edit Profile</string>
+    <string name="string_edit_password">Edit Password</string>
+    <string name="string_edit_bahasa">Edit Bahasa</string>
+    <string name="string_edit_lokasi">Edit Lokasi</string>
+    <string name="string_keluar">Keluar</string>
+    <string name="string_ubah_password">Ubah Password</string>
+    <string name="string_kota_asal">Kota Asal</string>
+    <string name="string_kota_tujuan">Kota Tujuan</string>
+    <string name="string_status">Available</string>
+    <string name="string_rating">5.0</string>
+    <string name="string_code">JKT</string>
+    <string name="string_orderby">orderBy</string>
+    <string name="string_sukses">Succses</string>
+    <string name="string_swipe">Swipe</string>
 
 
     <string-array name="Kota">

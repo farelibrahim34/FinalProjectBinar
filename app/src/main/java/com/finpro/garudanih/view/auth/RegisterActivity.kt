@@ -34,7 +34,7 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
-        binding.etPassword.addTextChangedListener{password ->
+        binding.etPassword.addTextChangedListener{
             if (isPasswordValid) {
                 validate()
                 binding.passwordInputLayout.error = null
@@ -77,7 +77,7 @@ class RegisterActivity : AppCompatActivity() {
         val savePw = binding.etPassword.text.toString()
         val saveUpw = binding.etConfPassword.text.toString()
         if(saveName.isEmpty() || saveEmail.isEmpty() || savePw.isEmpty() || saveUpw.isEmpty()) {
-            Toast.makeText(this, "ISI TERLEBIH DAHULU", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Field Harus Terisi", Toast.LENGTH_SHORT).show()
         }else{
             if (savePw == saveUpw){
                 viewModel.callPostApiUser(saveName,saveEmail,savePw)

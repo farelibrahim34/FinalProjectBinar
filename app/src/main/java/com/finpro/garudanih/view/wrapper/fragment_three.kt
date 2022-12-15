@@ -38,6 +38,7 @@ class fragment_three : Fragment(){
 
         binding.tvLogin.setOnClickListener {
             startActivity(Intent(context, LoginActivity::class.java))
+            sudahlogin()
         }
     }
     private fun sudahlogin(){

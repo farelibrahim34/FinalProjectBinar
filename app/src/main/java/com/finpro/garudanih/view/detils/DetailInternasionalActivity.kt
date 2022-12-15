@@ -43,12 +43,15 @@ class DetailInternasionalActivity : AppCompatActivity() {
         binding.ivBackDetail.setOnClickListener {
             startActivity(Intent(this, HomeBottomActivity::class.java))
         }
-        getListInternasional()
+        //getListInternasional()
 
         val detail = intent.getSerializableExtra("detail") as Ticket
+        binding.txtInputAsal.text = detail.departure
+        binding.txtInputTujuan.text = detail.destination
         binding.txtHargaDetail.text = "Harga Tiket \nRp"+detail.price
-        binding.txtAsal.text = detail.departure
-        binding.txtDeskripsi.text = "Available "+detail.totalChair
+        binding.txtJadwal.text = "Jadwal : \n"+detail.takeOff
+        binding.txtChair.text =  "Available "+detail.totalChair
+        binding.txtClass.text = detail.classX+" Class"
         binding.ivKota.setImageResource(R.drawable.pesawat)
 
         binding.wishlist.setOnClickListener{
@@ -81,20 +84,20 @@ class DetailInternasionalActivity : AppCompatActivity() {
     }
 
 
-    fun getListInternasional(){
-
-        val itemListInternasional = intent.extras
-        val jadwalInt = itemListInternasional?.getString("jadwalInt")
-        val hargaInt = itemListInternasional?.getString("hargaInt")
-        val imageInt = itemListInternasional?.getInt("imageInt",0)
-        val availableInt = itemListInternasional?.getString("availableInt")
-
-//        binding.txtAsal.text = kotaInt
-        binding.txtHargaDetail.text = hargaInt
-        if (imageInt != null) {
-            binding.ivKota.setImageResource(imageInt)
-        }
-        binding.txtDeskripsi.text = availableInt
-
-    }
+//    fun getListInternasional(){
+//
+//        val itemListInternasional = intent.extras
+//        val jadwalInt = itemListInternasional?.getString("jadwalInt")
+//        val hargaInt = itemListInternasional?.getString("hargaInt")
+//        val imageInt = itemListInternasional?.getInt("imageInt",0)
+//        val availableInt = itemListInternasional?.getString("availableInt")
+//
+////        binding.txtAsal.text = kotaInt
+//        binding.txtHargaDetail.text = hargaInt
+//        if (imageInt != null) {
+//            binding.ivKota.setImageResource(imageInt)
+//        }
+//        binding.txtDeskripsi.text = availableInt
+//
+//    }
 }

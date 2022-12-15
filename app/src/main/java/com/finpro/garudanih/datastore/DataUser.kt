@@ -72,6 +72,4 @@ class DataUser(@ApplicationContext private val context: Context){
             it.clear()
         }
     }
-
-
 }

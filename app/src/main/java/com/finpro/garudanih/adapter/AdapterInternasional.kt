@@ -3,6 +3,8 @@ package com.finpro.garudanih.adapter
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.databinding.ItemInternasionalBinding
@@ -12,8 +14,13 @@ import com.finpro.garudanih.model.ResponseListTiket
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.detils.DetailInternasionalActivity
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
+import com.finpro.garudanih.wishlist.WishlistActivity
+import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 
 class AdapterInternasional(private var onClick : (Ticket)->Unit): RecyclerView.Adapter<AdapterInternasional.ViewHolder>() {
+
 
     private var listInternasional : List<Ticket>? = null
     fun setListTiketInter(listTiketLocal : List<Ticket>){
@@ -33,7 +40,7 @@ class AdapterInternasional(private var onClick : (Ticket)->Unit): RecyclerView.A
         holder.binding.txtKotaTujuan.text = listInternasional!![position].destinationCode
         holder.binding.txtKotaAsal.text = listInternasional!![position].departureCode
         holder.binding.txtJadwal.text = listInternasional!![position].takeOff
-        holder.binding.txtHarga.text = "Rp"+listInternasional!![position].price.toString()
+        holder.binding.txtHarga.text = "Rp" + listInternasional!![position].price.toString()
 //        holder.binding.ivListpesawat.setImageResource(listTiket[position].type)
         holder.binding.txtAvailable.text = listInternasional!![position].totalChair.toString()
         holder.binding.txtClass.text = listInternasional!![position].classX
@@ -51,6 +58,7 @@ class AdapterInternasional(private var onClick : (Ticket)->Unit): RecyclerView.A
         holder.binding.cardList.setOnClickListener {
             onClick(listInternasional!![position])
         }
+        holder.binding.delete.isGone = true
     }
 
     override fun getItemCount(): Int {

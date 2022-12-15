@@ -20,7 +20,7 @@ abstract class DatabaseWishPesawatInternasional : RoomDatabase() {
             if (INSTANCE == null){
                 synchronized(DatabaseWishPesawatInternasional::class){
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        DatabaseWishPesawatInternasional::class.java,"wishlist.db").build()
+                        DatabaseWishPesawatInternasional::class.java,"wishlistinternasional.db").build()
                 }
             }
             return INSTANCE

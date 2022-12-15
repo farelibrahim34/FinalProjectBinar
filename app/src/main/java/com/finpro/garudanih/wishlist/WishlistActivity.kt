@@ -2,55 +2,49 @@ package com.finpro.garudanih.wishlist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager.widget.ViewPager
 import com.finpro.garudanih.adapter.AdapterInternasional
 import com.finpro.garudanih.adapter.AdapterWishListInternasional
 import com.finpro.garudanih.adapter.AdapterWishListLoc
 import com.finpro.garudanih.databinding.ActivityWishlistBinding
+import com.finpro.garudanih.wishlist.fragment.DomesticTablayoutFragment
+import com.finpro.garudanih.wishlist.fragment.InternatonalTablayoutFragment
+import com.finpro.garudanih.wishlist.fragment.ViewPagerAdapter
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
+import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class WishlistActivity : AppCompatActivity() {
     private lateinit var binding : ActivityWishlistBinding
-    private var databaseWishPesawatLoc : DatabaseWishPesawatLoc? = null
-    private var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
+    private lateinit var pager: ViewPager // creating object of ViewPager
+    private lateinit var tab: TabLayout  // creating object of TabLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWishlistBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        databaseWishPesawatLoc = DatabaseWishPesawatLoc.getInstance(this)
-        databaseWishPesawatInternasional = DatabaseWishPesawatInternasional.getInstance(this)
+        // set the references of the declared objects above
+        pager = binding.viewPager
+        tab = binding.tabs
 
-        getWishlistLocal()
-        getWishListInter()
-    }
-    fun getWishlistLocal(){
-        binding.rvLocal.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        // To make our toolbar show the application
+        // we need to give it to the ActionBar
 
-        GlobalScope.launch {
-            val wishList = databaseWishPesawatLoc?.WishDao()?.getWishPesawat()
-            runOnUiThread{
-                wishList.let {
-                    val adapter = AdapterWishListLoc(it!!)
-                    binding.rvLocal.adapter = adapter
-                }
-            }
-        }
-    }
+        // Initializing the ViewPagerAdapter
+        val adapter = ViewPagerAdapter(supportFragmentManager)
 
-    fun getWishListInter(){
-        binding.rvInternational.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        GlobalScope.launch {
-            val wishListInter = databaseWishPesawatInternasional?.WishInternasionalDao()?.getWishPesawatInternasional()
-            runOnUiThread {
-                wishListInter.let {
-                    val adap = AdapterWishListInternasional(it!!)
-                    binding.rvInternational.adapter = adap
-                }
-            }
-        }
+        // add fragment to the list
+        adapter.addFragment(DomesticTablayoutFragment(), "Domestic Flights")
+        adapter.addFragment(InternatonalTablayoutFragment(), "International Flights")
+
+        // Adding the Adapter to the ViewPager
+        pager.adapter = adapter
+
+        // bind the viewPager with the TabLayout.
+        tab.setupWithViewPager(pager)
     }
 }

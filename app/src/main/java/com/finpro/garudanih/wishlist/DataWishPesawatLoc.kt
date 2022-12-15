@@ -24,8 +24,4 @@ data class DataWishPesawatLoc(
     var totalChair : Int,
     @ColumnInfo(name = "classX")
     var classX : String
-//    @ColumnInfo(name = "destinationCode")
-//    var destinationCode : String,
-//    @ColumnInfo(name = "departureCode")
-//    var departureCode : String
 ):Parcelable

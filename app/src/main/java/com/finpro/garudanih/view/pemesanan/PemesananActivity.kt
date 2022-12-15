@@ -1,10 +1,17 @@
 package com.finpro.garudanih.view.pemesanan
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.ViewModelProvider
+import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityPemesananBinding
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.succsess.SuccsesOrderActivity
@@ -20,12 +27,14 @@ class PemesananActivity : AppCompatActivity() {
     lateinit var userViewModel : UserViewModel
     lateinit var authViewModel : AuthViewModel
     private var tokenPaid : String = ""
-    private var transId : Int = 0
+    private val CHANNEL_ID = "chanel_id_example_01"
+    private val notificationId = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPemesananBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         viewModel = ViewModelProvider(this).get(TiketViewModel::class.java)
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         authViewModel.getToken().observe(this){token->
@@ -33,8 +42,6 @@ class PemesananActivity : AppCompatActivity() {
                 tokenPaid = "Bearer "+token
             }
         }
-
-
 
         val intent = intent
         val idTiket = intent.getIntExtra("id",0)
@@ -44,22 +51,23 @@ class PemesananActivity : AppCompatActivity() {
         }
         binding.txtIdTiket.text = "ID Tiket : "+idTiket.toString()
 
-
+        createNotificationChannel()
         binding.btnPesanTiket.setOnClickListener {
             doOrder()
+            sendNotification()
         }
 
 
     }
-    fun doOrder(){
+    private fun doOrder(){
         val intent = intent
         val harga = intent.getIntExtra("harga",0)
         val kota = intent.getStringExtra("destinasi")
         val keberangkatan = intent.getStringExtra("departure")
         val jadwal = intent.getStringExtra("jadwal")
         val idTiket = intent.getIntExtra("id",0)
-        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
+        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         binding.btnPesanTiket.setOnClickListener {
             val orderBy = binding.etNamaPemesan.text.toString()
@@ -70,7 +78,6 @@ class PemesananActivity : AppCompatActivity() {
                 userViewModel.orderTiketObserve().observe(this){
                     if (it != null){
                         binding.txtTotalHarga.text= harga.toString()
-
                         startActivity(Intent(this, SuccsesOrderActivity::class.java))
                         Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                     }else{
@@ -96,8 +103,6 @@ class PemesananActivity : AppCompatActivity() {
                             val hargaDua = harga*2
                             binding.txtTotalHarga.text = hargaDua.toString()
                             startActivity(Intent(this, SuccsesOrderActivity::class.java))
-
-                            Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                         }else{
                             Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
                         }
@@ -132,7 +137,6 @@ class PemesananActivity : AppCompatActivity() {
                         if (it != null){
                             val hargaTiga = harga*3
                             binding.txtTotalHarga.text = hargaTiga.toString()
-
                             startActivity(Intent(this, SuccsesOrderActivity::class.java))
 
 
@@ -158,46 +162,36 @@ class PemesananActivity : AppCompatActivity() {
                     }
                 }
             }
-//            userViewModel.orderTiketObserve().observe(this){
-//                if (it != null){
-//                    Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
-//                }else{
-//                    Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
-//                }
-//            }
 
 
         }
-
-
     }
 
+    private fun createNotificationChannel(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val name = "Notification Title"
+            val descriptionText = "Notification Description"
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel(CHANNEL_ID,name,importance).apply {
+                description= descriptionText
+            }
+            val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
 
-//    fun orderTiket(orderBy:String,ktp:String,numChair:Int){
-//        val intent = intent
-//        val idTiket = intent.getIntExtra("id",0)
-//        viewModel = ViewModelProvider(this).get(TiketViewModel::class.java)
-//        viewModel.callPostOrder(idTiket,orderBy,ktp,numChair)
-//        viewModel.postTiketOrder().observe(this,{
-//            if (it != null){
-//                Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
-//            }
-//        })
-//        finish()
-//    }
-//    fun getToken(orderBy:String,ktp:String,numChair:Int){
-//        viewModel = ViewModelProvider(this).get(TiketViewModel::class.java)
-//        val intent = intent
-//        val idTiket = intent.getIntExtra("id",0)
-//        val authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
-//        authViewModel.getToken().observe(this){
-//            if (it != null){
-//                viewModel.callPostOrder("Bearer $it",idTiket,orderBy,ktp,numChair)
-//            }else{
-//                Log.d("TOKEN","Token Null")
-//            }
-//        }
-//    }
+    private fun sendNotification(){
+
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_gn_circle)
+            .setContentTitle("Berhasil Booking Tiket")
+            .setContentText("Silakan Lanjuktkan Pembayaran")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        with(NotificationManagerCompat.from(this)){
+            notify(notificationId, builder.build())
+        }
+    }
 
 
 }

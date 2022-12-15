@@ -5,7 +5,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
+import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
+import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc.Companion.getInstance
 import com.finpro.garudanih.wishlist.WishlistActivity
+import com.finpro.garudanih.wishlist.fragment.DomesticTablayoutFragment
+import com.finpro.garudanih.wishlist.fragment.InternatonalTablayoutFragment
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
 import kotlinx.coroutines.GlobalScope
@@ -35,13 +39,17 @@ class AdapterWishListInternasional(val Wishlistinternasional : List<dataWishPesa
         holder.binding.delete.setOnClickListener {
             databaseWishPesawatInternasional = DatabaseWishPesawatInternasional.getInstance(it.context)
             GlobalScope.async {
-                val delete = databaseWishPesawatInternasional?.WishInternasionalDao()
-                    ?.deleteWishInter(Wishlistinternasional[position])
-                (holder.itemView.context as WishlistActivity).runOnUiThread {
-                    Toast.makeText(it.context, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show()
-                    (holder.itemView.context as WishlistActivity).getWishListInter()
+                val delete =
+                    databaseWishPesawatInternasional?.WishInternasionalDao()?.deleteWishInter(Wishlistinternasional[position])
+                (holder.itemView.context as InternatonalTablayoutFragment).run {
+                    Toast.makeText(it.context, "Data Berhasil Dihapus", Toast.LENGTH_SHORT)
+                        .show()
+                    (holder.itemView.context as InternatonalTablayoutFragment).context.apply {
+                        databaseWishPesawatInternasional
+                    }
                 }
             }
+            Toast.makeText(it.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterWishListInternasional
@@ -39,7 +40,7 @@ class InternatonalTablayoutFragment : Fragment() {
     }
 
     fun getWishListInter(){
-        binding.rvInternational.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvInternational.layoutManager = GridLayoutManager(requireActivity(), 2)
         GlobalScope.launch {
             val wishListInter = databaseWishPesawatInternasional?.WishInternasionalDao()?.getWishPesawatInternasional()
             runOnUiThread {

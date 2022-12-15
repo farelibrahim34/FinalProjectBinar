@@ -31,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener{
             registerApi()
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         binding.etPassword.addTextChangedListener{password ->
@@ -76,21 +77,21 @@ class RegisterActivity : AppCompatActivity() {
         val savePw = binding.etPassword.text.toString()
         val saveUpw = binding.etConfPassword.text.toString()
         if(saveName.isEmpty() || saveEmail.isEmpty() || savePw.isEmpty() || saveUpw.isEmpty()) {
-            Toast.makeText(this, "Field Harus Terisi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "ISI TERLEBIH DAHULU", Toast.LENGTH_SHORT).show()
         }else{
             if (savePw == saveUpw){
                 viewModel.callPostApiUser(saveName,saveEmail,savePw)
                 viewModel.postLiveDataUser().observe(this){
                     if (it != null){
-                        startActivity(Intent(this, LoginActivity::class.java))
-                        finish()
                         Toast.makeText(this, "Registrasi Berhasil", Toast.LENGTH_SHORT).show()
+                        finish()
                     }
                 }
             }else{
-                Toast.makeText(this, "Password tidak sama", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Anda Gagal Register", Toast.LENGTH_SHORT).show()
             }
         }
+        Toast.makeText(this,"Anda Telah Berhasil Membuat Akun", Toast.LENGTH_SHORT).show()
     }
 
 }

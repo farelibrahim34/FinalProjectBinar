@@ -8,7 +8,6 @@ import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
 import com.finpro.garudanih.wishlist.WishlistActivity
-import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 

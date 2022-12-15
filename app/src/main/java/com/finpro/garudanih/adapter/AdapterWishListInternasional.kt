@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
-import com.finpro.garudanih.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.wishlist.WishlistActivity
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional

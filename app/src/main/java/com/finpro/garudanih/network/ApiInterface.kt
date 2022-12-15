@@ -3,6 +3,7 @@ package com.finpro.garudanih.network
 import com.finpro.garudanih.model.*
 import com.finpro.garudanih.model.updatepaid.ResponsePaid
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -39,5 +40,16 @@ interface ApiInterface {
 
     @PUT("v1/trans/paid/{transId}")
     fun updatePaid(@Path("transId") transId : Int): Call<ResponsePaid>
+
+    @PUT("/v1/user/update")
+    @Multipart
+    fun editProfile(
+        @Header("Authorization")auth: String,
+        @Part("name") name: RequestBody,
+        @Part fileImage : MultipartBody.Part,
+        @Part("phone") phone: RequestBody,
+        @Part("birth") birth: RequestBody,
+        @Part("city") city: RequestBody,
+    ) : Call<ResponseUserUpdate>
 
 }

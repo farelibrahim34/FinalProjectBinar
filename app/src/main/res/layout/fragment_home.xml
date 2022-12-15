@@ -26,7 +26,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/profile"
+            android:src="@drawable/ic_baseline_person_24"
             app:civ_border_color="@color/warna_second_button"
             app:civ_border_width="3dp"
             app:layout_constraintBottom_toBottomOf="parent"

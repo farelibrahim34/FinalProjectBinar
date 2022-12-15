@@ -26,9 +26,6 @@
             android:name=".view.tiketorder.TiketOrderActivity"
             android:exported="false" />
         <activity
-            android:name=".view.transaksi.TransaksiActivity"
-            android:exported="false" />
-        <activity
             android:name=".wishlist.WishlistActivity"
             android:exported="false" />
         <activity

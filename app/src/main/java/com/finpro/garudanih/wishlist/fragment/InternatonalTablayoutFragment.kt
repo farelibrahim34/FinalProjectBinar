@@ -1,13 +1,11 @@
 package com.finpro.garudanih.wishlist.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterWishListInternasional
 import com.finpro.garudanih.databinding.FragmentInternatonalTablayoutBinding
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
@@ -18,6 +16,7 @@ class InternatonalTablayoutFragment : Fragment() {
 
     private lateinit var binding : FragmentInternatonalTablayoutBinding
     private var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,4 +50,29 @@ class InternatonalTablayoutFragment : Fragment() {
             }
         }
     }
+
+//    private fun swipeToDelete(recyclerView: RecyclerView) {
+//        val swipeCallback = object : SwipeToDelete() {
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//                val item = todoAdapter.Wishlistinternasional[viewHolder.adapterPosition]
+//                wishpesawatDaoInternasional?.deleteWishInter(item)
+//                restoreData(viewHolder.itemView, item)
+//            }
+//        }
+//        val itemTouchHelper = ItemTouchHelper(swipeCallback)
+//        itemTouchHelper.attachToRecyclerView(recyclerView)
+//    }
+//
+//    private fun restoreData(
+//        view: View,
+//    ) {
+//        Snackbar.make(view, "Deleted ", Snackbar.LENGTH_LONG).also {
+//            it.apply {
+//                setAction("Undo") {
+//                    wishpesawatDaoInternasional?.addToWishListInternasional(dataWishPesawatInternasional(0,"",""))
+//                }
+//                show()
+//            }
+//        }
+//    }
 }

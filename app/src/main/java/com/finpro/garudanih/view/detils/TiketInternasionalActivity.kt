@@ -22,6 +22,7 @@ class TiketInternasionalActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(TiketViewModel::class.java)
         binding = ActivityTiketInternasionalBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.ivBack.setOnClickListener {

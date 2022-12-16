@@ -111,8 +111,8 @@ class HomeFragment : Fragment() {
 
     }
     private fun setFotoProfile(){
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        userViewModel.getCurrentObserve().observe(this){
+        userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+        userViewModel.getCurrentObserve().observe(requireActivity()){
             if (it != null){
                 val url = it.image
                 Glide.with(this).load(url).circleCrop().into(binding.ivUser)

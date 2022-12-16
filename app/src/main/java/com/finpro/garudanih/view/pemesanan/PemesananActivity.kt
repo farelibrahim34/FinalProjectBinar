@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.databinding.ActivityPemesananBinding
+import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
+import com.finpro.garudanih.view.detils.DetailInternasionalActivity
 import com.finpro.garudanih.view.succsess.SuccsesOrderActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.TiketViewModel
@@ -21,6 +23,10 @@ class PemesananActivity : AppCompatActivity() {
     lateinit var authViewModel : AuthViewModel
     private var tokenPaid : String = ""
     private var transId : Int = 0
+    private var id :Int?=null
+    companion object{
+        const val  EXTRA_ID = "extra_id"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +67,8 @@ class PemesananActivity : AppCompatActivity() {
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
+        id = intent.getIntExtra(EXTRA_ID, 0)
+
         binding.btnPesanTiket.setOnClickListener {
             val orderBy = binding.etNamaPemesan.text.toString()
             val ktp = binding.etNik.text.toString()
@@ -82,13 +90,13 @@ class PemesananActivity : AppCompatActivity() {
                 binding.etNik.setText("")
                 binding.etNomorKursi.setText("")
                 userViewModel.orderTiketObserve().observe(this){
-                        if (it != null){
-                            binding.etJmlPenumpang.setText("1")
-                            Toast.makeText(this,"Silahkan Isi Identitas Penumpang Selanjutnya", Toast.LENGTH_SHORT).show()
+                    if (it != null){
+                        binding.etJmlPenumpang.setText("1")
+                        Toast.makeText(this,"Silahkan Isi Identitas Penumpang Selanjutnya", Toast.LENGTH_SHORT).show()
 
-                        }else{
-                            Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
-                        }
+                    }else{
+                        Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                    }
                 }
                 if (penumpang == 1){
                     userViewModel.orderTiketObserve().observe(this){

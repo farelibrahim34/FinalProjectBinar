@@ -9,8 +9,11 @@ import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
 
-class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<AdapterTiket.ViewHolder>() {
-
+class AdapterTiket (private var onClick : (Ticket)->Unit): RecyclerView.Adapter<AdapterTiket.ViewHolder>() {
+    private var listTiket : List<Ticket>? = null
+    fun setListTiket(listTiketLocal : List<Ticket>){
+        this.listTiket = listTiketLocal
+    }
     class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
@@ -22,31 +25,38 @@ class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.txtKotaTujuan.text = listTiket[position].destinationCode
-        holder.binding.txtKotaAsal.text = listTiket[position].departureCode
-        holder.binding.txtJadwal.text = listTiket[position].takeOff
-        holder.binding.txtHarga.text = "Rp"+listTiket[position].price.toString()
+        holder.binding.txtKotaTujuan.text = listTiket!![position].destinationCode
+        holder.binding.txtKotaAsal.text = listTiket!![position].departureCode
+        holder.binding.txtJadwal.text = listTiket!![position].takeOff
+        holder.binding.txtHarga.text = "Rp"+listTiket!![position].price.toString()
 //        holder.binding.ivListpesawat.setImageResource(listTiket[position].type)
-        holder.binding.txtAvailable.text = listTiket[position].totalChair.toString()
-        holder.binding.txtClass.text = listTiket[position].classX
+        holder.binding.txtAvailable.text = listTiket!![position].totalChair.toString()
+        holder.binding.txtClass.text = listTiket!![position].classX
         holder.binding.cardList.setOnClickListener {
 
             val intent = Intent(it.context, DetailPesawatActivity::class.java)
-            intent.putExtra("id", listTiket[position].id)
-            intent.putExtra("destinasi", listTiket[position].destination)
-            intent.putExtra("departure", listTiket[position].departure)
-            intent.putExtra("jadwal", listTiket[position].takeOff)
-            intent.putExtra("harga", listTiket[position].price)
-            intent.putExtra("totalchair", listTiket[position].totalChair)
-            intent.putExtra("class", listTiket[position].classX)
+            intent.putExtra("id", listTiket!![position].id)
+            intent.putExtra("destinasi", listTiket!![position].destination)
+            intent.putExtra("departure", listTiket!![position].departure)
+            intent.putExtra("jadwal", listTiket!![position].takeOff)
+            intent.putExtra("harga", listTiket!![position].price)
+            intent.putExtra("totalchair", listTiket!![position].totalChair)
+            intent.putExtra("class", listTiket!![position].classX)
 
             it.context.startActivity(intent)
+        }
+        holder.binding.cardList.setOnClickListener {
+            onClick(listTiket!![position])
         }
     }
 
 
     override fun getItemCount(): Int {
-        return listTiket.size
+        if (listTiket == null){
+            return 0
+        }else{
+            return listTiket!!.size
+        }
     }
 
 }

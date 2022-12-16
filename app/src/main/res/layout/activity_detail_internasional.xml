@@ -131,6 +131,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtJadwal">
 
+        <TextView
+            android:id="@+id/idTIket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="id tiket"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/constrainDeparture" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPlaneTakeoff"
             android:layout_width="wrap_content"

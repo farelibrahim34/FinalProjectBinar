@@ -8,9 +8,7 @@ import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityDetailInternasionalBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
-import com.finpro.garudanih.wishlist.DataWishPesawatLoc
-import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
-import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
+import com.finpro.garudanih.view.pemesanan.PemesananActivity
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
@@ -25,7 +23,6 @@ class DetailInternasionalActivity : AppCompatActivity() {
     private var wishpesawatDaoInternasional : WishpesawatDaoInternasional? =null
     private var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
     private var id :Int?=null
-
     companion object{
         const val  EXTRA_ID = "extra_id"
     }
@@ -35,17 +32,36 @@ class DetailInternasionalActivity : AppCompatActivity() {
         binding = ActivityDetailInternasionalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         databaseWishPesawatInternasional = DatabaseWishPesawatInternasional.getInstance(this)
         wishpesawatDaoInternasional = databaseWishPesawatInternasional?.WishInternasionalDao()
         id = intent.getIntExtra(EXTRA_ID, 0)
 
         binding.ivBackDetail.setOnClickListener {
-            startActivity(Intent(this, HomeBottomActivity::class.java))
+            startActivity(Intent(this, TiketInternasionalActivity::class.java))
         }
-        //getListInternasional()
+        getListInternasional()
+
+    }
+
+
+    fun getListInternasional(){
+
+        val itemListInternasional = intent.extras
+        val jadwalInt = itemListInternasional?.getString("jadwalInt")
+        val hargaInt = itemListInternasional?.getString("hargaInt")
+        val imageInt = itemListInternasional?.getInt("imageInt",0)
+        val availableInt = itemListInternasional?.getString("availableInt")
+
+//        binding.txtAsal.text = kotaInt
+//        binding.txtHargaDetail.text = hargaInt
+//        if (imageInt != null) {
+//            binding.ivKota.setImageResource(imageInt)
+//        }
+//        binding.txtJadwal.text = jadwalInt
+//        binding.txtChair.text = availableInt
 
         val detail = intent.getSerializableExtra("detail") as Ticket
+        binding.idTIket.text = detail.id.toString()
         binding.txtInputAsal.text = detail.departure
         binding.txtInputTujuan.text = detail.destination
         binding.txtHargaDetail.text = "Harga Tiket \nRp"+detail.price
@@ -53,6 +69,16 @@ class DetailInternasionalActivity : AppCompatActivity() {
         binding.txtChair.text =  "Available "+detail.totalChair
         binding.txtClass.text = detail.classX+" Class"
         binding.ivKota.setImageResource(R.drawable.pesawat)
+
+        binding.btnOrder.setOnClickListener {
+            val intent = Intent(this, PemesananActivity::class.java)
+            intent.putExtra("id",id)
+            intent.putExtra("harga",detail.price)
+            intent.putExtra("destinasi",detail.destination)
+            intent.putExtra("departure",detail.departure)
+            intent.putExtra("jadwal",detail.takeOff)
+            startActivity(intent)
+        }
 
         binding.wishlist.setOnClickListener{
             GlobalScope.async {
@@ -81,6 +107,10 @@ class DetailInternasionalActivity : AppCompatActivity() {
                 }
             }
         }
-    }
 
+    }
+<<<<<<< HEAD
+
+=======
+>>>>>>> dev-ibrahim
 }

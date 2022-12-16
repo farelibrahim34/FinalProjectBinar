@@ -1,9 +1,10 @@
 package com.finpro.garudanih.view.detils
 
 import android.content.Intent
-import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.databinding.ActivityDetailPesawatBinding
 import com.finpro.garudanih.model.Ticket
@@ -16,6 +17,7 @@ import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import kotlin.properties.Delegates
 
 @AndroidEntryPoint
 class DetailPesawatActivity : AppCompatActivity() {
@@ -25,10 +27,10 @@ class DetailPesawatActivity : AppCompatActivity() {
     private var wishPesawatDaoLoc : WishPesawatDaoLoc? =null
     private var databaseWishPesawatLoc : DatabaseWishPesawatLoc? = null
     private var idd :Int?=null
-
     companion object{
         const val  EXTRA_ID = "extra_id"
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,30 +50,21 @@ class DetailPesawatActivity : AppCompatActivity() {
 
         binding.btnOrder.setOnClickListener {
             val intent = Intent(this, PemesananActivity::class.java)
-            intent.putExtra("id",id)
+            intent.putExtra("id",idd)
             intent.putExtra("harga",harga)
             intent.putExtra("destinasi",kota)
             intent.putExtra("departure",keberangkatan)
             intent.putExtra("jadwal",jadwal)
             startActivity(intent)
         }
-
-
-        binding.ivBackDetail.setOnClickListener {
-            startActivity(Intent(this, HomeBottomActivity::class.java))
-        }
-        //getListPesawat()
-
-
-
-        val detail = intent.getSerializableExtra("detail") as Ticket
+        val detail = intent.getSerializableExtra("lokal") as Ticket
+        binding.idTIket2.text = detail.id.toString()
         binding.txtInputAsal.text = detail.departure
         binding.txtInputTujuan.text = detail.destination
         binding.txtHargaDetail.text = "Harga Tiket \nRp"+detail.price
         binding.txtJadwal.text = "Jadwal : \n"+detail.takeOff
         binding.txtChair.text =  "Available "+detail.totalChair
         binding.txtClass.text = detail.classX+" Class"
-
         binding.wishlist.setOnClickListener{
             GlobalScope.async {
                 val d = intent.getSerializableExtra("detail") as Ticket
@@ -97,6 +90,33 @@ class DetailPesawatActivity : AppCompatActivity() {
                 }
             }
         }
+
+
+        binding.ivBackDetail.setOnClickListener {
+            startActivity(Intent(this, HomeBottomActivity::class.java))
+        }
+
+    }
+
+    fun getListPesawat(){
+        val itemListPesawat = intent
+
+        val kota = itemListPesawat.getStringExtra("destinasi")
+        val keberangkatan = itemListPesawat.getStringExtra("departure")
+        val jadwal = itemListPesawat.getStringExtra("jadwal")
+        val harga = itemListPesawat.getIntExtra("harga",0)
+        val chair = itemListPesawat.getIntExtra("totalchair",0)
+        val status = itemListPesawat.getStringExtra("class")
+//        val image = itemListPesawat.getIntExtra("image",0)
+
+        binding.txtInputAsal.text = keberangkatan
+        binding.txtInputTujuan.text = kota
+        binding.txtHargaDetail.text = "Harga Tiket \nRp"+harga.toString()
+        binding.txtJadwal.text = "Jadwal : \n"+jadwal
+        binding.txtChair.text =  "Available "+chair.toString()
+        binding.txtClass.text = status+" Class"
+//        binding.ivKota.setImageResource(image)
+
     }
 
 }

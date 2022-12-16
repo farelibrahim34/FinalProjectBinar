@@ -3,21 +3,11 @@ package com.finpro.garudanih.adapter
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
-import com.finpro.garudanih.databinding.ItemInternasionalBinding
-import com.finpro.garudanih.model.ListInternasional
-import com.finpro.garudanih.model.ListPesawat
-import com.finpro.garudanih.model.ResponseListTiket
 import com.finpro.garudanih.model.Ticket
-import com.finpro.garudanih.view.detils.DetailInternasionalActivity
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
-import com.finpro.garudanih.wishlist.WishlistActivity
-import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
+
 
 class AdapterInternasional(private var onClick : (Ticket)->Unit): RecyclerView.Adapter<AdapterInternasional.ViewHolder>() {
 
@@ -58,7 +48,6 @@ class AdapterInternasional(private var onClick : (Ticket)->Unit): RecyclerView.A
         holder.binding.cardList.setOnClickListener {
             onClick(listInternasional!![position])
         }
-        holder.binding.delete.isGone = true
     }
 
     override fun getItemCount(): Int {

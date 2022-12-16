@@ -4,19 +4,16 @@ import android.content.Intent
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
 
 class AdapterTiket (private var onClick : (Ticket)->Unit): RecyclerView.Adapter<AdapterTiket.ViewHolder>() {
-
     private var listTiket : List<Ticket>? = null
     fun setListTiket(listTiketLocal : List<Ticket>){
         this.listTiket = listTiketLocal
     }
-
     class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
@@ -32,8 +29,7 @@ class AdapterTiket (private var onClick : (Ticket)->Unit): RecyclerView.Adapter<
         holder.binding.txtKotaAsal.text = listTiket!![position].departureCode
         holder.binding.txtJadwal.text = listTiket!![position].takeOff
         holder.binding.txtHarga.text = "Rp"+listTiket!![position].price.toString()
-        holder.binding.txtAvailable.text = listTiket!![position].totalChair.toString()
-        holder.binding.txtClass.text = listTiket!![position].classX
+//        holder.binding.ivListpesawat.setImageResource(listTiket[position].type)
         holder.binding.txtAvailable.text = listTiket!![position].totalChair.toString()
         holder.binding.txtClass.text = listTiket!![position].classX
         holder.binding.cardList.setOnClickListener {
@@ -52,7 +48,6 @@ class AdapterTiket (private var onClick : (Ticket)->Unit): RecyclerView.Adapter<
         holder.binding.cardList.setOnClickListener {
             onClick(listTiket!![position])
         }
-        holder.binding.delete.isGone = true
     }
 
 

@@ -2,6 +2,7 @@ package com.finpro.garudanih.view.fragments.home
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.nfc.NfcAdapter.EXTRA_ID
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -66,32 +67,35 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tiketAdapter = AdapterTiket (){  }
         binding.showLocal.setOnClickListener {
             startActivity(Intent(context, TiketLokalActivity::class.java))
         }
         binding.showInternational.setOnClickListener {
             startActivity(Intent(context, TiketInternasionalActivity::class.java))
         }
+        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
+        authViewModel.getToken().observe(viewLifecycleOwner){
+            if (it != null){
+                userViewModel.currentUser("Bearer $it")
+            }else{
+                Log.d("TOKEN","Token Null")
+            }
+        }
         binding.wishlist.setOnClickListener {
             startActivity(Intent(context, WishlistActivity::class.java))
         }
-
-
         tiketAdapter = AdapterTiket (){
             val pindah = Intent(context?.applicationContext, DetailPesawatActivity::class.java)
-            pindah.putExtra("detail", it)
+            pindah.putExtra("lokal", it)
             pindah.putExtra(DetailPesawatActivity.EXTRA_ID, it.id)
             startActivity(pindah)
         }
-
         adapterIntr = AdapterInternasional (){
             val pindah = Intent(context?.applicationContext, DetailInternasionalActivity::class.java)
             pindah.putExtra("detail", it)
             pindah.putExtra(DetailInternasionalActivity.EXTRA_ID, it.id)
             startActivity(pindah)
         }
-
 
 
         getProfile()
@@ -103,16 +107,17 @@ class HomeFragment : Fragment() {
         }
 
 
-
         bannerHome()
+        getDatafoto()
         setUpTiketInt()
         setTiketIntr()
         setFotoProfile()
 
     }
-    private fun setFotoProfile(){
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        userViewModel.getCurrentObserve().observe(this){
+    fun setFotoProfile(){
+        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
+        userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+        userViewModel.getCurrentObserve().observe(viewLifecycleOwner){
             if (it != null){
                 val url = it.image
                 Glide.with(this).load(url).circleCrop().into(binding.ivUser)
@@ -192,7 +197,6 @@ class HomeFragment : Fragment() {
                 binding.homeProgressBar.visibility = View.GONE
                 binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 tiketAdapter.setListTiket(it.data.tickets)
-                tiketAdapter.notifyDataSetChanged()
                 binding.rvLocal.adapter = tiketAdapter
             } else {
                 binding.homeProgressBar.visibility = View.VISIBLE
@@ -209,7 +213,6 @@ class HomeFragment : Fragment() {
                 binding.homeProgressBar.visibility = View.GONE
                 binding.rvInternational.layoutManager= LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
                 adapterIntr.setListTiketInter(it.data.tickets)
-                adapterIntr.notifyDataSetChanged()
                 binding.rvInternational.adapter = adapterIntr
             }else{
                 binding.homeProgressBar.visibility = View.VISIBLE

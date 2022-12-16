@@ -49,9 +49,9 @@ class HistoryFragment : Fragment() {
         userViewModel.getHistoryObserve().observe(requireActivity()){
             if (it != null){
                 binding.rvHistory.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
-                adapterHistory = AdapterHistory(it.data.transaction)
+                adapterHistory = AdapterHistory(it.data!!.transaction)
                 binding.rvHistory.adapter = adapterHistory
-                Log.d(TAG, "onViewCreated: ${it.data.transaction}")
+                Log.d(TAG, "onViewCreated: ${it.data!!.transaction}")
 //                Toast.makeText(context, "Data Tampil", Toast.LENGTH_SHORT).show()
                 adapterHistory.notifyDataSetChanged()
             }

@@ -3,50 +3,50 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
+    android:padding="5dp"
     android:layout_height="wrap_content">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardList"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/ivListpesawat"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_gn_circle"
+            android:contentDescription="@string/string_todo" />
+
+        <ImageView
             android:id="@+id/imageView6"
             android:layout_width="50dp"
             android:layout_height="20dp"
+            android:layout_marginVertical="20dp"
+            app:layout_constraintTop_toTopOf="@+id/cardList"
+            android:contentDescription="@string/string_todo"
             android:src="@drawable/ic_baseline_linear_scale_24"
-            app:layout_constraintBottom_toBottomOf="@+id/txtKotaAsal"
-            app:layout_constraintEnd_toStartOf="@+id/txtKotaTujuan"
-            app:layout_constraintStart_toEndOf="@+id/txtKotaAsal"
-            app:layout_constraintTop_toTopOf="@+id/txtKotaTujuan"
-            android:contentDescription="@string/string_todo" />
+            app:layout_constraintStart_toEndOf="@+id/txtKotaAsal" />
 
         <TextView
             android:id="@+id/txtKotaAsal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginVertical="20dp"
             android:text="@string/string_kota_asal"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivListpesawat" />
-
-        <ImageView
-            android:id="@+id/ivListpesawat"
-            android:layout_width="wrap_content"
-            android:layout_height="120dp"
-            android:paddingBottom="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_bggaruda"
-            android:contentDescription="@string/string_todo" />
+            app:layout_constraintStart_toEndOf="@+id/ivListpesawat"
+            app:layout_constraintTop_toTopOf="@+id/cardList" />
 
         <TextView
             android:id="@+id/txtKotaTujuan"
@@ -57,8 +57,9 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivListpesawat" />
+            android:layout_marginVertical="20dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/txtJadwal"
@@ -66,8 +67,7 @@
             android:layout_height="wrap_content"
             android:text="@string/string_jadwal"
             android:textSize="12sp"
-            android:layout_marginStart="10dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivListpesawat"
             app:layout_constraintTop_toBottomOf="@+id/txtKotaTujuan" />
 
         <TextView
@@ -75,10 +75,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/string_harga"
-            android:layout_marginStart="10dp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivListpesawat"
             app:layout_constraintTop_toBottomOf="@+id/txtJadwal" />
 
         <TextView
@@ -88,8 +87,7 @@
             android:layout_marginTop="3dp"
             android:text="@string/string_status"
             android:textColor="@color/green"
-            android:layout_marginStart="10dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivListpesawat"
             app:layout_constraintTop_toBottomOf="@+id/txtHarga" />
 
         <TextView
@@ -98,71 +96,57 @@
             android:layout_height="wrap_content"
             android:text="@string/string_total_chair"
             android:textColor="@color/black"
-            android:layout_marginStart="10dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="30dp" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
         android:layout_width="60dp"
         android:layout_height="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/warna_primary_font"
-        app:layout_constraintBottom_toTopOf="@id/guideline1"
-        app:layout_constraintTop_toBottomOf="@id/guideline1">
+        app:layout_constraintStart_toStartOf="@id/cardList"
+        app:layout_constraintTop_toTopOf="@+id/cardList">
 
         <ImageView
             android:layout_width="10dp"
             android:layout_height="20dp"
             android:layout_marginStart="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/string_todo"
             android:src="@drawable/ic_star"
-            android:contentDescription="@string/string_todo" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            android:fontFamily="@font/poppins_semibold"
-            android:textColor="@color/white"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/poppins_semibold"
             android:paddingVertical="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/string_rating"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="@string/string_rating"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="240dp" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/background_class"
-        app:layout_constraintBottom_toTopOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/guideline2">
+        app:layout_constraintBottom_toBottomOf="@+id/cardList"
+        app:layout_constraintEnd_toEndOf="@id/cardList"
+        app:layout_constraintTop_toBottomOf="@+id/delete"
+        android:layout_marginEnd="20dp">
 
         <TextView
             android:id="@+id/txtClass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/poppins_semibold"
             android:paddingVertical="5dp"
             android:text="@string/string_class"
@@ -175,5 +159,17 @@
             tools:ignore="SmallSp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@color/white"
+        android:contentDescription="@string/string_todo"
+        android:src="@drawable/delete"
+        app:layout_constraintBottom_toBottomOf="@id/cardList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

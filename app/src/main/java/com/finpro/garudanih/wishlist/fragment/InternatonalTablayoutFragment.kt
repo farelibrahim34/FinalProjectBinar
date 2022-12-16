@@ -40,7 +40,7 @@ class InternatonalTablayoutFragment : Fragment() {
     }
 
     fun getWishListInter(){
-        binding.rvInternational.layoutManager = GridLayoutManager(requireActivity(), 2)
+        binding.rvInternational.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         GlobalScope.launch {
             val wishListInter = databaseWishPesawatInternasional?.WishInternasionalDao()?.getWishPesawatInternasional()
             runOnUiThread {

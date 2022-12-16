@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
+import com.finpro.garudanih.databinding.ItemWishlistBinding
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc.Companion.getInstance
 import com.finpro.garudanih.wishlist.WishlistActivity
@@ -18,12 +19,12 @@ import kotlinx.coroutines.async
 class AdapterWishListInternasional(val Wishlistinternasional : List<dataWishPesawatInternasional>): RecyclerView.Adapter<AdapterWishListInternasional.ViewHolder>()  {
 
     var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
-    class ViewHolder (val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class ViewHolder (val binding: ItemWishlistBinding) : RecyclerView.ViewHolder(binding.root){
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = ItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ItemWishlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 

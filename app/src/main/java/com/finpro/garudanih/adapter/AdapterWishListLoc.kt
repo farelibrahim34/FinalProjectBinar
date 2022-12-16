@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
+import com.finpro.garudanih.databinding.ItemWishlistBinding
 import com.finpro.garudanih.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
 import com.finpro.garudanih.wishlist.WishlistActivity
@@ -18,12 +19,12 @@ class AdapterWishListLoc(val Wishlist : List<DataWishPesawatLoc>): RecyclerView.
     var databaseWishPesawatLoc: DatabaseWishPesawatLoc? = null
     var onDelete : ((DataWishPesawatLoc)->Unit)? = null
 
-    class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: ItemWishlistBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = ItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ItemWishlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 

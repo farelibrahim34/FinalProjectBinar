@@ -45,7 +45,7 @@ class DomesticTablayoutFragment : Fragment() {
 
     @OptIn(DelicateCoroutinesApi::class)
     private fun getWishlistLocal(){
-        binding.rvLocal.layoutManager = GridLayoutManager(requireActivity(), 2)
+        binding.rvLocal.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         GlobalScope.launch {
             val wishList = databaseWishPesawatLoc?.WishDao()?.getWishPesawat()
             runOnUiThread{

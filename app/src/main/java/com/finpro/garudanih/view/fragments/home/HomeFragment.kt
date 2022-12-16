@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterInternasional
 import com.finpro.garudanih.adapter.AdapterTiket
@@ -69,6 +70,14 @@ class HomeFragment : Fragment() {
         binding.showInternational.setOnClickListener {
             startActivity(Intent(context, TiketInternasionalActivity::class.java))
         }
+        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
+        authViewModel.getToken().observe(viewLifecycleOwner){
+            if (it != null){
+                userViewModel.currentUser("Bearer $it")
+            }else{
+                Log.d("TOKEN","Token Null")
+            }
+        }
 
 
         getProfile()
@@ -84,7 +93,20 @@ class HomeFragment : Fragment() {
         getDatafoto()
         setUpTiketInt()
         setTiketIntr()
+        setFotoProfile()
 
+    }
+    fun setFotoProfile(){
+        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
+        userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+        userViewModel.getCurrentObserve().observe(viewLifecycleOwner){
+            if (it != null){
+                val url = it.image
+                Glide.with(this).load(url).circleCrop().into(binding.ivUser)
+            }else{
+                Log.d("PROFILE","Profile Null")
+            }
+        }
     }
 
 

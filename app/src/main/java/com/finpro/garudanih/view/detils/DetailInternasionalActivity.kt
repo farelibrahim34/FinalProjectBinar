@@ -109,8 +109,4 @@ class DetailInternasionalActivity : AppCompatActivity() {
         }
 
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> dev-ibrahim
 }

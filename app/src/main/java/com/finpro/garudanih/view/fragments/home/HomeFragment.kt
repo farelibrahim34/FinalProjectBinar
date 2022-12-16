@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.bumptech.glide.Glide
 import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterInternasional
 import com.finpro.garudanih.adapter.AdapterTiket
@@ -24,7 +23,6 @@ import com.finpro.garudanih.model.ListPesawat
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.detils.DetailInternasionalActivity
-import com.finpro.garudanih.view.detils.DetailPesawatActivity
 import com.finpro.garudanih.view.detils.TiketInternasionalActivity
 import com.finpro.garudanih.view.detils.TiketLokalActivity
 
@@ -36,7 +34,6 @@ import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeTwo
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
-import com.finpro.garudanih.wishlist.WishlistActivity
 import dagger.hilt.android.AndroidEntryPoint
 import me.relex.circleindicator.CircleIndicator3
 import java.io.File
@@ -66,32 +63,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tiketAdapter = AdapterTiket (){  }
         binding.showLocal.setOnClickListener {
             startActivity(Intent(context, TiketLokalActivity::class.java))
         }
         binding.showInternational.setOnClickListener {
             startActivity(Intent(context, TiketInternasionalActivity::class.java))
         }
-        binding.wishlist.setOnClickListener {
-            startActivity(Intent(context, WishlistActivity::class.java))
-        }
-
-
-        tiketAdapter = AdapterTiket (){
-            val pindah = Intent(context?.applicationContext, DetailPesawatActivity::class.java)
-            pindah.putExtra("detail", it)
-            pindah.putExtra(DetailPesawatActivity.EXTRA_ID, it.id)
-            startActivity(pindah)
-        }
-
-        adapterIntr = AdapterInternasional (){
-            val pindah = Intent(context?.applicationContext, DetailInternasionalActivity::class.java)
-            pindah.putExtra("detail", it)
-            pindah.putExtra(DetailInternasionalActivity.EXTRA_ID, it.id)
-            startActivity(pindah)
-        }
-
 
 
         getProfile()
@@ -103,23 +80,11 @@ class HomeFragment : Fragment() {
         }
 
 
-
         bannerHome()
+        getDatafoto()
         setUpTiketInt()
         setTiketIntr()
-        setFotoProfile()
 
-    }
-    private fun setFotoProfile(){
-        userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
-        userViewModel.getCurrentObserve().observe(requireActivity()){
-            if (it != null){
-                val url = it.image
-                Glide.with(this).load(url).circleCrop().into(binding.ivUser)
-            }else{
-                Log.d("PROFILE","Profile Null")
-            }
-        }
     }
 
 
@@ -191,8 +156,7 @@ class HomeFragment : Fragment() {
             if (it != null) {
                 binding.homeProgressBar.visibility = View.GONE
                 binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                tiketAdapter.setListTiket(it.data.tickets)
-                tiketAdapter.notifyDataSetChanged()
+                tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvLocal.adapter = tiketAdapter
             } else {
                 binding.homeProgressBar.visibility = View.VISIBLE
@@ -208,8 +172,7 @@ class HomeFragment : Fragment() {
             if (it != null){
                 binding.homeProgressBar.visibility = View.GONE
                 binding.rvInternational.layoutManager= LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-                adapterIntr.setListTiketInter(it.data.tickets)
-                adapterIntr.notifyDataSetChanged()
+                adapterIntr = AdapterInternasional(it.data.tickets)
                 binding.rvInternational.adapter = adapterIntr
             }else{
                 binding.homeProgressBar.visibility = View.VISIBLE

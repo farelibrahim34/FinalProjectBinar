@@ -3,6 +3,7 @@ package com.finpro.garudanih.adapter
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.model.Ticket
@@ -45,6 +46,7 @@ class AdapterInternasional(private var onClick : (Ticket)->Unit): RecyclerView.A
             intent.putExtra("class", listInternasional!![position].classX)
             it.context.startActivity(intent)
         }
+        holder.binding.delete.isGone = true
         holder.binding.cardList.setOnClickListener {
             onClick(listInternasional!![position])
         }

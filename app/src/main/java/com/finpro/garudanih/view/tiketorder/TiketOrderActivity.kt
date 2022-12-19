@@ -6,21 +6,40 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
+import com.example.chap6top5.workmanager.Worker
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityTiketOrderBinding
 import com.finpro.garudanih.view.HomeBottomActivity
+import com.finpro.garudanih.viewmodel.AuthViewModel
+import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class TiketOrderActivity : AppCompatActivity() {
     lateinit var binding : ActivityTiketOrderBinding
     lateinit var userViewModel : UserViewModel
+    lateinit var tiketViewModel: TiketViewModel
+    lateinit var authViewModel : AuthViewModel
+    private var tokenUser : String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTiketOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        tiketViewModel = ViewModelProvider(this).get(TiketViewModel::class.java)
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+
+        authViewModel.getToken().observe(this){token->
+            if (token != null){
+                tokenUser = "Bearer "+token
+            }
+        }
 
         val getOrderBy = intent.getStringExtra("orderby")
         val getKtp = intent.getStringExtra("ktp")
@@ -42,12 +61,14 @@ class TiketOrderActivity : AppCompatActivity() {
         binding.namapenumpang.text = getOrderBy
         binding.Asal.text = getDeparCode
         binding.Tujuan.text = getDestiCode
-        binding.Harga.text = "Rp"+getHarga.toString()
+        binding.hargaTiket.text = "Rp"+getHarga.toString()
         if (getPaid == true){
             binding.statusBook.text = "Sudah Bayar"
+
         }else if (getPaid == false){
             binding.statusBook.text = "Belum Bayar"
         }
+
 
         binding.ivBackDetail.setOnClickListener {
             startActivity(Intent(this, HomeBottomActivity::class.java))
@@ -57,8 +78,18 @@ class TiketOrderActivity : AppCompatActivity() {
             binding.btnBayar5.setText("Bayar Sekarang")
             binding.btnBayar5.setOnClickListener {
                 userViewModel.paidUser(getIdTrans)
+
+                tiketViewModel.callNotifTiket(tokenUser)
                 userViewModel.paidUserObserve().observe(this){
                     if (it != null){
+                        val wManager = OneTimeWorkRequestBuilder<Worker>()
+                            .setInitialDelay(2, TimeUnit.SECONDS)
+                            .setInputData(
+                                workDataOf(
+                                    "title" to "NOTIFIKASI!!!",
+                                    "message" to it.data.desc)
+                            ).build()
+                        WorkManager.getInstance(this).enqueue(wManager)
                         Toast.makeText(this,"Berhasil Melakukan Pembayaran", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this,HomeBottomActivity::class.java))
                     }

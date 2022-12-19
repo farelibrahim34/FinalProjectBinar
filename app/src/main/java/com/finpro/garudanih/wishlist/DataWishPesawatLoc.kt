@@ -9,7 +9,6 @@ import kotlinx.parcelize.Parcelize
 @Entity
 @Parcelize
 data class DataWishPesawatLoc(
-
     @PrimaryKey
     val id : Int?,
     @ColumnInfo (name = "destination")

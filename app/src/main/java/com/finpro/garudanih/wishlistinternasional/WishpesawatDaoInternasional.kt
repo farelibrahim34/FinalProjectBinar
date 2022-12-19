@@ -21,5 +21,5 @@ interface WishpesawatDaoInternasional {
     fun checkWishInternasioal(id: Int) : Int
 
     @Delete
-    fun deleteWishInter(dataWishPesawatInternasional: dataWishPesawatInternasional)
+    fun deleteWishInter(dataWishPesawatInternasional: dataWishPesawatInternasional) : Int
 }

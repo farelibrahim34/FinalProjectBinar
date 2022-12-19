@@ -3,6 +3,7 @@ package com.finpro.garudanih.adapter
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemOrderBinding
 import com.finpro.garudanih.model.TicketXX
@@ -16,6 +17,7 @@ class AdapterHistory(val listHistory: List<Transaction?>):RecyclerView.Adapter<A
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemOrderBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -47,6 +49,7 @@ class AdapterHistory(val listHistory: List<Transaction?>):RecyclerView.Adapter<A
             intent.putExtra("class", listHistory[position]!!.ticket.classX)
             intent.putExtra("jadwal", listHistory[position]!!.ticket.takeOff)
             intent.putExtra("nopenerbangan", listHistory[position]!!.ticketCode)
+
             it.context.startActivity(intent)
         }
     }

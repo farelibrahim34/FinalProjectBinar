@@ -94,5 +94,8 @@ dependencies {
     //library ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
+    //    Work Manager
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
+
 
 }

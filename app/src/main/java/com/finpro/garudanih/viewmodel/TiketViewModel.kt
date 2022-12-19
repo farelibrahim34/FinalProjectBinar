@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.finpro.garudanih.model.*
+import com.finpro.garudanih.model.responsenotif.DataNotify
+import com.finpro.garudanih.model.responsenotif.ResponseNotify
 import com.finpro.garudanih.model.updatepaid.ResponsePaid
 import com.finpro.garudanih.network.ApiInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,12 +21,14 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
     lateinit var ldListTiket : MutableLiveData<ResponseListTiket?>
     lateinit var postTiket : MutableLiveData<ResponseListTiket?>
     lateinit var ldListTiketIntr : MutableLiveData<ResponseListTiket?>
+    lateinit var getNotifTiket: MutableLiveData<DataNotify?>
 
 
     init {
         ldListTiket = MutableLiveData()
         postTiket = MutableLiveData()
         ldListTiketIntr = MutableLiveData()
+        getNotifTiket = MutableLiveData()
 
     }
 
@@ -37,6 +41,32 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
     }
     fun getLdTiketIntr(): MutableLiveData<ResponseListTiket?>{
         return ldListTiketIntr
+    }
+    fun getNotifTiketObserve():MutableLiveData<DataNotify?>{
+        return getNotifTiket
+    }
+
+
+    fun callNotifTiket(token : String){
+        api.getNotify(token)
+            .enqueue(object :Callback<DataNotify>{
+                override fun onResponse(
+                    call: Call<DataNotify>,
+                    response: Response<DataNotify>
+                ) {
+                    if (response.isSuccessful){
+                        getNotifTiket.postValue(response.body())
+
+                    }else{
+                        getNotifTiket.postValue(null)
+                    }
+                }
+
+                override fun onFailure(call: Call<DataNotify>, t: Throwable) {
+                    getNotifTiket.postValue(null)
+                }
+            })
+
     }
 
 

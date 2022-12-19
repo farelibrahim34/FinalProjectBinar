@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,11 +14,9 @@ import com.finpro.garudanih.databinding.FragmentInternatonalTablayoutBinding
 import com.finpro.garudanih.helper.SwipeToDeleteCallback
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
-import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.*
-import okhttp3.internal.notify
-import okhttp3.internal.notifyAll
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 private const val TAG = "InternatonalTablayoutFr"
 class InternatonalTablayoutFragment : Fragment() {
@@ -28,7 +25,6 @@ class InternatonalTablayoutFragment : Fragment() {
     private var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
     private lateinit var  onDelete : WishpesawatDaoInternasional
     private val adapter : AdapterWishListInternasional = AdapterWishListInternasional()
-//    var  Wishlistinternasional : List<dataWishPesawatInternasional> = emptyList()
 
 
     override fun onCreateView(

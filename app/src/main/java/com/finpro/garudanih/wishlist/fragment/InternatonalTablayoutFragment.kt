@@ -1,6 +1,8 @@
 package com.finpro.garudanih.wishlist.fragment
 
 import android.os.Bundle
+import android.service.controls.ControlsProviderService.TAG
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,23 +16,17 @@ import com.finpro.garudanih.databinding.FragmentInternatonalTablayoutBinding
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import okhttp3.internal.notify
 import okhttp3.internal.notifyAll
 
 class InternatonalTablayoutFragment : Fragment() {
 
-    companion object{
-        val DELETE_WISHLIST = 0
-    }
-
-
     private lateinit var binding : FragmentInternatonalTablayoutBinding
     private var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
     private lateinit var  onDelete : WishpesawatDaoInternasional
     private lateinit var adapter : AdapterWishListInternasional
+    lateinit var  Wishlistinternasional : List<dataWishPesawatInternasional>
 
 
     override fun onCreateView(
@@ -44,7 +40,7 @@ class InternatonalTablayoutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        databaseWishPesawatInternasional = DatabaseWishPesawatInternasional.getInstance(requireActivity())
+        databaseWishPesawatInternasional = DatabaseWishPesawatInternasional.getInstance(requireContext())
         getWishListInter()
 
     }
@@ -76,9 +72,19 @@ class InternatonalTablayoutFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-
-                    onDelete.deleteWishInter(adapter.getWishlist(viewHolder.layoutPosition))
-                Toast.makeText(requireActivity(),"Berhasil dihapus",Toast.LENGTH_SHORT).show()
+                databaseWishPesawatInternasional = DatabaseWishPesawatInternasional.getInstance(requireContext())
+                GlobalScope.async{
+                    databaseWishPesawatInternasional?.WishInternasionalDao()?.deleteWishInter(Wishlistinternasional[viewHolder.adapterPosition])
+                    (viewHolder.itemView.context as InternatonalTablayoutFragment).run {
+                        Log.d(TAG, "onSwiped: masuk global")
+                        Toast.makeText(requireContext(), "Data Berhasil Dihapus", Toast.LENGTH_SHORT)
+                            .show()
+                        (viewHolder.itemView.context as InternatonalTablayoutFragment).context.apply {
+                            databaseWishPesawatInternasional
+                        }
+                    }
+                }
+                Toast.makeText(requireContext(),"Berhasil dihapus",Toast.LENGTH_SHORT).show()
             }
         }).attachToRecyclerView(binding.rvInternational)
     }

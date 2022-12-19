@@ -1,15 +1,11 @@
 package com.finpro.garudanih.adapter
 
-import android.annotation.SuppressLint
-import android.app.Dialog
-import android.content.ClipData
-import android.content.ClipboardManager
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ItemWishlistBinding
 import com.finpro.garudanih.wishlist.fragment.InternatonalTablayoutFragment
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
@@ -66,7 +62,6 @@ class AdapterWishListInternasional(private var Wishlistinternasional : List<data
         holder.binding.delete.setOnClickListener {
             databaseWishPesawatInternasional = DatabaseWishPesawatInternasional.getInstance(it.context)
             GlobalScope.async {
-                val delete =
                     databaseWishPesawatInternasional?.WishInternasionalDao()?.deleteWishInter(Wishlistinternasional[position])
                 (holder.itemView.context as InternatonalTablayoutFragment).run {
                     Toast.makeText(it.context, "Data Berhasil Dihapus", Toast.LENGTH_SHORT)

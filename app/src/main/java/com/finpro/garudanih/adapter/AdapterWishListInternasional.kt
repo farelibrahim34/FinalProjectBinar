@@ -13,10 +13,12 @@ import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
 import kotlinx.coroutines.*
 
-class AdapterWishListInternasional(private var Wishlistinternasional : List<dataWishPesawatInternasional>): RecyclerView.Adapter<AdapterWishListInternasional.ViewHolder>()  {
+class AdapterWishListInternasional(): RecyclerView.Adapter<AdapterWishListInternasional.ViewHolder>()  {
     private lateinit var context : Context
     var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
     private lateinit var daoInternational : WishpesawatDaoInternasional
+    private var Wishlistinternasional : List<dataWishPesawatInternasional> = emptyList()
+    private var database: DatabaseWishPesawatInternasional? = null
 
     inner class ViewHolder (val binding: ItemWishlistBinding) : RecyclerView.ViewHolder(binding.root){
         private lateinit var listener : OnAdapterListener
@@ -47,6 +49,10 @@ class AdapterWishListInternasional(private var Wishlistinternasional : List<data
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemWishlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        database = DatabaseWishPesawatInternasional.getInstance(parent.context)
+        if(database != null){
+            daoInternational = database!!.WishInternasionalDao()
+        }
         return ViewHolder(view)
     }
 
@@ -94,9 +100,10 @@ class AdapterWishListInternasional(private var Wishlistinternasional : List<data
         fun onDelete(wishlist: dataWishPesawatInternasional)
     }
 
-    fun deleteInternational(wishInternational: dataWishPesawatInternasional){
+    fun deleteInternational(wishInternational: dataWishPesawatInternasional, position: Int){
         CoroutineScope(Dispatchers.IO).launch {
             daoInternational.deleteWishInter(wishInternational)
         }
+        notifyItemChanged(position)
     }
 }

@@ -1,12 +1,12 @@
 package com.finpro.garudanih.view.fragments.history
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.finpro.garudanih.adapter.AdapterHistory
@@ -15,6 +15,9 @@ import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("RedundantNullableReturnType", "UNNECESSARY_NOT_NULL_ASSERTION",
+    "MemberVisibilityCanBePrivate", "ReplaceGetOrSet", "ConvertToStringTemplate"
+)
 @AndroidEntryPoint
 class HistoryFragment : Fragment() {
     lateinit var userViewModel : UserViewModel
@@ -37,6 +40,7 @@ class HistoryFragment : Fragment() {
         binding = FragmentHistoryBinding.inflate(inflater,container,false)
         return binding.root
     }
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)

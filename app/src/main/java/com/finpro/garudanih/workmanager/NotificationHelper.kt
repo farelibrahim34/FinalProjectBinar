@@ -1,6 +1,6 @@
 @file:Suppress("PrivatePropertyName", "PrivatePropertyName", "PrivatePropertyName")
 
-package com.example.chap6top5.workmanager
+package com.finpro.garudanih.workmanager
 
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
@@ -14,8 +14,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.finpro.garudanih.R
 import com.finpro.garudanih.view.HomeBottomActivity
-import com.finpro.garudanih.view.wrapper.SplashScreenActivity
-import com.finpro.garudanih.view.wrapper.ViewpagerActivity
 
 
 class NotificationHelper(val context : Context) {

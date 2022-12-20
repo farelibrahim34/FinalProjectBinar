@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 val Context.dataUser: DataStore<Preferences> by preferencesDataStore(name = "datauser_profile")
+@Suppress("PrivatePropertyName")
 class DataUser(@ApplicationContext private val context: Context){
     private val Username = stringPreferencesKey("Username")
     private val Email = stringPreferencesKey("Email")

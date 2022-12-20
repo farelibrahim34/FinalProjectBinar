@@ -1,19 +1,19 @@
 package com.finpro.garudanih.view.auth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import com.finpro.garudanih.databinding.ActivityLoginBinding
-import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.datastore.DataStoreLogin
 import com.finpro.garudanih.utils.LoginUtil
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("ReplaceGetOrSet", "MoveLambdaOutsideParentheses")
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 

@@ -1,10 +1,12 @@
+@file:Suppress("ConvertToStringTemplate")
+
 package com.finpro.garudanih.view.detils
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.databinding.ActivityDetailPesawatBinding
 import com.finpro.garudanih.model.Ticket
@@ -17,8 +19,10 @@ import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
-import kotlin.properties.Delegates
 
+@Suppress("DeferredResultUnused", "LocalVariableName", "MemberVisibilityCanBePrivate",
+    "ReplaceGetOrSet", "ConvertToStringTemplate", "unused"
+)
 @AndroidEntryPoint
 class DetailPesawatActivity : AppCompatActivity() {
 
@@ -98,6 +102,7 @@ class DetailPesawatActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     fun getListPesawat(){
         val itemListPesawat = intent
 

@@ -1,5 +1,6 @@
 package com.finpro.garudanih.view.tiketorder
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
-import com.example.chap6top5.workmanager.Worker
-import com.finpro.garudanih.R
+import com.finpro.garudanih.workmanager.Worker
 import com.finpro.garudanih.databinding.ActivityTiketOrderBinding
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
@@ -19,6 +19,9 @@ import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
 
+@Suppress("UsePropertyAccessSyntax", "SimplifyBooleanWithConstants", "MemberVisibilityCanBePrivate",
+    "ReplaceGetOrSet", "ConvertToStringTemplate"
+)
 @AndroidEntryPoint
 class TiketOrderActivity : AppCompatActivity() {
     lateinit var binding : ActivityTiketOrderBinding
@@ -27,6 +30,7 @@ class TiketOrderActivity : AppCompatActivity() {
     lateinit var authViewModel : AuthViewModel
     private var tokenUser : String = ""
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTiketOrderBinding.inflate(layoutInflater)

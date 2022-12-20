@@ -1,3 +1,5 @@
+@file:Suppress("RedundantNullableReturnType")
+
 package com.finpro.garudanih.view.fragments.detail
 
 import android.os.Bundle

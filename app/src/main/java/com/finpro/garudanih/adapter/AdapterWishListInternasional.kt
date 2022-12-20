@@ -1,10 +1,11 @@
+@file:Suppress("DeferredResultUnused", "RemoveEmptyPrimaryConstructor", "unused")
+
 package com.finpro.garudanih.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemWishlistBinding
 import com.finpro.garudanih.wishlist.fragment.InternatonalTablayoutFragment
@@ -13,6 +14,9 @@ import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
 import kotlinx.coroutines.*
 
+@Suppress("PrivatePropertyName", "SpellCheckingInspection", "MemberVisibilityCanBePrivate",
+    "unused"
+)
 class AdapterWishListInternasional(): RecyclerView.Adapter<AdapterWishListInternasional.ViewHolder>()  {
     private lateinit var context : Context
     var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null

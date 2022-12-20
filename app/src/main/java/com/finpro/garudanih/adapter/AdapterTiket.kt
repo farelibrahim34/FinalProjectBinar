@@ -10,6 +10,7 @@ import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
 
+@Suppress("RemoveEmptyClassBody", "LiftReturnOrAssignment")
 class AdapterTiket (private var onClick : (Ticket)->Unit): RecyclerView.Adapter<AdapterTiket.ViewHolder>() {
     private var listTiket : List<Ticket>? = null
     fun setListTiket(listTiketLocal : List<Ticket>){

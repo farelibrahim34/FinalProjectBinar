@@ -1,21 +1,13 @@
 package com.finpro.garudanih.wishlist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
-import com.finpro.garudanih.adapter.AdapterInternasional
-import com.finpro.garudanih.adapter.AdapterWishListInternasional
-import com.finpro.garudanih.adapter.AdapterWishListLoc
 import com.finpro.garudanih.databinding.ActivityWishlistBinding
 import com.finpro.garudanih.wishlist.fragment.DomesticTablayoutFragment
 import com.finpro.garudanih.wishlist.fragment.InternatonalTablayoutFragment
 import com.finpro.garudanih.wishlist.fragment.ViewPagerAdapter
-import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class WishlistActivity : AppCompatActivity() {
     private lateinit var binding : ActivityWishlistBinding

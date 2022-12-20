@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.finpro.garudanih.model.ResponseUserLogin
 import com.finpro.garudanih.model.UserLogin
-import com.finpro.garudanih.network.ApiClient
 import com.finpro.garudanih.network.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback

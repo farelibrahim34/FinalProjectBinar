@@ -1,3 +1,5 @@
+@file:Suppress("MemberVisibilityCanBePrivate")
+
 package com.finpro.garudanih.network
 
 import dagger.Module

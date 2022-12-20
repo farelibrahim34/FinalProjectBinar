@@ -4,9 +4,6 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
-import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
-
 
 
 @Dao

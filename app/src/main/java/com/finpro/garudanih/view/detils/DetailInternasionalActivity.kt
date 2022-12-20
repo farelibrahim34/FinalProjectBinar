@@ -1,13 +1,14 @@
+@file:Suppress("RemoveRedundantCallsOfConversionMethods")
+
 package com.finpro.garudanih.view.detils
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityDetailInternasionalBinding
 import com.finpro.garudanih.model.Ticket
-import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.pemesanan.PemesananActivity
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
@@ -16,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
+@Suppress("DeferredResultUnused", "LocalVariableName", "MemberVisibilityCanBePrivate")
 @AndroidEntryPoint
 class DetailInternasionalActivity : AppCompatActivity() {
 

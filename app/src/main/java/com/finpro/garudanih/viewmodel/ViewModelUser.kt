@@ -3,8 +3,9 @@ package com.finpro.garudanih.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.finpro.garudanih.model.*
-import com.finpro.garudanih.network.ApiClient
+import com.finpro.garudanih.model.DataClassUser
+import com.finpro.garudanih.model.DataUserResponse
+import com.finpro.garudanih.model.ResponseUserUpdate
 import com.finpro.garudanih.network.ApiInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import okhttp3.MultipartBody
@@ -13,6 +14,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
+
+@Suppress("JoinDeclarationAndAssignment", "unused")
 @HiltViewModel
 class ViewModelUser @Inject constructor(private val api : ApiInterface): ViewModel() {
 

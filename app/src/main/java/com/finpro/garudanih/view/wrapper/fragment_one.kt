@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.finpro.garudanih.databinding.ItemPageBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("RedundantNullableReturnType", "ClassName")
 @AndroidEntryPoint
 class fragment_one : Fragment(){
 

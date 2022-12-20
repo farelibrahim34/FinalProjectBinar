@@ -1,14 +1,12 @@
 package com.finpro.garudanih.view.detils
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterInternasional
 import com.finpro.garudanih.adapter.AdapterLokal
 import com.finpro.garudanih.databinding.ActivityTiketInternasionalBinding
@@ -16,6 +14,7 @@ import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.viewmodel.TiketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("MemberVisibilityCanBePrivate", "ReplaceGetOrSet", "unused")
 @AndroidEntryPoint
 class TiketInternasionalActivity : AppCompatActivity() {
     lateinit var binding : ActivityTiketInternasionalBinding

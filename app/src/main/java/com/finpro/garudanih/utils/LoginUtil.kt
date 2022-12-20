@@ -1,3 +1,5 @@
+@file:Suppress("LiftReturnOrAssignment")
+
 package com.finpro.garudanih.utils
 
 object LoginUtil {

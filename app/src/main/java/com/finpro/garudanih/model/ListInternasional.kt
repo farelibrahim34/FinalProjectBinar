@@ -1,5 +1,6 @@
 package com.finpro.garudanih.model
 
+@Suppress("unused")
 data class ListInternasional (
     val kotaInt : String,
     val hargaInt : Int,

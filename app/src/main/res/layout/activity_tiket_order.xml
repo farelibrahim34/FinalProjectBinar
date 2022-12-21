@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,7 +31,8 @@
       android:outlineSpotShadowColor="@color/warna_button"
       app:cardCornerRadius="10dp"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
+      app:layout_constraintTop_toTopOf="parent"
+      tools:ignore="UnusedAttribute">
 
     <ImageView
         android:id="@+id/ivBackDetail"
@@ -81,7 +83,8 @@
       app:layout_constraintBottom_toBottomOf="@+id/Asal"
       app:layout_constraintEnd_toStartOf="@+id/Tujuan"
       app:layout_constraintStart_toEndOf="@+id/Asal"
-      app:layout_constraintTop_toTopOf="@+id/Tujuan" />
+      app:layout_constraintTop_toTopOf="@+id/Tujuan"
+      tools:ignore="UnusedAttribute" />
 
   <TextView
       android:id="@+id/Tujuan"

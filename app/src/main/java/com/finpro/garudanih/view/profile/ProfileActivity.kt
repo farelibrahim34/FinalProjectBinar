@@ -1,38 +1,25 @@
+@file:Suppress("HasPlatformType", "UsePropertyAccessSyntax")
+
 package com.finpro.garudanih.view.profile
 
-import android.Manifest
-import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.ContentResolver
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
-import androidx.core.view.get
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.navArgs
 import androidx.navigation.navArgs
 import com.bumptech.glide.Glide
 import com.finpro.garudanih.MainActivity
-import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityProfileBinding
 import com.finpro.garudanih.utils.UpdateProfile
 import com.finpro.garudanih.view.HomeBottomActivity
-import com.finpro.garudanih.view.auth.LoginActivity
-import com.finpro.garudanih.view.fragments.settings.SettingsFragmentArgs
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
 import com.finpro.garudanih.viewmodel.ViewModelUser
@@ -45,10 +32,13 @@ import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+
+@Suppress("UNNECESSARY_NOT_NULL_ASSERTION", "UsePropertyAccessSyntax",
+    "MemberVisibilityCanBePrivate", "ReplaceGetOrSet", "ObjectLiteralToLambda",
+    "ConvertToStringTemplate", "PrivatePropertyName", "unused"
+)
 @AndroidEntryPoint
 class ProfileActivity : AppCompatActivity() {
 

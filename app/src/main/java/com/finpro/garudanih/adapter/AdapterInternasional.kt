@@ -10,6 +10,7 @@ import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
 
 
+@Suppress("RemoveEmptyClassBody", "LiftReturnOrAssignment")
 class AdapterInternasional(private var onClick : (Ticket)->Unit): RecyclerView.Adapter<AdapterInternasional.ViewHolder>() {
 
 

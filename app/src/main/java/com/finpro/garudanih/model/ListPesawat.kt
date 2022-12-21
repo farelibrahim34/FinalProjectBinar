@@ -1,5 +1,6 @@
 package com.finpro.garudanih.model
 
+@Suppress("unused")
 data class ListPesawat(
     val kota : String,
     val harga : Int,

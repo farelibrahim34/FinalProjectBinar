@@ -5,19 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ItemPage3Binding
 import com.finpro.garudanih.utils.CheckUserUtil
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.auth.LoginActivity
-import com.finpro.garudanih.view.auth.RegisterActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("RedundantNullableReturnType", "ClassName", "ReplaceGetOrSet")
 @AndroidEntryPoint
 class fragment_three : Fragment(){
 

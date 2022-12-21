@@ -1,3 +1,5 @@
+@file:Suppress("ReplaceCallWithBinaryOperator")
+
 package com.finpro.garudanih.utils
 
 object CheckUserUtil {

@@ -4,11 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.finpro.garudanih.wishlist.DataWishPesawatLoc
-import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
-import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
 
 
+@Suppress("FunctionName", "unused")
 @Database(entities = [dataWishPesawatInternasional::class], version = 1)
 abstract class DatabaseWishPesawatInternasional : RoomDatabase() {
     abstract fun WishInternasionalDao() : WishpesawatDaoInternasional

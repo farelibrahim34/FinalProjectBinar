@@ -1,22 +1,20 @@
 package com.finpro.garudanih.wishlist.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterWishListLoc
 import com.finpro.garudanih.databinding.FragmentDomesticTablayoutBinding
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
-import com.finpro.garudanih.wishlist.WishlistActivity
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
+@Suppress("MemberVisibilityCanBePrivate", "RedundantNullableReturnType")
 class DomesticTablayoutFragment : Fragment() {
 
     private lateinit var binding : FragmentDomesticTablayoutBinding

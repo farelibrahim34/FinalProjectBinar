@@ -28,7 +28,8 @@
             android:outlineSpotShadowColor="@color/material_on_primary_disabled"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            app:tabTextColor="@color/warna_primary_font" />
+            app:tabTextColor="@color/warna_primary_font"
+            tools:ignore="UnusedAttribute" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager

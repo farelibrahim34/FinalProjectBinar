@@ -1,3 +1,5 @@
+@file:Suppress("ClassName")
+
 package com.finpro.garudanih.wishlistinternasional
 
 import android.os.Parcelable
@@ -7,6 +9,7 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 
+@Suppress("ClassName", "SpellCheckingInspection")
 @Entity
 @Parcelize
 data class dataWishPesawatInternasional(

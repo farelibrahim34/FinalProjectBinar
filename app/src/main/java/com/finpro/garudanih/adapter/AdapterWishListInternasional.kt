@@ -1,10 +1,12 @@
+@file:Suppress("DeferredResultUnused", "RemoveEmptyPrimaryConstructor", "unused")
+
 package com.finpro.garudanih.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemWishlistBinding
 import com.finpro.garudanih.wishlist.fragment.InternatonalTablayoutFragment
@@ -13,6 +15,9 @@ import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
 import kotlinx.coroutines.*
 
+@Suppress("PrivatePropertyName", "SpellCheckingInspection", "MemberVisibilityCanBePrivate",
+    "unused"
+)
 class AdapterWishListInternasional(): RecyclerView.Adapter<AdapterWishListInternasional.ViewHolder>()  {
     private lateinit var context : Context
     var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
@@ -56,6 +61,7 @@ class AdapterWishListInternasional(): RecyclerView.Adapter<AdapterWishListIntern
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        holder.bind(Wishlistinternasional[position])
         holder.binding.txtKotaTujuan.text = Wishlistinternasional[position].destination
@@ -81,6 +87,7 @@ class AdapterWishListInternasional(): RecyclerView.Adapter<AdapterWishListIntern
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListWishlist(list: List<dataWishPesawatInternasional>){
         this.Wishlistinternasional = list
         notifyDataSetChanged()

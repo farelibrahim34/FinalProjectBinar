@@ -10,6 +10,7 @@ import com.finpro.garudanih.databinding.ActivityRegisterBinding
 import com.finpro.garudanih.viewmodel.ViewModelUser
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("MemberVisibilityCanBePrivate")
 @AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
 

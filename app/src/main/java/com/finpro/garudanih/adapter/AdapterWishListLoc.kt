@@ -3,17 +3,15 @@ package com.finpro.garudanih.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.databinding.ItemWishlistBinding
 import com.finpro.garudanih.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
-import com.finpro.garudanih.wishlist.WishlistActivity
 import com.finpro.garudanih.wishlist.fragment.DomesticTablayoutFragment
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
+@Suppress("DeferredResultUnused", "RemoveEmptyClassBody", "MemberVisibilityCanBePrivate", "unused")
 class AdapterWishListLoc(val Wishlist : List<DataWishPesawatLoc>): RecyclerView.Adapter<AdapterWishListLoc.ViewHolder>() {
 
     var databaseWishPesawatLoc: DatabaseWishPesawatLoc? = null

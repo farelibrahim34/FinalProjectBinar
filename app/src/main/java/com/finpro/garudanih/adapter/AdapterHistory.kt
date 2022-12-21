@@ -1,12 +1,14 @@
+@file:Suppress("RemoveEmptyClassBody", "SimplifyBooleanWithConstants",
+    "MemberVisibilityCanBePrivate", "UnusedImport"
+)
+
 package com.finpro.garudanih.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemOrderBinding
-import com.finpro.garudanih.model.TicketXX
 import com.finpro.garudanih.model.Transaction
 import com.finpro.garudanih.view.tiketorder.TiketOrderActivity
 

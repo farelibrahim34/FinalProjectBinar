@@ -1,18 +1,19 @@
 package com.finpro.garudanih.view.wrapper
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivitySplashScreenBinding
 import com.finpro.garudanih.utils.CheckUserUtil
 import com.finpro.garudanih.view.HomeBottomActivity
-import com.finpro.garudanih.view.auth.LoginActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+@SuppressLint("CustomSplashScreen")
+@Suppress("ReplaceGetOrSet")
 @AndroidEntryPoint
 class SplashScreenActivity : AppCompatActivity() {
     lateinit var authViewModel : AuthViewModel

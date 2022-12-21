@@ -14,6 +14,7 @@ import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
 import kotlinx.coroutines.*
 
 class AdapterWishListInternasional(): RecyclerView.Adapter<AdapterWishListInternasional.ViewHolder>()  {
+
     private lateinit var context : Context
     var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
     private lateinit var daoInternational : WishpesawatDaoInternasional

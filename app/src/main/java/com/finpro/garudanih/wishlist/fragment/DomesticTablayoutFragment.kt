@@ -1,26 +1,36 @@
 package com.finpro.garudanih.wishlist.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.R
+import com.finpro.garudanih.adapter.AdapterWishListInternasional
 import com.finpro.garudanih.adapter.AdapterWishListLoc
 import com.finpro.garudanih.databinding.FragmentDomesticTablayoutBinding
+import com.finpro.garudanih.helper.SwipeToDelete
+import com.finpro.garudanih.helper.SwipeToDeleteCallback
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
+import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
 import com.finpro.garudanih.wishlist.WishlistActivity
+import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
+import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-
+private const val TAG = "DomesticTablayoutFr"
 class DomesticTablayoutFragment : Fragment() {
 
     private lateinit var binding : FragmentDomesticTablayoutBinding
     private var databaseWishPesawatLoc : DatabaseWishPesawatLoc? = null
+    private val adapter : AdapterWishListLoc = AdapterWishListLoc()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,11 +43,25 @@ class DomesticTablayoutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        databaseWishPesawatLoc = DatabaseWishPesawatLoc.getInstance(requireActivity())
+        databaseWishPesawatLoc = DatabaseWishPesawatLoc.getInstance(requireContext())
+        binding.rvLocal.adapter = adapter
+        binding.rvLocal.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         getWishlistLocal()
+        val swipeToDeleteCallback = object : SwipeToDelete(){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                val dataDelete = adapter.deleteInternational(adapter.getWishlist(position), position)
+                getWishlistLocal()
+
+                Log.d(TAG, "onSwiped: ${dataDelete}")
+
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(binding.rvLocal)
     }
 
-    fun Fragment?.runOnUiThread(action: () -> Unit) {
+    private fun Fragment?.runOnUiThread(action: () -> Unit) {
         this ?: return
         if (!isAdded) return // Fragment not attached to an Activity
         activity?.runOnUiThread(action)
@@ -45,13 +69,11 @@ class DomesticTablayoutFragment : Fragment() {
 
     @OptIn(DelicateCoroutinesApi::class)
     private fun getWishlistLocal(){
-        binding.rvLocal.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         GlobalScope.launch {
             val wishList = databaseWishPesawatLoc?.WishDao()?.getWishPesawat()
             runOnUiThread{
                 wishList.let {
-                    val adapter = AdapterWishListLoc(it!!)
-                    binding.rvLocal.adapter = adapter
+                    adapter.setListWishlist(it!!)
                 }
             }
         }

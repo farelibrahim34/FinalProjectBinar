@@ -23,5 +23,5 @@ interface WishPesawatDaoLoc {
     fun checkWish(id: Int) : Int
 
     @Delete
-    fun deleteWishLoc(dataWishPesawat: DataWishPesawatLoc)
+    fun deleteWishLoc(dataWishPesawat: DataWishPesawatLoc) : Int
 }

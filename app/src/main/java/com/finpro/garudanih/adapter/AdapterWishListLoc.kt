@@ -1,5 +1,6 @@
 package com.finpro.garudanih.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -9,22 +10,32 @@ import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.databinding.ItemWishlistBinding
 import com.finpro.garudanih.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
+import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
 import com.finpro.garudanih.wishlist.WishlistActivity
 import com.finpro.garudanih.wishlist.fragment.DomesticTablayoutFragment
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
+import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
+import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
+import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
+import kotlinx.coroutines.*
 
-class AdapterWishListLoc(val Wishlist : List<DataWishPesawatLoc>): RecyclerView.Adapter<AdapterWishListLoc.ViewHolder>() {
+class AdapterWishListLoc(): RecyclerView.Adapter<AdapterWishListLoc.ViewHolder>() {
 
+    private lateinit var context : Context
     var databaseWishPesawatLoc: DatabaseWishPesawatLoc? = null
-    var onDelete : ((DataWishPesawatLoc)->Unit)? = null
+    private lateinit var daolocal : WishPesawatDaoLoc
+    private var Wishlist : List<DataWishPesawatLoc> = emptyList()
+    private var database: DatabaseWishPesawatLoc? = null
 
     class ViewHolder(val binding: ItemWishlistBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterWishListLoc.ViewHolder {
         val view = ItemWishlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        database = DatabaseWishPesawatLoc.getInstance(parent.context)
+        if(database != null){
+            daolocal = database!!.WishDao()
+        }
         return ViewHolder(view)
     }
 
@@ -36,26 +47,31 @@ class AdapterWishListLoc(val Wishlist : List<DataWishPesawatLoc>): RecyclerView.
 //        holder.binding.ivListpesawat.setImageResource(listTiket[position].type)
         holder.binding.txtAvailable.text = Wishlist[position].totalChair.toString()
         holder.binding.txtClass.text = Wishlist[position].classX
-
-        holder.binding.delete.setOnClickListener {
-            databaseWishPesawatLoc = DatabaseWishPesawatLoc.getInstance(it.context)
-                GlobalScope.async {
-                    val delete =
-                        databaseWishPesawatLoc?.WishDao()?.deleteWishLoc(Wishlist[position])
-                    (holder.itemView.context as DomesticTablayoutFragment).run {
-                        Toast.makeText(it.context, "Data Berhasil Dihapus", Toast.LENGTH_SHORT)
-                            .show()
-                        (holder.itemView.context as DomesticTablayoutFragment).context.apply {
-                            databaseWishPesawatLoc
-                        }
-                    }
-                }
-                Toast.makeText(it.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
-
-        }
     }
 
+    fun setListWishlist(list: List<DataWishPesawatLoc>){
+        this.Wishlist = list
+        notifyDataSetChanged()
+    }
+
+    fun getWishlist(position: Int): DataWishPesawatLoc = Wishlist[position]
+
     override fun getItemCount(): Int {
-        return Wishlist.size
+        return  Wishlist.size
+    }
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+        context = recyclerView.context
+    }
+    interface OnAdapterListener {
+        fun onDelete(wishlist: DataWishPesawatLoc)
+    }
+
+    fun deleteInternational(wishInternational: DataWishPesawatLoc, position: Int){
+        CoroutineScope(Dispatchers.IO).launch {
+            daolocal.deleteWishLoc(wishInternational)
+        }
+        notifyItemChanged(position)
     }
 }

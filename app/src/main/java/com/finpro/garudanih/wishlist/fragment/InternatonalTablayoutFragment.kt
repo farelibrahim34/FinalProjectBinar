@@ -1,7 +1,9 @@
 package com.finpro.garudanih.wishlist.fragment
 
+import android.icu.lang.UCharacter.IndicPositionalCategory.LEFT
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity.LEFT
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +25,6 @@ class InternatonalTablayoutFragment : Fragment() {
 
     private lateinit var binding : FragmentInternatonalTablayoutBinding
     private var databaseWishPesawatInternasional : DatabaseWishPesawatInternasional? = null
-    private lateinit var  onDelete : WishpesawatDaoInternasional
     private val adapter : AdapterWishListInternasional = AdapterWishListInternasional()
 
 
@@ -45,6 +46,7 @@ class InternatonalTablayoutFragment : Fragment() {
         val swipeToDeleteCallback = object : SwipeToDeleteCallback(){
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
+
                 val dataDelete = adapter.deleteInternational(adapter.getWishlist(position), position)
                 getWishListInter()
 

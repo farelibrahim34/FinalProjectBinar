@@ -2,6 +2,7 @@
 
 package com.finpro.garudanih.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -60,6 +61,7 @@ class AdapterWishListInternasional(): RecyclerView.Adapter<AdapterWishListIntern
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        holder.bind(Wishlistinternasional[position])
         holder.binding.txtKotaTujuan.text = Wishlistinternasional[position].destination
@@ -85,6 +87,7 @@ class AdapterWishListInternasional(): RecyclerView.Adapter<AdapterWishListIntern
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListWishlist(list: List<dataWishPesawatInternasional>){
         this.Wishlistinternasional = list
         notifyDataSetChanged()

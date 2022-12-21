@@ -20,10 +20,15 @@
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/drawable/wishlist.xml" value="0.191" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_detail_internasional.xml" value="0.14097222222222222" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_detail_pesawat.xml" value="0.18368055555555557" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_home_bottom.xml" value="0.18368055555555557" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_main.xml" value="0.18368055555555557" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_pemesanan.xml" value="0.5" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_profile.xml" value="0.17673611111111112" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_tiket_lokal.xml" value="0.1" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_tiket_order.xml" value="0.178125" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/activity_wishlist.xml" value="0.265625" />
+        <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/custom_dialog_delete.xml" value="0.125" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_history.xml" value="0.25364583333333335" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Farrel/kotlin/FinProBinar/app/src/main/res/layout/item.xml" value="0.18368055555555557" />

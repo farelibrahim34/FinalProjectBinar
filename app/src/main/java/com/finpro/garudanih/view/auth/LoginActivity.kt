@@ -13,7 +13,7 @@ import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-@Suppress("ReplaceGetOrSet", "MoveLambdaOutsideParentheses")
+@Suppress("ReplaceGetOrSet", "MoveLambdaOutsideParentheses","Overdraw","UnusedResources")
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
@@ -22,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var username : String
     private lateinit var password : String
     private lateinit var authViewModel: AuthViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

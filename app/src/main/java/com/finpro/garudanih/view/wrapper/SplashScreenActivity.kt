@@ -1,5 +1,6 @@
 package com.finpro.garudanih.view.wrapper
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -11,6 +12,7 @@ import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+@SuppressLint("CustomSplashScreen")
 @Suppress("ReplaceGetOrSet")
 @AndroidEntryPoint
 class SplashScreenActivity : AppCompatActivity() {

@@ -1,5 +1,4 @@
 @file:Suppress("DeferredResultUnused", "RemoveEmptyPrimaryConstructor", "unused")
-
 package com.finpro.garudanih.adapter
 
 import android.annotation.SuppressLint

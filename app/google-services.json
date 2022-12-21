@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "168300799654",
+    "project_id": "finalprojectbinar",
+    "storage_bucket": "finalprojectbinar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168300799654:android:cca3d8422cd29617827667",
+        "android_client_info": {
+          "package_name": "com.finpro.garudanih"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168300799654-chpga3l6i6pq0ego1g0mfb9qfpn6pk6d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.finpro.garudanih",
+            "certificate_hash": "8c2d4c243a0c333874a2cac98b0090fce55f3655"
+          }
+        },
+        {
+          "client_id": "168300799654-m56ps27d624m7hbhmfgb0abtnv4qdh48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaytHeH02InTnIIMYzkaxC-kfamO0AvXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168300799654-m56ps27d624m7hbhmfgb0abtnv4qdh48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

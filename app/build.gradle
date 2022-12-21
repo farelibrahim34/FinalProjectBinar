@@ -5,6 +5,8 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -96,6 +98,14 @@ dependencies {
 
     //    Work Manager
     implementation("androidx.work:work-runtime-ktx:2.7.1")
+
+    //noinspection GradleDependency
+    implementation platform('com.google.firebase:firebase-bom:31.0.1')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
 
 
 }

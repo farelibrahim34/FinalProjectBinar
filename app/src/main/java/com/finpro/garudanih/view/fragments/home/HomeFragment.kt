@@ -67,6 +67,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        throw RuntimeException("Test Crash")
+
         binding.showLocal.setOnClickListener {
             startActivity(Intent(context, TiketLokalActivity::class.java))
         }
@@ -81,6 +83,7 @@ class HomeFragment : Fragment() {
                 Log.d("TOKEN","Token Null")
             }
         }
+
         binding.wishlist.setOnClickListener {
             startActivity(Intent(context, WishlistActivity::class.java))
         }

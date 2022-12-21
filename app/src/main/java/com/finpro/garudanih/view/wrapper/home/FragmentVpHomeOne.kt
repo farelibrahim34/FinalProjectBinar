@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.finpro.garudanih.databinding.FragmentVpHomeOneBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("RedundantNullableReturnType")
 @AndroidEntryPoint
 class FragmentVpHomeOne : Fragment() {
     lateinit var binding : FragmentVpHomeOneBinding

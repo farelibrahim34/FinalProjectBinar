@@ -1,6 +1,7 @@
 package com.finpro.garudanih.wishlist.fragment
 
 import android.os.Bundle
+<<<<<<< HEAD
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,20 +13,35 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterWishListInternasional
+=======
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+>>>>>>> dev-ibrahim
 import com.finpro.garudanih.adapter.AdapterWishListLoc
 import com.finpro.garudanih.databinding.FragmentDomesticTablayoutBinding
 import com.finpro.garudanih.helper.SwipeToDelete
 import com.finpro.garudanih.helper.SwipeToDeleteCallback
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
+<<<<<<< HEAD
 import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
 import com.finpro.garudanih.wishlist.WishlistActivity
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
+=======
+>>>>>>> dev-ibrahim
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+<<<<<<< HEAD
 private const val TAG = "DomesticTablayoutFr"
+=======
+
+@Suppress("MemberVisibilityCanBePrivate", "RedundantNullableReturnType")
+>>>>>>> dev-ibrahim
 class DomesticTablayoutFragment : Fragment() {
 
     private lateinit var binding : FragmentDomesticTablayoutBinding

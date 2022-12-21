@@ -1,5 +1,6 @@
 package com.finpro.garudanih.view.pemesanan
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -20,6 +21,9 @@ import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("MemberVisibilityCanBePrivate", "ReplaceGetOrSet", "ConvertToStringTemplate",
+    "PrivatePropertyName", "unused"
+)
 @AndroidEntryPoint
 class PemesananActivity : AppCompatActivity() {
     lateinit var binding : ActivityPemesananBinding
@@ -36,6 +40,7 @@ class PemesananActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPemesananBinding.inflate(layoutInflater)

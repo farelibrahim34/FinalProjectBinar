@@ -1,3 +1,5 @@
+@file:Suppress("RedundantOverride")
+
 package com.finpro.garudanih.view.fragments.order
 
 import android.os.Bundle

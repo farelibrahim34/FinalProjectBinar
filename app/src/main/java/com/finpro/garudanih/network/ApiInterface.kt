@@ -2,7 +2,6 @@ package com.finpro.garudanih.network
 
 import com.finpro.garudanih.model.*
 import com.finpro.garudanih.model.responsenotif.DataNotify
-import com.finpro.garudanih.model.responsenotif.ResponseNotify
 import com.finpro.garudanih.model.updatepaid.ResponsePaid
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

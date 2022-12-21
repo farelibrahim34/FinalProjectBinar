@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.finpro.garudanih.model.*
 import com.finpro.garudanih.model.updatepaid.ResponsePaid
 import com.finpro.garudanih.network.ApiInterface
-import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

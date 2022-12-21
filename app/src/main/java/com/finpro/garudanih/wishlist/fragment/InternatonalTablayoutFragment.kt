@@ -21,6 +21,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 private const val TAG = "InternatonalTablayoutFr"
+@Suppress("RemoveCurlyBracesFromTemplate", "RedundantNullableReturnType", "unused")
 class InternatonalTablayoutFragment : Fragment() {
 
     private lateinit var binding : FragmentInternatonalTablayoutBinding

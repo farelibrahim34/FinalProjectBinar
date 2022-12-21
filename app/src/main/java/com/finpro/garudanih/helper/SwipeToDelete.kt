@@ -3,6 +3,7 @@ package com.finpro.garudanih.helper
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
+@Suppress("unused")
 abstract class SwipeToDelete:ItemTouchHelper.Callback() {
 
     override fun getMovementFlags(

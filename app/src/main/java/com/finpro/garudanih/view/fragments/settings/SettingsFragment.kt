@@ -13,6 +13,7 @@ import com.finpro.garudanih.view.auth.LoginActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+@Suppress("RedundantNullableReturnType")
 @AndroidEntryPoint
 class SettingsFragment : Fragment() {
 

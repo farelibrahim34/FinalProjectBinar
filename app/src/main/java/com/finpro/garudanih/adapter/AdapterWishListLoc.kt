@@ -4,21 +4,27 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.finpro.garudanih.databinding.ItemBinding
 import com.finpro.garudanih.databinding.ItemWishlistBinding
 import com.finpro.garudanih.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
+<<<<<<< HEAD
 import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
 import com.finpro.garudanih.wishlist.WishlistActivity
+=======
+>>>>>>> dev-ibrahim
 import com.finpro.garudanih.wishlist.fragment.DomesticTablayoutFragment
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
 import kotlinx.coroutines.*
 
+<<<<<<< HEAD
 class AdapterWishListLoc(): RecyclerView.Adapter<AdapterWishListLoc.ViewHolder>() {
+=======
+@Suppress("DeferredResultUnused", "RemoveEmptyClassBody", "MemberVisibilityCanBePrivate", "unused")
+class AdapterWishListLoc(val Wishlist : List<DataWishPesawatLoc>): RecyclerView.Adapter<AdapterWishListLoc.ViewHolder>() {
+>>>>>>> dev-ibrahim
 
     private lateinit var context : Context
     var databaseWishPesawatLoc: DatabaseWishPesawatLoc? = null

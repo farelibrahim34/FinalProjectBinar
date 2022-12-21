@@ -1,8 +1,9 @@
 package com.finpro.garudanih.view.fragments.home
 
+
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
-import android.nfc.NfcAdapter.EXTRA_ID
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,22 +15,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.finpro.garudanih.R
 import com.finpro.garudanih.adapter.AdapterInternasional
 import com.finpro.garudanih.adapter.AdapterTiket
 import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.FragmentHomeBinding
-import com.finpro.garudanih.model.ListInternasional
-
-import com.finpro.garudanih.model.ListPesawat
-import com.finpro.garudanih.model.Ticket
-import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.detils.DetailInternasionalActivity
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
 import com.finpro.garudanih.view.detils.TiketInternasionalActivity
 import com.finpro.garudanih.view.detils.TiketLokalActivity
-
-
 import com.finpro.garudanih.view.profile.ProfileActivity
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeOne
 import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeThree
@@ -42,6 +35,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import me.relex.circleindicator.CircleIndicator3
 import java.io.File
 
+@Suppress("RedundantNullableReturnType", "MemberVisibilityCanBePrivate", "ReplaceGetOrSet",
+    "ConvertToStringTemplate", "unused"
+)
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
@@ -67,6 +63,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        throw RuntimeException("Test Crash")
+
         binding.showLocal.setOnClickListener {
             startActivity(Intent(context, TiketLokalActivity::class.java))
         }
@@ -81,16 +79,17 @@ class HomeFragment : Fragment() {
                 Log.d("TOKEN","Token Null")
             }
         }
+
         binding.wishlist.setOnClickListener {
             startActivity(Intent(context, WishlistActivity::class.java))
         }
-        tiketAdapter = AdapterTiket (){
+        tiketAdapter = AdapterTiket {
             val pindah = Intent(context?.applicationContext, DetailPesawatActivity::class.java)
             pindah.putExtra("lokal", it)
             pindah.putExtra(DetailPesawatActivity.EXTRA_ID, it.id)
             startActivity(pindah)
         }
-        adapterIntr = AdapterInternasional (){
+        adapterIntr = AdapterInternasional {
             val pindah = Intent(context?.applicationContext, DetailInternasionalActivity::class.java)
             pindah.putExtra("detail", it)
             pindah.putExtra(DetailInternasionalActivity.EXTRA_ID, it.id)
@@ -168,6 +167,7 @@ class HomeFragment : Fragment() {
             }
         }
     }
+    @SuppressLint("SetTextI18n")
     private fun setUsername(){
         authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
         userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)

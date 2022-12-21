@@ -1,12 +1,11 @@
 package com.finpro.garudanih.view.wrapper.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.finpro.garudanih.R
-import com.finpro.garudanih.model.ListPesawat
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

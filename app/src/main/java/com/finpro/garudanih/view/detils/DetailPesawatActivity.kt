@@ -71,7 +71,7 @@ class DetailPesawatActivity : AppCompatActivity() {
         binding.txtClass.text = detail.classX+" Class"
         binding.wishlist.setOnClickListener{
             GlobalScope.async {
-                val d = intent.getSerializableExtra("detail") as Ticket
+                val d = intent.getSerializableExtra("lokal") as Ticket
                 val idd = detail.id
                 val asal = detail.destinationCode
                 val tujuan = detail.departureCode

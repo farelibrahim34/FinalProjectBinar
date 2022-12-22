@@ -65,7 +65,7 @@ class InternatonalTablayoutFragment : Fragment() {
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    fun getWishListInter(){
+    private fun getWishListInter(){
         GlobalScope.launch {
             val wishListInter = databaseWishPesawatInternasional?.WishInternasionalDao()?.getWishPesawatInternasional()
             runOnUiThread {

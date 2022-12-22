@@ -55,14 +55,6 @@ class DetailInternasionalActivity : AppCompatActivity() {
         val imageInt = itemListInternasional?.getInt("imageInt",0)
         val availableInt = itemListInternasional?.getString("availableInt")
 
-//        binding.txtAsal.text = kotaInt
-//        binding.txtHargaDetail.text = hargaInt
-//        if (imageInt != null) {
-//            binding.ivKota.setImageResource(imageInt)
-//        }
-//        binding.txtJadwal.text = jadwalInt
-//        binding.txtChair.text = availableInt
-
         val detail = intent.getSerializableExtra("detail") as Ticket
         binding.idTIket.text = detail.id.toString()
         binding.txtInputAsal.text = detail.departure

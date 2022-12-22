@@ -7,7 +7,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.databinding.ActivityDetailPesawatBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
@@ -16,7 +15,6 @@ import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
 import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
-import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -68,13 +66,10 @@ class DetailPesawatActivity : AppCompatActivity() {
         }
         binding.wishlist.setOnClickListener{
             GlobalScope.async {
-<<<<<<< HEAD
                 val d = intent.getSerializableExtra("detail") as Ticket
                 val idd = detail.id.toInt()
-=======
                 val d = intent.getSerializableExtra("lokal") as Ticket
                 val idd = detail.id
->>>>>>> dev-willy
                 val asal = detail.destinationCode
                 val tujuan = detail.departureCode
                 val jad = detail.takeOff

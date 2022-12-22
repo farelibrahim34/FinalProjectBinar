@@ -189,12 +189,13 @@
         android:id="@+id/wishlist"
         android:layout_width="40dp"
         android:layout_height="25dp"
-        android:src="@drawable/wishlist"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:contentDescription="@string/string_todo"
+        android:src="@drawable/wishlist"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/string_todo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

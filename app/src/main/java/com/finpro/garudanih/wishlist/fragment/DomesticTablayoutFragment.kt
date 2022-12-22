@@ -45,7 +45,7 @@ class DomesticTablayoutFragment : Fragment() {
         val swipeToDeleteCallback = object : SwipeToDelete(){
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
-                val dataDelete = adapter.deleteInternational(adapter.getWishlist(position), position)
+                val dataDelete = adapter.deleteDomestic(adapter.getWishlist(position), position)
                 getWishlistLocal()
 
                 Log.d(TAG, "onSwiped: ${dataDelete}")

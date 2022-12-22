@@ -67,7 +67,7 @@ class AdapterWishListLoc(): RecyclerView.Adapter<AdapterWishListLoc.ViewHolder>(
         fun onDelete(wishlist: DataWishPesawatLoc)
     }
 
-    fun deleteInternational(wishInternational: DataWishPesawatLoc, position: Int){
+    fun deleteDomestic(wishInternational: DataWishPesawatLoc, position: Int){
         CoroutineScope(Dispatchers.IO).launch {
             daolocal.deleteWishLoc(wishInternational)
         }

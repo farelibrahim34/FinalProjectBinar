@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.databinding.ActivityDetailPesawatBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
@@ -29,7 +30,7 @@ class DetailPesawatActivity : AppCompatActivity() {
     lateinit var viewModelTiket : TiketViewModel
     private var wishPesawatDaoLoc : WishPesawatDaoLoc? =null
     private var databaseWishPesawatLoc : DatabaseWishPesawatLoc? = null
-    private var id :Int?=null
+    private var idd :Int?=null
     companion object{
         const val  EXTRA_ID = "extra_id"
     }
@@ -42,10 +43,24 @@ class DetailPesawatActivity : AppCompatActivity() {
 
         databaseWishPesawatLoc = DatabaseWishPesawatLoc.getInstance(this)
         wishPesawatDaoLoc = databaseWishPesawatLoc?.WishDao()
-        id = intent.getIntExtra(EXTRA_ID, 0)
+        idd = intent.getIntExtra(EXTRA_ID, 0)
 
+        viewModelTiket = ViewModelProvider(this).get(TiketViewModel::class.java)
+        val id = intent.getIntExtra("id",0)
+        val harga = intent.getIntExtra("harga",0)
+        val kota = intent.getStringExtra("destinasi")
+        val keberangkatan = intent.getStringExtra("departure")
+        val jadwal = intent.getStringExtra("jadwal")
 
-
+        binding.btnOrder.setOnClickListener {
+            val intent = Intent(this, PemesananActivity::class.java)
+            intent.putExtra("id",idd)
+            intent.putExtra("harga",harga)
+            intent.putExtra("destinasi",kota)
+            intent.putExtra("departure",keberangkatan)
+            intent.putExtra("jadwal",jadwal)
+            startActivity(intent)
+        }
         val detail = intent.getSerializableExtra("lokal") as Ticket
         binding.idTIket2.text = detail.id.toString()
         binding.txtInputAsal.text = detail.departure
@@ -54,20 +69,8 @@ class DetailPesawatActivity : AppCompatActivity() {
         binding.txtJadwal.text = "Jadwal : \n"+detail.takeOff
         binding.txtChair.text =  "Available "+detail.totalChair
         binding.txtClass.text = detail.classX+" Class"
-
-        binding.btnOrder.setOnClickListener {
-            val intent = Intent(this, PemesananActivity::class.java)
-            intent.putExtra("id",id)
-            intent.putExtra("harga",detail.price)
-            intent.putExtra("destinasi",detail.destination)
-            intent.putExtra("departure",detail.departure)
-            intent.putExtra("jadwal",detail.takeOff)
-            startActivity(intent)
-        }
         binding.wishlist.setOnClickListener{
             GlobalScope.async {
-                val d = intent.getSerializableExtra("detail") as Ticket
-                val idd = detail.id.toInt()
                 val d = intent.getSerializableExtra("lokal") as Ticket
                 val idd = detail.id
                 val asal = detail.destinationCode
@@ -76,9 +79,7 @@ class DetailPesawatActivity : AppCompatActivity() {
                 val har = detail.price
                 val bangku = detail.totalChair
                 val clas = detail.classX
-                val wishList = databaseWishPesawatLoc?.WishDao()?.addToWishList(
-                    DataWishPesawatLoc(idd,asal,tujuan,jad,har,bangku,clas)
-                )
+                val wishList = databaseWishPesawatLoc?.WishDao()?.addToWishList(DataWishPesawatLoc(idd,asal,tujuan,jad,har,bangku,clas))
 
                 runOnUiThread {
                     if (wishList != 0.toLong()){

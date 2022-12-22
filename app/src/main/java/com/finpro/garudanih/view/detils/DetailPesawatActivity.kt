@@ -31,10 +31,10 @@ class DetailPesawatActivity : AppCompatActivity() {
     private var wishPesawatDaoLoc : WishPesawatDaoLoc? =null
     private var databaseWishPesawatLoc : DatabaseWishPesawatLoc? = null
     private var idd :Int?=null
+
     companion object{
         const val  EXTRA_ID = "extra_id"
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,7 @@ class DetailPesawatActivity : AppCompatActivity() {
 
         binding.btnOrder.setOnClickListener {
             val intent = Intent(this, PemesananActivity::class.java)
-            intent.putExtra("id",idd)
+            intent.putExtra("id",id)
             intent.putExtra("harga",harga)
             intent.putExtra("destinasi",kota)
             intent.putExtra("departure",keberangkatan)
@@ -69,6 +69,7 @@ class DetailPesawatActivity : AppCompatActivity() {
         binding.txtJadwal.text = "Jadwal : \n"+detail.takeOff
         binding.txtChair.text =  "Available "+detail.totalChair
         binding.txtClass.text = detail.classX+" Class"
+
         binding.wishlist.setOnClickListener{
             GlobalScope.async {
                 val d = intent.getSerializableExtra("detail") as Ticket
@@ -105,7 +106,6 @@ class DetailPesawatActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     fun getListPesawat(){
         val itemListPesawat = intent
-
         val kota = itemListPesawat.getStringExtra("destinasi")
         val keberangkatan = itemListPesawat.getStringExtra("departure")
         val jadwal = itemListPesawat.getStringExtra("jadwal")

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityDetailInternasionalBinding
 import com.finpro.garudanih.model.Ticket
+import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.pemesanan.PemesananActivity
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
@@ -39,7 +40,7 @@ class DetailInternasionalActivity : AppCompatActivity() {
         id = intent.getIntExtra(EXTRA_ID, 0)
 
         binding.ivBackDetail.setOnClickListener {
-            startActivity(Intent(this, TiketInternasionalActivity::class.java))
+            startActivity(Intent(this, HomeBottomActivity::class.java))
         }
         getListInternasional()
 

@@ -47,7 +47,6 @@ class AdapterInternasional(private var onClick : (Ticket)->Unit): RecyclerView.A
             intent.putExtra("class", listInternasional!![position].classX)
             it.context.startActivity(intent)
         }
-        holder.binding.delete.isGone = true
         holder.binding.cardList.setOnClickListener {
             onClick(listInternasional!![position])
         }

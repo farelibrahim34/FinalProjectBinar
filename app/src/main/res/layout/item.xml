@@ -178,16 +178,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageButton
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="30dp"
-        android:background="@color/white"
-        android:src="@drawable/delete"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/string_todo" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,7 +50,6 @@ class AdapterTiket (private var onClick : (Ticket)->Unit): RecyclerView.Adapter<
         holder.binding.cardList.setOnClickListener {
             onClick(listTiket!![position])
         }
-        holder.binding.delete.isGone = true
     }
 
 

@@ -26,9 +26,8 @@ class DetailPulangActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-//        val idTiketPergi = intent.getIntExtra("idPergi",0)
-//        binding.idTIket2.text = "ID Tiket Pergi : "+idTiketPergi
-
+        val idTiketPergi = intent.getIntExtra("getId",0)
+        binding.idTIket3.text = "ID Tiket Pergi : "+idTiketPergi
         val idTiketPulang = intent.getIntExtra("id",0)
         binding.idTIket2.text = "ID Tiket Pulang: "+idTiketPulang.toString()
         val asal = intent.getStringExtra("departure")
@@ -48,6 +47,7 @@ class DetailPulangActivity : AppCompatActivity() {
         binding.btnOrder.setOnClickListener {
             val intent = Intent(this, PemesananPPActivity::class.java)
             intent.putExtra("id",idTiketPulang)
+            intent.putExtra("getId",idTiketPergi)
             startActivity(intent)
         }
     }

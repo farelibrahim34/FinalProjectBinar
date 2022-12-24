@@ -10,6 +10,7 @@ import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityDetailInternasionalBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.pemesanan.PemesananActivity
+import com.finpro.garudanih.view.tiketpulang.TiketPulangActivity
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
@@ -42,6 +43,11 @@ class DetailInternasionalActivity : AppCompatActivity() {
             startActivity(Intent(this, TiketInternasionalActivity::class.java))
         }
         getListInternasional()
+        binding.btnPulang2.setOnClickListener {
+            val intent = Intent(this, TiketPulangActivity::class.java)
+            intent.putExtra("id",id)
+            startActivity(intent)
+        }
 
     }
 

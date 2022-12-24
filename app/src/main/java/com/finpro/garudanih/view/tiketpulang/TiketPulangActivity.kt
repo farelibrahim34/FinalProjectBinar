@@ -13,6 +13,7 @@ import com.finpro.garudanih.adapter.AdapterPP
 import com.finpro.garudanih.databinding.ActivityTiketPulangBinding
 import com.finpro.garudanih.model.responsedetail.ReturnTicket
 import com.finpro.garudanih.view.detils.DetailInternasionalActivity
+import com.finpro.garudanih.view.detils.DetailPulangActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.ViewModelUser
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,8 +38,7 @@ class TiketPulangActivity : AppCompatActivity() {
         }
         setTiketPulang()
 
-        val idTiketPergi = intent.getIntExtra("id",0)
-        binding.txtidpul.text = "ID Tiket : "+idTiketPergi.toString()
+
 
 
 
@@ -46,6 +46,9 @@ class TiketPulangActivity : AppCompatActivity() {
 
     }
     fun setTiketPulang(){
+        val idTiketPergi = intent.getIntExtra("id",0)
+        binding.txtidpul.text = "ID Tiket : "+idTiketPergi.toString()
+
 
 //        adapterTiketPulang = AdapterPP {
 //            val pindah = Intent(this, DetailInternasionalActivity::class.java)
@@ -56,17 +59,31 @@ class TiketPulangActivity : AppCompatActivity() {
         val idTiket = intent.getIntExtra("id",0)
         viewModelUser.getDetailByIdObserve().observe(this){
             if (it != null){
+
                 binding.rvTiketPulang.layoutManager = GridLayoutManager(this,2)
                 adapterTiketPulang = AdapterPP(it.data.returnTicket)
                 binding.rvTiketPulang.adapter = adapterTiketPulang
                 adapterTiketPulang.notifyDataSetChanged()
+                adapterTiketPulang.onClick={
+                    val intent = Intent(this,DetailPulangActivity::class.java)
+                    intent.putExtra("getId",idTiketPergi)
+                    intent.putExtra("id", it.id)
+                    intent.putExtra("destinasi", it.destination)
+                    intent.putExtra("departure", it.departure)
+                    intent.putExtra("jadwal", it.takeOff)
+                    intent.putExtra("harga", it.price)
+                    intent.putExtra("totalchair", it.totalChair)
+                    intent.putExtra("class", it.classX)
+
+                    startActivity(intent)
+                }
 
 //                binding.rvTiketPulang.layoutManager= LinearLayoutManager(this,
 //                    LinearLayoutManager.HORIZONTAL,false)
 //                adapterTiketPulang.setListTiket(it.data.returnTicket)
 //                binding.rvTiketPulang.adapter = adapterTiketPulang
             }else{
-                Toast.makeText(this, "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
             }
         }
         viewModelUser.callDetailById(tokenUser,idTiket)

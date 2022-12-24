@@ -37,7 +37,8 @@ class PemesananPPActivity : AppCompatActivity() {
 
     }
     fun doOrderPP(){
-        val idTiketPP = intent.getIntExtra("id",0)
+        val idTiketPulang = intent.getIntExtra("id",0)
+        val idTiketPergi = intent.getIntExtra("getId",0)
         binding.btnPesanTiketPP.setOnClickListener {
 
             val orderBy = binding.etNamaPemesan.text.toString()
@@ -57,7 +58,7 @@ class PemesananPPActivity : AppCompatActivity() {
                 }
 
             }
-//            viewModelUser.callTiketPP(tokenPaid,orderBy,ktp,nomorKursiPergi,idTiketPP,nomorKursiPulang)
+            viewModelUser.callTiketPP(tokenPaid,idTiketPergi,orderBy,ktp,nomorKursiPergi,idTiketPulang,nomorKursiPulang)
 
 
 

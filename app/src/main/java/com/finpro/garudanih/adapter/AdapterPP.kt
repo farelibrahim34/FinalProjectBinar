@@ -1,8 +1,10 @@
 package com.finpro.garudanih.adapter
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemShowAllBinding
@@ -17,10 +19,8 @@ import com.finpro.garudanih.viewmodel.ViewModelUser
 
 class AdapterPP(var listTiketPP: List<ReturnTicket>):RecyclerView.Adapter<AdapterPP.ViewHolder>() {
     lateinit var getID : Ticket
-    lateinit var viewModelUser: ViewModelUser
-    lateinit var authViewModel: AuthViewModel
-    private var tokenUser: String = ""
-    lateinit var tiketAdapter: AdapterTiket
+    var onClick : ((ReturnTicket)-> Unit)? = null
+    private lateinit var context : Context
 
     class ViewHolder(val binding: ItemShowAllBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -42,22 +42,25 @@ class AdapterPP(var listTiketPP: List<ReturnTicket>):RecyclerView.Adapter<Adapte
         holder.binding.txtAvailable.text = listTiketPP[position].totalChair.toString()
         holder.binding.txtClass.text = listTiketPP[position].classX
 
-
         holder.binding.cardList.setOnClickListener {
-
-
             val intent = Intent(it.context, DetailPulangActivity::class.java)
-
             intent.putExtra("id", listTiketPP[position].id)
+
             intent.putExtra("destinasi", listTiketPP[position].destination)
             intent.putExtra("departure", listTiketPP[position].departure)
             intent.putExtra("jadwal", listTiketPP[position].takeOff)
             intent.putExtra("harga", listTiketPP[position].price)
             intent.putExtra("totalchair", listTiketPP[position].totalChair)
             intent.putExtra("class", listTiketPP[position].classX)
-
             it.context.startActivity(intent)
         }
+//        holder.binding.ivListpesawat.setOnClickListener {
+//            onClick?.invoke(listTiketPP[position])
+//        }
+        holder.binding.cardList.setOnClickListener {
+            onClick?.invoke(listTiketPP[position])
+        }
+
     }
 
 

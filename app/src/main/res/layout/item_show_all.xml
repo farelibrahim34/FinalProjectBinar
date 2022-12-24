@@ -10,7 +10,10 @@
         android:id="@+id/cardList"
         android:layout_width="200dp"
         android:layout_height="300dp"
+        android:layout_marginStart="17dp"
         android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -18,12 +21,12 @@
             android:id="@+id/imageView6"
             android:layout_width="50dp"
             android:layout_height="20dp"
+            android:contentDescription="@string/string_todo"
             android:src="@drawable/ic_baseline_linear_scale_24"
             app:layout_constraintBottom_toBottomOf="@+id/txtKotaAsal"
             app:layout_constraintEnd_toStartOf="@+id/txtKotaTujuan"
             app:layout_constraintStart_toEndOf="@+id/txtKotaAsal"
-            app:layout_constraintTop_toTopOf="@+id/txtKotaTujuan"
-            android:contentDescription="@string/string_todo" />
+            app:layout_constraintTop_toTopOf="@+id/txtKotaTujuan" />
 
         <TextView
             android:id="@+id/txtKotaAsal"
@@ -41,12 +44,12 @@
             android:id="@+id/ivListpesawat"
             android:layout_width="wrap_content"
             android:layout_height="120dp"
+            android:contentDescription="@string/string_todo"
             android:paddingBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_bggaruda"
-            android:contentDescription="@string/string_todo" />
+            app:srcCompat="@drawable/ic_bggaruda" />
 
         <TextView
             android:id="@+id/txtKotaTujuan"
@@ -64,9 +67,9 @@
             android:id="@+id/txtJadwal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="@string/string_jadwal"
             android:textSize="12sp"
-            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtKotaTujuan" />
 
@@ -74,8 +77,8 @@
             android:id="@+id/txtHarga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/string_harga"
             android:layout_marginStart="10dp"
+            android:text="@string/string_harga"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,10 +88,10 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="3dp"
             android:text="@string/string_status"
             android:textColor="@color/green"
-            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtHarga" />
 
@@ -96,9 +99,9 @@
             android:id="@+id/txtAvailable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="@string/string_total_chair"
             android:textColor="@color/black"
-            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,7 +62,7 @@ class DetailInternasionalActivity : AppCompatActivity() {
 //        binding.txtJadwal.text = jadwalInt
 //        binding.txtChair.text = availableInt
 
-        val detail = intent.getSerializableExtra("detail") as Ticket
+        val detail = intent.getSerializableExtra("inter") as Ticket
         binding.idTIket.text = detail.id.toString()
         binding.txtInputAsal.text = detail.departure
         binding.txtInputTujuan.text = detail.destination
@@ -84,7 +84,7 @@ class DetailInternasionalActivity : AppCompatActivity() {
 
         binding.wishlist.setOnClickListener{
             GlobalScope.async {
-                val d = intent.getSerializableExtra("detail") as Ticket
+                val d = intent.getSerializableExtra("inter") as Ticket
                 val idd = detail.id.toInt()
                 val asal = detail.destinationCode
                 val tujuan = detail.departureCode

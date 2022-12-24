@@ -30,7 +30,6 @@ class TiketViewModel @Inject constructor(var api : ApiInterface):ViewModel() {
         postTiket = MutableLiveData()
         ldListTiketIntr = MutableLiveData()
         getNotifTiket = MutableLiveData()
-
     }
 
 

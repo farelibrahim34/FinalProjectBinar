@@ -1,6 +1,8 @@
 package com.finpro.garudanih.network
 
 import com.finpro.garudanih.model.*
+import com.finpro.garudanih.model.order.DataOrderPP
+import com.finpro.garudanih.model.responsedetail.ResponseDetailTiket
 import com.finpro.garudanih.model.responsenotif.DataNotify
 import com.finpro.garudanih.model.updatepaid.ResponsePaid
 import okhttp3.MultipartBody
@@ -25,7 +27,8 @@ interface ApiInterface {
     fun getAllListTicketIntr() : Call<ResponseListTiket>
 
     @GET("v1/ticket/{id}")
-    fun getTiketByid(@Path("id") id : Int): Call<ResponseDetailTiket>
+    fun getDetailByid(@Header("Authorization")authHeader : String
+                     ,@Path("id") id : Int): Call<ResponseDetailTiket>
 
     @PUT("/v1/user/update")
     fun updateUserLogin(@Header("Authorization")auth: String,
@@ -35,6 +38,11 @@ interface ApiInterface {
     fun orderTiket(@Header("Authorization")auth : String,
                    @Path("ticketId") ticketId : Int,
                    @Body request: DataOrder): Call<ResponseOrder>
+
+    @POST("v1/trans/{ticketId}")
+    fun orderTiketPP(@Header("Authorization")auth : String,
+                   @Path("ticketId") ticketId : Int,
+                   @Body request: DataOrderPP): Call<ResponseDetailTiket>
 
     @GET("v1/user/history")
     fun getHistoryPemesanan(@Header("Authorization")authHeader : String) : Call<HistoryResponse>

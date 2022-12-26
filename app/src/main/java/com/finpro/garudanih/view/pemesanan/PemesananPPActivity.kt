@@ -58,9 +58,73 @@ class PemesananPPActivity : AppCompatActivity() {
                 }
 
             }
+
+            if (penumpang == 2){
+                binding.etNik.setText("")
+                binding.etNomorKursiPergi.setText("")
+                binding.etNomorKursiPulang.setText("")
+                viewModelUser.tiketPPObserve().observe(this){
+                    if (it != null){
+                        binding.etJmlPenumpang.setText("1")
+                        Toast.makeText(this,"Silahkan Isi Identitas Penumpang Selanjutnya", Toast.LENGTH_SHORT).show()
+
+                    }else{
+                        Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                if (penumpang == 1){
+                    viewModelUser.tiketPPObserve().observe(this){
+                        if (it != null){
+                            startActivity(Intent(this, SuccsesOrderActivity::class.java))
+                            Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+            }
+            if (penumpang == 3){
+                binding.etNik.setText("")
+                binding.etNomorKursiPergi.setText("")
+                binding.etNomorKursiPulang.setText("")
+                viewModelUser.tiketPPObserve().observe(this){
+                    if (it != null){
+                        binding.etJmlPenumpang.setText("2")
+                        Toast.makeText(this,"Silahkan Isi Identitas Penumpang Selanjutnya", Toast.LENGTH_SHORT).show()
+
+                    }else{
+                        Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                if (penumpang == 2){
+                    viewModelUser.tiketPPObserve().observe(this){
+                        if (it != null){
+                            binding.etJmlPenumpang.setText("1")
+                            Toast.makeText(this,"Silahkan Isi Identitas Penumpang Selanjutnya", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+                if (penumpang == 1){
+                    viewModelUser.tiketPPObserve().observe(this){
+                        if (it != null){
+                            startActivity(Intent(this, SuccsesOrderActivity::class.java))
+                            Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+            }
+
             viewModelUser.callTiketPP(tokenPaid,idTiketPergi,orderBy,ktp,nomorKursiPergi,idTiketPulang,nomorKursiPulang)
 
-
+            if (penumpang > 3){
+                Toast.makeText(this,"Maaf Pemesanan Penumpang Maksimal 3 kali", Toast.LENGTH_SHORT).show()
+            }
 
         }
     }

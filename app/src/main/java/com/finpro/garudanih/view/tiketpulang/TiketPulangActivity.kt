@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,6 +49,7 @@ class TiketPulangActivity : AppCompatActivity() {
     fun setTiketPulang(){
         val idTiketPergi = intent.getIntExtra("id",0)
         binding.txtidpul.text = "ID Tiket : "+idTiketPergi.toString()
+        binding.txtidpul.isGone = true
 
 
 //        adapterTiketPulang = AdapterPP {

@@ -8,12 +8,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.finpro.garudanih.adapter.AdapterTiket
 import com.finpro.garudanih.databinding.ActivityDetailPesawatBinding
 import com.finpro.garudanih.model.Ticket
-import com.finpro.garudanih.view.tiketpulang.TiketPulangActivity
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.pemesanan.PemesananActivity
+import com.finpro.garudanih.view.tiketpulang.TiketPulangActivity
 import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc

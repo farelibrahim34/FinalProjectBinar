@@ -1,19 +1,21 @@
+@file:Suppress("NestedLambdaShadowedImplicitParameter", "NestedLambdaShadowedImplicitParameter",
+    "NestedLambdaShadowedImplicitParameter", "NestedLambdaShadowedImplicitParameter",
+    "NestedLambdaShadowedImplicitParameter", "NestedLambdaShadowedImplicitParameter",
+    "NestedLambdaShadowedImplicitParameter", "ReplaceGetOrSet", "ReplaceGetOrSet"
+)
+
 package com.finpro.garudanih.view.tiketpulang
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.finpro.garudanih.adapter.AdapterInternasional
 import com.finpro.garudanih.adapter.AdapterPP
 import com.finpro.garudanih.databinding.ActivityTiketPulangBinding
-import com.finpro.garudanih.model.responsedetail.ReturnTicket
-import com.finpro.garudanih.view.detils.DetailInternasionalActivity
 import com.finpro.garudanih.view.detils.DetailPulangActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.ViewModelUser
@@ -22,9 +24,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class TiketPulangActivity : AppCompatActivity() {
     lateinit var binding : ActivityTiketPulangBinding
-    lateinit var viewModelUser : ViewModelUser
+    private lateinit var viewModelUser : ViewModelUser
     lateinit var authViewModel : AuthViewModel
-    lateinit var adapterTiketPulang: AdapterPP
+    private lateinit var adapterTiketPulang: AdapterPP
     private var tokenUser : String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,7 @@ class TiketPulangActivity : AppCompatActivity() {
         viewModelUser = ViewModelProvider(this).get(ViewModelUser::class.java)
         authViewModel.getToken().observe(this){token->
             if (token != null){
-                tokenUser = "Bearer "+token
+                tokenUser = "Bearer $token"
             }
         }
         setTiketPulang()
@@ -46,9 +48,10 @@ class TiketPulangActivity : AppCompatActivity() {
 
 
     }
-    fun setTiketPulang(){
+    @SuppressLint("NotifyDataSetChanged")
+    private fun setTiketPulang(){
         val idTiketPergi = intent.getIntExtra("id",0)
-        binding.txtidpul.text = "ID Tiket : "+idTiketPergi.toString()
+        binding.txtidpul.text = "ID Tiket : $idTiketPergi"
         binding.txtidpul.isGone = true
 
 
@@ -92,6 +95,3 @@ class TiketPulangActivity : AppCompatActivity() {
     }
 }
 
-private fun Intent.putExtra(s: String, it: ReturnTicket) {
-
-}

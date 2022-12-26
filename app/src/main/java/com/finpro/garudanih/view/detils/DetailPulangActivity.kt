@@ -1,23 +1,21 @@
+@file:Suppress("ConvertToStringTemplate", "ConvertToStringTemplate", "ConvertToStringTemplate",
+    "ConvertToStringTemplate", "ConvertToStringTemplate", "ConvertToStringTemplate",
+    "ConvertToStringTemplate", "ConvertToStringTemplate", "ConvertToStringTemplate"
+)
+
 package com.finpro.garudanih.view.detils
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
-import com.finpro.garudanih.R
+import androidx.appcompat.app.AppCompatActivity
 import com.finpro.garudanih.databinding.ActivityDetailPulangBinding
-import com.finpro.garudanih.model.responsedetail.Ticket
 import com.finpro.garudanih.view.pemesanan.PemesananPPActivity
-import com.finpro.garudanih.view.tiketpulang.TiketPulangActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
-import com.finpro.garudanih.viewmodel.ViewModelUser
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailPulangActivity : AppCompatActivity() {
     lateinit var binding : ActivityDetailPulangBinding
-    lateinit var viewModelUser : ViewModelUser
-    private var tokenUser : String = ""
     lateinit var authViewModel : AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {

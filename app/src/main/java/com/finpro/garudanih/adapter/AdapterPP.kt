@@ -1,31 +1,26 @@
+@file:Suppress("unused", "unused", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate"
+)
+
 package com.finpro.garudanih.adapter
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemShowAllBinding
-import com.finpro.garudanih.model.responsedetail.Data
 import com.finpro.garudanih.model.responsedetail.ReturnTicket
 import com.finpro.garudanih.model.responsedetail.Ticket
-import com.finpro.garudanih.view.detils.DetailPesawatActivity
 import com.finpro.garudanih.view.detils.DetailPulangActivity
-import com.finpro.garudanih.view.pemesanan.PemesananActivity
-import com.finpro.garudanih.viewmodel.AuthViewModel
-import com.finpro.garudanih.viewmodel.ViewModelUser
 
 class AdapterPP(var listTiketPP: List<ReturnTicket>):RecyclerView.Adapter<AdapterPP.ViewHolder>() {
     lateinit var getID : Ticket
     var onClick : ((ReturnTicket)-> Unit)? = null
     private lateinit var context : Context
 
-    class ViewHolder(val binding: ItemShowAllBinding) : RecyclerView.ViewHolder(binding.root) {
-
-
-    }
+    class ViewHolder(val binding: ItemShowAllBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemShowAllBinding.inflate(LayoutInflater.from(parent.context), parent, false)

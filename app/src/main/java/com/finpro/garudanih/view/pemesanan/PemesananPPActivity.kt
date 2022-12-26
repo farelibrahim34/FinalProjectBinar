@@ -1,17 +1,19 @@
+@file:Suppress("ReplaceGetOrSet", "ReplaceGetOrSet", "ReplaceGetOrSet", "ReplaceGetOrSet",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "MemberVisibilityCanBePrivate", "ConvertToStringTemplate",
+    "ConvertToStringTemplate", "ConvertToStringTemplate"
+)
+
 package com.finpro.garudanih.view.pemesanan
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.finpro.garudanih.R
-import com.finpro.garudanih.databinding.ActivityPemesananBinding
 import com.finpro.garudanih.databinding.ActivityPemesananPpactivityBinding
 import com.finpro.garudanih.view.succsess.SuccsesOrderActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
-import com.finpro.garudanih.viewmodel.TiketViewModel
-import com.finpro.garudanih.viewmodel.UserViewModel
 import com.finpro.garudanih.viewmodel.ViewModelUser
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +23,6 @@ class PemesananPPActivity : AppCompatActivity() {
     lateinit var viewModelUser : ViewModelUser
     lateinit var authViewModel : AuthViewModel
     private var tokenPaid : String = ""
-    private val notificationId = 101
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =ActivityPemesananPpactivityBinding.inflate(layoutInflater)

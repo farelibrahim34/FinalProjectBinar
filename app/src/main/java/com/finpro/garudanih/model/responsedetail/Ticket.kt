@@ -1,15 +1,13 @@
-@file:Suppress("unused", "unused", "unused", "unused")
-
-package com.finpro.garudanih.model
+package com.finpro.garudanih.model.responsedetail
 
 
 import com.google.gson.annotations.SerializedName
 
-data class DataXX(
+data class Ticket(
     @SerializedName("arrive")
     val arrive: String,
     @SerializedName("bookingBy")
-    val bookingBy: List<Any>,
+    val bookingBy: List<BookingBy>,
     @SerializedName("class")
     val classX: String,
     @SerializedName("code")
@@ -24,6 +22,8 @@ data class DataXX(
     val destination: String,
     @SerializedName("destinationCode")
     val destinationCode: String,
+    @SerializedName("flight")
+    val flight: String,
     @SerializedName("id")
     val id: Int,
     @SerializedName("price")

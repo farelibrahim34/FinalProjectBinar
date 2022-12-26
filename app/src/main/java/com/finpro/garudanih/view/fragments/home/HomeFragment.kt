@@ -91,7 +91,7 @@ class HomeFragment : Fragment() {
         }
         adapterIntr = AdapterInternasional {
             val pindah = Intent(context?.applicationContext, DetailInternasionalActivity::class.java)
-            pindah.putExtra("detail", it)
+            pindah.putExtra("inter", it)
             pindah.putExtra(DetailInternasionalActivity.EXTRA_ID, it.id)
             startActivity(pindah)
         }

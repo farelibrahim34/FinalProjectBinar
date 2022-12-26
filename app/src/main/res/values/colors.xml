@@ -17,6 +17,7 @@
     <color name="warna_secondary_font">#8D92A3</color>
 
     <color name="warna_background">#F3F7FD</color>
+    <color name="warna_background_lottie">#288FEE</color>
     <color name="warna_background_splash">#B1DCEC</color>
     <color name="background_class">#9B5454</color>
     <color name="card">#F0F3FF</color>

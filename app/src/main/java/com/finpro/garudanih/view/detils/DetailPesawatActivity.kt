@@ -12,6 +12,7 @@ import com.finpro.garudanih.databinding.ActivityDetailPesawatBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.pemesanan.PemesananActivity
+import com.finpro.garudanih.view.tiketpulang.TiketPulangActivity
 import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
@@ -60,7 +61,9 @@ class DetailPesawatActivity : AppCompatActivity() {
             intent.putExtra("departure",keberangkatan)
             intent.putExtra("jadwal",jadwal)
             startActivity(intent)
+
         }
+
         val detail = intent.getSerializableExtra("lokal") as Ticket
         binding.idTIket2.text = detail.id.toString()
         binding.txtInputAsal.text = detail.departure
@@ -69,6 +72,9 @@ class DetailPesawatActivity : AppCompatActivity() {
         binding.txtJadwal.text = "Jadwal : \n"+detail.takeOff
         binding.txtChair.text =  "Available "+detail.totalChair
         binding.txtClass.text = detail.classX+" Class"
+
+
+
         binding.wishlist.setOnClickListener{
             GlobalScope.async {
                 val d = intent.getSerializableExtra("lokal") as Ticket
@@ -98,6 +104,11 @@ class DetailPesawatActivity : AppCompatActivity() {
 
         binding.ivBackDetail.setOnClickListener {
             startActivity(Intent(this, HomeBottomActivity::class.java))
+        }
+        binding.btnPulang.setOnClickListener {
+            val intent = Intent(this, TiketPulangActivity::class.java)
+            intent.putExtra("id",idd)
+            startActivity(intent)
         }
 
     }

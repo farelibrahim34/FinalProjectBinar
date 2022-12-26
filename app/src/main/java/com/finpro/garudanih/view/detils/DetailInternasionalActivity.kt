@@ -11,6 +11,7 @@ import com.finpro.garudanih.databinding.ActivityDetailInternasionalBinding
 import com.finpro.garudanih.model.Ticket
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.pemesanan.PemesananActivity
+import com.finpro.garudanih.view.tiketpulang.TiketPulangActivity
 import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
 import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
 import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
@@ -43,6 +44,11 @@ class DetailInternasionalActivity : AppCompatActivity() {
             startActivity(Intent(this, HomeBottomActivity::class.java))
         }
         getListInternasional()
+        binding.btnPulang2.setOnClickListener {
+            val intent = Intent(this, TiketPulangActivity::class.java)
+            intent.putExtra("id",id)
+            startActivity(intent)
+        }
 
     }
 
@@ -55,7 +61,19 @@ class DetailInternasionalActivity : AppCompatActivity() {
         val imageInt = itemListInternasional?.getInt("imageInt",0)
         val availableInt = itemListInternasional?.getString("availableInt")
 
+<<<<<<< HEAD
         val detail = intent.getSerializableExtra("detail") as Ticket
+=======
+//        binding.txtAsal.text = kotaInt
+//        binding.txtHargaDetail.text = hargaInt
+//        if (imageInt != null) {
+//            binding.ivKota.setImageResource(imageInt)
+//        }
+//        binding.txtJadwal.text = jadwalInt
+//        binding.txtChair.text = availableInt
+
+        val detail = intent.getSerializableExtra("inter") as Ticket
+>>>>>>> dev-ibrahim
         binding.idTIket.text = detail.id.toString()
         binding.txtInputAsal.text = detail.departure
         binding.txtInputTujuan.text = detail.destination
@@ -77,7 +95,7 @@ class DetailInternasionalActivity : AppCompatActivity() {
 
         binding.wishlist.setOnClickListener{
             GlobalScope.async {
-                val d = intent.getSerializableExtra("detail") as Ticket
+                val d = intent.getSerializableExtra("inter") as Ticket
                 val idd = detail.id.toInt()
                 val asal = detail.destinationCode
                 val tujuan = detail.departureCode

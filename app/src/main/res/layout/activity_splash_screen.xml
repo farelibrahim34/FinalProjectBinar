@@ -5,18 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warna_background_splash"
+    android:background="@color/warna_background_lottie"
     tools:context=".view.wrapper.SplashScreenActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:src="@drawable/ic_gn"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/scmoney"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription" />
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/planesplash" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

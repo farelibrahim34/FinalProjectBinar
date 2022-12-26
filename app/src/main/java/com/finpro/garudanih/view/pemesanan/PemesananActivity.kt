@@ -115,6 +115,7 @@ class PemesananActivity : AppCompatActivity() {
                         if (it != null){
                             val hargaDua = harga*2
                             binding.txtTotalHarga.text = hargaDua.toString()
+                            Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this, SuccsesOrderActivity::class.java))
                         }else{
                             Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
@@ -151,8 +152,6 @@ class PemesananActivity : AppCompatActivity() {
                             val hargaTiga = harga*3
                             binding.txtTotalHarga.text = hargaTiga.toString()
                             startActivity(Intent(this, SuccsesOrderActivity::class.java))
-
-
                             Toast.makeText(this,"Berhasil Memesan Tiket", Toast.LENGTH_SHORT).show()
                         }else{
                             Toast.makeText(this,"No Kursi Sudah Dipesan Oleh User Lain", Toast.LENGTH_SHORT).show()
@@ -161,7 +160,6 @@ class PemesananActivity : AppCompatActivity() {
                 }
 
             }
-
 
             if (penumpang > 3){
                 Toast.makeText(this,"Maaf Pemesanan Penumpang Maksimal 3 kali", Toast.LENGTH_SHORT).show()

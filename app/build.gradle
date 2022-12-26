@@ -131,5 +131,8 @@ dependencies {
     //testing
     testImplementation "io.mockk:mockk:1.13.1"
 
+    def lottieVersion = "3.5.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
 
 }

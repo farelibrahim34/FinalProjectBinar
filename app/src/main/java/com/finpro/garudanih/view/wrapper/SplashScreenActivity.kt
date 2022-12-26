@@ -22,11 +22,22 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
-        Handler().postDelayed({
-            sudahlogin()
-            finish()
-        },3000)
+        val background = object : Thread() {
+            override fun run() {
+                try {
+                    Thread.sleep(5000)
+                    val intent = Intent(baseContext, HomeBottomActivity::class.java)
+                    startActivity(intent)
+                    sudahlogin()
+                    finish()
+                }catch (e : Exception){
+                    e.printStackTrace()
+                }
+            }
+        }
+        background.start()
     }
     private fun sudahlogin(){
         authViewModel.getToken().observe(this){

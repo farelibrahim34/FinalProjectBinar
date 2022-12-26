@@ -33,12 +33,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_round_trip"
-        android:name="com.finpro.garudanih.view.fragments.roundtrip.RoundTripFragment"
-        android:label="fragment_roundtrip"
-        tools:layout="@layout/fragment_round_trip" />
-
-    <fragment
         android:id="@+id/navigation_settings"
         android:name="com.finpro.garudanih.view.fragments.settings.SettingsFragment"
         android:label="fragment_settings"

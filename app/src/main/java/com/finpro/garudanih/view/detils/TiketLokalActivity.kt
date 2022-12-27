@@ -41,7 +41,7 @@ class TiketLokalActivity : AppCompatActivity() {
             binding.loader.startShimmer()
             if (it != null) {
 
-                binding.loader.visibility = View.VISIBLE
+                binding.loader.visibility = View.GONE
                 binding.loader.stopShimmer()
                 binding.rvAllLocal.layoutManager = GridLayoutManager(this,2)
                 tiketLokalAdapter = AdapterLokal(it.data.tickets)

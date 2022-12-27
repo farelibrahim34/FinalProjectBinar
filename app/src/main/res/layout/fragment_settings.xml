@@ -71,6 +71,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/string_pengaturan"
                 android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -2,7 +2,7 @@
     "MemberVisibilityCanBePrivate", "UnusedImport"
 )
 
-package com.finpro.garudanih.adapter
+package com.finpro.garudanih.view.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater

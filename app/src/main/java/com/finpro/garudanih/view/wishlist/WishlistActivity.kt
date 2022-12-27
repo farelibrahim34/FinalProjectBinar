@@ -1,12 +1,12 @@
-package com.finpro.garudanih.wishlist
+package com.finpro.garudanih.view.wishlist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.finpro.garudanih.databinding.ActivityWishlistBinding
-import com.finpro.garudanih.wishlist.fragment.DomesticTablayoutFragment
-import com.finpro.garudanih.wishlist.fragment.InternatonalTablayoutFragment
-import com.finpro.garudanih.wishlist.fragment.ViewPagerAdapter
+import com.finpro.garudanih.view.wishlist.fragment.DomesticTablayoutFragment
+import com.finpro.garudanih.view.wishlist.fragment.InternatonalTablayoutFragment
+import com.finpro.garudanih.view.wishlist.fragment.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
 class WishlistActivity : AppCompatActivity() {

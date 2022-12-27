@@ -1,4 +1,4 @@
-package com.finpro.garudanih.adapter
+package com.finpro.garudanih.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

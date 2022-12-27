@@ -1,4 +1,4 @@
-package com.finpro.garudanih.adapter
+package com.finpro.garudanih.view.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

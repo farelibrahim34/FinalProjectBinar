@@ -1,5 +1,5 @@
 @file:Suppress("DeferredResultUnused", "RemoveEmptyPrimaryConstructor", "unused")
-package com.finpro.garudanih.adapter
+package com.finpro.garudanih.view.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemWishlistBinding
-import com.finpro.garudanih.wishlist.fragment.InternatonalTablayoutFragment
-import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
-import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
-import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
+import com.finpro.garudanih.view.wishlist.fragment.InternatonalTablayoutFragment
+import com.finpro.garudanih.view.wishlistinternasional.DatabaseWishPesawatInternasional
+import com.finpro.garudanih.view.wishlistinternasional.WishpesawatDaoInternasional
+import com.finpro.garudanih.view.wishlistinternasional.dataWishPesawatInternasional
 import kotlinx.coroutines.*
 
 @Suppress("PrivatePropertyName", "SpellCheckingInspection", "MemberVisibilityCanBePrivate",

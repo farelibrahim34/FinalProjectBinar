@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.finpro.garudanih.adapter.AdapterPP
+import com.finpro.garudanih.view.adapter.AdapterPP
 import com.finpro.garudanih.databinding.ActivityTiketPulangBinding
 import com.finpro.garudanih.view.detils.DetailPulangActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel

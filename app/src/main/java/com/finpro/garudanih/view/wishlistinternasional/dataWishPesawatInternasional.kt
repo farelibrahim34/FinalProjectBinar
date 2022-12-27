@@ -1,6 +1,6 @@
 @file:Suppress("ClassName")
 
-package com.finpro.garudanih.wishlistinternasional
+package com.finpro.garudanih.view.wishlistinternasional
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

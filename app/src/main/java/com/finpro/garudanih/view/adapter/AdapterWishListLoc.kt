@@ -1,4 +1,4 @@
-package com.finpro.garudanih.adapter
+package com.finpro.garudanih.view.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemWishlistBinding
-import com.finpro.garudanih.wishlist.DataWishPesawatLoc
-import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
-import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
-import com.finpro.garudanih.wishlist.WishlistActivity
-import com.finpro.garudanih.wishlist.fragment.DomesticTablayoutFragment
-import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
-import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
-import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
+import com.finpro.garudanih.view.wishlist.DataWishPesawatLoc
+import com.finpro.garudanih.view.wishlist.DatabaseWishPesawatLoc
+import com.finpro.garudanih.view.wishlist.WishPesawatDaoLoc
+import com.finpro.garudanih.view.wishlist.WishlistActivity
+import com.finpro.garudanih.view.wishlist.fragment.DomesticTablayoutFragment
+import com.finpro.garudanih.view.wishlistinternasional.DatabaseWishPesawatInternasional
+import com.finpro.garudanih.view.wishlistinternasional.WishpesawatDaoInternasional
+import com.finpro.garudanih.view.wishlistinternasional.dataWishPesawatInternasional
 import kotlinx.coroutines.*
 
 @Suppress("DeferredResultUnused", "RemoveEmptyClassBody", "MemberVisibilityCanBePrivate", "unused")
@@ -29,7 +29,7 @@ class AdapterWishListLoc(): RecyclerView.Adapter<AdapterWishListLoc.ViewHolder>(
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterWishListLoc.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemWishlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         database = DatabaseWishPesawatLoc.getInstance(parent.context)
         if(database != null){

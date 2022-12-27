@@ -3,7 +3,7 @@
     "MemberVisibilityCanBePrivate"
 )
 
-package com.finpro.garudanih.adapter
+package com.finpro.garudanih.view.adapter
 
 import android.content.Context
 import android.content.Intent

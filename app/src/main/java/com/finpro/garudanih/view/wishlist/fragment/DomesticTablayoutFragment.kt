@@ -1,4 +1,4 @@
-package com.finpro.garudanih.wishlist.fragment
+package com.finpro.garudanih.view.wishlist.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.finpro.garudanih.adapter.AdapterWishListLoc
+import com.finpro.garudanih.view.adapter.AdapterWishListLoc
 import com.finpro.garudanih.databinding.FragmentDomesticTablayoutBinding
 import com.finpro.garudanih.helper.SwipeToDelete
-import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
+import com.finpro.garudanih.view.wishlist.DatabaseWishPesawatLoc
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

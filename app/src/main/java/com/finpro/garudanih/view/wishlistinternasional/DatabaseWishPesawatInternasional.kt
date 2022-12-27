@@ -1,4 +1,4 @@
-package com.finpro.garudanih.wishlistinternasional
+package com.finpro.garudanih.view.wishlistinternasional
 
 import android.content.Context
 import androidx.room.Database

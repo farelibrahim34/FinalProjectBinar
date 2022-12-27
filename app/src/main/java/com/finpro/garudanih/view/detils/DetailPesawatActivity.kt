@@ -14,9 +14,9 @@ import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.pemesanan.PemesananActivity
 import com.finpro.garudanih.view.tiketpulang.TiketPulangActivity
 import com.finpro.garudanih.viewmodel.TiketViewModel
-import com.finpro.garudanih.wishlist.DataWishPesawatLoc
-import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
-import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
+import com.finpro.garudanih.view.wishlist.DataWishPesawatLoc
+import com.finpro.garudanih.view.wishlist.DatabaseWishPesawatLoc
+import com.finpro.garudanih.view.wishlist.WishPesawatDaoLoc
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async

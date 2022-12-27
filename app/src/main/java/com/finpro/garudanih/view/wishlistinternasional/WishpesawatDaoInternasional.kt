@@ -1,4 +1,4 @@
-package com.finpro.garudanih.wishlistinternasional
+package com.finpro.garudanih.view.wishlistinternasional
 
 import androidx.room.Dao
 import androidx.room.Delete

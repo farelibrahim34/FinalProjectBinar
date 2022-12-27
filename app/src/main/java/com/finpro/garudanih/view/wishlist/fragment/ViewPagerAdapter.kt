@@ -1,4 +1,4 @@
-package com.finpro.garudanih.wishlist.fragment
+package com.finpro.garudanih.view.wishlist.fragment
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

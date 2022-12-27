@@ -15,9 +15,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.finpro.garudanih.adapter.AdapterInternasional
-import com.finpro.garudanih.adapter.AdapterTiket
-import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
+import com.finpro.garudanih.view.adapter.AdapterInternasional
+import com.finpro.garudanih.view.adapter.AdapterTiket
+import com.finpro.garudanih.view.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.FragmentHomeBinding
 import com.finpro.garudanih.view.detils.DetailInternasionalActivity
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
@@ -30,7 +30,7 @@ import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeTwo
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
-import com.finpro.garudanih.wishlist.WishlistActivity
+import com.finpro.garudanih.view.wishlist.WishlistActivity
 import dagger.hilt.android.AndroidEntryPoint
 import me.relex.circleindicator.CircleIndicator3
 import java.io.File

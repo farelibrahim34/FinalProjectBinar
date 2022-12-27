@@ -7,8 +7,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.finpro.garudanih.adapter.AdapterInternasional
-import com.finpro.garudanih.adapter.AdapterLokal
+import com.finpro.garudanih.view.adapter.AdapterInternasional
+import com.finpro.garudanih.view.adapter.AdapterLokal
 import com.finpro.garudanih.databinding.ActivityTiketInternasionalBinding
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.viewmodel.TiketViewModel

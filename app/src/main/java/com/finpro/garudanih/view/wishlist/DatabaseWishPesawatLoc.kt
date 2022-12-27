@@ -1,4 +1,4 @@
-package com.finpro.garudanih.wishlist
+package com.finpro.garudanih.view.wishlist
 
 import android.content.Context
 import androidx.room.Database
@@ -14,7 +14,7 @@ abstract class DatabaseWishPesawatLoc : RoomDatabase(){
     companion object{
         private var INSTANCE : DatabaseWishPesawatLoc? = null
 
-        fun getInstance(context : Context):DatabaseWishPesawatLoc? {
+        fun getInstance(context : Context): DatabaseWishPesawatLoc? {
             if (INSTANCE == null){
                 synchronized(DatabaseWishPesawatLoc::class){
                     INSTANCE = Room.databaseBuilder(context.applicationContext,

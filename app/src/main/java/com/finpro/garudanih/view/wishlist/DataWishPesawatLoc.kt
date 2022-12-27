@@ -1,4 +1,4 @@
-package com.finpro.garudanih.wishlist
+package com.finpro.garudanih.view.wishlist
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

@@ -2,28 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/warna_background"
-    tools:context=".view.fragments.home.HomeFragment">
-
-
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/loader"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible"
-        android:elevation="50dp"
-        app:shimmer_base_alpha="1"
-        app:shimmer_highlight_alpha="100"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <include layout="@layout/placeholder_inbox"/>
-
-    </com.facebook.shimmer.ShimmerFrameLayout>
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:elevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView"
@@ -36,51 +18,47 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ivUser"
+            android:id="@+id/ivUser1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_baseline_person_24"
-            app:civ_border_color="@color/warna_second_button"
-            app:civ_border_width="3dp"
+            android:src="@color/bgDefault"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/txtUsername1"
+            android:layout_width="130dp"
+            android:layout_height="20dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
+            android:background="@color/bgDefault"
             android:fontFamily="@font/poppins_semibold"
-            android:text="@string/string_hello_username"
             android:textColor="@color/warna_primary_font"
             android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/ivUser"
+            app:layout_constraintStart_toEndOf="@+id/ivUser1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/textView31"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="@string/string_welcome_back"
-            android:textColor="@color/warna_primary_font"
-            android:textSize="10sp"
+            android:background="@color/bgDefault"
+            android:layout_marginVertical="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivUser"
-            app:layout_constraintTop_toBottomOf="@+id/txtUsername"
-            tools:ignore="SmallSp" />
+            app:layout_constraintStart_toEndOf="@+id/ivUser1"
+            app:layout_constraintTop_toBottomOf="@+id/txtUsername1" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ScrollView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
@@ -93,110 +71,102 @@
             android:paddingBottom="30dp">
 
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerHome"
+                android:id="@+id/viewPagerHome1"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:background="@color/bgDefault"
                 android:layout_marginVertical="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <me.relex.circleindicator.CircleIndicator3
-                android:id="@+id/indicatorBanner"
+            <TextView
+                android:id="@+id/indicatorBanner1"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="170dp"
+                android:layout_marginEnd="170dp"
                 android:layout_marginVertical="10dp"
-                app:ci_drawable="@drawable/circle_radius_selected"
-                app:ci_drawable_unselected="@drawable/circle_radius_unselected"
+                android:background="@color/bgDefault"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewPagerHome" />
+                app:layout_constraintTop_toBottomOf="@+id/viewPagerHome1" />
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
+                android:id="@+id/textView41"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:text="@string/string_international_flight"
-                android:textColor="@color/black"
+                android:background="@color/bgDefault"
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/indicatorBanner" />
+                app:layout_constraintTop_toBottomOf="@+id/indicatorBanner1" />
 
             <TextView
-                android:id="@+id/showInternational"
-                android:layout_width="wrap_content"
+                android:id="@+id/showInternational1"
+                android:layout_width="80dp"
+                android:layout_marginEnd="10dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:text="@string/string_show_all"
-                android:textColor="#1D3FFF"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/indicatorBanner"
-                app:layout_constraintTop_toBottomOf="@+id/indicatorBanner" />
+                android:background="@color/bgDefault"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/indicatorBanner1" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvInternational"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rvInternational1"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/bgDefault"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+            <TextView
+                android:id="@+id/textView61"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/bgDefault"
+                app:layout_constraintStart_toStartOf="@+id/rvInternational1"
+                app:layout_constraintTop_toBottomOf="@+id/rvInternational1" />
+
+            <TextView
+                android:id="@+id/showLocal1"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/bgDefault"
+                app:layout_constraintEnd_toEndOf="@+id/rvInternational1"
+                app:layout_constraintTop_toBottomOf="@+id/rvInternational1" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rvLocal1"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:background="@color/bgDefault"
+                android:layout_marginVertical="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/string_local_flight"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/rvInternational"
-                app:layout_constraintTop_toBottomOf="@+id/rvInternational" />
-
-            <TextView
-                android:id="@+id/showLocal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/string_show_all"
-                android:textColor="#1D3FFF"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/rvInternational"
-                app:layout_constraintTop_toBottomOf="@+id/rvInternational" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvLocal"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/showLocal" />
-
-
-
+                app:layout_constraintTop_toBottomOf="@+id/showLocal1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/wishlist"
+        android:id="@+id/wishlist1"
         android:layout_width="40dp"
         android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:contentDescription="@string/string_todo"
-        android:src="@drawable/wishlist"
+        android:background="@color/bgDefault"
         app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

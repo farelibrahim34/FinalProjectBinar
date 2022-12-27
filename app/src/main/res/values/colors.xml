@@ -22,4 +22,7 @@
     <color name="background_class">#9B5454</color>
     <color name="card">#F0F3FF</color>
 
+    <color name="bgShimmer">#EAF0F7</color>
+    <color name="bgDefault">#F4F7FB</color>
+
 </resources>

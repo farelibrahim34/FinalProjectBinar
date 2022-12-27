@@ -36,11 +36,9 @@ class TiketLokalActivity : AppCompatActivity() {
     private fun setTiketLokal(){
         val viewModelListTiket = ViewModelProvider(this).get(TiketViewModel::class.java)
         viewModelListTiket.getLdTiket().observe(this) {
-
             binding.loader.visibility = View.VISIBLE
             binding.loader.startShimmer()
             if (it != null) {
-
                 binding.loader.visibility = View.GONE
                 binding.loader.stopShimmer()
                 binding.rvAllLocal.layoutManager = GridLayoutManager(this,2)

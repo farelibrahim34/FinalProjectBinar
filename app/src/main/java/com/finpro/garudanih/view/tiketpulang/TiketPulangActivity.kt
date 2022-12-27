@@ -42,11 +42,6 @@ class TiketPulangActivity : AppCompatActivity() {
         setTiketPulang()
 
 
-
-
-
-
-
     }
     @SuppressLint("NotifyDataSetChanged")
     private fun setTiketPulang(){

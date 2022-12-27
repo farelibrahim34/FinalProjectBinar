@@ -17,18 +17,6 @@
         android:name="com.finpro.garudanih.view.fragments.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_settings"
-            app:destination="@id/navigation_settings" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_history"
-            app:destination="@id/navigation_history" />
-        <action
-            android:id="@+id/action_navigation_home_to_profileActivity"
-            app:destination="@id/profileActivity" />
-        <action
-            android:id="@+id/action_navigation_home_to_wishlistActivity"
-            app:destination="@id/wishlistActivity" />
 
     </fragment>
 
@@ -41,19 +29,5 @@
             android:name="Setting"
             app:argType="com.finpro.garudanih.model.DataProfile" />
     </fragment>
-    <activity
-        android:id="@+id/profileActivity"
-        android:name="com.finpro.garudanih.view.profile.ProfileActivity"
-        android:label="activity_profile"
-        tools:layout="@layout/activity_profile" >
-        <argument
-            android:name="userUpdate"
-            app:argType="com.finpro.garudanih.model.DataProfile" />
-    </activity>
-    <activity
-        android:id="@+id/wishlistActivity"
-        android:name="com.finpro.garudanih.wishlist.WishlistActivity"
-        android:label="activity_wishlist"
-        tools:layout="@layout/activity_wishlist" />
 
 </navigation>

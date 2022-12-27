@@ -32,7 +32,7 @@
     <string name="string_masukkan_password">Masukkan Password</string>
     <string name="string_inggris_indonesia">Inggris / Indonesia</string>
     <string name="string_buat_akun">Buat Akun</string>
-    <string name="string_isi_identitas_n_anda">Isi Identitas\n Anda</string>
+    <string name="string_isi_identitas_n_anda">Isi Identitas</string>
     <string name="string_id_tiket">ID Tiket :</string>
     <string name="string_nama_pemesan">Nama Pemesan</string>
     <string name="string_masukkan_nik">Masukkan Nik</string>
@@ -87,6 +87,7 @@
     <string name="string_orderby">orderBy</string>
     <string name="string_sukses">Succses</string>
     <string name="string_swipe">Swipe</string>
+    <string name="string_tiket_pulang">Tiket Pulang</string>
 
 
     <string-array name="Kota">

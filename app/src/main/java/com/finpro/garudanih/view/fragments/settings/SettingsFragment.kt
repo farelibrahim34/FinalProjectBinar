@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.databinding.FragmentSettingsBinding
 import com.finpro.garudanih.view.auth.LoginActivity
+import com.finpro.garudanih.view.profile.ProfileActivity
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,6 +34,10 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         authViewModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
         logout()
+
+        binding.tvEditProfile.setOnClickListener {
+            startActivity(Intent(context, ProfileActivity::class.java))
+        }
 
     }
 

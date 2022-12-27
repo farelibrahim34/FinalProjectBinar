@@ -65,7 +65,7 @@ class DetailPesawatActivity : AppCompatActivity() {
         }
 
         val detail = intent.getSerializableExtra("lokal") as Ticket
-        binding.idTIket2.text = detail.id.toString()
+        binding.idTIket2.text = "ID Tiket Pergi : "+detail.id.toString()
         binding.txtInputAsal.text = detail.departure
         binding.txtInputTujuan.text = detail.destination
         binding.txtHargaDetail.text = "Harga Tiket \nRp"+detail.price

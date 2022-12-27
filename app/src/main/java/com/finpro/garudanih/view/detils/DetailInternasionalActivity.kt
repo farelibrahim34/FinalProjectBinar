@@ -63,14 +63,14 @@ class DetailInternasionalActivity : AppCompatActivity() {
 
         val detail = intent.getSerializableExtra("inter") as Ticket
 
-        binding.idTIket.text = detail.id.toString()
+        binding.idTIket.text = "ID Tiket Pergi : "+detail.id.toString()
         binding.txtInputAsal.text = detail.departure
         binding.txtInputTujuan.text = detail.destination
         binding.txtHargaDetail.text = "Harga Tiket \nRp"+detail.price
         binding.txtJadwal.text = "Jadwal : \n"+detail.takeOff
         binding.txtChair.text =  "Available "+detail.totalChair
         binding.txtClass.text = detail.classX+" Class"
-        binding.ivKota.setImageResource(R.drawable.pesawat)
+        binding.ivKota.setImageResource(R.drawable.ic_detil_tiket)
 
         binding.btnOrder.setOnClickListener {
             val intent = Intent(this, PemesananActivity::class.java)

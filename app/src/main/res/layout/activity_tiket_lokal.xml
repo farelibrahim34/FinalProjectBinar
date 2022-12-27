@@ -8,6 +8,22 @@
     android:layout_height="match_parent"
     tools:context=".view.detils.TiketLokalActivity">
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="820dp"
+        android:visibility="visible"
+        android:elevation="50dp"
+        app:shimmer_base_alpha="1"
+        app:shimmer_highlight_alpha="100"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <include layout="@layout/placeholder_list"/>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvArraowDetail"
         android:layout_width="wrap_content"
@@ -38,7 +54,7 @@
         android:text="@string/string_penerbangan_lokal"
         android:textAlignment="center"
         android:textColor="@color/warna_primary_font"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,19 +65,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rvAllLocal" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

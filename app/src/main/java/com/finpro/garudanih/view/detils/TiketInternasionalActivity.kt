@@ -47,14 +47,17 @@ class TiketInternasionalActivity : AppCompatActivity() {
 //        viewModel.callApiTiketIntr()
         val viewModel = ViewModelProvider(this).get(TiketViewModel::class.java)
         viewModel.getLdTiketIntr().observe(this){
-            binding.progressBar.visibility = View.VISIBLE
+            binding.loader.visibility = View.VISIBLE
+            binding.loader.startShimmer()
             if (it != null){
-                binding.progressBar.visibility = View.GONE
+                binding.loader.visibility = View.GONE
+                binding.loader.stopShimmer()
                 binding.rvAllInternational.layoutManager = GridLayoutManager(this,2)
                 tiketLokalAdapter = AdapterLokal(it.data.tickets)
                 binding.rvAllInternational.adapter = tiketLokalAdapter
             }else{
-                binding.progressBar.visibility = View.VISIBLE
+                binding.loader.visibility = View.VISIBLE
+                binding.loader.startShimmer()
                 Toast.makeText(this, "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
         }

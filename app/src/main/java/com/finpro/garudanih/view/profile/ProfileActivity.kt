@@ -14,7 +14,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.navArgs
 import com.bumptech.glide.Glide
 import com.finpro.garudanih.MainActivity
 import com.finpro.garudanih.databinding.ActivityProfileBinding
@@ -50,7 +49,6 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var userViewModel : UserViewModel
     private val REQUEST_CODE_PERMISSION = 100
     private var imageUri: Uri? = Uri.EMPTY
-    private val args by navArgs<ProfileActivityArgs>()
 
     var cal = Calendar.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,23 +88,15 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         binding.ivSetImage.setOnClickListener {
-//            checkingPermissions()
+
             openGallery()
         }
         binding.btnSimpan.setOnClickListener {
             GlobalScope.launch {
                 startActivity(Intent(this@ProfileActivity, MainActivity::class.java))
             }
-//            val resolver = this.applicationContext.contentResolver
-//            val picture = BitmapFactory.decodeStream(
-//                resolver.openInputStream(Uri.parse(imageUri.toString())))
-//            writeBitmapToFile(this,picture)
 
         }
-//        val image = BitmapFactory.decodeFile(this.applicationContext.filesDir.path + File.separator +"dataFoto"+ File.separator +"fotoProfile.png")
-//        binding.ivSetImage.setImageBitmap(image)
-
-//        doUpdateProfile()
         setEditProfile()
     }
 
@@ -116,93 +106,6 @@ class ProfileActivity : AppCompatActivity() {
         // buat variable baru untuk POST date.mont,year ke API (format ini sudah dalam bentuk string)
         binding.tvTgllahir.text= sdf.format(cal.getTime())
     }
-
-//    private fun writeBitmapToFile(applicationContext: Context, bitmap: Bitmap): Uri {
-//        val name = "fotoProfile.png"
-//        val outputDir = File(applicationContext.filesDir, "dataFoto")
-//        if (!outputDir.exists()) {
-//            outputDir.mkdirs() // should succeed
-//        }
-//        val outputFile = File(outputDir, name)
-//        var out: FileOutputStream? = null
-//        try {
-//            out = FileOutputStream(outputFile)
-//            bitmap.compress(Bitmap.CompressFormat.PNG, 0 /* ignored for PNG */, out)
-//        } finally {
-//            out?.let {
-//                try {
-//                    it.close()
-//                } catch (ignore: IOException) {
-//                }
-//
-//            }
-//        }
-//        return Uri.fromFile(outputFile)
-//    }
-//    private fun checkingPermissions() {
-//        if (isGranted(
-//                this,
-//                Manifest.permission.CAMERA,
-//                arrayOf(
-//                    Manifest.permission.CAMERA,
-//                    Manifest.permission.READ_EXTERNAL_STORAGE,
-//                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-//                ),
-//                REQUEST_CODE_PERMISSION,
-//            )
-//        ) {
-//            chooseImageDialog()
-//        }
-//    }
-//    private fun isGranted(
-//        activity: Activity,
-//        permission: String,
-//        permissions: Array<String>,
-//        request: Int,
-//    ): Boolean {
-//        val permissionCheck = ActivityCompat.checkSelfPermission(activity, permission)
-//        return if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-//            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
-//                showPermissionDeniedDialog()
-//            } else {
-//                ActivityCompat.requestPermissions(activity, permissions, request)
-//            }
-//            false
-//        } else {
-//            true
-//        }
-//    }
-//    private fun showPermissionDeniedDialog() {
-//        AlertDialog.Builder(this)
-//            .setTitle("Permission Denied")
-//            .setMessage("Permission is denied, Please allow permissions from App Settings.")
-//            .setPositiveButton(
-//                "App Settings"
-//            ) { _, _ ->
-//                val intent = Intent()
-//                intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-//                val uri = Uri.fromParts("package", packageName, null)
-//                intent.data = uri
-//                startActivity(intent)
-//            }
-//            .setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
-//            .show()
-//    }
-//    private fun chooseImageDialog() {
-//        AlertDialog.Builder(this)
-//            .setMessage("Pilih Gambar")
-//            .setPositiveButton("Gallery") { _, _ -> openGallery() }
-//            .show()
-//    }
-//    private fun openGallery() {
-//        intent.type = "image/*"
-//        galleryResult.launch("image/*")
-//    }
-//    private val galleryResult =
-//        registerForActivityResult(ActivityResultContracts.GetContent()) { result ->
-//            imageUri = result
-//            binding.ivSetImage.setImageURI(result)
-//        }
 
     private fun getProfile(){
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)

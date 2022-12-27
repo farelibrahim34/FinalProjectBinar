@@ -20,4 +20,22 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/planesplash" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="600dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_garudanih"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_bold"
+        app:layout_constraintTop_toBottomOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,4 +55,5 @@ class TiketViewModelTest {
         }
         assertEquals(result, getlistinter)
     }
+
 }

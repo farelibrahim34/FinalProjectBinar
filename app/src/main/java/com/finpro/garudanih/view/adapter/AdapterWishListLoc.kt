@@ -3,17 +3,11 @@ package com.finpro.garudanih.view.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.garudanih.databinding.ItemWishlistBinding
 import com.finpro.garudanih.view.wishlist.DataWishPesawatLoc
 import com.finpro.garudanih.view.wishlist.DatabaseWishPesawatLoc
 import com.finpro.garudanih.view.wishlist.WishPesawatDaoLoc
-import com.finpro.garudanih.view.wishlist.WishlistActivity
-import com.finpro.garudanih.view.wishlist.fragment.DomesticTablayoutFragment
-import com.finpro.garudanih.view.wishlistinternasional.DatabaseWishPesawatInternasional
-import com.finpro.garudanih.view.wishlistinternasional.WishpesawatDaoInternasional
-import com.finpro.garudanih.view.wishlistinternasional.dataWishPesawatInternasional
 import kotlinx.coroutines.*
 
 @Suppress("DeferredResultUnused", "RemoveEmptyClassBody", "MemberVisibilityCanBePrivate", "unused")

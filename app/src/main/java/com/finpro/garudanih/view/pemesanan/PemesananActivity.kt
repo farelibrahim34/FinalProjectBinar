@@ -167,10 +167,7 @@ class PemesananActivity : AppCompatActivity() {
 
             authViewModel.getToken().observe(this){token->
                 if (token != null){
-                    if (orderBy.isNotBlank() && ktp.isNotBlank() && nomorKursi.toString().isNotBlank()){
                         userViewModel.orderTiketPesawat("Bearer $token",idTiket,orderBy,ktp,nomorKursi)
-
-                    }
                 }
             }
 

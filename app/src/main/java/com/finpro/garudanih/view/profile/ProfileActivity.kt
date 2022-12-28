@@ -97,6 +97,12 @@ class ProfileActivity : AppCompatActivity() {
             }
 
         }
+        binding.tvPrivacyPolicy.setOnClickListener {
+            val url = "https://www.privacypolicyonline.com/live.php?token=LAdIxN9mK04Y9nItIY7JWXheDzZ2wI5w"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
         setEditProfile()
     }
 

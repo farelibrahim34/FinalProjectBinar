@@ -9,6 +9,22 @@
     android:background="@color/warna_background"
     tools:context=".view.fragments.home.HomeFragment">
 
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:elevation="50dp"
+        app:shimmer_base_alpha="1"
+        app:shimmer_highlight_alpha="100"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <include layout="@layout/placeholder_inbox"/>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -152,6 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/string_show_all"
+                android:layout_marginEnd="5dp"
                 android:textColor="#1D3FFF"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/rvInternational"
@@ -161,7 +178,6 @@
                 android:id="@+id/rvLocal"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -172,30 +188,19 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
     </ScrollView>
-
-    <ProgressBar
-        android:id="@+id/homeProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageView
         android:id="@+id/wishlist"
         android:layout_width="40dp"
         android:layout_height="25dp"
-        android:src="@drawable/wishlist"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:contentDescription="@string/string_todo"
+        android:src="@drawable/wishlist"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/string_todo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

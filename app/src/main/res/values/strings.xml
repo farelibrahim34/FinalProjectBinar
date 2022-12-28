@@ -7,17 +7,17 @@
     <string name="terpercaya">Terpercaya</string>
     <string name="onboarding_desc_satu">Hanya dengan satu langkah registrasi, nikmati segala kemudahan dalam booking tiket pesawat</string>
     <string name="onboarding_desc_dua">Nikmati kemudahan penerbangan ke seluruh dunia dengan aplikasi kita</string>
-    <string name="onboarding_desc_tiga">Kemanan dalam bertransaksi Anda merupakan prioritas bagi kami</string>
+    <string name="onboarding_desc_tiga">Keamanan dalam bertransaksi Anda merupakan prioritas bagi kami</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_home">Home</string>
-    <string name="title_history">History</string>
-    <string name="title_shop">Shop</string>
-    <string name="ic_settings">Settings</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_history">Riwayat</string>
+    <string name="title_shop">Belanja</string>
+    <string name="ic_settings">Pengaturan</string>
     <string name="title_order">Order</string>
     <string name="tambah_list_tiket">Berhasil menambahkan list tiket !</string>
-    <string name="title_round_trip">Flights</string>
+    <string name="title_round_trip">Penerbangan</string>
     <string name="string_detail">Detail</string>
-    <string name="string_total_chair">Total Chair</string>
+    <string name="string_total_chair">Total Kursi</string>
     <string name="string_jadwal">Jadwal</string>
     <string name="string_harga">Harga</string>
     <string name="string_keberangkatan">Keberangkatan</string>
@@ -32,7 +32,7 @@
     <string name="string_masukkan_password">Masukkan Password</string>
     <string name="string_inggris_indonesia">Inggris / Indonesia</string>
     <string name="string_buat_akun">Buat Akun</string>
-    <string name="string_isi_identitas_n_anda">Isi Identitas\n Anda</string>
+    <string name="string_isi_identitas_n_anda">Isi Identitas</string>
     <string name="string_id_tiket">ID Tiket :</string>
     <string name="string_nama_pemesan">Nama Pemesan</string>
     <string name="string_masukkan_nik">Masukkan Nik</string>
@@ -56,15 +56,15 @@
     <string name="string_lanjutkan_pembayaran">Lanjutkan Pembayaran</string>
     <string name="string_penerbangan_ninternasional">Penerbangan\nInternasional</string>
     <string name="string_penerbangan_lokal">Penerbangan Lokal</string>
-    <string name="string_international_flight">International Flight</string>
-    <string name="string_local_flight">Local Flight</string>
+    <string name="string_international_flight">Penerbangan Internasional</string>
+    <string name="string_local_flight">Penerbangan Lokal</string>
     <string name="string_deskripsi">Deskripsi</string>
     <string name="string_riwayat_order">Riwayat Order</string>
     <string name="string_riwayat_pembelian_kamu">Riwayat Pembelian kamu</string>
     <string name="string_dalam_proses">Dalam Proses</string>
-    <string name="string_hello_username">Hello, Username</string>
-    <string name="string_welcome_back">Welcome Back!</string>
-    <string name="string_show_all">Show All</string>
+    <string name="string_hello_username">Hallo, Username</string>
+    <string name="string_welcome_back">Selamat datang kembali!</string>
+    <string name="string_show_all">Lihat Semua</string>
     <string name="string_order_tiket">Order Tiket</string>
     <string name="string_silahkan_untuk_order_tiket_anda">Silahkan untuk order tiket anda</string>
     <string name="string_cari_tiket">Cari Tiket</string>
@@ -81,114 +81,14 @@
     <string name="string_ubah_password">Ubah Password</string>
     <string name="string_kota_asal">Kota Asal</string>
     <string name="string_kota_tujuan">Kota Tujuan</string>
-    <string name="string_status">Available</string>
+    <string name="string_status">Tersedia</string>
     <string name="string_rating">5.0</string>
     <string name="string_code">JKT</string>
-    <string name="string_orderby">orderBy</string>
-    <string name="string_sukses">Succses</string>
+    <string name="string_orderby">Diorder Oleh</string>
+    <string name="string_sukses">Sukses</string>
     <string name="string_swipe">Swipe</string>
-
-
-    <string-array name="Kota">
-        <item>Ambon</item>
-        <item>Balikpapan</item>
-        <item>Banda Aceh</item>
-        <item>Bandar Lampung</item>
-        <item>Bandung</item>
-        <item>Banjar</item>
-        <item>Banjarbaru</item>
-        <item>Banjarmasin</item>
-        <item>Batam</item>
-        <item>Batu</item>
-        <item>Baubau</item>
-        <item>Bekasi</item>
-        <item>Bengkulu</item>
-        <item>Bima</item>
-        <item>Binjai</item>
-        <item>Bitung</item>
-        <item>Blitar</item>
-        <item>Bogor</item>
-        <item>Bontang</item>
-        <item>Bukittinggi</item>
-        <item>Cilegon</item>
-        <item>Cimahi</item>
-        <item>Cirebon</item>
-        <item>Denpasar</item>
-        <item>Depok</item>
-        <item>Dumai</item>
-        <item>Gorontalo</item>
-        <item>Gunungsitoli</item>
-        <item>Jambi</item>
-        <item>Jayapura</item>
-        <item>Kediri</item>
-        <item>Kendari</item>
-        <item>Jakarta Barat</item>
-        <item>Jakarta Pusat</item>
-        <item>Jakarta Selatan</item>
-        <item>Jakarta Timur</item>
-        <item>Jakarta Utara</item>
-        <item>Kotamobagu</item>
-        <item>Kupang</item>
-        <item>Langsa</item>
-        <item>Lhokseumawe</item>
-        <item>Lubuklinggau</item>
-        <item>Madiun</item>
-        <item>Magelang</item>
-        <item>Makassar</item>
-        <item>Malang</item>
-        <item>Manado</item>
-        <item>Mataram</item>
-        <item>Medan</item>
-        <item>Metro</item>
-        <item>Mojokerto</item>
-        <item>Nusantara</item>
-        <item>Padang</item>
-        <item>Padang Panjang</item>
-        <item>Padangsidimpuan</item>
-        <item>Pagar Alam</item>
-        <item>Palangka Raya</item>
-        <item>Palembang</item>
-        <item>Palopo</item>
-        <item>Palu</item>
-        <item>Pangkalpinang</item>
-        <item>Parepare</item>
-        <item>Pariaman</item>
-        <item>Pasuruan</item>
-        <item>Payakumbuh</item>
-        <item>Pekalongan</item>
-        <item>Pekanbaru</item>
-        <item>Pematangsiantar</item>
-        <item>Pontianak</item>
-        <item>Prabumulih</item>
-        <item>Probolinggo</item>
-        <item>Sabang</item>
-        <item>Salatiga</item>
-        <item>Samarinda</item>
-        <item>Sawahlunto</item>
-        <item>Semarang</item>
-        <item>Serang</item>
-        <item>Sibolga</item>
-        <item>Singkawang</item>
-        <item>Solok</item>
-        <item>Sorong</item>
-        <item>Subulussalam</item>
-        <item>Sukabumi</item>
-        <item>Sungai Penuh</item>
-        <item>Surabaya</item>
-        <item>Surakarta</item>
-        <item>Tangerang</item>
-        <item>Tangerang Selatan</item>
-        <item>Tanjungbalai</item>
-        <item>Tanjungpinang</item>
-        <item>Tarakan</item>
-        <item>Tasikmalaya</item>
-        <item>Tebing Tinggi</item>
-        <item>Tegal</item>
-        <item>Ternate</item>
-        <item>Tidore Kepulauan</item>
-        <item>Tomohon</item>
-        <item>Tual</item>
-        <item>Yogyakarta</item>
-        <item>Kota Lainnya</item>
-    </string-array>
+    <string name="string_tiket_pulang">Tiket Pulang</string>
+    <string name="string_ganti_bahasa">Kamu yakin ingin mengganti bahasa ?</string>
+    <string name="string_iya">Iya</string>
+    <string name="string_tidak">Tidak</string>
 </resources>

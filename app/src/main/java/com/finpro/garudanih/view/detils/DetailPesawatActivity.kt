@@ -14,9 +14,9 @@ import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.pemesanan.PemesananActivity
 import com.finpro.garudanih.view.tiketpulang.TiketPulangActivity
 import com.finpro.garudanih.viewmodel.TiketViewModel
-import com.finpro.garudanih.wishlist.DataWishPesawatLoc
-import com.finpro.garudanih.wishlist.DatabaseWishPesawatLoc
-import com.finpro.garudanih.wishlist.WishPesawatDaoLoc
+import com.finpro.garudanih.view.wishlist.DataWishPesawatLoc
+import com.finpro.garudanih.view.wishlist.DatabaseWishPesawatLoc
+import com.finpro.garudanih.view.wishlist.WishPesawatDaoLoc
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -65,7 +65,7 @@ class DetailPesawatActivity : AppCompatActivity() {
         }
 
         val detail = intent.getSerializableExtra("lokal") as Ticket
-        binding.idTIket2.text = detail.id.toString()
+        binding.idTIket2.text = "ID Tiket Pergi : "+detail.id.toString()
         binding.txtInputAsal.text = detail.departure
         binding.txtInputTujuan.text = detail.destination
         binding.txtHargaDetail.text = "Harga Tiket \nRp"+detail.price
@@ -123,7 +123,6 @@ class DetailPesawatActivity : AppCompatActivity() {
         val harga = itemListPesawat.getIntExtra("harga",0)
         val chair = itemListPesawat.getIntExtra("totalchair",0)
         val status = itemListPesawat.getStringExtra("class")
-//        val image = itemListPesawat.getIntExtra("image",0)
 
         binding.txtInputAsal.text = keberangkatan
         binding.txtInputTujuan.text = kota
@@ -131,7 +130,6 @@ class DetailPesawatActivity : AppCompatActivity() {
         binding.txtJadwal.text = "Jadwal : \n"+jadwal
         binding.txtChair.text =  "Available "+chair.toString()
         binding.txtClass.text = status+" Class"
-//        binding.ivKota.setImageResource(image)
 
     }
 

@@ -32,7 +32,7 @@
             android:name=".view.tiketpulang.TiketPulangActivity"
             android:exported="false" />
         <activity
-            android:name=".wishlist.WishlistActivity"
+            android:name=".view.wishlist.WishlistActivity"
             android:exported="false" />
         <activity
             android:name=".view.detils.TiketInternasionalActivity"

@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.finpro.garudanih.adapter.AdapterLokal
+import com.finpro.garudanih.view.adapter.AdapterLokal
 import com.finpro.garudanih.databinding.ActivityTiketLokalBinding
 import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.viewmodel.TiketViewModel
@@ -36,14 +36,18 @@ class TiketLokalActivity : AppCompatActivity() {
     private fun setTiketLokal(){
         val viewModelListTiket = ViewModelProvider(this).get(TiketViewModel::class.java)
         viewModelListTiket.getLdTiket().observe(this) {
-            binding.progressBar.visibility = View.VISIBLE
+            binding.loader.visibility = View.VISIBLE
+            binding.loader.startShimmer()
             if (it != null) {
-                binding.progressBar.visibility = View.GONE
+                binding.loader.visibility = View.GONE
+                binding.loader.stopShimmer()
                 binding.rvAllLocal.layoutManager = GridLayoutManager(this,2)
                 tiketLokalAdapter = AdapterLokal(it.data.tickets)
                 binding.rvAllLocal.adapter = tiketLokalAdapter
                 Toast.makeText(this, "Data Tampil", Toast.LENGTH_SHORT).show()
             } else {
+                binding.loader.visibility = View.VISIBLE
+                binding.loader.startShimmer()
                 Toast.makeText(this, "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
         }

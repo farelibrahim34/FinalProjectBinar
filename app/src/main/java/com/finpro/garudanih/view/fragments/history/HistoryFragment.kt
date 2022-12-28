@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.finpro.garudanih.adapter.AdapterHistory
+import com.finpro.garudanih.view.adapter.AdapterHistory
 import com.finpro.garudanih.databinding.FragmentHistoryBinding
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel

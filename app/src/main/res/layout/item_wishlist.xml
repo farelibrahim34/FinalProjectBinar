@@ -8,7 +8,6 @@
     android:padding="5dp"
     android:layout_height="wrap_content">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardList"
         android:layout_width="match_parent"
@@ -167,6 +166,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:background="@color/white"
+        android:visibility="gone"
         android:contentDescription="@string/string_todo"
         android:src="@drawable/delete"
         app:layout_constraintBottom_toBottomOf="@id/cardList"

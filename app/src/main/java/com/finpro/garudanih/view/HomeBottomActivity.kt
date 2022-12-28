@@ -30,10 +30,6 @@ class HomeBottomActivity : AppCompatActivity(), OrderFragmentInterface {
             findNavController(R.id.nav_host_fragment_activity_home_bottom_navigation)
         navView.setupWithNavController(navController)
 
-//        binding.wishlist.setOnClickListener {
-//            startActivity(Intent(this, WishlistActivity::class.java))
-//        }
-
     }
 
     override fun onClickOrder() {
@@ -42,6 +38,7 @@ class HomeBottomActivity : AppCompatActivity(), OrderFragmentInterface {
             .addToBackStack(null)
             .commit()
     }
+
     override fun onBackPressed() {
 
         AlertDialog.Builder(this)

@@ -9,11 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityDetailInternasionalBinding
 import com.finpro.garudanih.model.Ticket
+import com.finpro.garudanih.view.HomeBottomActivity
 import com.finpro.garudanih.view.pemesanan.PemesananActivity
 import com.finpro.garudanih.view.tiketpulang.TiketPulangActivity
-import com.finpro.garudanih.wishlistinternasional.DatabaseWishPesawatInternasional
-import com.finpro.garudanih.wishlistinternasional.WishpesawatDaoInternasional
-import com.finpro.garudanih.wishlistinternasional.dataWishPesawatInternasional
+import com.finpro.garudanih.view.wishlistinternasional.DatabaseWishPesawatInternasional
+import com.finpro.garudanih.view.wishlistinternasional.WishpesawatDaoInternasional
+import com.finpro.garudanih.view.wishlistinternasional.dataWishPesawatInternasional
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -40,7 +41,7 @@ class DetailInternasionalActivity : AppCompatActivity() {
         id = intent.getIntExtra(EXTRA_ID, 0)
 
         binding.ivBackDetail.setOnClickListener {
-            startActivity(Intent(this, TiketInternasionalActivity::class.java))
+            startActivity(Intent(this, HomeBottomActivity::class.java))
         }
         getListInternasional()
         binding.btnPulang2.setOnClickListener {
@@ -60,23 +61,16 @@ class DetailInternasionalActivity : AppCompatActivity() {
         val imageInt = itemListInternasional?.getInt("imageInt",0)
         val availableInt = itemListInternasional?.getString("availableInt")
 
-//        binding.txtAsal.text = kotaInt
-//        binding.txtHargaDetail.text = hargaInt
-//        if (imageInt != null) {
-//            binding.ivKota.setImageResource(imageInt)
-//        }
-//        binding.txtJadwal.text = jadwalInt
-//        binding.txtChair.text = availableInt
-
         val detail = intent.getSerializableExtra("inter") as Ticket
-        binding.idTIket.text = detail.id.toString()
+
+        binding.idTIket.text = "ID Tiket Pergi : "+detail.id.toString()
         binding.txtInputAsal.text = detail.departure
         binding.txtInputTujuan.text = detail.destination
         binding.txtHargaDetail.text = "Harga Tiket \nRp"+detail.price
         binding.txtJadwal.text = "Jadwal : \n"+detail.takeOff
         binding.txtChair.text =  "Available "+detail.totalChair
         binding.txtClass.text = detail.classX+" Class"
-        binding.ivKota.setImageResource(R.drawable.pesawat)
+        binding.ivKota.setImageResource(R.drawable.ic_detil_tiket)
 
         binding.btnOrder.setOnClickListener {
             val intent = Intent(this, PemesananActivity::class.java)

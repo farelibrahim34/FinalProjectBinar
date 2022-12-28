@@ -15,9 +15,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.finpro.garudanih.adapter.AdapterInternasional
-import com.finpro.garudanih.adapter.AdapterTiket
-import com.finpro.garudanih.adapter.ViewPagerFragmentAdapter
+import com.finpro.garudanih.view.adapter.AdapterInternasional
+import com.finpro.garudanih.view.adapter.AdapterTiket
+import com.finpro.garudanih.view.adapter.ViewPagerFragmentAdapter
 import com.finpro.garudanih.databinding.FragmentHomeBinding
 import com.finpro.garudanih.view.detils.DetailInternasionalActivity
 import com.finpro.garudanih.view.detils.DetailPesawatActivity
@@ -30,7 +30,7 @@ import com.finpro.garudanih.view.wrapper.home.FragmentVpHomeTwo
 import com.finpro.garudanih.viewmodel.AuthViewModel
 import com.finpro.garudanih.viewmodel.TiketViewModel
 import com.finpro.garudanih.viewmodel.UserViewModel
-import com.finpro.garudanih.wishlist.WishlistActivity
+import com.finpro.garudanih.view.wishlist.WishlistActivity
 import dagger.hilt.android.AndroidEntryPoint
 import me.relex.circleindicator.CircleIndicator3
 import java.io.File
@@ -171,8 +171,6 @@ class HomeFragment : Fragment() {
     private fun setUsername(){
         authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
         userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
-
-
         userViewModel.getCurrentObserve().observe(requireActivity()){
             if (it != null){
                 binding.txtUsername.text = ("Hello, "+it.name)
@@ -191,31 +189,38 @@ class HomeFragment : Fragment() {
 
     private fun setUpTiketInt(){
         val viewModel = ViewModelProvider(requireActivity()).get(TiketViewModel::class.java)
+        binding.loader.visibility = View.VISIBLE
+        binding.loader.startShimmer()
         viewModel.getLdTiket().observe(viewLifecycleOwner) {
-            binding.homeProgressBar.visibility = View.VISIBLE
             if (it != null) {
-                binding.homeProgressBar.visibility = View.GONE
+                binding.loader.visibility = View.GONE
+                binding.loader.stopShimmer()
                 binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 tiketAdapter.setListTiket(it.data.tickets)
                 binding.rvLocal.adapter = tiketAdapter
             } else {
-                binding.homeProgressBar.visibility = View.VISIBLE
+                binding.loader.visibility = View.VISIBLE
+                binding.loader.startShimmer()
                 Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.CallApiTiket()
     }
+
     private fun setTiketIntr(){
         val viewModel = ViewModelProvider(requireActivity()).get(TiketViewModel::class.java)
+        binding.loader.visibility = View.VISIBLE
+        binding.loader.startShimmer()
         viewModel.getLdTiketIntr().observe(viewLifecycleOwner){
-            binding.homeProgressBar.visibility = View.GONE
             if (it != null){
-                binding.homeProgressBar.visibility = View.GONE
+                binding.loader.visibility = View.GONE
+                binding.loader.stopShimmer()
                 binding.rvInternational.layoutManager= LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
                 adapterIntr.setListTiketInter(it.data.tickets)
                 binding.rvInternational.adapter = adapterIntr
             }else{
-                binding.homeProgressBar.visibility = View.VISIBLE
+                binding.loader.visibility = View.VISIBLE
+                binding.loader.startShimmer()
                 Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
         }

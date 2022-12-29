@@ -88,7 +88,7 @@
     <string name="string_orderby">orderBy</string>
     <string name="string_sukses">Succses</string>
     <string name="string_swipe">Swipe</string>
-    <string name="string_tiket_pulang">Return Ticket</string>
+    <string name="string_tiket_pulang">Round-trip ticket</string>
     <string name="string_ganti_bahasa">Are you sure want to change language ?</string>
     <string name="string_iya">Yes</string>
     <string name="string_tidak">No</string>

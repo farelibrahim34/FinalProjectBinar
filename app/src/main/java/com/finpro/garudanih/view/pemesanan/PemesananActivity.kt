@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import com.finpro.garudanih.R
 import com.finpro.garudanih.databinding.ActivityPemesananBinding
@@ -45,6 +46,8 @@ class PemesananActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPemesananBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.txtTotalHarga.isGone = true
 
         viewModel = ViewModelProvider(this).get(TiketViewModel::class.java)
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)

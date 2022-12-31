@@ -1,8 +1,10 @@
 package com.finpro.garudanih.view.auth
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
@@ -69,5 +71,18 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
+    }
+    override fun onBackPressed() {
+
+        AlertDialog.Builder(this)
+            .setTitle("Tutup Aplikasi")
+            .setMessage("Yakin tutup dari aplikasi?")
+            .setPositiveButton("Ya"){ dialogInterface: DialogInterface, i: Int ->
+                finishAffinity()
+            }
+            .setNegativeButton("Tidak"){ dialogInterface: DialogInterface, i: Int ->
+                dialogInterface.dismiss()
+            }
+            .show()
     }
 }

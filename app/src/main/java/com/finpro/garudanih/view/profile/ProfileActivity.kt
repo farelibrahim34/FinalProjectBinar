@@ -134,8 +134,15 @@ class ProfileActivity : AppCompatActivity() {
                 binding.etPhone.setText(it.phone)
                 binding.tvTgllahir.setText(it.birth)
                 binding.tvAlamat.setText(it.city)
-                val url = it.image
-                Glide.with(this).load(url).circleCrop().into(binding.ivSetImage)
+                val url = it.image.trim()
+                Glide.with(this)
+                    .asBitmap()
+                    .load(url)
+                    .circleCrop()
+                    .into(binding.ivSetImage)
+
+
+
             }else{
                 Log.d("PROFILE","Profile Null")
             }
@@ -170,7 +177,7 @@ class ProfileActivity : AppCompatActivity() {
             if (it != null && it != "undefined"){
                 Log.d("PHOTO_URL",it)
                 binding.apply {
-                    Glide.with(root.context).load(it).into(ivSetImage)
+                    Glide.with(root.context).asBitmap().load(it).into(ivSetImage)
                 }
             }
         }

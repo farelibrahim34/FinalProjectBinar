@@ -1,6 +1,7 @@
 package com.finpro.garudanih.view
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -45,7 +46,11 @@ class HomeBottomActivity : AppCompatActivity(), OrderFragmentInterface {
             .setTitle("Tutup Aplikasi")
             .setMessage("Yakin tutup dari aplikasi?")
             .setPositiveButton("Ya"){ dialogInterface: DialogInterface, i: Int ->
-                finishAffinity()
+                Intent(Intent.ACTION_MAIN).apply {
+                    addCategory(Intent.CATEGORY_HOME)
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(this)
+                }
             }
             .setNegativeButton("Tidak"){ dialogInterface: DialogInterface, i: Int ->
                 dialogInterface.dismiss()

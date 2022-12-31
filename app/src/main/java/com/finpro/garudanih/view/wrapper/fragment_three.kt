@@ -31,14 +31,15 @@ class fragment_three : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
+
 
         binding.tvLogin.setOnClickListener {
             startActivity(Intent(context, LoginActivity::class.java))
-            sudahlogin()
+
         }
     }
     private fun sudahlogin(){
+        authViewModel = ViewModelProvider(requireActivity()).get(AuthViewModel::class.java)
         authViewModel.getToken().observe(requireActivity()){
             if (it != null){
                 val validasi = CheckUserUtil.validateUser(it)

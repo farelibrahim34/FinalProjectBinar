@@ -23,8 +23,9 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+
+
 //        val background = object : Thread() {
 //            override fun run() {
 //                    Thread.sleep(5000)
@@ -59,10 +60,12 @@ class SplashScreenActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             sudahlogin()
-            finish()
+//            finish()
         },5000)
     }
     private fun sudahlogin(){
+
+
         authViewModel.getToken().observe(this){
             if (it != null){
                 val validasi = CheckUserUtil.validateUser(it)

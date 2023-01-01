@@ -1,5 +1,6 @@
 package com.finpro.garudanih.view.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -42,6 +43,7 @@ class AdapterWishListLoc(): RecyclerView.Adapter<AdapterWishListLoc.ViewHolder>(
         holder.binding.txtClass.text = Wishlist[position].classX
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListWishlist(list: List<DataWishPesawatLoc>){
         this.Wishlist = list
         notifyDataSetChanged()

@@ -50,6 +50,10 @@ android {
         disable 'ContentDescription'
         disable 'HardcodedText'
         disable 'RtlHardcoded'
+        disable 'DuplicateIncludedIds'
+        disable 'UnusedAttribute'
+        disable 'AppBundleLocaleChanges'
+
     }
 }
 
@@ -132,6 +136,7 @@ dependencies {
     testImplementation "io.mockk:mockk:1.13.1"
 
     def lottieVersion = "3.5.0"
+    //noinspection GradleDependency
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
     implementation 'com.facebook.shimmer:shimmer:0.5.0@aar'

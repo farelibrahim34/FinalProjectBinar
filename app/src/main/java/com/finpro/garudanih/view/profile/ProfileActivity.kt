@@ -134,7 +134,7 @@ class ProfileActivity : AppCompatActivity() {
                 binding.etPhone.setText(it.phone)
                 binding.tvTgllahir.setText(it.birth)
                 binding.tvAlamat.setText(it.city)
-                val url = it.image.trim()
+                val url = it.image
                 Glide.with(this)
                     .asBitmap()
                     .load(url)

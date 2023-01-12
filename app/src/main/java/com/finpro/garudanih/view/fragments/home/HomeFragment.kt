@@ -1,6 +1,5 @@
 package com.finpro.garudanih.view.fragments.home
 
-
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -95,7 +94,6 @@ class HomeFragment : Fragment() {
             pindah.putExtra(DetailInternasionalActivity.EXTRA_ID, it.id)
             startActivity(pindah)
         }
-
 
         getProfile()
         setUsername()

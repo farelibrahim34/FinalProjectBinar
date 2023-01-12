@@ -83,12 +83,12 @@ class ProfileActivity : AppCompatActivity() {
             }
 
         })
+
         binding.ivBack.setOnClickListener {
             startActivity(Intent(this, HomeBottomActivity::class.java))
         }
 
         binding.ivSetImage.setOnClickListener {
-
             openGallery()
         }
         binding.btnSimpan.setOnClickListener {

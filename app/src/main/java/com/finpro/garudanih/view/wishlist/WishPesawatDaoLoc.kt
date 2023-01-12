@@ -15,7 +15,7 @@ interface WishPesawatDaoLoc {
     @Query("SELECT * FROM DataWishPesawatLoc")
     fun getWishPesawat() : List<DataWishPesawatLoc>
 
-    //
+
     @Query("SELECT count(*) FROM DataWishPesawatLoc WHERE DataWishPesawatLoc.id = :id")
     fun checkWish(id: Int) : Int
 
